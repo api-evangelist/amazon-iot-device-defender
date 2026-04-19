@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-stream-file-schema.json",
+  "title": "StreamFile",
+  "description": "Represents a file to stream.",
+  "type": "object",
+  "properties": {
+    "fileId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FileId"
+        },
+        {
+          "description": "The file ID."
+        }
+      ]
+    },
+    "s3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Location"
+        },
+        {
+          "description": "The location of the file in S3."
+        }
+      ]
+    }
+  }
+}

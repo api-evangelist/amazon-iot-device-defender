@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-thing-groups-for-thing-response-structure.json",
+  "name": "ListThingGroupsForThingResponse",
+  "description": "ListThingGroupsForThingResponse schema",
+  "type": "object",
+  "properties": {
+    "thingGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupNameAndArnList"
+        },
+        {
+          "description": "The thing groups."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to use to get the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-terms-aggregation-structure.json",
+  "name": "TermsAggregation",
+  "description": "Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.",
+  "type": "object",
+  "properties": {
+    "maxBuckets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxBuckets"
+        },
+        {
+          "description": "The number of buckets to return in the response. Default to 10."
+        }
+      ]
+    }
+  }
+}

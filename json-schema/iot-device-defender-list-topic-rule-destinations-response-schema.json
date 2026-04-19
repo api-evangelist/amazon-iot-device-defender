@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-topic-rule-destinations-response-schema.json",
+  "title": "ListTopicRuleDestinationsResponse",
+  "description": "ListTopicRuleDestinationsResponse schema",
+  "type": "object",
+  "properties": {
+    "destinationSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TopicRuleDestinationSummaries"
+        },
+        {
+          "description": "Information about a topic rule destination."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to use to get the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

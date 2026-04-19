@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-targets-for-security-profile-response-structure.json",
+  "name": "ListTargetsForSecurityProfileResponse",
+  "description": "ListTargetsForSecurityProfileResponse schema",
+  "type": "object",
+  "properties": {
+    "securityProfileTargets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityProfileTargets"
+        },
+        {
+          "description": "The thing groups to which the security profile is attached."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

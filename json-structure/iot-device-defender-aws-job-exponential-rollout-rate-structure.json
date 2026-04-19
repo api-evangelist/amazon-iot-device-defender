@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-aws-job-exponential-rollout-rate-structure.json",
+  "name": "AwsJobExponentialRolloutRate",
+  "description": "The rate of increase for a job rollout. This parameter allows you to define an exponential rate increase for a job rollout.",
+  "type": "object",
+  "properties": {
+    "baseRatePerMinute": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsJobRolloutRatePerMinute"
+        },
+        {
+          "description": "The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout. This is the initial rate of the rollout."
+        }
+      ]
+    },
+    "incrementFactor": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsJobRolloutIncrementFactor"
+        },
+        {
+          "description": "The rate of increase for a job rollout. The number of things notified is multiplied by this factor."
+        }
+      ]
+    },
+    "rateIncreaseCriteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsJobRateIncreaseCriteria"
+        },
+        {
+          "description": "<p>The criteria to initiate the increase in rate of rollout for a job.</p> <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "baseRatePerMinute",
+    "incrementFactor",
+    "rateIncreaseCriteria"
+  ]
+}

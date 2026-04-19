@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-alert-target-schema.json",
+  "title": "AlertTarget",
+  "description": "A structure containing the alert target ARN and the role ARN.",
+  "type": "object",
+  "properties": {
+    "alertTargetArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertTargetArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the notification target to which alerts are sent."
+        }
+      ]
+    },
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the role that grants permission to send alerts to the notification target."
+        }
+      ]
+    }
+  },
+  "required": [
+    "alertTargetArn",
+    "roleArn"
+  ]
+}

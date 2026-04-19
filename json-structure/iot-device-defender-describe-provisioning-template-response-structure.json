@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-provisioning-template-response-structure.json",
+  "name": "DescribeProvisioningTemplateResponse",
+  "description": "DescribeProvisioningTemplateResponse schema",
+  "type": "object",
+  "properties": {
+    "templateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateArn"
+        },
+        {
+          "description": "The ARN of the provisioning template."
+        }
+      ]
+    },
+    "templateName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateName"
+        },
+        {
+          "description": "The name of the provisioning template."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateDescription"
+        },
+        {
+          "description": "The description of the provisioning template."
+        }
+      ]
+    },
+    "creationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateType"
+        },
+        {
+          "description": "The date when the provisioning template was created."
+        }
+      ]
+    },
+    "lastModifiedDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateType"
+        },
+        {
+          "description": "The date when the provisioning template was last modified."
+        }
+      ]
+    },
+    "defaultVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateVersionId"
+        },
+        {
+          "description": "The default fleet template version ID."
+        }
+      ]
+    },
+    "templateBody": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateBody"
+        },
+        {
+          "description": "The JSON formatted contents of the provisioning template."
+        }
+      ]
+    },
+    "enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Enabled"
+        },
+        {
+          "description": "True if the provisioning template is enabled, otherwise false."
+        }
+      ]
+    },
+    "provisioningRoleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device."
+        }
+      ]
+    },
+    "preProvisioningHook": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProvisioningHook"
+        },
+        {
+          "description": "Gets information about a pre-provisioned hook."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateType"
+        },
+        {
+          "description": "The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\">Provisioning template</a>. "
+        }
+      ]
+    }
+  }
+}

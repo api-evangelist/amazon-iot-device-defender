@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-thing-response-schema.json",
+  "title": "CreateThingResponse",
+  "description": "The output of the CreateThing operation.",
+  "type": "object",
+  "properties": {
+    "thingName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingName"
+        },
+        {
+          "description": "The name of the new thing."
+        }
+      ]
+    },
+    "thingArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingArn"
+        },
+        {
+          "description": "The ARN of the new thing."
+        }
+      ]
+    },
+    "thingId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingId"
+        },
+        {
+          "description": "The thing ID."
+        }
+      ]
+    }
+  }
+}

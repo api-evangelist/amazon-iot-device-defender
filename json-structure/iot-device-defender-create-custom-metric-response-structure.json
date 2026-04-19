@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-create-custom-metric-response-structure.json",
+  "name": "CreateCustomMetricResponse",
+  "description": "CreateCustomMetricResponse schema",
+  "type": "object",
+  "properties": {
+    "metricName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricName"
+        },
+        {
+          "description": " The name of the custom metric to be used in the metric report. "
+        }
+      ]
+    },
+    "metricArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomMetricArn"
+        },
+        {
+          "description": " The Amazon Resource Number (ARN) of the custom metric. For example, <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i> </code> "
+        }
+      ]
+    }
+  }
+}

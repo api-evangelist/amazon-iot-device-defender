@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-audit-mitigation-actions-executions-response-schema.json",
+  "title": "ListAuditMitigationActionsExecutionsResponse",
+  "description": "ListAuditMitigationActionsExecutionsResponse schema",
+  "type": "object",
+  "properties": {
+    "actionsExecutions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditMitigationActionExecutionMetadataList"
+        },
+        {
+          "description": "A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results."
+        }
+      ]
+    }
+  }
+}

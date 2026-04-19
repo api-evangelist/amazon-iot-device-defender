@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-endpoint-response-schema.json",
+  "title": "DescribeEndpointResponse",
+  "description": "The output from the DescribeEndpoint operation.",
+  "type": "object",
+  "properties": {
+    "endpointAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EndpointAddress"
+        },
+        {
+          "description": "The endpoint. The format of the endpoint is as follows: <i>identifier</i>.iot.<i>region</i>.amazonaws.com."
+        }
+      ]
+    }
+  }
+}

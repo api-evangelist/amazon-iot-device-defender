@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-behavior-schema.json",
+  "title": "Behavior",
+  "description": "A Device Defender security profile behavior.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BehaviorName"
+        },
+        {
+          "description": "The name you've given to the behavior."
+        }
+      ]
+    },
+    "metric": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BehaviorMetric"
+        },
+        {
+          "description": "What is measured by the behavior."
+        }
+      ]
+    },
+    "metricDimension": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricDimension"
+        },
+        {
+          "description": "The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. This can't be used with custom metrics."
+        }
+      ]
+    },
+    "criteria": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BehaviorCriteria"
+        },
+        {
+          "description": "The criteria that determine if a device is behaving normally in regard to the <code>metric</code>."
+        }
+      ]
+    },
+    "suppressAlerts": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SuppressAlerts"
+        },
+        {
+          "description": " Suppresses alerts. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-billing-groups-response-schema.json",
+  "title": "ListBillingGroupsResponse",
+  "description": "ListBillingGroupsResponse schema",
+  "type": "object",
+  "properties": {
+    "billingGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BillingGroupNameAndArnList"
+        },
+        {
+          "description": "The list of billing groups."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to use to get the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

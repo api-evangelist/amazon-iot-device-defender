@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-topic-rules-response-structure.json",
+  "name": "ListTopicRulesResponse",
+  "description": "The output from the ListTopicRules operation.",
+  "type": "object",
+  "properties": {
+    "rules": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TopicRuleList"
+        },
+        {
+          "description": "The rules."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to use to get the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

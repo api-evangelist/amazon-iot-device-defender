@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-provisioning-template-versions-response-structure.json",
+  "name": "ListProvisioningTemplateVersionsResponse",
+  "description": "ListProvisioningTemplateVersionsResponse schema",
+  "type": "object",
+  "properties": {
+    "versions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProvisioningTemplateVersionListing"
+        },
+        {
+          "description": "The list of provisioning template versions."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token to retrieve the next set of results."
+        }
+      ]
+    }
+  }
+}

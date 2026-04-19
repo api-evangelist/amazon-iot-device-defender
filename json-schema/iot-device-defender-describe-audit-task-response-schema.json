@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-audit-task-response-schema.json",
+  "title": "DescribeAuditTaskResponse",
+  "description": "DescribeAuditTaskResponse schema",
+  "type": "object",
+  "properties": {
+    "taskStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditTaskStatus"
+        },
+        {
+          "description": "The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\"."
+        }
+      ]
+    },
+    "taskType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditTaskType"
+        },
+        {
+          "description": "The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\"."
+        }
+      ]
+    },
+    "taskStartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time the audit started."
+        }
+      ]
+    },
+    "taskStatistics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TaskStatistics"
+        },
+        {
+          "description": "Statistical information about the audit."
+        }
+      ]
+    },
+    "scheduledAuditName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduledAuditName"
+        },
+        {
+          "description": "The name of the scheduled audit (only if the audit was a scheduled audit)."
+        }
+      ]
+    },
+    "auditDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditDetails"
+        },
+        {
+          "description": "Detailed information about each check performed during this audit."
+        }
+      ]
+    }
+  }
+}

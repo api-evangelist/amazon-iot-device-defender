@@ -1,0 +1,67 @@
+vocabulary: "1.0.0"
+info:
+  provider: Amazon IoT Device Defender
+  description: Vocabulary for Amazon IoT Device Defender covering all API resources and operations.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+operational:
+  apis:
+    - namespace: iot-device-defender
+      version: "2024-01-01"
+      baseUrl: https://iot.amazonaws.com
+      status: active
+  resources:
+    - name: resources
+      api: iot-device-defender
+      actions: [list, create, delete, get, update]
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read
+    - name: create
+      methods: [POST]
+      pattern: write
+    - name: get
+      methods: [GET]
+      pattern: read
+    - name: update
+      methods: [PUT, PATCH]
+      pattern: write
+    - name: delete
+      methods: [DELETE]
+      pattern: destructive
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        placement: header
+capability:
+  workflows:
+    - name: Iot Security Monitoring
+      file: capabilities/iot-security-monitoring.yaml
+      apis: [iot-device-defender]
+      toolCount: 8
+      personas: [Security Engineer, IoT Developer]
+  personas:
+    - id: primary-persona
+      name: Security Engineer
+      description: Manages Amazon IoT Device Defender resources and operations
+  domains:
+    - name: IoT
+      description: Security service for IoT fleet auditing and anomaly detection.
+  namespaces:
+    - name: iot-device-defender
+      type: consumed
+    - name: iot-security-monitoring-api
+      type: rest
+      port: 8080
+    - name: iot-security-monitoring-mcp
+      type: mcp
+      port: 9090
+  binds:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+crossReference:
+  - resource: resources
+    operations: [listsecurityprofiles, createsecurityprofile, listaudittasks, startaudit]
+    workflows: [Iot Security Monitoring]
+    personas: [Security Engineer, IoT Developer]

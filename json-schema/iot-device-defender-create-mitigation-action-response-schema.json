@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-mitigation-action-response-schema.json",
+  "title": "CreateMitigationActionResponse",
+  "description": "CreateMitigationActionResponse schema",
+  "type": "object",
+  "properties": {
+    "actionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionArn"
+        },
+        {
+          "description": "The ARN for the new mitigation action."
+        }
+      ]
+    },
+    "actionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionId"
+        },
+        {
+          "description": "A unique identifier for the new mitigation action."
+        }
+      ]
+    }
+  }
+}

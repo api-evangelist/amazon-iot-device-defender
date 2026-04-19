@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-c-a-certificate-response-schema.json",
+  "title": "DescribeCACertificateResponse",
+  "description": "The output from the DescribeCACertificate operation.",
+  "type": "object",
+  "properties": {
+    "certificateDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CACertificateDescription"
+        },
+        {
+          "description": "The CA certificate description."
+        }
+      ]
+    },
+    "registrationConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RegistrationConfig"
+        },
+        {
+          "description": "Information about the registration configuration."
+        }
+      ]
+    }
+  }
+}

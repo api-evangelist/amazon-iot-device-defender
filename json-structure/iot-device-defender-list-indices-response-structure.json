@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-indices-response-structure.json",
+  "name": "ListIndicesResponse",
+  "description": "ListIndicesResponse schema",
+  "type": "object",
+  "properties": {
+    "indexNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IndexNamesList"
+        },
+        {
+          "description": "The index names."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token used to get the next set of results, or <code>null</code> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-custom-metrics-response-structure.json",
+  "name": "ListCustomMetricsResponse",
+  "description": "ListCustomMetricsResponse schema",
+  "type": "object",
+  "properties": {
+    "metricNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricNames"
+        },
+        {
+          "description": " The name of the custom metric. "
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": " A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. "
+        }
+      ]
+    }
+  }
+}

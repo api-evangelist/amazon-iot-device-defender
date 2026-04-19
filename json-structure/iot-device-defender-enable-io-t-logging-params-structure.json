@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-enable-io-t-logging-params-structure.json",
+  "name": "EnableIoTLoggingParams",
+  "description": "Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.",
+  "type": "object",
+  "properties": {
+    "roleArnForLogging": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the IAM role used for logging."
+        }
+      ]
+    },
+    "logLevel": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "Specifies the type of information to be logged."
+        }
+      ]
+    }
+  },
+  "required": [
+    "roleArnForLogging",
+    "logLevel"
+  ]
+}

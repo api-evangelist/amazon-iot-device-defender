@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-create-keys-and-certificate-response-structure.json",
+  "name": "CreateKeysAndCertificateResponse",
+  "description": "The output of the CreateKeysAndCertificate operation.",
+  "type": "object",
+  "properties": {
+    "certificateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateArn"
+        },
+        {
+          "description": "The ARN of the certificate."
+        }
+      ]
+    },
+    "certificateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateId"
+        },
+        {
+          "description": "The ID of the certificate. IoT issues a default subject name for the certificate (for example, IoT Certificate)."
+        }
+      ]
+    },
+    "certificatePem": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificatePem"
+        },
+        {
+          "description": "The certificate data, in PEM format."
+        }
+      ]
+    },
+    "keyPair": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyPair"
+        },
+        {
+          "description": "The generated key pair."
+        }
+      ]
+    }
+  }
+}

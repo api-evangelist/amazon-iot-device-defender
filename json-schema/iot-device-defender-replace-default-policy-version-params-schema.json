@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-replace-default-policy-version-params-schema.json",
+  "title": "ReplaceDefaultPolicyVersionParams",
+  "description": "Parameters to define a mitigation action that adds a blank policy to restrict permissions.",
+  "type": "object",
+  "properties": {
+    "templateName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyTemplateName"
+        },
+        {
+          "description": "The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "templateName"
+  ]
+}

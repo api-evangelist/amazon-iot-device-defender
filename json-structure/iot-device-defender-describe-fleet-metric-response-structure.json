@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-fleet-metric-response-structure.json",
+  "name": "DescribeFleetMetricResponse",
+  "description": "DescribeFleetMetricResponse schema",
+  "type": "object",
+  "properties": {
+    "metricName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricName"
+        },
+        {
+          "description": "The name of the fleet metric to describe."
+        }
+      ]
+    },
+    "queryString": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QueryString"
+        },
+        {
+          "description": "The search query string."
+        }
+      ]
+    },
+    "aggregationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AggregationType"
+        },
+        {
+          "description": "The type of the aggregation query."
+        }
+      ]
+    },
+    "period": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricPeriod"
+        },
+        {
+          "description": "The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60."
+        }
+      ]
+    },
+    "aggregationField": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AggregationField"
+        },
+        {
+          "description": "The field to aggregate."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricDescription"
+        },
+        {
+          "description": "The fleet metric description."
+        }
+      ]
+    },
+    "queryVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QueryVersion"
+        },
+        {
+          "description": "The query version."
+        }
+      ]
+    },
+    "indexName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IndexName"
+        },
+        {
+          "description": "The name of the index to search."
+        }
+      ]
+    },
+    "creationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreationDate"
+        },
+        {
+          "description": "The date when the fleet metric is created."
+        }
+      ]
+    },
+    "lastModifiedDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastModifiedDate"
+        },
+        {
+          "description": "The date when the fleet metric is last modified."
+        }
+      ]
+    },
+    "unit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricUnit"
+        },
+        {
+          "description": "Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the fleet metric."
+        }
+      ]
+    },
+    "metricArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricArn"
+        },
+        {
+          "description": "The ARN of the fleet metric to describe."
+        }
+      ]
+    }
+  }
+}

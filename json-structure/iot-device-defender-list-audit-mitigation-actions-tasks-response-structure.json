@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-audit-mitigation-actions-tasks-response-structure.json",
+  "name": "ListAuditMitigationActionsTasksResponse",
+  "description": "ListAuditMitigationActionsTasksResponse schema",
+  "type": "object",
+  "properties": {
+    "tasks": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditMitigationActionsTaskMetadataList"
+        },
+        {
+          "description": "The collection of audit mitigation tasks that matched the filter criteria."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results."
+        }
+      ]
+    }
+  }
+}

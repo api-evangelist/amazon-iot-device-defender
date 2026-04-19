@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-things-response-structure.json",
+  "name": "ListThingsResponse",
+  "description": "The output from the ListThings operation.",
+  "type": "object",
+  "properties": {
+    "things": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingAttributeList"
+        },
+        {
+          "description": "The things."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to use to get the next set of results. Will not be returned if operation has returned all results."
+        }
+      ]
+    }
+  }
+}

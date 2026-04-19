@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-get-registration-code-response-schema.json",
+  "title": "GetRegistrationCodeResponse",
+  "description": "The output from the GetRegistrationCode operation.",
+  "type": "object",
+  "properties": {
+    "registrationCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RegistrationCode"
+        },
+        {
+          "description": "The CA certificate registration code."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-outgoing-certificates-response-schema.json",
+  "title": "ListOutgoingCertificatesResponse",
+  "description": "The output from the ListOutgoingCertificates operation.",
+  "type": "object",
+  "properties": {
+    "outgoingCertificates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutgoingCertificates"
+        },
+        {
+          "description": "The certificates that are being transferred but not yet accepted."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "The marker for the next set of results."
+        }
+      ]
+    }
+  }
+}

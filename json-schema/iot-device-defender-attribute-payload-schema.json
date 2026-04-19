@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-attribute-payload-schema.json",
+  "title": "AttributePayload",
+  "description": "The attribute payload.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Attributes"
+        },
+        {
+          "description": "<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}</code> </p>"
+        }
+      ]
+    },
+    "merge": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Flag"
+        },
+        {
+          "description": "<p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with the attributes stored in the registry, instead of overwriting them.</p> <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p> <note> <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p> </note>"
+        }
+      ]
+    }
+  }
+}

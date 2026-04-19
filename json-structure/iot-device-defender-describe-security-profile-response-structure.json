@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-security-profile-response-structure.json",
+  "name": "DescribeSecurityProfileResponse",
+  "description": "DescribeSecurityProfileResponse schema",
+  "type": "object",
+  "properties": {
+    "securityProfileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityProfileName"
+        },
+        {
+          "description": "The name of the security profile."
+        }
+      ]
+    },
+    "securityProfileArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityProfileArn"
+        },
+        {
+          "description": "The ARN of the security profile."
+        }
+      ]
+    },
+    "securityProfileDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityProfileDescription"
+        },
+        {
+          "description": "A description of the security profile (associated with the security profile when it was created or updated)."
+        }
+      ]
+    },
+    "behaviors": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Behaviors"
+        },
+        {
+          "description": "Specifies the behaviors that, when violated by a device (thing), cause an alert."
+        }
+      ]
+    },
+    "alertTargets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertTargets"
+        },
+        {
+          "description": "Where the alerts are sent. (Alerts are always sent to the console.)"
+        }
+      ]
+    },
+    "additionalMetricsToRetain": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AdditionalMetricsToRetainList"
+        },
+        {
+          "deprecated": true,
+          "description": "<p> <i>Please use <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</i> </p> <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>Use additionalMetricsToRetainV2."
+        }
+      ]
+    },
+    "additionalMetricsToRetainV2": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AdditionalMetricsToRetainV2List"
+        },
+        {
+          "description": "A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the security profile. A new version is generated whenever the security profile is updated."
+        }
+      ]
+    },
+    "creationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time the security profile was created."
+        }
+      ]
+    },
+    "lastModifiedDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time the security profile was last modified."
+        }
+      ]
+    }
+  }
+}

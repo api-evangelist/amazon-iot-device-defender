@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-get-v2-logging-options-response-structure.json",
+  "name": "GetV2LoggingOptionsResponse",
+  "description": "GetV2LoggingOptionsResponse schema",
+  "type": "object",
+  "properties": {
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsArn"
+        },
+        {
+          "description": "The IAM role ARN IoT uses to write to your CloudWatch logs."
+        }
+      ]
+    },
+    "defaultLogLevel": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "The default log level."
+        }
+      ]
+    },
+    "disableAllLogs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DisableAllLogs"
+        },
+        {
+          "description": "Disables all logs."
+        }
+      ]
+    }
+  }
+}

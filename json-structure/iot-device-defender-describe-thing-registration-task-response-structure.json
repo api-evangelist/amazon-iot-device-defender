@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-thing-registration-task-response-structure.json",
+  "name": "DescribeThingRegistrationTaskResponse",
+  "description": "DescribeThingRegistrationTaskResponse schema",
+  "type": "object",
+  "properties": {
+    "taskId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TaskId"
+        },
+        {
+          "description": "The task ID."
+        }
+      ]
+    },
+    "creationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreationDate"
+        },
+        {
+          "description": "The task creation date."
+        }
+      ]
+    },
+    "lastModifiedDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastModifiedDate"
+        },
+        {
+          "description": "The date when the task was last modified."
+        }
+      ]
+    },
+    "templateBody": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateBody"
+        },
+        {
+          "description": "The task's template."
+        }
+      ]
+    },
+    "inputFileBucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RegistryS3BucketName"
+        },
+        {
+          "description": "The S3 bucket that contains the input file."
+        }
+      ]
+    },
+    "inputFileKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RegistryS3KeyName"
+        },
+        {
+          "description": "The input file key."
+        }
+      ]
+    },
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The role ARN that grants access to the input file bucket."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The status of the bulk thing provisioning task."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorMessage"
+        },
+        {
+          "description": "The message."
+        }
+      ]
+    },
+    "successCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Count"
+        },
+        {
+          "description": "The number of things successfully provisioned."
+        }
+      ]
+    },
+    "failureCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Count"
+        },
+        {
+          "description": "The number of things that failed to be provisioned."
+        }
+      ]
+    },
+    "percentageProgress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Percentage"
+        },
+        {
+          "description": "The progress of the bulk provisioning task expressed as a percentage."
+        }
+      ]
+    }
+  }
+}

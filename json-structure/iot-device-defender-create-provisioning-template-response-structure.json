@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-create-provisioning-template-response-structure.json",
+  "name": "CreateProvisioningTemplateResponse",
+  "description": "CreateProvisioningTemplateResponse schema",
+  "type": "object",
+  "properties": {
+    "templateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateArn"
+        },
+        {
+          "description": "The ARN that identifies the provisioning template."
+        }
+      ]
+    },
+    "templateName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateName"
+        },
+        {
+          "description": "The name of the provisioning template."
+        }
+      ]
+    },
+    "defaultVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateVersionId"
+        },
+        {
+          "description": "The default version of the provisioning template."
+        }
+      ]
+    }
+  }
+}

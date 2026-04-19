@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-o-t-a-updates-response-schema.json",
+  "title": "ListOTAUpdatesResponse",
+  "description": "ListOTAUpdatesResponse schema",
+  "type": "object",
+  "properties": {
+    "otaUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OTAUpdatesSummary"
+        },
+        {
+          "description": "A list of OTA update jobs."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token to use to get the next set of results."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-account-audit-configuration-response-structure.json",
+  "name": "DescribeAccountAuditConfigurationResponse",
+  "description": "DescribeAccountAuditConfigurationResponse schema",
+  "type": "object",
+  "properties": {
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "<p>The ARN of the role that grants permission to IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required.</p>"
+        }
+      ]
+    },
+    "auditNotificationTargetConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditNotificationTargetConfigurations"
+        },
+        {
+          "description": "Information about the targets to which audit notifications are sent for this account."
+        }
+      ]
+    },
+    "auditCheckConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditCheckConfigurations"
+        },
+        {
+          "description": "Which audit checks are enabled and disabled for this account."
+        }
+      ]
+    }
+  }
+}

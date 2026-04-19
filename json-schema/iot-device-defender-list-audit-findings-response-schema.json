@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-audit-findings-response-schema.json",
+  "title": "ListAuditFindingsResponse",
+  "description": "ListAuditFindingsResponse schema",
+  "type": "object",
+  "properties": {
+    "findings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditFindings"
+        },
+        {
+          "description": "The findings (results) of the audit."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

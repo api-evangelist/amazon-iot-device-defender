@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-thing-type-response-schema.json",
+  "title": "DescribeThingTypeResponse",
+  "description": "The output for the DescribeThingType operation.",
+  "type": "object",
+  "properties": {
+    "thingTypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeName"
+        },
+        {
+          "description": "The name of the thing type."
+        }
+      ]
+    },
+    "thingTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeId"
+        },
+        {
+          "description": "The thing type ID."
+        }
+      ]
+    },
+    "thingTypeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeArn"
+        },
+        {
+          "description": "The thing type ARN."
+        }
+      ]
+    },
+    "thingTypeProperties": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeProperties"
+        },
+        {
+          "description": "The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names."
+        }
+      ]
+    },
+    "thingTypeMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeMetadata"
+        },
+        {
+          "description": "The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated."
+        }
+      ]
+    }
+  }
+}

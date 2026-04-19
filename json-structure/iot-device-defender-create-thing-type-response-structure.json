@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-create-thing-type-response-structure.json",
+  "name": "CreateThingTypeResponse",
+  "description": "The output of the CreateThingType operation.",
+  "type": "object",
+  "properties": {
+    "thingTypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeName"
+        },
+        {
+          "description": "The name of the thing type."
+        }
+      ]
+    },
+    "thingTypeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the thing type."
+        }
+      ]
+    },
+    "thingTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingTypeId"
+        },
+        {
+          "description": "The thing type ID."
+        }
+      ]
+    }
+  }
+}

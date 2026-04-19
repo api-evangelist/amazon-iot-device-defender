@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-c-a-certificates-response-schema.json",
+  "title": "ListCACertificatesResponse",
+  "description": "The output from the ListCACertificates operation.",
+  "type": "object",
+  "properties": {
+    "certificates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CACertificates"
+        },
+        {
+          "description": "The CA certificates registered in your Amazon Web Services account."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "The current position within the list of CA certificates."
+        }
+      ]
+    }
+  }
+}

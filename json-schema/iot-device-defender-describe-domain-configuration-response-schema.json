@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-domain-configuration-response-schema.json",
+  "title": "DescribeDomainConfigurationResponse",
+  "description": "DescribeDomainConfigurationResponse schema",
+  "type": "object",
+  "properties": {
+    "domainConfigurationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReservedDomainConfigurationName"
+        },
+        {
+          "description": "The name of the domain configuration."
+        }
+      ]
+    },
+    "domainConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DomainConfigurationArn"
+        },
+        {
+          "description": "The ARN of the domain configuration."
+        }
+      ]
+    },
+    "domainName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DomainName"
+        },
+        {
+          "description": "The name of the domain."
+        }
+      ]
+    },
+    "serverCertificates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ServerCertificates"
+        },
+        {
+          "description": "A list containing summary information about the server certificate included in the domain configuration."
+        }
+      ]
+    },
+    "authorizerConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuthorizerConfig"
+        },
+        {
+          "description": "An object that specifies the authorization service for a domain."
+        }
+      ]
+    },
+    "domainConfigurationStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DomainConfigurationStatus"
+        },
+        {
+          "description": "A Boolean value that specifies the current state of the domain configuration."
+        }
+      ]
+    },
+    "serviceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ServiceType"
+        },
+        {
+          "description": "The type of service delivered by the endpoint."
+        }
+      ]
+    },
+    "domainType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DomainType"
+        },
+        {
+          "description": "The type of the domain."
+        }
+      ]
+    },
+    "lastStatusChangeDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateType"
+        },
+        {
+          "description": "The date and time the domain configuration's status was last changed."
+        }
+      ]
+    }
+  }
+}

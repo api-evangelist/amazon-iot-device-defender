@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-get-behavior-model-training-summaries-response-structure.json",
+  "name": "GetBehaviorModelTrainingSummariesResponse",
+  "description": "GetBehaviorModelTrainingSummariesResponse schema",
+  "type": "object",
+  "properties": {
+    "summaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BehaviorModelTrainingSummaries"
+        },
+        {
+          "description": " A list of all ML Detect behaviors and their model status for a given Security Profile. "
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": " A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. "
+        }
+      ]
+    }
+  }
+}

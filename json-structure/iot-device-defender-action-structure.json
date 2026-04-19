@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-action-structure.json",
+  "name": "Action",
+  "description": "Describes the actions associated with a rule.",
+  "type": "object",
+  "properties": {
+    "dynamoDB": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DynamoDBAction"
+        },
+        {
+          "description": "Write to a DynamoDB table."
+        }
+      ]
+    },
+    "dynamoDBv2": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DynamoDBv2Action"
+        },
+        {
+          "description": "Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column."
+        }
+      ]
+    },
+    "lambda": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaAction"
+        },
+        {
+          "description": "Invoke a Lambda function."
+        }
+      ]
+    },
+    "sns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnsAction"
+        },
+        {
+          "description": "Publish to an Amazon SNS topic."
+        }
+      ]
+    },
+    "sqs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SqsAction"
+        },
+        {
+          "description": "Publish to an Amazon SQS queue."
+        }
+      ]
+    },
+    "kinesis": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisAction"
+        },
+        {
+          "description": "Write data to an Amazon Kinesis stream."
+        }
+      ]
+    },
+    "republish": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepublishAction"
+        },
+        {
+          "description": "Publish to another MQTT topic."
+        }
+      ]
+    },
+    "s3": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Action"
+        },
+        {
+          "description": "Write to an Amazon S3 bucket."
+        }
+      ]
+    },
+    "firehose": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FirehoseAction"
+        },
+        {
+          "description": "Write to an Amazon Kinesis Firehose stream."
+        }
+      ]
+    },
+    "cloudwatchMetric": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudwatchMetricAction"
+        },
+        {
+          "description": "Capture a CloudWatch metric."
+        }
+      ]
+    },
+    "cloudwatchAlarm": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudwatchAlarmAction"
+        },
+        {
+          "description": "Change the state of a CloudWatch alarm."
+        }
+      ]
+    },
+    "cloudwatchLogs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudwatchLogsAction"
+        },
+        {
+          "description": "Send data to CloudWatch Logs."
+        }
+      ]
+    },
+    "elasticsearch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchAction"
+        },
+        {
+          "description": "<p>Write data to an Amazon OpenSearch Service domain.</p> <note> <p>The <code>Elasticsearch</code> action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the <code>OpenSearch</code> rule action instead. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html\">OpenSearchAction</a>.</p> </note>"
+        }
+      ]
+    },
+    "salesforce": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SalesforceAction"
+        },
+        {
+          "description": "Send a message to a Salesforce IoT Cloud Input Stream."
+        }
+      ]
+    },
+    "iotAnalytics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IotAnalyticsAction"
+        },
+        {
+          "description": "Sends message data to an IoT Analytics channel."
+        }
+      ]
+    },
+    "iotEvents": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IotEventsAction"
+        },
+        {
+          "description": "Sends an input to an IoT Events detector."
+        }
+      ]
+    },
+    "iotSiteWise": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IotSiteWiseAction"
+        },
+        {
+          "description": "Sends data from the MQTT message that triggered the rule to IoT SiteWise asset properties."
+        }
+      ]
+    },
+    "stepFunctions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StepFunctionsAction"
+        },
+        {
+          "description": "Starts execution of a Step Functions state machine."
+        }
+      ]
+    },
+    "timestream": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimestreamAction"
+        },
+        {
+          "description": "The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html\">Timestream</a> topic rule action documentation."
+        }
+      ]
+    },
+    "http": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpAction"
+        },
+        {
+          "description": "Send data to an HTTPS endpoint."
+        }
+      ]
+    },
+    "kafka": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KafkaAction"
+        },
+        {
+          "description": "Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster."
+        }
+      ]
+    },
+    "openSearch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OpenSearchAction"
+        },
+        {
+          "description": "Write data to an Amazon OpenSearch Service domain."
+        }
+      ]
+    },
+    "location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LocationAction"
+        },
+        {
+          "description": "The Amazon Location Service rule action sends device location updates from an MQTT message to an Amazon Location tracker resource."
+        }
+      ]
+    }
+  }
+}

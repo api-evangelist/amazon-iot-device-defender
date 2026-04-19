@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-jobs-response-structure.json",
+  "name": "ListJobsResponse",
+  "description": "ListJobsResponse schema",
+  "type": "object",
+  "properties": {
+    "jobs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobSummaryList"
+        },
+        {
+          "description": "A list of jobs."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

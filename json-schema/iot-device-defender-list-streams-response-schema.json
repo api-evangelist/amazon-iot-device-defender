@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-streams-response-schema.json",
+  "title": "ListStreamsResponse",
+  "description": "ListStreamsResponse schema",
+  "type": "object",
+  "properties": {
+    "streams": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamsSummary"
+        },
+        {
+          "description": "A list of streams."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token used to get the next set of results."
+        }
+      ]
+    }
+  }
+}

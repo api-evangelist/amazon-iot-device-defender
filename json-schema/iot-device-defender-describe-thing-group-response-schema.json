@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-thing-group-response-schema.json",
+  "title": "DescribeThingGroupResponse",
+  "description": "DescribeThingGroupResponse schema",
+  "type": "object",
+  "properties": {
+    "thingGroupName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupName"
+        },
+        {
+          "description": "The name of the thing group."
+        }
+      ]
+    },
+    "thingGroupId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupId"
+        },
+        {
+          "description": "The thing group ID."
+        }
+      ]
+    },
+    "thingGroupArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupArn"
+        },
+        {
+          "description": "The thing group ARN."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the thing group."
+        }
+      ]
+    },
+    "thingGroupProperties": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupProperties"
+        },
+        {
+          "description": "The thing group properties."
+        }
+      ]
+    },
+    "thingGroupMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupMetadata"
+        },
+        {
+          "description": "Thing group metadata."
+        }
+      ]
+    },
+    "indexName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IndexName"
+        },
+        {
+          "description": "The dynamic thing group index name."
+        }
+      ]
+    },
+    "queryString": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QueryString"
+        },
+        {
+          "description": "The dynamic thing group search query string."
+        }
+      ]
+    },
+    "queryVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QueryVersion"
+        },
+        {
+          "description": "The dynamic thing group query version."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DynamicGroupStatus"
+        },
+        {
+          "description": "The dynamic thing group status."
+        }
+      ]
+    }
+  }
+}

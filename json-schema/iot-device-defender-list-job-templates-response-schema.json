@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-job-templates-response-schema.json",
+  "title": "ListJobTemplatesResponse",
+  "description": "ListJobTemplatesResponse schema",
+  "type": "object",
+  "properties": {
+    "jobTemplates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTemplateSummaryList"
+        },
+        {
+          "description": "A list of objects that contain information about the job templates."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

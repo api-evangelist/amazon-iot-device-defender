@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-targets-for-policy-response-schema.json",
+  "title": "ListTargetsForPolicyResponse",
+  "description": "ListTargetsForPolicyResponse schema",
+  "type": "object",
+  "properties": {
+    "targets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyTargets"
+        },
+        {
+          "description": "The policy targets."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "A marker used to get the next set of results."
+        }
+      ]
+    }
+  }
+}

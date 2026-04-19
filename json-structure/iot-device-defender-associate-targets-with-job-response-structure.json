@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-associate-targets-with-job-response-structure.json",
+  "name": "AssociateTargetsWithJobResponse",
+  "description": "AssociateTargetsWithJobResponse schema",
+  "type": "object",
+  "properties": {
+    "jobArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobArn"
+        },
+        {
+          "description": "An ARN identifying the job."
+        }
+      ]
+    },
+    "jobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The unique identifier you assigned to this job when it was created."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDescription"
+        },
+        {
+          "description": "A short text description of the job."
+        }
+      ]
+    }
+  }
+}

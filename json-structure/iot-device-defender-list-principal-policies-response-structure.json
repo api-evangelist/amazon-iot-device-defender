@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-principal-policies-response-structure.json",
+  "name": "ListPrincipalPoliciesResponse",
+  "description": "The output from the ListPrincipalPolicies operation.",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Policies"
+        },
+        {
+          "description": "The policies."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        }
+      ]
+    }
+  }
+}

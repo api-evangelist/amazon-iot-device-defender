@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-mitigation-action-response-schema.json",
+  "title": "DescribeMitigationActionResponse",
+  "description": "DescribeMitigationActionResponse schema",
+  "type": "object",
+  "properties": {
+    "actionName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionName"
+        },
+        {
+          "description": "The friendly name that uniquely identifies the mitigation action."
+        }
+      ]
+    },
+    "actionType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionType"
+        },
+        {
+          "description": "The type of mitigation action."
+        }
+      ]
+    },
+    "actionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionArn"
+        },
+        {
+          "description": "The ARN that identifies this migration action."
+        }
+      ]
+    },
+    "actionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionId"
+        },
+        {
+          "description": "A unique identifier for this action."
+        }
+      ]
+    },
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the IAM role used to apply this action."
+        }
+      ]
+    },
+    "actionParams": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionParams"
+        },
+        {
+          "description": "Parameters that control how the mitigation action is applied, specific to the type of mitigation action."
+        }
+      ]
+    },
+    "creationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the mitigation action was added to your Amazon Web Services accounts."
+        }
+      ]
+    },
+    "lastModifiedDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the mitigation action was last changed."
+        }
+      ]
+    }
+  }
+}

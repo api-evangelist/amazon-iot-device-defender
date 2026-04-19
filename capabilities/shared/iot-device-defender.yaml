@@ -1,0 +1,141 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Amazon IoT Device Defender API
+  description: Security service for IoT fleet auditing and anomaly detection.
+  tags:
+    - IoT
+    - AWS
+    - Security
+    - Device Management
+    - Compliance
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: iot-device-defender
+      baseUri: https://iot.amazonaws.com
+      description: Amazon IoT Device Defender REST API
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: resources
+          path: /
+          description: Amazon IoT Device Defender resources
+          operations:
+            - name: list-security-profiles
+              method: GET
+              description: List Security Profiles
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: iot-device-defender-rest
+      resources:
+        - path: /v1/resources
+          name: resources
+          description: Amazon IoT Device Defender resources
+          operations:
+            - method: GET
+              name: list-security-profiles
+              description: List Security Profiles
+              call: "iot-device-defender.list-security-profiles"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+    - type: mcp
+      port: 9100
+      namespace: iot-device-defender-mcp
+      transport: http
+      tools:
+        - name: list-security-profiles
+          description: Amazon IoT Device Defender List Security Profiles
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-device-defender.list-security-profiles"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-security-profile
+          description: Amazon IoT Device Defender Create Security Profile
+          hints:
+            readOnly: false
+            
+          call: "iot-device-defender.create-security-profile"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-audit-tasks
+          description: Amazon IoT Device Defender List Audit Tasks
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-device-defender.list-audit-tasks"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: start-audit
+          description: Amazon IoT Device Defender Start Audit
+          hints:
+            readOnly: false
+            
+          call: "iot-device-defender.start-audit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-violations
+          description: Amazon IoT Device Defender List Violations
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-device-defender.list-violations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-detect-mitigations
+          description: Amazon IoT Device Defender List Detect Mitigations
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-device-defender.list-detect-mitigations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: describe-security-profile
+          description: Amazon IoT Device Defender Describe Security Profile
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-device-defender.describe-security-profile"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-audit-findings
+          description: Amazon IoT Device Defender List Audit Findings
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-device-defender.list-audit-findings"
+          outputParameters:
+            - type: object
+              mapping: "$."

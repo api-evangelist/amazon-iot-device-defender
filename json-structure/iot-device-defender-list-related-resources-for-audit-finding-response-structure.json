@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-related-resources-for-audit-finding-response-structure.json",
+  "name": "ListRelatedResourcesForAuditFindingResponse",
+  "description": "ListRelatedResourcesForAuditFindingResponse schema",
+  "type": "object",
+  "properties": {
+    "relatedResources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RelatedResources"
+        },
+        {
+          "description": "The related resources."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token that can be used to retrieve the next set of results, or <code>null</code> for the first API call."
+        }
+      ]
+    }
+  }
+}

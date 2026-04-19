@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-policy-response-schema.json",
+  "title": "CreatePolicyResponse",
+  "description": "The output from the CreatePolicy operation.",
+  "type": "object",
+  "properties": {
+    "policyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyName"
+        },
+        {
+          "description": "The policy name."
+        }
+      ]
+    },
+    "policyArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyArn"
+        },
+        {
+          "description": "The policy ARN."
+        }
+      ]
+    },
+    "policyDocument": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyDocument"
+        },
+        {
+          "description": "The JSON document that describes the policy."
+        }
+      ]
+    },
+    "policyVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyVersionId"
+        },
+        {
+          "description": "The policy version ID."
+        }
+      ]
+    }
+  }
+}

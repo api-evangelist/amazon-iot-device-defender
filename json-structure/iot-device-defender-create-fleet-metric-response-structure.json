@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-create-fleet-metric-response-structure.json",
+  "name": "CreateFleetMetricResponse",
+  "description": "CreateFleetMetricResponse schema",
+  "type": "object",
+  "properties": {
+    "metricName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricName"
+        },
+        {
+          "description": "The name of the fleet metric to create."
+        }
+      ]
+    },
+    "metricArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FleetMetricArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the new fleet metric."
+        }
+      ]
+    }
+  }
+}

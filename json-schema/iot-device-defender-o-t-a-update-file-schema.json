@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-o-t-a-update-file-schema.json",
+  "title": "OTAUpdateFile",
+  "description": "Describes a file to be associated with an OTA update.",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FileName"
+        },
+        {
+          "description": "The name of the file."
+        }
+      ]
+    },
+    "fileType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FileType"
+        },
+        {
+          "description": "An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud."
+        }
+      ]
+    },
+    "fileVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OTAUpdateFileVersion"
+        },
+        {
+          "description": "The file version."
+        }
+      ]
+    },
+    "fileLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FileLocation"
+        },
+        {
+          "description": "The location of the updated firmware."
+        }
+      ]
+    },
+    "codeSigning": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeSigning"
+        },
+        {
+          "description": "The code signing method of the file."
+        }
+      ]
+    },
+    "attributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AttributesMap"
+        },
+        {
+          "description": "A list of name/attribute pairs."
+        }
+      ]
+    }
+  }
+}

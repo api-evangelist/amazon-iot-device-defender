@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-job-template-response-schema.json",
+  "title": "CreateJobTemplateResponse",
+  "description": "CreateJobTemplateResponse schema",
+  "type": "object",
+  "properties": {
+    "jobTemplateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTemplateArn"
+        },
+        {
+          "description": "The ARN of the job template."
+        }
+      ]
+    },
+    "jobTemplateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTemplateId"
+        },
+        {
+          "description": "The unique identifier of the job template."
+        }
+      ]
+    }
+  }
+}

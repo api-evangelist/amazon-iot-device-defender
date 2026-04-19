@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-domain-configurations-response-structure.json",
+  "name": "ListDomainConfigurationsResponse",
+  "description": "ListDomainConfigurationsResponse schema",
+  "type": "object",
+  "properties": {
+    "domainConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DomainConfigurations"
+        },
+        {
+          "description": "A list of objects that contain summary information about the user's domain configurations."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "The marker for the next set of results."
+        }
+      ]
+    }
+  }
+}

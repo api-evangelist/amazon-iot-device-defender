@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-dimensions-response-schema.json",
+  "title": "ListDimensionsResponse",
+  "description": "ListDimensionsResponse schema",
+  "type": "object",
+  "properties": {
+    "dimensionNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionNames"
+        },
+        {
+          "description": "A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-attached-policies-response-structure.json",
+  "name": "ListAttachedPoliciesResponse",
+  "description": "ListAttachedPoliciesResponse schema",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Policies"
+        },
+        {
+          "description": "The policies."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "The token to retrieve the next set of results, or ``null`` if there are no more results."
+        }
+      ]
+    }
+  }
+}

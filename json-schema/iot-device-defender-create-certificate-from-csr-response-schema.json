@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-certificate-from-csr-response-schema.json",
+  "title": "CreateCertificateFromCsrResponse",
+  "description": "The output from the CreateCertificateFromCsr operation.",
+  "type": "object",
+  "properties": {
+    "certificateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations."
+        }
+      ]
+    },
+    "certificateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateId"
+        },
+        {
+          "description": "The ID of the certificate. Certificate management operations only take a certificateId."
+        }
+      ]
+    },
+    "certificatePem": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificatePem"
+        },
+        {
+          "description": "The certificate data, in PEM format."
+        }
+      ]
+    }
+  }
+}

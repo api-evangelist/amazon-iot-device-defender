@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-audit-suppression-response-structure.json",
+  "name": "DescribeAuditSuppressionResponse",
+  "description": "DescribeAuditSuppressionResponse schema",
+  "type": "object",
+  "properties": {
+    "checkName": {
+      "type": "string",
+      "description": "An audit check name. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)"
+    },
+    "resourceIdentifier": {
+      "type": "object",
+      "properties": {
+        "deviceCertificateId": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/CertificateId"
+            },
+            {
+              "description": "The ID of the certificate attached to the resource."
+            }
+          ]
+        },
+        "caCertificateId": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/CertificateId"
+            },
+            {
+              "description": "The ID of the CA certificate used to authorize the certificate."
+            }
+          ]
+        },
+        "cognitoIdentityPoolId": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/CognitoIdentityPoolId"
+            },
+            {
+              "description": "The ID of the Amazon Cognito identity pool."
+            }
+          ]
+        },
+        "clientId": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ClientId"
+            },
+            {
+              "description": "The client ID."
+            }
+          ]
+        },
+        "policyVersionIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/PolicyVersionIdentifier"
+            },
+            {
+              "description": "The version of the policy associated with the resource."
+            }
+          ]
+        },
+        "account": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AwsAccountId"
+            },
+            {
+              "description": "The account with which the resource is associated."
+            }
+          ]
+        },
+        "iamRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RoleArn"
+            },
+            {
+              "description": "The ARN of the IAM role that has overly permissive actions."
+            }
+          ]
+        },
+        "roleAliasArn": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RoleAliasArn"
+            },
+            {
+              "description": "The ARN of the role alias that has overly permissive actions."
+            }
+          ]
+        },
+        "issuerCertificateIdentifier": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/IssuerCertificateIdentifier"
+            },
+            {
+              "description": "The issuer certificate identifier."
+            }
+          ]
+        },
+        "deviceCertificateArn": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/CertificateArn"
+            },
+            {
+              "description": "The ARN of the identified device certificate."
+            }
+          ]
+        }
+      },
+      "description": "Information that identifies the noncompliant resource."
+    },
+    "expirationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": " The epoch timestamp in seconds at which this suppression expires. "
+        }
+      ]
+    },
+    "suppressIndefinitely": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SuppressIndefinitely"
+        },
+        {
+          "description": " Indicates whether a suppression should exist indefinitely or not. "
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditDescription"
+        },
+        {
+          "description": " The description of the audit suppression. "
+        }
+      ]
+    }
+  }
+}

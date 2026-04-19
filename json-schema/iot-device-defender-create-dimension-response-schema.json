@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-dimension-response-schema.json",
+  "title": "CreateDimensionResponse",
+  "description": "CreateDimensionResponse schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionName"
+        },
+        {
+          "description": "A unique identifier for the dimension."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the created dimension."
+        }
+      ]
+    }
+  }
+}

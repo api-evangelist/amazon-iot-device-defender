@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-update-c-a-certificate-params-structure.json",
+  "name": "UpdateCACertificateParams",
+  "description": "Parameters to define a mitigation action that changes the state of the CA certificate to inactive.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CACertificateUpdateAction"
+        },
+        {
+          "description": "The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "action"
+  ]
+}

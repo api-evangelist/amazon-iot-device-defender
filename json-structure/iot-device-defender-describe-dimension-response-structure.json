@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-dimension-response-structure.json",
+  "name": "DescribeDimensionResponse",
+  "description": "DescribeDimensionResponse schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionName"
+        },
+        {
+          "description": "The unique identifier for the dimension."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) for the dimension."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionType"
+        },
+        {
+          "description": "The type of the dimension."
+        }
+      ]
+    },
+    "stringValues": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DimensionStringValues"
+        },
+        {
+          "description": "The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name."
+        }
+      ]
+    },
+    "creationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date the dimension was created."
+        }
+      ]
+    },
+    "lastModifiedDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date the dimension was last modified."
+        }
+      ]
+    }
+  }
+}

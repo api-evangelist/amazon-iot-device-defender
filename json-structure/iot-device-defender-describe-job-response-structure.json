@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-job-response-structure.json",
+  "name": "DescribeJobResponse",
+  "description": "DescribeJobResponse schema",
+  "type": "object",
+  "properties": {
+    "documentSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDocumentSource"
+        },
+        {
+          "description": "An S3 link to the job document."
+        }
+      ]
+    },
+    "job": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Job"
+        },
+        {
+          "description": "Information about the job."
+        }
+      ]
+    }
+  }
+}

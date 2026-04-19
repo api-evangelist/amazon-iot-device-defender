@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-maintenance-window-structure.json",
+  "name": "MaintenanceWindow",
+  "description": "An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.",
+  "type": "object",
+  "properties": {
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CronExpression"
+        },
+        {
+          "description": "Displays the start time of the next maintenance window."
+        }
+      ]
+    },
+    "durationInMinutes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DurationInMinutes"
+        },
+        {
+          "description": "Displays the duration of the next maintenance window."
+        }
+      ]
+    }
+  },
+  "required": [
+    "startTime",
+    "durationInMinutes"
+  ]
+}

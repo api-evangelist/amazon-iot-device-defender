@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-update-device-certificate-params-schema.json",
+  "title": "UpdateDeviceCertificateParams",
+  "description": "Parameters to define a mitigation action that changes the state of the device certificate to inactive.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceCertificateUpdateAction"
+        },
+        {
+          "description": "The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "action"
+  ]
+}

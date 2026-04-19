@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-create-provisioning-claim-response-structure.json",
+  "name": "CreateProvisioningClaimResponse",
+  "description": "CreateProvisioningClaimResponse schema",
+  "type": "object",
+  "properties": {
+    "certificateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateId"
+        },
+        {
+          "description": "The ID of the certificate."
+        }
+      ]
+    },
+    "certificatePem": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificatePem"
+        },
+        {
+          "description": "The provisioning claim certificate."
+        }
+      ]
+    },
+    "keyPair": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyPair"
+        },
+        {
+          "description": "The provisioning claim key pair."
+        }
+      ]
+    },
+    "expiration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateType"
+        },
+        {
+          "description": "The provisioning claim expiration time."
+        }
+      ]
+    }
+  }
+}

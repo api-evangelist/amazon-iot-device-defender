@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-policy-version-identifier-structure.json",
+  "name": "PolicyVersionIdentifier",
+  "description": "Information about the version of the policy associated with the resource.",
+  "type": "object",
+  "properties": {
+    "policyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyName"
+        },
+        {
+          "description": "The name of the policy."
+        }
+      ]
+    },
+    "policyVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PolicyVersionId"
+        },
+        {
+          "description": "The ID of the version of the policy associated with the resource."
+        }
+      ]
+    }
+  }
+}

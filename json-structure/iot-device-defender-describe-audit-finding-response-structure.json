@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-audit-finding-response-structure.json",
+  "name": "DescribeAuditFindingResponse",
+  "description": "DescribeAuditFindingResponse schema",
+  "type": "object",
+  "properties": {
+    "finding": {
+      "type": "object",
+      "properties": {
+        "findingId": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/FindingId"
+            },
+            {
+              "description": "A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings."
+            }
+          ]
+        },
+        "taskId": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AuditTaskId"
+            },
+            {
+              "description": "The ID of the audit that generated this result (finding)."
+            }
+          ]
+        },
+        "checkName": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AuditCheckName"
+            },
+            {
+              "description": "The audit check that generated this result."
+            }
+          ]
+        },
+        "taskStartTime": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Timestamp"
+            },
+            {
+              "description": "The time the audit started."
+            }
+          ]
+        },
+        "findingTime": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Timestamp"
+            },
+            {
+              "description": "The time the result (finding) was discovered."
+            }
+          ]
+        },
+        "severity": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AuditFindingSeverity"
+            },
+            {
+              "description": "The severity of the result (finding)."
+            }
+          ]
+        },
+        "nonCompliantResource": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/NonCompliantResource"
+            },
+            {
+              "description": "The resource that was found to be noncompliant with the audit check."
+            }
+          ]
+        },
+        "relatedResources": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RelatedResources"
+            },
+            {
+              "description": "The list of related resources."
+            }
+          ]
+        },
+        "reasonForNonCompliance": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ReasonForNonCompliance"
+            },
+            {
+              "description": "The reason the resource was noncompliant."
+            }
+          ]
+        },
+        "reasonForNonComplianceCode": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ReasonForNonComplianceCode"
+            },
+            {
+              "description": "A code that indicates the reason that the resource was noncompliant."
+            }
+          ]
+        },
+        "isSuppressed": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/IsSuppressed"
+            },
+            {
+              "description": " Indicates whether the audit finding was suppressed or not during reporting. "
+            }
+          ]
+        }
+      },
+      "description": "The findings (results) of the audit."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-get-logging-options-response-schema.json",
+  "title": "GetLoggingOptionsResponse",
+  "description": "The output from the GetLoggingOptions operation.",
+  "type": "object",
+  "properties": {
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsArn"
+        },
+        {
+          "description": "The ARN of the IAM role that grants access."
+        }
+      ]
+    },
+    "logLevel": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "The logging level."
+        }
+      ]
+    }
+  }
+}

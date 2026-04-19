@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-publish-finding-to-sns-params-structure.json",
+  "name": "PublishFindingToSnsParams",
+  "description": "Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.",
+  "type": "object",
+  "properties": {
+    "topicArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnsTopicArn"
+        },
+        {
+          "description": "The ARN of the topic to which you want to publish the findings."
+        }
+      ]
+    }
+  },
+  "required": [
+    "topicArn"
+  ]
+}

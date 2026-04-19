@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-detect-mitigation-actions-tasks-response-schema.json",
+  "title": "ListDetectMitigationActionsTasksResponse",
+  "description": "ListDetectMitigationActionsTasksResponse schema",
+  "type": "object",
+  "properties": {
+    "tasks": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DetectMitigationActionsTaskSummaryList"
+        },
+        {
+          "description": " The collection of ML Detect mitigation tasks that matched the filter criteria. "
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": " A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-add-things-to-thing-group-params-schema.json",
+  "title": "AddThingsToThingGroupParams",
+  "description": "Parameters used when defining a mitigation action that move a set of things to a thing group.",
+  "type": "object",
+  "properties": {
+    "thingGroupNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupNames"
+        },
+        {
+          "description": "The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy."
+        }
+      ]
+    },
+    "overrideDynamicGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups."
+        }
+      ]
+    }
+  },
+  "required": [
+    "thingGroupNames"
+  ]
+}

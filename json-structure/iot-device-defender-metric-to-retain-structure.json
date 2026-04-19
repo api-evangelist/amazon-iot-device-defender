@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-metric-to-retain-structure.json",
+  "name": "MetricToRetain",
+  "description": "The metric you want to retain. Dimensions are optional.",
+  "type": "object",
+  "properties": {
+    "metric": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BehaviorMetric"
+        },
+        {
+          "description": "What is measured by the behavior."
+        }
+      ]
+    },
+    "metricDimension": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricDimension"
+        },
+        {
+          "description": "The dimension of a metric. This can't be used with custom metrics."
+        }
+      ]
+    }
+  },
+  "required": [
+    "metric"
+  ]
+}

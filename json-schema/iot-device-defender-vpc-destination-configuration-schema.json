@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-vpc-destination-configuration-schema.json",
+  "title": "VpcDestinationConfiguration",
+  "description": "The configuration information for a virtual private cloud (VPC) destination.",
+  "type": "object",
+  "properties": {
+    "subnetIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SubnetIdList"
+        },
+        {
+          "description": "The subnet IDs of the VPC destination."
+        }
+      ]
+    },
+    "securityGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroupList"
+        },
+        {
+          "description": "The security groups of the VPC destination."
+        }
+      ]
+    },
+    "vpcId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcId"
+        },
+        {
+          "description": "The ID of the VPC."
+        }
+      ]
+    },
+    "roleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsArn"
+        },
+        {
+          "description": "The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs)."
+        }
+      ]
+    }
+  },
+  "required": [
+    "subnetIds",
+    "vpcId",
+    "roleArn"
+  ]
+}

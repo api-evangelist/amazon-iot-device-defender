@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-list-policies-response-schema.json",
+  "title": "ListPoliciesResponse",
+  "description": "The output from the ListPolicies operation.",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Policies"
+        },
+        {
+          "description": "The descriptions of the policies."
+        }
+      ]
+    },
+    "nextMarker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Marker"
+        },
+        {
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        }
+      ]
+    }
+  }
+}

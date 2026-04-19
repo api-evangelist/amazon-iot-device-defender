@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-describe-job-template-response-schema.json",
+  "title": "DescribeJobTemplateResponse",
+  "description": "DescribeJobTemplateResponse schema",
+  "type": "object",
+  "properties": {
+    "jobTemplateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTemplateArn"
+        },
+        {
+          "description": "The ARN of the job template."
+        }
+      ]
+    },
+    "jobTemplateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTemplateId"
+        },
+        {
+          "description": "The unique identifier of the job template."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDescription"
+        },
+        {
+          "description": "A description of the job template."
+        }
+      ]
+    },
+    "documentSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDocumentSource"
+        },
+        {
+          "description": "An S3 link to the job document."
+        }
+      ]
+    },
+    "document": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobDocument"
+        },
+        {
+          "description": "The job document."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateType"
+        },
+        {
+          "description": "The time, in seconds since the epoch, when the job template was created."
+        }
+      ]
+    },
+    "presignedUrlConfig": {
+      "type": "object",
+      "properties": {
+        "roleArn": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/RoleArn"
+            },
+            {
+              "description": "<p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p> <important> <p>For information about addressing the confused deputy problem, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html\">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p> </important>"
+            }
+          ]
+        },
+        "expiresInSec": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ExpiresInSec"
+            },
+            {
+              "description": "How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document."
+            }
+          ]
+        }
+      },
+      "description": "Configuration for pre-signed S3 URLs."
+    },
+    "jobExecutionsRolloutConfig": {
+      "type": "object",
+      "properties": {
+        "maximumPerMinute": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/MaxJobExecutionsPerMin"
+            },
+            {
+              "description": "The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout."
+            }
+          ]
+        },
+        "exponentialRate": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ExponentialRolloutRate"
+            },
+            {
+              "description": "The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout."
+            }
+          ]
+        }
+      },
+      "description": "Allows you to create a staged rollout of a job."
+    },
+    "abortConfig": {
+      "type": "object",
+      "required": [
+        "criteriaList"
+      ],
+      "properties": {
+        "criteriaList": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/AbortCriteriaList"
+            },
+            {
+              "description": "The list of criteria that determine when and how to abort the job."
+            }
+          ]
+        }
+      },
+      "description": "The criteria that determine when and how a job abort takes place."
+    },
+    "timeoutConfig": {
+      "type": "object",
+      "properties": {
+        "inProgressTimeoutInMinutes": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/InProgressTimeoutInMinutes"
+            },
+            {
+              "description": "Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code> status."
+            }
+          ]
+        }
+      },
+      "description": "Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>."
+    },
+    "jobExecutionsRetryConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobExecutionsRetryConfig"
+        },
+        {
+          "description": "The configuration that determines how many retries are allowed for each failure type for a job."
+        }
+      ]
+    },
+    "maintenanceWindows": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaintenanceWindows"
+        },
+        {
+          "description": "Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job."
+        }
+      ]
+    }
+  }
+}

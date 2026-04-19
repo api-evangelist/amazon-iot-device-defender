@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-create-o-t-a-update-response-schema.json",
+  "title": "CreateOTAUpdateResponse",
+  "description": "CreateOTAUpdateResponse schema",
+  "type": "object",
+  "properties": {
+    "otaUpdateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OTAUpdateId"
+        },
+        {
+          "description": "The OTA update ID."
+        }
+      ]
+    },
+    "awsIotJobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsIotJobId"
+        },
+        {
+          "description": "The IoT job ID associated with the OTA update."
+        }
+      ]
+    },
+    "otaUpdateArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OTAUpdateArn"
+        },
+        {
+          "description": "The OTA update ARN."
+        }
+      ]
+    },
+    "awsIotJobArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsIotJobArn"
+        },
+        {
+          "description": "The IoT job ARN associated with the OTA update."
+        }
+      ]
+    },
+    "otaUpdateStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OTAUpdateStatus"
+        },
+        {
+          "description": "The OTA update status."
+        }
+      ]
+    }
+  }
+}

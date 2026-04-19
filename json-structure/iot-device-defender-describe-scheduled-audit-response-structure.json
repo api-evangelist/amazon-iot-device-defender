@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-scheduled-audit-response-structure.json",
+  "name": "DescribeScheduledAuditResponse",
+  "description": "DescribeScheduledAuditResponse schema",
+  "type": "object",
+  "properties": {
+    "frequency": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditFrequency"
+        },
+        {
+          "description": "How often the scheduled audit takes place, either one of <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the system."
+        }
+      ]
+    },
+    "dayOfMonth": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DayOfMonth"
+        },
+        {
+          "description": "The day of the month on which the scheduled audit takes place. This is will be <code>1</code> through <code>31</code> or <code>LAST</code>. If days <code>29</code>-<code>31</code> are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code> day of the month."
+        }
+      ]
+    },
+    "dayOfWeek": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DayOfWeek"
+        },
+        {
+          "description": "The day of the week on which the scheduled audit takes place, either one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>."
+        }
+      ]
+    },
+    "targetCheckNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetAuditCheckNames"
+        },
+        {
+          "description": "Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)"
+        }
+      ]
+    },
+    "scheduledAuditName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduledAuditName"
+        },
+        {
+          "description": "The name of the scheduled audit."
+        }
+      ]
+    },
+    "scheduledAuditArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduledAuditArn"
+        },
+        {
+          "description": "The ARN of the scheduled audit."
+        }
+      ]
+    }
+  }
+}

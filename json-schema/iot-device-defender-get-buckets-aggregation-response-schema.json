@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-get-buckets-aggregation-response-schema.json",
+  "title": "GetBucketsAggregationResponse",
+  "description": "GetBucketsAggregationResponse schema",
+  "type": "object",
+  "properties": {
+    "totalCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Count"
+        },
+        {
+          "description": "The total number of things that fit the query string criteria."
+        }
+      ]
+    },
+    "buckets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Buckets"
+        },
+        {
+          "description": "<p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p> <p> <code>keyValue</code>: The aggregation field value counted for the particular bucket.</p> <p> <code>count</code>: The number of documents that have that value.</p>"
+        }
+      ]
+    }
+  }
+}

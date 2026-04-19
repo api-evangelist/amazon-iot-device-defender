@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-schema/iot-device-defender-get-indexing-configuration-response-schema.json",
+  "title": "GetIndexingConfigurationResponse",
+  "description": "GetIndexingConfigurationResponse schema",
+  "type": "object",
+  "properties": {
+    "thingIndexingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingIndexingConfiguration"
+        },
+        {
+          "description": "Thing indexing configuration."
+        }
+      ]
+    },
+    "thingGroupIndexingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThingGroupIndexingConfiguration"
+        },
+        {
+          "description": "The index configuration."
+        }
+      ]
+    }
+  }
+}

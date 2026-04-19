@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-describe-audit-mitigation-actions-task-response-structure.json",
+  "name": "DescribeAuditMitigationActionsTaskResponse",
+  "description": "DescribeAuditMitigationActionsTaskResponse schema",
+  "type": "object",
+  "properties": {
+    "taskStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditMitigationActionsTaskStatus"
+        },
+        {
+          "description": "The current status of the task."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the task was started."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the task was completed or canceled."
+        }
+      ]
+    },
+    "taskStatistics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditMitigationActionsTaskStatistics"
+        },
+        {
+          "description": "Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task."
+        }
+      ]
+    },
+    "target": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditMitigationActionsTaskTarget"
+        },
+        {
+          "description": "Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings."
+        }
+      ]
+    },
+    "auditCheckToActionsMapping": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AuditCheckToActionsMapping"
+        },
+        {
+          "description": "Specifies the mitigation actions that should be applied to specific audit checks."
+        }
+      ]
+    },
+    "actionsDefinition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MitigationActionList"
+        },
+        {
+          "description": "Specifies the mitigation actions and their parameters that are applied as part of this task."
+        }
+      ]
+    }
+  }
+}

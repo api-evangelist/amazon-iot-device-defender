@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-device-defender/refs/heads/main/json-structure/iot-device-defender-list-thing-registration-task-reports-response-structure.json",
+  "name": "ListThingRegistrationTaskReportsResponse",
+  "description": "ListThingRegistrationTaskReportsResponse schema",
+  "type": "object",
+  "properties": {
+    "resourceLinks": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3FileUrlList"
+        },
+        {
+          "description": "Links to the task resources."
+        }
+      ]
+    },
+    "reportType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReportType"
+        },
+        {
+          "description": "The type of task report."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to use to get the next set of results, or <b>null</b> if there are no additional results."
+        }
+      ]
+    }
+  }
+}
