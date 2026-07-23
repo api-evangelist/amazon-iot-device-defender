@@ -1,0 +1,548 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Custom Metric API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Custom Metric
+paths:
+  /custom-metric/{metricName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateCustomMetric
+      description: <p> Use this API to define a Custom Metric published by your devices to Device Defender. </p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCustomMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCustomMetricResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+        '482':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: ' The name of the custom metric. This will be used in the metric report submitted from the device/thing. The name can''t begin with <code>aws:</code>. You can''t change the name after you define it.'
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - metricType
+              - clientRequestToken
+              properties:
+                displayName:
+                  description: ' The friendly name in the console for the custom metric. This name doesn''t have to be unique. Don''t use this name as the metric identifier in the device metric report. You can update the friendly name after you define it.'
+                  type: string
+                  pattern: '[\p{Graph}\x20]*'
+                  maxLength: 128
+                metricType:
+                  description: <p> The type of the custom metric. </p> <important> <p>The type <code>number</code> only takes a single metric value as an input, but when you submit the metrics value in the DeviceMetrics report, you must pass it as an array with a single value.</p> </important>
+                  type: string
+                  enum:
+                  - string-list
+                  - ip-address-list
+                  - number-list
+                  - number
+                tags:
+                  description: ' Metadata that can be used to manage the custom metric. '
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+                clientRequestToken:
+                  description: 'Each custom metric must have a unique client request token. If you try to create a new custom metric that already exists with a different token, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request. '
+                  type: string
+                  pattern: ^[a-zA-Z0-9-_]+$
+                  minLength: 1
+                  maxLength: 64
+      summary: Amazon IoT Device Defender Create Custom Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Custom Metric
+    delete:
+      operationId: DeleteCustomMetric
+      description: <p> Deletes a Device Defender detect custom metric. </p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCustomMetric</a> action.</p> <note> <p>Before you can delete a custom metric, you must first remove the custom metric from all security profiles it's a part of. The security profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a> API with <code>metricName</code> set to your custom metric name.</p> </note>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteCustomMetricResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: ' The name of the custom metric. '
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Delete Custom Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Custom Metric
+    get:
+      operationId: DescribeCustomMetric
+      description: <p> Gets information about a Device Defender detect custom metric. </p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCustomMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeCustomMetricResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: ' The name of the custom metric. '
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Describe Custom Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Custom Metric
+    patch:
+      operationId: UpdateCustomMetric
+      description: <p>Updates a Device Defender detect custom metric. </p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateCustomMetricResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: ' The name of the custom metric. Cannot be updated. '
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - displayName
+              properties:
+                displayName:
+                  description: ' Field represents a friendly name in the console for the custom metric, it doesn''t have to be unique. Don''t use this name as the metric identifier in the device metric report. Can be updated. '
+                  type: string
+                  pattern: '[\p{Graph}\x20]*'
+                  maxLength: 128
+      summary: Amazon IoT Device Defender Update Custom Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Custom Metric
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    MetricName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceNotFoundException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    InternalFailureException: {}
+    DeleteCustomMetricResponse:
+      type: object
+      properties: {}
+    DescribeCustomMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/MetricName'
+          - description: ' The name of the custom metric. '
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricArn'
+          - description: ' The Amazon Resource Number (ARN) of the custom metric. '
+        metricType:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricType'
+          - description: <p> The type of the custom metric. </p> <important> <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p> </important>
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricDisplayName'
+          - description: ' Field represents a friendly name in the console for the custom metric; doesn''t have to be unique. Don''t use this name as the metric identifier in the device metric report. Can be updated. '
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The creation date of the custom metric in milliseconds since epoch. '
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The time the custom metric was last modified in milliseconds since epoch. '
+    ResourceAlreadyExistsException: {}
+    CustomMetricType:
+      type: string
+      enum:
+      - string-list
+      - ip-address-list
+      - number-list
+      - number
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    CustomMetricDisplayName:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 128
+    UpdateCustomMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/MetricName'
+          - description: ' The name of the custom metric. '
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricArn'
+          - description: ' The Amazon Resource Number (ARN) of the custom metric. '
+        metricType:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricType'
+          - description: <p> The type of the custom metric. </p> <important> <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p> </important>
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricDisplayName'
+          - description: ' A friendly name in the console for the custom metric '
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The creation date of the custom metric in milliseconds since epoch. '
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The time the custom metric was last modified in milliseconds since epoch. '
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    CreateCustomMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/MetricName'
+          - description: ' The name of the custom metric to be used in the metric report. '
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricArn'
+          - description: ' The Amazon Resource Number (ARN) of the custom metric. For example, <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i> </code> '
+    ThrottlingException: {}
+    InvalidRequestException: {}
+    CustomMetricArn:
+      type: string
+    LimitExceededException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

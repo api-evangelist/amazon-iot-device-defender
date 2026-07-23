@@ -1,0 +1,1201 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Indices API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Indices
+paths:
+  /indices/{indexName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeIndex
+      description: <p>Describes a search index.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeIndex</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeIndexResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: indexName
+        in: path
+        required: true
+        description: The index name.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Describe Index
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+  /indices/buckets:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetBucketsAggregation
+      description: <p>Aggregates on indexed data with search queries pertaining to particular fields. </p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBucketsAggregation</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBucketsAggregationResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '487':
+          description: InvalidAggregationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidAggregationException'
+        '488':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - queryString
+              - aggregationField
+              - bucketsAggregationType
+              properties:
+                indexName:
+                  description: The name of the index to search.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                queryString:
+                  description: The search query string.
+                  type: string
+                  minLength: 1
+                aggregationField:
+                  description: The aggregation field.
+                  type: string
+                  minLength: 1
+                queryVersion:
+                  description: The version of the query.
+                  type: string
+                bucketsAggregationType:
+                  description: The type of bucketed aggregation performed.
+                  type: object
+                  properties:
+                    termsAggregation:
+                      allOf:
+                      - $ref: '#/components/schemas/TermsAggregation'
+                      - description: Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.
+      summary: Amazon IoT Device Defender Get Buckets Aggregation
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+  /indices/cardinality:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetCardinality
+      description: <p>Returns the approximate count of unique values that match the query.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCardinalityResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '487':
+          description: InvalidAggregationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidAggregationException'
+        '488':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - queryString
+              properties:
+                indexName:
+                  description: The name of the index to search.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                queryString:
+                  description: The search query string.
+                  type: string
+                  minLength: 1
+                aggregationField:
+                  description: The field to aggregate.
+                  type: string
+                  minLength: 1
+                queryVersion:
+                  description: The query version.
+                  type: string
+      summary: Amazon IoT Device Defender Get Cardinality
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+  /indices/percentiles:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetPercentiles
+      description: '<p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call <code>GetPercentiles</code>. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a> action.</p>'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPercentilesResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '487':
+          description: InvalidAggregationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidAggregationException'
+        '488':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - queryString
+              properties:
+                indexName:
+                  description: The name of the index to search.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                queryString:
+                  description: The search query string.
+                  type: string
+                  minLength: 1
+                aggregationField:
+                  description: The field to aggregate.
+                  type: string
+                  minLength: 1
+                queryVersion:
+                  description: The query version.
+                  type: string
+                percents:
+                  description: The percentile groups returned.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Percent'
+      summary: Amazon IoT Device Defender Get Percentiles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+  /indices/statistics:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetStatistics
+      description: <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type <code>String</code>, only the count statistic is returned.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetStatistics</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetStatisticsResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '487':
+          description: InvalidAggregationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidAggregationException'
+        '488':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - queryString
+              properties:
+                indexName:
+                  description: The name of the index to search. The default value is <code>AWS_Things</code>.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                queryString:
+                  description: The query used to search. You can specify "*" for the query string to get the count of all indexed things in your Amazon Web Services account.
+                  type: string
+                  minLength: 1
+                aggregationField:
+                  description: The aggregation field name.
+                  type: string
+                  minLength: 1
+                queryVersion:
+                  description: The version of the query used to search.
+                  type: string
+      summary: Amazon IoT Device Defender Get Statistics
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+  /indices:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListIndices
+      description: <p>Lists the search indices.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListIndices</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListIndicesResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: The token used to get the next set of results, or <code>null</code> if there are no additional results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return at one time.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+      summary: Amazon IoT Device Defender List Indices
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+  /indices/search:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: SearchIndex
+      description: <p>The query search index.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchIndexResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '487':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - queryString
+              properties:
+                indexName:
+                  description: The search index name.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                queryString:
+                  description: The search query string. For more information about the search query syntax, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query syntax</a>.
+                  type: string
+                  minLength: 1
+                nextToken:
+                  description: The token used to get the next set of results, or <code>null</code> if there are no additional results.
+                  type: string
+                maxResults:
+                  description: The maximum number of results to return at one time.
+                  type: integer
+                  minimum: 1
+                  maximum: 500
+                queryVersion:
+                  description: The query version.
+                  type: string
+      summary: Amazon IoT Device Defender Search Index
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Indices
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    GetBucketsAggregationResponse:
+      type: object
+      properties:
+        totalCount:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The total number of things that fit the query string criteria.
+        buckets:
+          allOf:
+          - $ref: '#/components/schemas/Buckets'
+          - description: '<p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p> <p> <code>keyValue</code>: The aggregation field value counted for the particular bucket.</p> <p> <code>count</code>: The number of documents that have that value.</p>'
+    ResourceNotFoundException: {}
+    Count:
+      type: integer
+    ThingGroupNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingGroupName'
+    ThingGroupDocument:
+      type: object
+      properties:
+        thingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupName'
+          - description: The thing group name.
+        thingGroupId:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupId'
+          - description: The thing group ID.
+        thingGroupDescription:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupDescription'
+          - description: The thing group description.
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/Attributes'
+          - description: The thing group attributes.
+        parentGroupNames:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupNameList'
+          - description: Parent group names.
+      description: The thing group search index document.
+    InternalFailureException: {}
+    PercentValue:
+      type: number
+      format: double
+    ThingGroupDocumentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingGroupDocument'
+    NextToken:
+      type: string
+    Attributes:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/AttributeValue'
+    GetPercentilesResponse:
+      type: object
+      properties:
+        percentiles:
+          allOf:
+          - $ref: '#/components/schemas/Percentiles'
+          - description: The percentile values of the aggregated fields.
+    ServiceUnavailableException: {}
+    Average:
+      type: number
+      format: double
+    ThingTypeName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ThingName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    StdDeviation:
+      type: number
+      format: double
+    UnauthorizedException: {}
+    GetStatisticsResponse:
+      type: object
+      properties:
+        statistics:
+          allOf:
+          - $ref: '#/components/schemas/Statistics'
+          - description: The statistics returned by the Fleet Indexing service based on the query and aggregation field.
+    Boolean:
+      type: boolean
+    SumOfSquares:
+      type: number
+      format: double
+    ThingDocumentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingDocument'
+    Buckets:
+      type: array
+      items:
+        $ref: '#/components/schemas/Bucket'
+    Sum:
+      type: number
+      format: double
+    ThingGroupId:
+      type: string
+      pattern: '[a-zA-Z0-9\-]+'
+      minLength: 1
+      maxLength: 128
+    ListIndicesResponse:
+      type: object
+      properties:
+        indexNames:
+          allOf:
+          - $ref: '#/components/schemas/IndexNamesList'
+          - description: The index names.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token used to get the next set of results, or <code>null</code> if there are no additional results.
+    Statistics:
+      type: object
+      properties:
+        count:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The count of things that match the query string criteria and contain a valid aggregation field value.
+        average:
+          allOf:
+          - $ref: '#/components/schemas/Average'
+          - description: The average of the aggregated field values.
+        sum:
+          allOf:
+          - $ref: '#/components/schemas/Sum'
+          - description: The sum of the aggregated field values.
+        minimum:
+          allOf:
+          - $ref: '#/components/schemas/Minimum'
+          - description: The minimum aggregated field value.
+        maximum:
+          allOf:
+          - $ref: '#/components/schemas/Maximum'
+          - description: The maximum aggregated field value.
+        sumOfSquares:
+          allOf:
+          - $ref: '#/components/schemas/SumOfSquares'
+          - description: The sum of the squares of the aggregated field values.
+        variance:
+          allOf:
+          - $ref: '#/components/schemas/Variance'
+          - description: The variance of the aggregated field values.
+        stdDeviation:
+          allOf:
+          - $ref: '#/components/schemas/StdDeviation'
+          - description: The standard deviation of the aggregated field values.
+      description: A map of key-value pairs for all supported statistics. For issues with missing or unexpected values for this API, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-indexing-troubleshooting.html"> Fleet indexing troubleshooting guide</a>.
+    SearchIndexResponse:
+      type: object
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token used to get the next set of results, or <code>null</code> if there are no additional results.
+        things:
+          allOf:
+          - $ref: '#/components/schemas/ThingDocumentList'
+          - description: The things that match the search query.
+        thingGroups:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupDocumentList'
+          - description: The thing groups that match the search query.
+    Maximum:
+      type: number
+      format: double
+    BucketKeyValue:
+      type: string
+    ThrottlingException: {}
+    AttributeValue:
+      type: string
+      pattern: '[a-zA-Z0-9_.,@/:#-]*'
+      maxLength: 800
+    Percentiles:
+      type: array
+      items:
+        $ref: '#/components/schemas/PercentPair'
+    IndexSchema:
+      type: string
+    InvalidQueryException: {}
+    InvalidRequestException: {}
+    TermsAggregation:
+      type: object
+      properties:
+        maxBuckets:
+          allOf:
+          - $ref: '#/components/schemas/MaxBuckets'
+          - description: The number of buckets to return in the response. Default to 10.
+      description: Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.
+    Percent:
+      type: number
+      format: double
+      minimum: 0
+      maximum: 100
+    DescribeIndexResponse:
+      type: object
+      properties:
+        indexName:
+          allOf:
+          - $ref: '#/components/schemas/IndexName'
+          - description: The index name.
+        indexStatus:
+          allOf:
+          - $ref: '#/components/schemas/IndexStatus'
+          - description: The index status.
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/IndexSchema'
+          - description: <p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ul> <li> <p>REGISTRY – Your thing index contains only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p> </li> <li> <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.</p> </li> <li> <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.</p> </li> <li> <p>MULTI_INDEXING_MODE - Your thing index contains multiple data sources. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html">GetIndexingConfiguration</a>.</p> </li> </ul>
+    Minimum:
+      type: number
+      format: double
+    ThingId:
+      type: string
+    DisconnectReason:
+      type: string
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    IndexNotReadyException: {}
+    IndexName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    Variance:
+      type: number
+      format: double
+    PercentPair:
+      type: object
+      properties:
+        percent:
+          allOf:
+          - $ref: '#/components/schemas/Percent'
+          - description: The percentile.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/PercentValue'
+          - description: The value of the percentile.
+      description: Describes the percentile and percentile value.
+    ThingDocument:
+      type: object
+      properties:
+        thingName:
+          allOf:
+          - $ref: '#/components/schemas/ThingName'
+          - description: The thing name.
+        thingId:
+          allOf:
+          - $ref: '#/components/schemas/ThingId'
+          - description: The thing ID.
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The thing type name.
+        thingGroupNames:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupNameList'
+          - description: Thing group names.
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/Attributes'
+          - description: The attributes.
+        shadow:
+          allOf:
+          - $ref: '#/components/schemas/JsonDocument'
+          - description: <p>The unnamed shadow and named shadow.</p> <p>For more information about shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a> </p>
+        deviceDefender:
+          allOf:
+          - $ref: '#/components/schemas/JsonDocument'
+          - description: <p>Contains Device Defender data.</p> <p>For more information about Device Defender, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html">Device Defender</a>. </p>
+        connectivity:
+          allOf:
+          - $ref: '#/components/schemas/ThingConnectivity'
+          - description: Indicates whether the thing is connected to the Amazon Web Services IoT Core service.
+      description: The thing search index document.
+    JsonDocument:
+      type: string
+    IndexNamesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/IndexName'
+    ConnectivityTimestamp:
+      type: integer
+    Bucket:
+      type: object
+      properties:
+        keyValue:
+          allOf:
+          - $ref: '#/components/schemas/BucketKeyValue'
+          - description: The value counted for the particular bucket.
+        count:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The number of documents that have the value counted for the particular bucket.
+      description: A count of documents that meets a specific aggregation criteria.
+    ThingConnectivity:
+      type: object
+      properties:
+        connected:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not connected.
+        timestamp:
+          allOf:
+          - $ref: '#/components/schemas/ConnectivityTimestamp'
+          - description: The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing.
+        disconnectReason:
+          allOf:
+          - $ref: '#/components/schemas/DisconnectReason'
+          - description: The reason why the client is disconnected. If the thing has been disconnected for approximately an hour, the <code>disconnectReason</code> value might be missing.
+      description: The connectivity status of the thing.
+    InvalidAggregationException: {}
+    GetCardinalityResponse:
+      type: object
+      properties:
+        cardinality:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The approximate count of unique values that match the query.
+    IndexStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - BUILDING
+      - REBUILDING
+    MaxBuckets:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    ThingGroupDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 2028
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

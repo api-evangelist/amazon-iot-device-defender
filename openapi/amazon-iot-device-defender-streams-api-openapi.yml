@@ -1,0 +1,801 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Streams API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Streams
+paths:
+  /streams/{streamId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateStream
+      description: <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateStream</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateStreamResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '484':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '485':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '486':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '487':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        description: The stream ID.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - files
+              - roleArn
+              properties:
+                description:
+                  description: A description of the stream.
+                  type: string
+                  pattern: '[^\p{C}]+'
+                  maxLength: 2028
+                files:
+                  description: The files to stream.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StreamFile'
+                  minItems: 1
+                  maxItems: 50
+                roleArn:
+                  description: An IAM role that allows the IoT service principal to access your S3 files.
+                  type: string
+                  minLength: 20
+                  maxLength: 2048
+                tags:
+                  description: Metadata which can be used to manage streams.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      summary: Amazon IoT Device Defender Create Stream
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Streams
+    delete:
+      operationId: DeleteStream
+      description: <p>Deletes a stream.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteStreamResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: DeleteConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteConflictException'
+        '482':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '485':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '486':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        description: The stream ID.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Delete Stream
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Streams
+    get:
+      operationId: DescribeStream
+      description: <p>Gets information about a stream.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeStream</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeStreamResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        description: The stream ID.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Describe Stream
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Streams
+    put:
+      operationId: UpdateStream
+      description: <p>Updates an existing stream. The stream version will be incremented by one.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateStream</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateStreamResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        description: The stream ID.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  description: The description of the stream.
+                  type: string
+                  pattern: '[^\p{C}]+'
+                  maxLength: 2028
+                files:
+                  description: The files associated with the stream.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StreamFile'
+                  minItems: 1
+                  maxItems: 50
+                roleArn:
+                  description: An IAM role that allows the IoT service principal assumes to access your S3 files.
+                  type: string
+                  minLength: 20
+                  maxLength: 2048
+      summary: Amazon IoT Device Defender Update Stream
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Streams
+  /streams:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListStreams
+      description: <p>Lists all of the streams in your Amazon Web Services account.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListStreamsResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return at a time.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: nextToken
+        in: query
+        required: false
+        description: A token used to get the next set of results.
+        schema:
+          type: string
+      - name: isAscendingOrder
+        in: query
+        required: false
+        description: Set to true to return the list of streams in ascending order.
+        schema:
+          type: boolean
+      summary: Amazon IoT Device Defender List Streams
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Streams
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ResourceNotFoundException: {}
+    S3Location:
+      type: object
+      properties:
+        bucket:
+          allOf:
+          - $ref: '#/components/schemas/S3Bucket'
+          - description: The S3 bucket.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/S3Key'
+          - description: The S3 key.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/S3Version'
+          - description: The S3 bucket version.
+      description: The S3 location.
+    StreamVersion:
+      type: integer
+      minimum: 0
+      maximum: 65535
+    DateType:
+      type: string
+      format: date-time
+    InternalFailureException: {}
+    CreateStreamResponse:
+      type: object
+      properties:
+        streamId:
+          allOf:
+          - $ref: '#/components/schemas/StreamId'
+          - description: The stream ID.
+        streamArn:
+          allOf:
+          - $ref: '#/components/schemas/StreamArn'
+          - description: The stream ARN.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescription'
+          - description: A description of the stream.
+        streamVersion:
+          allOf:
+          - $ref: '#/components/schemas/StreamVersion'
+          - description: The version of the stream.
+    DeleteConflictException: {}
+    S3Version:
+      type: string
+    NextToken:
+      type: string
+    StreamFile:
+      type: object
+      properties:
+        fileId:
+          allOf:
+          - $ref: '#/components/schemas/FileId'
+          - description: The file ID.
+        s3Location:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: The location of the file in S3.
+      description: Represents a file to stream.
+    ServiceUnavailableException: {}
+    FileId:
+      type: integer
+      minimum: 0
+      maximum: 255
+    StreamId:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      minLength: 1
+      maxLength: 128
+    ListStreamsResponse:
+      type: object
+      properties:
+        streams:
+          allOf:
+          - $ref: '#/components/schemas/StreamsSummary'
+          - description: A list of streams.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token used to get the next set of results.
+    ResourceAlreadyExistsException: {}
+    UnauthorizedException: {}
+    S3Bucket:
+      type: string
+      minLength: 1
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    UpdateStreamResponse:
+      type: object
+      properties:
+        streamId:
+          allOf:
+          - $ref: '#/components/schemas/StreamId'
+          - description: The stream ID.
+        streamArn:
+          allOf:
+          - $ref: '#/components/schemas/StreamArn'
+          - description: The stream ARN.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescription'
+          - description: A description of the stream.
+        streamVersion:
+          allOf:
+          - $ref: '#/components/schemas/StreamVersion'
+          - description: The stream version.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    StreamArn:
+      type: string
+    ThrottlingException: {}
+    InvalidRequestException: {}
+    DescribeStreamResponse:
+      type: object
+      properties:
+        streamInfo:
+          allOf:
+          - $ref: '#/components/schemas/StreamInfo'
+          - description: Information about the stream.
+    StreamSummary:
+      type: object
+      properties:
+        streamId:
+          allOf:
+          - $ref: '#/components/schemas/StreamId'
+          - description: The stream ID.
+        streamArn:
+          allOf:
+          - $ref: '#/components/schemas/StreamArn'
+          - description: The stream ARN.
+        streamVersion:
+          allOf:
+          - $ref: '#/components/schemas/StreamVersion'
+          - description: The stream version.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescription'
+          - description: A description of the stream.
+      description: A summary of a stream.
+    StreamsSummary:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamSummary'
+    StreamFiles:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamFile'
+      minItems: 1
+      maxItems: 50
+    StreamInfo:
+      type: object
+      properties:
+        streamId:
+          allOf:
+          - $ref: '#/components/schemas/StreamId'
+          - description: The stream ID.
+        streamArn:
+          allOf:
+          - $ref: '#/components/schemas/StreamArn'
+          - description: The stream ARN.
+        streamVersion:
+          allOf:
+          - $ref: '#/components/schemas/StreamVersion'
+          - description: The stream version.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescription'
+          - description: The description of the stream.
+        files:
+          allOf:
+          - $ref: '#/components/schemas/StreamFiles'
+          - description: The files to stream.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date when the stream was created.
+        lastUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date when the stream was last updated.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: An IAM role IoT assumes to access your S3 files.
+      description: Information about a stream.
+    DeleteStreamResponse:
+      type: object
+      properties: {}
+    StreamDescription:
+      type: string
+      pattern: '[^\p{C}]+'
+      maxLength: 2028
+    S3Key:
+      type: string
+      minLength: 1
+    LimitExceededException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

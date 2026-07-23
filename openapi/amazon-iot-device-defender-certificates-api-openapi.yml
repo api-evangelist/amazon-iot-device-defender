@@ -1,0 +1,768 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Certificates API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Certificates
+paths:
+  /certificates:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateCertificateFromCsr
+      description: '<p>Creates an X.509 certificate using the specified certificate signing request. </p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action. </p> <note> <p>The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-25 or NIST P-384 curves. For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms"> Certificate signing algorithms supported by IoT</a>. </p> </note> <note> <p>Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> </note> <p>You can create multiple certificates in a batch by creating a directory, copying multiple <code>.csr</code> files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. In the following commands, we assume that a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is: </p> <p> <code>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</code> </p> <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the <code>aws iot create-certificate-from-csr</code> Amazon Web Services CLI command to create a certificate for the corresponding CSR. </p> <p>You can also run the <code>aws iot create-certificate-from-csr</code> part of the command in parallel to speed up the certificate creation process:</p> <p> <code>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </code> </p> <p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p> <p> <code>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </code> </p> <p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p> <p> <code>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path" </code> </p>'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateCertificateFromCsrResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: setAsActive
+        in: query
+        required: false
+        description: Specifies whether the certificate is active.
+        schema:
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - certificateSigningRequest
+              properties:
+                certificateSigningRequest:
+                  description: The certificate signing request (CSR).
+                  type: string
+                  pattern: '[\s\S]*'
+                  minLength: 1
+                  maxLength: 4096
+      summary: Amazon IoT Device Defender Create Certificate from Csr
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Certificates
+    get:
+      operationId: ListCertificates
+      description: <p>Lists the certificates registered in your Amazon Web Services account.</p> <p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificatesResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: pageSize
+        in: query
+        required: false
+        description: The result page size.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: marker
+        in: query
+        required: false
+        description: The marker for the next set of results.
+        schema:
+          type: string
+          pattern: '[A-Za-z0-9+/]+={0,2}'
+          maxLength: 1024
+      - name: isAscendingOrder
+        in: query
+        required: false
+        description: Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
+        schema:
+          type: boolean
+      summary: Amazon IoT Device Defender List Certificates
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Certificates
+  /certificates/{certificateId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteCertificate
+      description: <p>Deletes the specified certificate.</p> <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPolicy</a> action to detach all policies. Next, use the <a>UpdateCertificate</a> action to set the certificate to the INACTIVE status.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: CertificateStateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateStateException'
+        '481':
+          description: DeleteConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteConflictException'
+        '482':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '485':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '486':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '487':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: certificateId
+        in: path
+        required: true
+        description: The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+        schema:
+          type: string
+          pattern: (0x)?[a-fA-F0-9]+
+          minLength: 64
+          maxLength: 64
+      - name: forceDelete
+        in: query
+        required: false
+        description: Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
+        schema:
+          type: boolean
+      summary: Amazon IoT Device Defender Delete Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Certificates
+    get:
+      operationId: DescribeCertificate
+      description: <p>Gets information about the specified certificate.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeCertificateResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: certificateId
+        in: path
+        required: true
+        description: The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+        schema:
+          type: string
+          pattern: (0x)?[a-fA-F0-9]+
+          minLength: 64
+          maxLength: 64
+      summary: Amazon IoT Device Defender Describe Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Certificates
+  /certificates/{certificateId}#newStatus:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: UpdateCertificate
+      description: <p>Updates the status of the specified certificate. This operation is idempotent.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p> <p>Certificates must be in the ACTIVE state to authenticate devices that use a certificate to connect to IoT.</p> <p>Within a few minutes of updating a certificate from the ACTIVE state to any other state, IoT disconnects all devices that used that certificate to connect. Devices cannot use a certificate that is not in the ACTIVE state to reconnect.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: CertificateStateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateStateException'
+        '482':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '485':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '486':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: certificateId
+        in: path
+        required: true
+        description: The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+        schema:
+          type: string
+          pattern: (0x)?[a-fA-F0-9]+
+          minLength: 64
+          maxLength: 64
+      - name: newStatus
+        in: query
+        required: true
+        description: <p>The new status.</p> <p> <b>Note:</b> Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by IoT. They are not intended for developer use.</p> <p> <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
+          - REVOKED
+          - PENDING_TRANSFER
+          - REGISTER_INACTIVE
+          - PENDING_ACTIVATION
+      summary: Amazon IoT Device Defender Update Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Certificates
+components:
+  schemas:
+    TransferData:
+      type: object
+      properties:
+        transferMessage:
+          allOf:
+          - $ref: '#/components/schemas/Message'
+          - description: The transfer message.
+        rejectReason:
+          allOf:
+          - $ref: '#/components/schemas/Message'
+          - description: The reason why the transfer was rejected.
+        transferDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date the transfer took place.
+        acceptDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date the transfer was accepted.
+        rejectDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date the transfer was rejected.
+      description: Data used to transfer a certificate to an Amazon Web Services account.
+    ResourceNotFoundException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    DateType:
+      type: string
+      format: date-time
+    InternalFailureException: {}
+    CustomerVersion:
+      type: integer
+      minimum: 1
+    CreateCertificateFromCsrResponse:
+      type: object
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.
+        certificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The ID of the certificate. Certificate management operations only take a certificateId.
+        certificatePem:
+          allOf:
+          - $ref: '#/components/schemas/CertificatePem'
+          - description: The certificate data, in PEM format.
+      description: The output from the CreateCertificateFromCsr operation.
+    DeleteConflictException: {}
+    ServiceUnavailableException: {}
+    CertificateDescription:
+      type: object
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The ARN of the certificate.
+        certificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The ID of the certificate.
+        caCertificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The certificate ID of the CA certificate used to sign this certificate.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/CertificateStatus'
+          - description: The status of the certificate.
+        certificatePem:
+          allOf:
+          - $ref: '#/components/schemas/CertificatePem'
+          - description: The certificate data, in PEM format.
+        ownedBy:
+          allOf:
+          - $ref: '#/components/schemas/AwsAccountId'
+          - description: The ID of the Amazon Web Services account that owns the certificate.
+        previousOwnedBy:
+          allOf:
+          - $ref: '#/components/schemas/AwsAccountId'
+          - description: The ID of the Amazon Web Services account of the previous owner of the certificate.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date and time the certificate was created.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date and time the certificate was last modified.
+        customerVersion:
+          allOf:
+          - $ref: '#/components/schemas/CustomerVersion'
+          - description: The customer version of the certificate.
+        transferData:
+          allOf:
+          - $ref: '#/components/schemas/TransferData'
+          - description: The transfer data.
+        generationId:
+          allOf:
+          - $ref: '#/components/schemas/GenerationId'
+          - description: The generation ID of the certificate.
+        validity:
+          allOf:
+          - $ref: '#/components/schemas/CertificateValidity'
+          - description: When the certificate is valid.
+        certificateMode:
+          allOf:
+          - $ref: '#/components/schemas/CertificateMode'
+          - description: '<p>The mode of the certificate.</p> <p> <code>DEFAULT</code>: A certificate in <code>DEFAULT</code> mode is either generated by Amazon Web Services IoT Core or registered with an issuer certificate authority (CA) in <code>DEFAULT</code> mode. Devices with certificates in <code>DEFAULT</code> mode aren''t required to send the Server Name Indication (SNI) extension when connecting to Amazon Web Services IoT Core. However, to use features such as custom domains and VPC endpoints, we recommend that you use the SNI extension when connecting to Amazon Web Services IoT Core.</p> <p> <code>SNI_ONLY</code>: A certificate in <code>SNI_ONLY</code> mode is registered without an issuer CA. Devices with certificates in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p> <p>For more information about the value for SNI extension, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html">Transport security in IoT</a>.</p>'
+      description: Describes a certificate.
+    CertificateStateException: {}
+    UnauthorizedException: {}
+    CertificatePem:
+      type: string
+      pattern: '[\s\S]*'
+      description: The PEM of a certificate.
+      minLength: 1
+      maxLength: 65536
+    Certificates:
+      type: array
+      items:
+        $ref: '#/components/schemas/Certificate'
+    Message:
+      type: string
+      pattern: '[\s\S]*'
+      maxLength: 128
+    ThrottlingException: {}
+    DescribeCertificateResponse:
+      type: object
+      properties:
+        certificateDescription:
+          allOf:
+          - $ref: '#/components/schemas/CertificateDescription'
+          - description: The description of the certificate.
+      description: The output of the DescribeCertificate operation.
+    InvalidRequestException: {}
+    CertificateStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - INACTIVE
+      - REVOKED
+      - PENDING_TRANSFER
+      - REGISTER_INACTIVE
+      - PENDING_ACTIVATION
+    Certificate:
+      type: object
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The ARN of the certificate.
+        certificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+        status:
+          allOf:
+          - $ref: '#/components/schemas/CertificateStatus'
+          - description: <p>The status of the certificate.</p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
+        certificateMode:
+          allOf:
+          - $ref: '#/components/schemas/CertificateMode'
+          - description: '<p>The mode of the certificate.</p> <p> <code>DEFAULT</code>: A certificate in <code>DEFAULT</code> mode is either generated by Amazon Web Services IoT Core or registered with an issuer certificate authority (CA) in <code>DEFAULT</code> mode. Devices with certificates in <code>DEFAULT</code> mode aren''t required to send the Server Name Indication (SNI) extension when connecting to Amazon Web Services IoT Core. However, to use features such as custom domains and VPC endpoints, we recommend that you use the SNI extension when connecting to Amazon Web Services IoT Core.</p> <p> <code>SNI_ONLY</code>: A certificate in <code>SNI_ONLY</code> mode is registered without an issuer CA. Devices with certificates in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p>'
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date and time the certificate was created.
+      description: Information about a certificate.
+    CertificateId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
+    AwsAccountId:
+      type: string
+      pattern: '[0-9]+'
+      minLength: 12
+      maxLength: 12
+    GenerationId:
+      type: string
+    CertificateArn:
+      type: string
+    CertificateMode:
+      type: string
+      enum:
+      - DEFAULT
+      - SNI_ONLY
+    ListCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          allOf:
+          - $ref: '#/components/schemas/Certificates'
+          - description: The descriptions of the certificates.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results, or null if there are no additional results.
+      description: The output of the ListCertificates operation.
+    CertificateValidity:
+      type: object
+      properties:
+        notBefore:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The certificate is not valid before this date.
+        notAfter:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The certificate is not valid after this date.
+      description: When the certificate is valid.
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

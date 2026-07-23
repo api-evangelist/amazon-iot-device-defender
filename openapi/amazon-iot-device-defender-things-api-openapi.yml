@@ -1,0 +1,1752 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Things API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Things
+paths:
+  /things/{thingName}/principals#x-amzn-principal:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: AttachThingPrincipal
+      description: <p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, Amazon Cognito identities or federated identities.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachThingPrincipalResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: x-amzn-principal
+        in: header
+        required: true
+        description: The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender Attach Thing Principal
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+    delete:
+      operationId: DetachThingPrincipal
+      description: <p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p> <note> <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p> </note> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetachThingPrincipalResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: x-amzn-principal
+        in: header
+        required: true
+        description: If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender Detach Thing Principal
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}/jobs/{jobId}/cancel:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CancelJobExecution
+      description: <p>Cancels the execution of a job for a given thing.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJobExecution</a> action.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: InvalidStateTransitionException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidStateTransitionException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: VersionConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionConflictException'
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        description: The ID of the job to be canceled.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing whose execution of the job will be canceled.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: force
+        in: query
+        required: false
+        description: <p>(Optional) If <code>true</code> the job execution will be canceled if it has status IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code> will be thrown. The default is <code>false</code>.</p> <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.</p>
+        schema:
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expectedVersion:
+                  description: (Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)
+                  type: integer
+                statusDetails:
+                  description: A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/DetailsValue'
+      summary: Amazon IoT Device Defender Cancel Job Execution
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateThing
+      description: <p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p> <note> <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p> </note> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateThingResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '486':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: <p>The name of the thing to create.</p> <p>You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.</p>
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thingTypeName:
+                  description: The name of the thing type associated with the new thing.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                attributePayload:
+                  description: The attribute payload.
+                  type: object
+                  properties:
+                    attributes:
+                      allOf:
+                      - $ref: '#/components/schemas/Attributes'
+                      - description: <p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\"attributes\":{\"string1\":\"string2\"}}</code> </p>
+                    merge:
+                      allOf:
+                      - $ref: '#/components/schemas/Flag'
+                      - description: <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with the attributes stored in the registry, instead of overwriting them.</p> <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p> <note> <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p> </note>
+                billingGroupName:
+                  description: The name of the billing group the thing will be added to.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+      summary: Amazon IoT Device Defender Create Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+    delete:
+      operationId: DeleteThing
+      description: <p>Deletes the specified thing. Returns successfully with no error if the deletion is successful or you specify a thing that doesn't exist.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteThingResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: VersionConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionConflictException'
+        '482':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '485':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '486':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing to delete.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: expectedVersion
+        in: query
+        required: false
+        description: The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>DeleteThing</code> request is rejected with a <code>VersionConflictException</code>.
+        schema:
+          type: integer
+      summary: Amazon IoT Device Defender Delete Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+    get:
+      operationId: DescribeThing
+      description: <p>Gets information about the specified thing.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeThingResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Describe Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+    patch:
+      operationId: UpdateThing
+      description: <p>Updates the data for a thing.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateThingResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: VersionConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionConflictException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '486':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: <p>The name of the thing to update.</p> <p>You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.</p>
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thingTypeName:
+                  description: The name of the thing type.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                attributePayload:
+                  description: The attribute payload.
+                  type: object
+                  properties:
+                    attributes:
+                      allOf:
+                      - $ref: '#/components/schemas/Attributes'
+                      - description: <p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\"attributes\":{\"string1\":\"string2\"}}</code> </p>
+                    merge:
+                      allOf:
+                      - $ref: '#/components/schemas/Flag'
+                      - description: <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with the attributes stored in the registry, instead of overwriting them.</p> <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p> <note> <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p> </note>
+                expectedVersion:
+                  description: The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>UpdateThing</code> request is rejected with a <code>VersionConflictException</code>.
+                  type: integer
+                removeThingType:
+                  description: Remove a thing type association. If <b>true</b>, the association is removed.
+                  type: boolean
+      summary: Amazon IoT Device Defender Update Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteJobExecution
+      description: <p>Deletes a job execution.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJobExecution</a> action.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: InvalidStateTransitionException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidStateTransitionException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        description: The ID of the job whose execution on a particular device will be deleted.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing whose job execution will be deleted.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: executionNumber
+        in: path
+        required: true
+        description: <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the execution of a particular job on a particular device.</p> <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused by IoT, so be sure you get and use the correct value here.</p>
+        schema:
+          type: integer
+      - name: force
+        in: query
+        required: false
+        description: <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise, you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED", "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</p> <note> <p>Deleting a job execution which is "IN_PROGRESS", will cause the device to be unable to access job information or update the job execution status. Use caution and ensure that the device is able to recover to a valid state.</p> </note>
+        schema:
+          type: boolean
+      - name: namespaceId
+        in: query
+        required: false
+        description: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+      summary: Amazon IoT Device Defender Delete Job Execution
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}/jobs/{jobId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeJobExecution
+      description: <p>Describes a job execution.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeJobExecutionResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        description: The unique identifier you assigned to this job when it was created.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing on which the job execution is running.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: executionNumber
+        in: query
+        required: false
+        description: A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
+        schema:
+          type: integer
+      summary: Amazon IoT Device Defender Describe Job Execution
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}/jobs:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListJobExecutionsForThing
+      description: <p>Lists the job executions for the specified thing.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListJobExecutionsForThingResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: The thing name.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: status
+        in: query
+        required: false
+        description: An optional filter that lets you search for jobs that have the specified status.
+        schema:
+          type: string
+          enum:
+          - QUEUED
+          - IN_PROGRESS
+          - SUCCEEDED
+          - FAILED
+          - TIMED_OUT
+          - REJECTED
+          - REMOVED
+          - CANCELED
+      - name: namespaceId
+        in: query
+        required: false
+        description: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to be returned per request.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: nextToken
+        in: query
+        required: false
+        description: The token to retrieve the next set of results.
+        schema:
+          type: string
+      - name: jobId
+        in: query
+        required: false
+        description: The unique identifier you assigned to this job when it was created.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      summary: Amazon IoT Device Defender List Job Executions for Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}/thing-groups:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListThingGroupsForThing
+      description: <p>List the thing groups to which the specified thing belongs.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroupsForThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListThingGroupsForThingResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+      parameters:
+      - name: thingName
+        in: path
+        required: true
+        description: The thing name.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return at one time.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      summary: Amazon IoT Device Defender List Thing Groups for Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things/{thingName}/principals:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListThingPrincipals
+      description: <p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingPrincipals</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListThingPrincipalsResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in this operation.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: thingName
+        in: path
+        required: true
+        description: The name of the thing.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender List Thing Principals
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+  /things:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListThings
+      description: <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things">List Things</a> from the <i>Amazon Web Services IoT Core Developer Guide</i>.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p> <note> <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p> </note>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListThingsResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in this operation.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: attributeName
+        in: query
+        required: false
+        description: The attribute name used to search for things.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_.,@/:#-]+'
+          maxLength: 128
+      - name: attributeValue
+        in: query
+        required: false
+        description: The attribute value used to search for things.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_.,@/:#-]*'
+          maxLength: 800
+      - name: thingTypeName
+        in: query
+        required: false
+        description: The name of the thing type used to search for things.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      - name: usePrefixAttributeValue
+        in: query
+        required: false
+        description: <p>When <code>true</code>, the action returns the thing resources with attribute values that start with the <code>attributeValue</code> provided.</p> <p>When <code>false</code>, or not present, the action returns only the thing resources with attribute values that match the entire <code>attributeValue</code> provided. </p>
+        schema:
+          type: boolean
+      summary: Amazon IoT Device Defender List Things
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+    post:
+      operationId: RegisterThing
+      description: <p>Provisions a thing in the device registry. RegisterThing calls other IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise your throttling limits if necessary.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterThing</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterThingResponse'
+        '480':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '481':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '482':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '485':
+          description: ConflictingResourceUpdateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictingResourceUpdateException'
+        '486':
+          description: ResourceRegistrationFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceRegistrationFailureException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - templateBody
+              properties:
+                templateBody:
+                  description: The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.
+                  type: string
+                  pattern: '[\s\S]*'
+                  minLength: 0
+                  maxLength: 10240
+                parameters:
+                  description: The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/Value'
+      summary: Amazon IoT Device Defender Register Thing
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Things
+components:
+  schemas:
+    ResourceArn:
+      type: string
+    DescribeJobExecutionResponse:
+      type: object
+      properties:
+        execution:
+          allOf:
+          - $ref: '#/components/schemas/JobExecution'
+          - description: Information about the job execution.
+    ResourceNotFoundException: {}
+    VersionNumber:
+      type: integer
+    InvalidStateTransitionException: {}
+    ThingAttribute:
+      type: object
+      properties:
+        thingName:
+          allOf:
+          - $ref: '#/components/schemas/ThingName'
+          - description: The name of the thing.
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The name of the thing type, if the thing has been associated with a type.
+        thingArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingArn'
+          - description: The thing ARN.
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/Attributes'
+          - description: A list of thing attributes which are name-value pairs.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The version of the thing record in the registry.
+      description: The properties of the thing, including thing name, thing type name, and a list of thing attributes.
+    DateType:
+      type: string
+      format: date-time
+    RegisterThingResponse:
+      type: object
+      properties:
+        certificatePem:
+          allOf:
+          - $ref: '#/components/schemas/CertificatePem'
+          - description: The certificate data, in PEM format.
+        resourceArns:
+          allOf:
+          - $ref: '#/components/schemas/ResourceArns'
+          - description: ARNs for the generated resources.
+    InternalFailureException: {}
+    ThingGroupArn:
+      type: string
+    UpdateThingResponse:
+      type: object
+      properties: {}
+      description: The output from the UpdateThing operation.
+    Attributes:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/AttributeValue'
+    NextToken:
+      type: string
+    ListThingPrincipalsResponse:
+      type: object
+      properties:
+        principals:
+          allOf:
+          - $ref: '#/components/schemas/Principals'
+          - description: The principals associated with the thing.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+      description: The output from the ListThingPrincipals operation.
+    ListJobExecutionsForThingResponse:
+      type: object
+      properties:
+        executionSummaries:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionSummaryForThingList'
+          - description: A list of job execution summaries.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results, or <b>null</b> if there are no additional results.
+    ListThingsResponse:
+      type: object
+      properties:
+        things:
+          allOf:
+          - $ref: '#/components/schemas/ThingAttributeList'
+          - description: The things.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results. Will not be returned if operation has returned all results.
+      description: The output from the ListThings operation.
+    JobExecutionSummaryForThingList:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobExecutionSummaryForThing'
+    PrincipalArn:
+      type: string
+    ServiceUnavailableException: {}
+    ExecutionNumber:
+      type: integer
+    ThingTypeName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    JobExecutionStatus:
+      type: string
+      enum:
+      - QUEUED
+      - IN_PROGRESS
+      - SUCCEEDED
+      - FAILED
+      - TIMED_OUT
+      - REJECTED
+      - REMOVED
+      - CANCELED
+    DetailsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/DetailsValue'
+    ThingName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceAlreadyExistsException: {}
+    RetryAttempt:
+      type: integer
+    UnauthorizedException: {}
+    CertificatePem:
+      type: string
+      pattern: '[\s\S]*'
+      description: The PEM of a certificate.
+      minLength: 1
+      maxLength: 65536
+    ResourceArns:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ResourceArn'
+    CreateThingResponse:
+      type: object
+      properties:
+        thingName:
+          allOf:
+          - $ref: '#/components/schemas/ThingName'
+          - description: The name of the new thing.
+        thingArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingArn'
+          - description: The ARN of the new thing.
+        thingId:
+          allOf:
+          - $ref: '#/components/schemas/ThingId'
+          - description: The thing ID.
+      description: The output of the CreateThing operation.
+    JobId:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      minLength: 1
+      maxLength: 64
+    ClientId:
+      type: string
+    ListThingGroupsForThingResponse:
+      type: object
+      properties:
+        thingGroups:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupNameAndArnList'
+          - description: The thing groups.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+    Flag:
+      type: boolean
+    Principals:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrincipalArn'
+    Value:
+      type: string
+      pattern: '[\s\S]*'
+      minLength: 0
+      maxLength: 4096
+    AttachThingPrincipalResponse:
+      type: object
+      properties: {}
+      description: The output from the AttachThingPrincipal operation.
+    DetailsValue:
+      type: string
+      pattern: '[^\p{C}]+'
+      minLength: 1
+    JobExecutionSummary:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionStatus'
+          - description: The status of the job execution.
+        queuedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job execution was queued.
+        startedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job execution started.
+        lastUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job execution was last updated.
+        executionNumber:
+          allOf:
+          - $ref: '#/components/schemas/ExecutionNumber'
+          - description: A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
+        retryAttempt:
+          allOf:
+          - $ref: '#/components/schemas/RetryAttempt'
+          - description: The number that indicates how many retry attempts have been completed for this job on this device.
+      description: The job execution summary.
+    BillingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ThingGroupNameAndArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GroupNameAndArn'
+    DetachThingPrincipalResponse:
+      type: object
+      properties: {}
+      description: The output from the DetachThingPrincipal operation.
+    ThrottlingException: {}
+    AttributeValue:
+      type: string
+      pattern: '[a-zA-Z0-9_.,@/:#-]*'
+      maxLength: 800
+    JobExecution:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The unique identifier you assigned to the job when it was created.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionStatus'
+          - description: The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
+        forceCanceled:
+          allOf:
+          - $ref: '#/components/schemas/Forced'
+          - description: Will be <code>true</code> if the job execution was canceled with the optional <code>force</code> parameter set to <code>true</code>.
+        statusDetails:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionStatusDetails'
+          - description: A collection of name/value pairs that describe the status of the job execution.
+        thingArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingArn'
+          - description: The ARN of the thing on which the job execution is running.
+        queuedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job execution was queued.
+        startedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job execution started.
+        lastUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job execution was last updated.
+        executionNumber:
+          allOf:
+          - $ref: '#/components/schemas/ExecutionNumber'
+          - description: 'A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. '
+        versionNumber:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+        approximateSecondsBeforeTimedOut:
+          allOf:
+          - $ref: '#/components/schemas/ApproximateSecondsBeforeTimedOut'
+          - description: The estimated number of seconds that remain before the job execution status will be changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will not be included if the job execution has reached a terminal status.
+      description: The job execution object represents the execution of a job on a particular device.
+    ThingAttributeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingAttribute'
+    InvalidRequestException: {}
+    ApproximateSecondsBeforeTimedOut:
+      type: integer
+    JobExecutionStatusDetails:
+      type: object
+      properties:
+        detailsMap:
+          allOf:
+          - $ref: '#/components/schemas/DetailsMap'
+          - description: The job execution status.
+      description: Details of the job execution status.
+    ThingId:
+      type: string
+    GroupNameAndArn:
+      type: object
+      properties:
+        groupName:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupName'
+          - description: The group name.
+        groupArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupArn'
+          - description: The group ARN.
+      description: The name and ARN of a group.
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    DescribeThingResponse:
+      type: object
+      properties:
+        defaultClientId:
+          allOf:
+          - $ref: '#/components/schemas/ClientId'
+          - description: <p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p> <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
+        thingName:
+          allOf:
+          - $ref: '#/components/schemas/ThingName'
+          - description: The name of the thing.
+        thingId:
+          allOf:
+          - $ref: '#/components/schemas/ThingId'
+          - description: The ID of the thing to describe.
+        thingArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingArn'
+          - description: The ARN of the thing to describe.
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The thing type name.
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/Attributes'
+          - description: The thing attributes.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: <p>The current version of the thing record in the registry.</p> <note> <p>To avoid unintentional changes to the information in the registry, you can pass the version information in the <code>expectedVersion</code> parameter of the <code>UpdateThing</code> and <code>DeleteThing</code> calls.</p> </note>
+        billingGroupName:
+          allOf:
+          - $ref: '#/components/schemas/BillingGroupName'
+          - description: The name of the billing group the thing belongs to.
+      description: The output from the DescribeThing operation.
+    ConflictingResourceUpdateException: {}
+    ThingArn:
+      type: string
+    Forced:
+      type: boolean
+    DeleteThingResponse:
+      type: object
+      properties: {}
+      description: The output of the DeleteThing operation.
+    VersionConflictException: {}
+    ResourceRegistrationFailureException: {}
+    Version:
+      type: integer
+    JobExecutionSummaryForThing:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The unique identifier you assigned to this job when it was created.
+        jobExecutionSummary:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionSummary'
+          - description: Contains a subset of information about a job execution.
+      description: The job execution summary for a thing.
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

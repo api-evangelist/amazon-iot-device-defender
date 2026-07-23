@@ -1,0 +1,757 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Cacertificate API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Cacertificate
+paths:
+  /cacertificate/{caCertificateId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteCACertificate
+      description: <p>Deletes a registered CA certificate.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCACertificate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteCACertificateResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: CertificateStateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateStateException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '486':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: caCertificateId
+        in: path
+        required: true
+        description: The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)
+        schema:
+          type: string
+          pattern: (0x)?[a-fA-F0-9]+
+          minLength: 64
+          maxLength: 64
+      summary: Amazon IoT Device Defender Delete C a Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Cacertificate
+    get:
+      operationId: DescribeCACertificate
+      description: <p>Describes a registered CA certificate.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCACertificate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeCACertificateResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: caCertificateId
+        in: path
+        required: true
+        description: The CA certificate identifier.
+        schema:
+          type: string
+          pattern: (0x)?[a-fA-F0-9]+
+          minLength: 64
+          maxLength: 64
+      summary: Amazon IoT Device Defender Describe C a Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Cacertificate
+    put:
+      operationId: UpdateCACertificate
+      description: <p>Updates a registered CA certificate.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCACertificate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: caCertificateId
+        in: path
+        required: true
+        description: The CA certificate identifier.
+        schema:
+          type: string
+          pattern: (0x)?[a-fA-F0-9]+
+          minLength: 64
+          maxLength: 64
+      - name: newStatus
+        in: query
+        required: false
+        description: <p>The updated status of the CA certificate.</p> <p> <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
+      - name: newAutoRegistrationStatus
+        in: query
+        required: false
+        description: 'The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".'
+        schema:
+          type: string
+          enum:
+          - ENABLE
+          - DISABLE
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                registrationConfig:
+                  description: The registration configuration.
+                  type: object
+                  properties:
+                    templateBody:
+                      allOf:
+                      - $ref: '#/components/schemas/TemplateBody'
+                      - description: The template body.
+                    roleArn:
+                      allOf:
+                      - $ref: '#/components/schemas/RoleArn'
+                      - description: The ARN of the role.
+                    templateName:
+                      allOf:
+                      - $ref: '#/components/schemas/TemplateName'
+                      - description: The name of the provisioning template.
+                removeAutoRegistration:
+                  description: If true, removes auto registration.
+                  type: boolean
+      summary: Amazon IoT Device Defender Update C a Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Cacertificate
+  /cacertificate:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: RegisterCACertificate
+      description: <p>Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to the number of CA certificates you can register in your Amazon Web Services account. You can register up to 10 CA certificates with the same <code>CA subject field</code> per Amazon Web Services account.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCACertificate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterCACertificateResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '482':
+          description: RegistrationCodeValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationCodeValidationException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: CertificateValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateValidationException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+        '487':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '488':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '489':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: setAsActive
+        in: query
+        required: false
+        description: '<p>A boolean value that specifies if the CA certificate is set to active.</p> <p>Valid values: <code>ACTIVE | INACTIVE</code> </p>'
+        schema:
+          type: boolean
+      - name: allowAutoRegistration
+        in: query
+        required: false
+        description: Allows this CA certificate to be used for auto registration of device certificates.
+        schema:
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - caCertificate
+              properties:
+                caCertificate:
+                  description: The PEM of a certificate.
+                  type: string
+                  pattern: '[\s\S]*'
+                  minLength: 1
+                  maxLength: 65536
+                verificationCertificate:
+                  description: The PEM of a certificate.
+                  type: string
+                  pattern: '[\s\S]*'
+                  minLength: 1
+                  maxLength: 65536
+                registrationConfig:
+                  description: The registration configuration.
+                  type: object
+                  properties:
+                    templateBody:
+                      allOf:
+                      - $ref: '#/components/schemas/TemplateBody'
+                      - description: The template body.
+                    roleArn:
+                      allOf:
+                      - $ref: '#/components/schemas/RoleArn'
+                      - description: The ARN of the role.
+                    templateName:
+                      allOf:
+                      - $ref: '#/components/schemas/TemplateName'
+                      - description: The name of the provisioning template.
+                tags:
+                  description: '<p>Metadata which can be used to manage the CA certificate.</p> <note> <p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p> <p>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</p> <p>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</p> </note>'
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+                certificateMode:
+                  description: 'Describes the certificate mode in which the Certificate Authority (CA) will be registered. If the <code>verificationCertificate</code> field is not provided, set <code>certificateMode</code> to be <code>SNI_ONLY</code>. If the <code>verificationCertificate</code> field is provided, set <code>certificateMode</code> to be <code>DEFAULT</code>. When <code>certificateMode</code> is not provided, it defaults to <code>DEFAULT</code>. All the device certificates that are registered using this CA will be registered in the same certificate mode as the CA. For more information about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode"> certificate mode</a>. '
+                  type: string
+                  enum:
+                  - DEFAULT
+                  - SNI_ONLY
+      summary: Amazon IoT Device Defender Register C a Certificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Cacertificate
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ResourceNotFoundException: {}
+    RegistrationConfig:
+      type: object
+      properties:
+        templateBody:
+          allOf:
+          - $ref: '#/components/schemas/TemplateBody'
+          - description: The template body.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The ARN of the role.
+        templateName:
+          allOf:
+          - $ref: '#/components/schemas/TemplateName'
+          - description: The name of the provisioning template.
+      description: The registration configuration.
+    DateType:
+      type: string
+      format: date-time
+    InternalFailureException: {}
+    CustomerVersion:
+      type: integer
+      minimum: 1
+    AutoRegistrationStatus:
+      type: string
+      enum:
+      - ENABLE
+      - DISABLE
+    CertificateStateException: {}
+    DeleteCACertificateResponse:
+      type: object
+      properties: {}
+      description: The output for the DeleteCACertificate operation.
+    ServiceUnavailableException: {}
+    ResourceAlreadyExistsException: {}
+    CertificateValidity:
+      type: object
+      properties:
+        notBefore:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The certificate is not valid before this date.
+        notAfter:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The certificate is not valid after this date.
+      description: When the certificate is valid.
+    UnauthorizedException: {}
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    CertificatePem:
+      type: string
+      pattern: '[\s\S]*'
+      description: The PEM of a certificate.
+      minLength: 1
+      maxLength: 65536
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    RegistrationCodeValidationException: {}
+    DescribeCACertificateResponse:
+      type: object
+      properties:
+        certificateDescription:
+          allOf:
+          - $ref: '#/components/schemas/CACertificateDescription'
+          - description: The CA certificate description.
+        registrationConfig:
+          allOf:
+          - $ref: '#/components/schemas/RegistrationConfig'
+          - description: Information about the registration configuration.
+      description: The output from the DescribeCACertificate operation.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    TemplateName:
+      type: string
+      pattern: ^[0-9A-Za-z_-]+$
+      minLength: 1
+      maxLength: 36
+    CACertificateDescription:
+      type: object
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The CA certificate ARN.
+        certificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The CA certificate ID.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/CACertificateStatus'
+          - description: The status of a CA certificate.
+        certificatePem:
+          allOf:
+          - $ref: '#/components/schemas/CertificatePem'
+          - description: The CA certificate data, in PEM format.
+        ownedBy:
+          allOf:
+          - $ref: '#/components/schemas/AwsAccountId'
+          - description: The owner of the CA certificate.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date the CA certificate was created.
+        autoRegistrationStatus:
+          allOf:
+          - $ref: '#/components/schemas/AutoRegistrationStatus'
+          - description: Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date the CA certificate was last modified.
+        customerVersion:
+          allOf:
+          - $ref: '#/components/schemas/CustomerVersion'
+          - description: The customer version of the CA certificate.
+        generationId:
+          allOf:
+          - $ref: '#/components/schemas/GenerationId'
+          - description: The generation ID of the CA certificate.
+        validity:
+          allOf:
+          - $ref: '#/components/schemas/CertificateValidity'
+          - description: When the CA certificate is valid.
+        certificateMode:
+          allOf:
+          - $ref: '#/components/schemas/CertificateMode'
+          - description: <p>The mode of the CA. </p> <p>All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a>.</p>
+      description: Describes a CA certificate.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    CertificateValidationException: {}
+    TemplateBody:
+      type: string
+      pattern: '[\s\S]*'
+      minLength: 0
+      maxLength: 10240
+    ThrottlingException: {}
+    InvalidRequestException: {}
+    CACertificateStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - INACTIVE
+    RegisterCACertificateResponse:
+      type: object
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The CA certificate ARN.
+        certificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The CA certificate identifier.
+      description: The output from the RegisterCACertificateResponse operation.
+    CertificateId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
+    AwsAccountId:
+      type: string
+      pattern: '[0-9]+'
+      minLength: 12
+      maxLength: 12
+    GenerationId:
+      type: string
+    CertificateArn:
+      type: string
+    CertificateMode:
+      type: string
+      enum:
+      - DEFAULT
+      - SNI_ONLY
+    LimitExceededException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

@@ -1,0 +1,725 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Thing Types API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Thing Types
+paths:
+  /thing-types/{thingTypeName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateThingType
+      description: <p>Creates a new thing type.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateThingTypeResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+      parameters:
+      - name: thingTypeName
+        in: path
+        required: true
+        description: The name of the thing type.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thingTypeProperties:
+                  description: 'The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.'
+                  type: object
+                  properties:
+                    thingTypeDescription:
+                      allOf:
+                      - $ref: '#/components/schemas/ThingTypeDescription'
+                      - description: The description of the thing type.
+                    searchableAttributes:
+                      allOf:
+                      - $ref: '#/components/schemas/SearchableAttributes'
+                      - description: A list of searchable thing attribute names.
+                tags:
+                  description: Metadata which can be used to manage the thing type.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      summary: Amazon IoT Device Defender Create Thing Type
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Types
+    delete:
+      operationId: DeleteThingType
+      description: <p>Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingType</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteThingTypeResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingTypeName
+        in: path
+        required: true
+        description: The name of the thing type.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Delete Thing Type
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Types
+    get:
+      operationId: DescribeThingType
+      description: <p>Gets information about the specified thing type.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingType</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeThingTypeResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingTypeName
+        in: path
+        required: true
+        description: The name of the thing type.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Describe Thing Type
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Types
+  /thing-types/{thingTypeName}/deprecate:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: DeprecateThingType
+      description: <p>Deprecates a thing type. You can not associate new things with deprecated thing type.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecateThingTypeResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: thingTypeName
+        in: path
+        required: true
+        description: The name of the thing type to deprecate.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                undoDeprecate:
+                  description: Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can associate it with things.
+                  type: boolean
+      summary: Amazon IoT Device Defender Deprecate Thing Type
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Types
+  /thing-types:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListThingTypes
+      description: <p>Lists the existing thing types.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingTypes</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListThingTypesResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in this operation.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: thingTypeName
+        in: query
+        required: false
+        description: The name of the thing type.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9:_-]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender List Thing Types
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Types
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ResourceNotFoundException: {}
+    ListThingTypesResponse:
+      type: object
+      properties:
+        thingTypes:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeList'
+          - description: The thing types.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results. Will not be returned if operation has returned all results.
+      description: The output for the ListThingTypes operation.
+    InternalFailureException: {}
+    CreationDate:
+      type: string
+      format: date-time
+    ThingTypeDefinition:
+      type: object
+      properties:
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The name of the thing type.
+        thingTypeArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeArn'
+          - description: The thing type ARN.
+        thingTypeProperties:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeProperties'
+          - description: The ThingTypeProperties for the thing type.
+        thingTypeMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeMetadata'
+          - description: 'The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.'
+      description: The definition of the thing type, including thing type name and description.
+    DeprecateThingTypeResponse:
+      type: object
+      properties: {}
+      description: The output for the DeprecateThingType operation.
+    NextToken:
+      type: string
+    ServiceUnavailableException: {}
+    ThingTypeName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceAlreadyExistsException: {}
+    ThingTypeId:
+      type: string
+    UnauthorizedException: {}
+    AttributeName:
+      type: string
+      pattern: '[a-zA-Z0-9_.,@/:#-]+'
+      maxLength: 128
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    Boolean:
+      type: boolean
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    ThingTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingTypeDefinition'
+    DeleteThingTypeResponse:
+      type: object
+      properties: {}
+      description: The output for the DeleteThingType operation.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    CreateThingTypeResponse:
+      type: object
+      properties:
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The name of the thing type.
+        thingTypeArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeArn'
+          - description: The Amazon Resource Name (ARN) of the thing type.
+        thingTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeId'
+          - description: The thing type ID.
+      description: The output of the CreateThingType operation.
+    ThrottlingException: {}
+    DescribeThingTypeResponse:
+      type: object
+      properties:
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The name of the thing type.
+        thingTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeId'
+          - description: The thing type ID.
+        thingTypeArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeArn'
+          - description: The thing type ARN.
+        thingTypeProperties:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeProperties'
+          - description: The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
+        thingTypeMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeMetadata'
+          - description: 'The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.'
+      description: The output for the DescribeThingType operation.
+    ThingTypeProperties:
+      type: object
+      properties:
+        thingTypeDescription:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeDescription'
+          - description: The description of the thing type.
+        searchableAttributes:
+          allOf:
+          - $ref: '#/components/schemas/SearchableAttributes'
+          - description: A list of searchable thing attribute names.
+      description: 'The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.'
+    InvalidRequestException: {}
+    ThingTypeDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 2028
+    SearchableAttributes:
+      type: array
+      items:
+        $ref: '#/components/schemas/AttributeName'
+    ThingTypeArn:
+      type: string
+    ThingTypeMetadata:
+      type: object
+      properties:
+        deprecated:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Whether the thing type is deprecated. If <b>true</b>, no new things could be associated with this type.
+        deprecationDate:
+          allOf:
+          - $ref: '#/components/schemas/DeprecationDate'
+          - description: The date and time when the thing type was deprecated.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The date and time when the thing type was created.
+      description: 'The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.'
+    DeprecationDate:
+      type: string
+      format: date-time
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

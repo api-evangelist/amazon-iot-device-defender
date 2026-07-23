@@ -1,0 +1,715 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Destinations API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Destinations
+paths:
+  /destinations:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateTopicRuleDestination
+      description: <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateTopicRuleDestinationResponse'
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: ConflictingResourceUpdateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictingResourceUpdateException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - destinationConfiguration
+              properties:
+                destinationConfiguration:
+                  description: Configuration of the topic rule destination.
+                  type: object
+                  properties:
+                    httpUrlConfiguration:
+                      allOf:
+                      - $ref: '#/components/schemas/HttpUrlDestinationConfiguration'
+                      - description: Configuration of the HTTP URL.
+                    vpcConfiguration:
+                      allOf:
+                      - $ref: '#/components/schemas/VpcDestinationConfiguration'
+                      - description: Configuration of the virtual private cloud (VPC) connection.
+      summary: Amazon IoT Device Defender Create Topic Rule Destination
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Destinations
+    get:
+      operationId: ListTopicRuleDestinations
+      description: <p>Lists all the topic rule destinations in your Amazon Web Services account.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRuleDestinations</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTopicRuleDestinationsResponse'
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return at one time.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender List Topic Rule Destinations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Destinations
+    patch:
+      operationId: UpdateTopicRuleDestination
+      description: <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or confirmation URL of the destination.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateTopicRuleDestinationResponse'
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ConflictingResourceUpdateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictingResourceUpdateException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - arn
+              - status
+              properties:
+                arn:
+                  description: The ARN of the topic rule destination.
+                  type: string
+                status:
+                  description: <p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>
+                  type: string
+                  enum:
+                  - ENABLED
+                  - IN_PROGRESS
+                  - DISABLED
+                  - ERROR
+                  - DELETING
+      summary: Amazon IoT Device Defender Update Topic Rule Destination
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Destinations
+  /destinations/{arn}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteTopicRuleDestination
+      description: <p>Deletes a topic rule destination.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteTopicRuleDestinationResponse'
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ConflictingResourceUpdateException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictingResourceUpdateException'
+      parameters:
+      - name: arn
+        in: path
+        required: true
+        description: The ARN of the topic rule destination to delete.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender Delete Topic Rule Destination
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Destinations
+    get:
+      operationId: GetTopicRuleDestination
+      description: <p>Gets information about a topic rule destination.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTopicRuleDestinationResponse'
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+      parameters:
+      - name: arn
+        in: path
+        required: true
+        description: The ARN of the topic rule destination.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender Get Topic Rule Destination
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Destinations
+components:
+  schemas:
+    TopicRuleDestinationSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/TopicRuleDestinationSummary'
+    TopicRuleDestinationSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The topic rule destination ARN.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/TopicRuleDestinationStatus'
+          - description: <p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/CreatedAtDate'
+          - description: The date and time when the topic rule destination was created.
+        lastUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedAtDate'
+          - description: The date and time when the topic rule destination was last updated.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason the topic rule destination is in the current status.
+        httpUrlSummary:
+          allOf:
+          - $ref: '#/components/schemas/HttpUrlDestinationSummary'
+          - description: Information about the HTTP URL.
+        vpcDestinationSummary:
+          allOf:
+          - $ref: '#/components/schemas/VpcDestinationSummary'
+          - description: Information about the virtual private cloud (VPC) connection.
+      description: Information about the topic rule destination.
+    CreatedAtDate:
+      type: string
+      format: date-time
+    GetTopicRuleDestinationResponse:
+      type: object
+      properties:
+        topicRuleDestination:
+          allOf:
+          - $ref: '#/components/schemas/TopicRuleDestination'
+          - description: The topic rule destination.
+    HttpUrlDestinationProperties:
+      type: object
+      properties:
+        confirmationUrl:
+          allOf:
+          - $ref: '#/components/schemas/Url'
+          - description: The URL used to confirm the HTTP topic rule destination URL.
+      description: HTTP URL destination properties.
+    ListTopicRuleDestinationsResponse:
+      type: object
+      properties:
+        destinationSummaries:
+          allOf:
+          - $ref: '#/components/schemas/TopicRuleDestinationSummaries'
+          - description: Information about a topic rule destination.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+    InternalException: {}
+    NextToken:
+      type: string
+    CreateTopicRuleDestinationResponse:
+      type: object
+      properties:
+        topicRuleDestination:
+          allOf:
+          - $ref: '#/components/schemas/TopicRuleDestination'
+          - description: The topic rule destination.
+    ServiceUnavailableException: {}
+    ResourceAlreadyExistsException: {}
+    UnauthorizedException: {}
+    UpdateTopicRuleDestinationResponse:
+      type: object
+      properties: {}
+    SubnetIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/SubnetId'
+    TopicRuleDestination:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The topic rule destination URL.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/TopicRuleDestinationStatus'
+          - description: <p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/CreatedAtDate'
+          - description: The date and time when the topic rule destination was created.
+        lastUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedAtDate'
+          - description: The date and time when the topic rule destination was last updated.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Additional details or reason why the topic rule destination is in the current status.
+        httpUrlProperties:
+          allOf:
+          - $ref: '#/components/schemas/HttpUrlDestinationProperties'
+          - description: Properties of the HTTP URL.
+        vpcProperties:
+          allOf:
+          - $ref: '#/components/schemas/VpcDestinationProperties'
+          - description: Properties of the virtual private cloud (VPC) connection.
+      description: A topic rule destination.
+    DeleteTopicRuleDestinationResponse:
+      type: object
+      properties: {}
+    Url:
+      type: string
+      maxLength: 2000
+    LastUpdatedAtDate:
+      type: string
+      format: date-time
+    InvalidRequestException: {}
+    String:
+      type: string
+    VpcId:
+      type: string
+    SecurityGroupId:
+      type: string
+    VpcDestinationProperties:
+      type: object
+      properties:
+        subnetIds:
+          allOf:
+          - $ref: '#/components/schemas/SubnetIdList'
+          - description: The subnet IDs of the VPC destination.
+        securityGroups:
+          allOf:
+          - $ref: '#/components/schemas/SecurityGroupList'
+          - description: The security groups of the VPC destination.
+        vpcId:
+          allOf:
+          - $ref: '#/components/schemas/VpcId'
+          - description: The ID of the VPC.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+      description: The properties of a virtual private cloud (VPC) destination.
+    VpcDestinationConfiguration:
+      type: object
+      required:
+      - subnetIds
+      - vpcId
+      - roleArn
+      properties:
+        subnetIds:
+          allOf:
+          - $ref: '#/components/schemas/SubnetIdList'
+          - description: The subnet IDs of the VPC destination.
+        securityGroups:
+          allOf:
+          - $ref: '#/components/schemas/SecurityGroupList'
+          - description: The security groups of the VPC destination.
+        vpcId:
+          allOf:
+          - $ref: '#/components/schemas/VpcId'
+          - description: The ID of the VPC.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+      description: The configuration information for a virtual private cloud (VPC) destination.
+    ConflictingResourceUpdateException: {}
+    HttpUrlDestinationSummary:
+      type: object
+      properties:
+        confirmationUrl:
+          allOf:
+          - $ref: '#/components/schemas/Url'
+          - description: The URL used to confirm ownership of or access to the HTTP topic rule destination URL.
+      description: Information about an HTTP URL destination.
+    VpcDestinationSummary:
+      type: object
+      properties:
+        subnetIds:
+          allOf:
+          - $ref: '#/components/schemas/SubnetIdList'
+          - description: The subnet IDs of the VPC destination.
+        securityGroups:
+          allOf:
+          - $ref: '#/components/schemas/SecurityGroupList'
+          - description: The security groups of the VPC destination.
+        vpcId:
+          allOf:
+          - $ref: '#/components/schemas/VpcId'
+          - description: The ID of the VPC.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+      description: The summary of a virtual private cloud (VPC) destination.
+    HttpUrlDestinationConfiguration:
+      type: object
+      required:
+      - confirmationUrl
+      properties:
+        confirmationUrl:
+          allOf:
+          - $ref: '#/components/schemas/Url'
+          - description: The URL IoT uses to confirm ownership of or access to the topic rule destination URL.
+      description: HTTP URL destination configuration used by the topic rule's HTTP action.
+    TopicRuleDestinationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - IN_PROGRESS
+      - DISABLED
+      - ERROR
+      - DELETING
+    SecurityGroupList:
+      type: array
+      items:
+        $ref: '#/components/schemas/SecurityGroupId'
+    SubnetId:
+      type: string
+    AwsArn:
+      type: string
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

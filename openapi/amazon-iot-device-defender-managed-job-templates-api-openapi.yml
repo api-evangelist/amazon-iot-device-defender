@@ -1,0 +1,452 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Managed Job Templates API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Managed Job Templates
+paths:
+  /managed-job-templates/{templateName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeManagedJobTemplate
+      description: View details of a managed job template.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeManagedJobTemplateResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: templateName
+        in: path
+        required: true
+        description: The unique name of a managed job template, which is required.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 64
+      - name: templateVersion
+        in: query
+        required: false
+        description: An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.
+        schema:
+          type: string
+          pattern: ^[1-9]+.[0-9]+
+      summary: Amazon IoT Device Defender Describe Managed Job Template
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Managed Job Templates
+  /managed-job-templates:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListManagedJobTemplates
+      description: Returns a list of managed job templates.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListManagedJobTemplatesResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: templateName
+        in: query
+        required: false
+        description: An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 64
+      - name: maxResults
+        in: query
+        required: false
+        description: Maximum number of entries that can be returned.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: nextToken
+        in: query
+        required: false
+        description: The token to retrieve the next set of results.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender List Managed Job Templates
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Managed Job Templates
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    Example:
+      type: string
+      pattern: '[^\p{C}]+'
+    ResourceNotFoundException: {}
+    ManagedTemplateVersion:
+      type: string
+      pattern: ^[1-9]+.[0-9]+
+    JobDescription:
+      type: string
+      pattern: '[^\p{C}]+'
+      maxLength: 2028
+    NextToken:
+      type: string
+    ParameterKey:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      minLength: 1
+      maxLength: 128
+    InternalServerException: {}
+    DocumentParameter:
+      type: object
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/ParameterKey'
+          - description: Key of the map field containing the patterns that need to be replaced in a managed template job document schema.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/JobDescription'
+          - description: Description of the map field containing the patterns that need to be replaced in a managed template job document schema.
+        regex:
+          allOf:
+          - $ref: '#/components/schemas/Regex'
+          - description: A regular expression of the patterns that need to be replaced in a managed template job document schema.
+        example:
+          allOf:
+          - $ref: '#/components/schemas/Example'
+          - description: An example illustrating a pattern that need to be replaced in a managed template job document schema.
+        optional:
+          allOf:
+          - $ref: '#/components/schemas/Optional'
+          - description: Specifies whether a pattern that needs to be replaced in a managed template job document schema is optional or required.
+      description: <p>A map of key-value pairs containing the patterns that need to be replaced in a managed template job document schema. You can use the description of each key as a guidance to specify the inputs during runtime when creating a job.</p> <note> <p> <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services managed templates. This parameter can't be used with custom job templates or to create jobs from them.</p> </note>
+    Environments:
+      type: array
+      items:
+        $ref: '#/components/schemas/Environment'
+    ManagedJobTemplateName:
+      type: string
+      minLength: 1
+      maxLength: 64
+    JobTemplateArn:
+      type: string
+      pattern: ^arn:[!-~]+$
+      minLength: 1
+      maxLength: 1600
+    JobDocument:
+      type: string
+      maxLength: 32768
+    ListManagedJobTemplatesResponse:
+      type: object
+      properties:
+        managedJobTemplates:
+          allOf:
+          - $ref: '#/components/schemas/ManagedJobTemplatesSummaryList'
+          - description: A list of managed job templates that are returned.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to retrieve the next set of results.
+    ManagedJobTemplateSummary:
+      type: object
+      properties:
+        templateArn:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateArn'
+          - description: The Amazon Resource Name (ARN) for a managed template.
+        templateName:
+          allOf:
+          - $ref: '#/components/schemas/ManagedJobTemplateName'
+          - description: The unique Name for a managed template.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/JobDescription'
+          - description: The description for a managed template.
+        environments:
+          allOf:
+          - $ref: '#/components/schemas/Environments'
+          - description: A list of environments that are supported with the managed job template.
+        templateVersion:
+          allOf:
+          - $ref: '#/components/schemas/ManagedTemplateVersion'
+          - description: The version for a managed template.
+      description: An object that contains information about the managed template.
+    ThrottlingException: {}
+    InvalidRequestException: {}
+    Optional:
+      type: boolean
+    Environment:
+      type: string
+      pattern: '[^\p{C}]+'
+    ManagedJobTemplatesSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ManagedJobTemplateSummary'
+    DescribeManagedJobTemplateResponse:
+      type: object
+      properties:
+        templateName:
+          allOf:
+          - $ref: '#/components/schemas/ManagedJobTemplateName'
+          - description: The unique name of a managed template, such as <code>AWS-Reboot</code>.
+        templateArn:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateArn'
+          - description: The unique Amazon Resource Name (ARN) of the managed template.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/JobDescription'
+          - description: The unique description of a managed template.
+        templateVersion:
+          allOf:
+          - $ref: '#/components/schemas/ManagedTemplateVersion'
+          - description: The version for a managed template.
+        environments:
+          allOf:
+          - $ref: '#/components/schemas/Environments'
+          - description: A list of environments that are supported with the managed job template.
+        documentParameters:
+          allOf:
+          - $ref: '#/components/schemas/DocumentParameters'
+          - description: <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating a job from a managed template.</p> <note> <p> <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services managed templates. This parameter can't be used with custom job templates or to create jobs from them.</p> </note>
+        document:
+          allOf:
+          - $ref: '#/components/schemas/JobDocument'
+          - description: The document schema for a managed job template.
+    DocumentParameters:
+      type: array
+      items:
+        $ref: '#/components/schemas/DocumentParameter'
+    Regex:
+      type: string
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

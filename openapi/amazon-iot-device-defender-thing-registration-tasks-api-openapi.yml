@@ -1,0 +1,686 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Thing Registration Tasks API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Thing Registration Tasks
+paths:
+  /thing-registration-tasks/{taskId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeThingRegistrationTask
+      description: <p>Describes a bulk thing provisioning task.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeThingRegistrationTaskResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        description: The task ID.
+        schema:
+          type: string
+          maxLength: 40
+      summary: Amazon IoT Device Defender Describe Thing Registration Task
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Registration Tasks
+  /thing-registration-tasks/{taskId}/reports#reportType:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListThingRegistrationTaskReports
+      description: Information about the thing registration tasks.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListThingRegistrationTaskReportsResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        description: The id of the task.
+        schema:
+          type: string
+          maxLength: 40
+      - name: reportType
+        in: query
+        required: true
+        description: The type of task report.
+        schema:
+          type: string
+          enum:
+          - ERRORS
+          - RESULTS
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return per request.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      summary: Amazon IoT Device Defender List Thing Registration Task Reports
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Registration Tasks
+  /thing-registration-tasks:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListThingRegistrationTasks
+      description: <p>List bulk thing provisioning tasks.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingRegistrationTasks</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListThingRegistrationTasksResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: nextToken
+        in: query
+        required: false
+        description: To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return at one time.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: status
+        in: query
+        required: false
+        description: The status of the bulk thing provisioning task.
+        schema:
+          type: string
+          enum:
+          - InProgress
+          - Completed
+          - Failed
+          - Cancelled
+          - Cancelling
+      summary: Amazon IoT Device Defender List Thing Registration Tasks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Registration Tasks
+    post:
+      operationId: StartThingRegistrationTask
+      description: <p>Creates a bulk thing provisioning task.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartThingRegistrationTaskResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - templateBody
+              - inputFileBucket
+              - inputFileKey
+              - roleArn
+              properties:
+                templateBody:
+                  description: The provisioning template.
+                  type: string
+                  pattern: '[\s\S]*'
+                  minLength: 0
+                  maxLength: 10240
+                inputFileBucket:
+                  description: The S3 bucket that contains the input file.
+                  type: string
+                  pattern: '[a-zA-Z0-9._-]+'
+                  minLength: 3
+                  maxLength: 256
+                inputFileKey:
+                  description: The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
+                  type: string
+                  pattern: '[a-zA-Z0-9!_.*''()-\/]+'
+                  minLength: 1
+                  maxLength: 1024
+                roleArn:
+                  description: The IAM role ARN that grants permission the input file.
+                  type: string
+                  minLength: 20
+                  maxLength: 2048
+      summary: Amazon IoT Device Defender Start Thing Registration Task
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Registration Tasks
+  /thing-registration-tasks/{taskId}/cancel:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: StopThingRegistrationTask
+      description: <p>Cancels a bulk thing provisioning task.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopThingRegistrationTask</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StopThingRegistrationTaskResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        description: The bulk thing provisioning task ID.
+        schema:
+          type: string
+          maxLength: 40
+      summary: Amazon IoT Device Defender Stop Thing Registration Task
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Thing Registration Tasks
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    TaskIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/TaskId'
+    ResourceNotFoundException: {}
+    Count:
+      type: integer
+    S3FileUrl:
+      type: string
+      maxLength: 65535
+    InternalFailureException: {}
+    ReportType:
+      type: string
+      enum:
+      - ERRORS
+      - RESULTS
+    CreationDate:
+      type: string
+      format: date-time
+    NextToken:
+      type: string
+    ErrorMessage:
+      type: string
+      maxLength: 2048
+    RegistryS3KeyName:
+      type: string
+      pattern: '[a-zA-Z0-9!_.*''()-\/]+'
+      minLength: 1
+      maxLength: 1024
+    Percentage:
+      type: integer
+      minimum: 0
+      maximum: 100
+    StartThingRegistrationTaskResponse:
+      type: object
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/TaskId'
+          - description: The bulk thing provisioning task ID.
+    UnauthorizedException: {}
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    RegistryS3BucketName:
+      type: string
+      pattern: '[a-zA-Z0-9._-]+'
+      minLength: 3
+      maxLength: 256
+    TaskId:
+      type: string
+      maxLength: 40
+    ListThingRegistrationTasksResponse:
+      type: object
+      properties:
+        taskIds:
+          allOf:
+          - $ref: '#/components/schemas/TaskIdList'
+          - description: A list of bulk thing provisioning task IDs.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+    Status:
+      type: string
+      enum:
+      - InProgress
+      - Completed
+      - Failed
+      - Cancelled
+      - Cancelling
+    TemplateBody:
+      type: string
+      pattern: '[\s\S]*'
+      minLength: 0
+      maxLength: 10240
+    ThrottlingException: {}
+    DescribeThingRegistrationTaskResponse:
+      type: object
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/TaskId'
+          - description: The task ID.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The task creation date.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/LastModifiedDate'
+          - description: The date when the task was last modified.
+        templateBody:
+          allOf:
+          - $ref: '#/components/schemas/TemplateBody'
+          - description: The task's template.
+        inputFileBucket:
+          allOf:
+          - $ref: '#/components/schemas/RegistryS3BucketName'
+          - description: The S3 bucket that contains the input file.
+        inputFileKey:
+          allOf:
+          - $ref: '#/components/schemas/RegistryS3KeyName'
+          - description: The input file key.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The role ARN that grants access to the input file bucket.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/Status'
+          - description: The status of the bulk thing provisioning task.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The message.
+        successCount:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The number of things successfully provisioned.
+        failureCount:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The number of things that failed to be provisioned.
+        percentageProgress:
+          allOf:
+          - $ref: '#/components/schemas/Percentage'
+          - description: The progress of the bulk provisioning task expressed as a percentage.
+    InvalidRequestException: {}
+    ListThingRegistrationTaskReportsResponse:
+      type: object
+      properties:
+        resourceLinks:
+          allOf:
+          - $ref: '#/components/schemas/S3FileUrlList'
+          - description: Links to the task resources.
+        reportType:
+          allOf:
+          - $ref: '#/components/schemas/ReportType'
+          - description: The type of task report.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+    StopThingRegistrationTaskResponse:
+      type: object
+      properties: {}
+    LastModifiedDate:
+      type: string
+      format: date-time
+    S3FileUrlList:
+      type: array
+      items:
+        $ref: '#/components/schemas/S3FileUrl'
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

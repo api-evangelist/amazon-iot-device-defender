@@ -1,0 +1,847 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Fleet Metric API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Fleet Metric
+paths:
+  /fleet-metric/{metricName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CreateFleetMetric
+      description: <p>Creates a fleet metric.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateFleetMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFleetMetricResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+        '486':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '487':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '488':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '489':
+          description: InvalidAggregationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidAggregationException'
+        '490':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: The name of the fleet metric to create.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_\-\.]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - queryString
+              - aggregationType
+              - period
+              - aggregationField
+              properties:
+                queryString:
+                  description: The search query string.
+                  type: string
+                  minLength: 1
+                aggregationType:
+                  description: The type of aggregation queries.
+                  type: object
+                  properties:
+                    name:
+                      allOf:
+                      - $ref: '#/components/schemas/AggregationTypeName'
+                      - description: The name of the aggregation type.
+                    values:
+                      allOf:
+                      - $ref: '#/components/schemas/AggregationTypeValues'
+                      - description: A list of the values of aggregation types.
+                period:
+                  description: The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.
+                  type: integer
+                  minimum: 60
+                  maximum: 86400
+                aggregationField:
+                  description: The field to aggregate.
+                  type: string
+                  minLength: 1
+                description:
+                  description: The fleet metric description.
+                  type: string
+                  pattern: '[\p{Graph}\x20]*'
+                  maxLength: 1024
+                queryVersion:
+                  description: The query version.
+                  type: string
+                indexName:
+                  description: The name of the index to search.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                unit:
+                  description: Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.
+                  type: string
+                  enum:
+                  - Seconds
+                  - Microseconds
+                  - Milliseconds
+                  - Bytes
+                  - Kilobytes
+                  - Megabytes
+                  - Gigabytes
+                  - Terabytes
+                  - Bits
+                  - Kilobits
+                  - Megabits
+                  - Gigabits
+                  - Terabits
+                  - Percent
+                  - Count
+                  - Bytes/Second
+                  - Kilobytes/Second
+                  - Megabytes/Second
+                  - Gigabytes/Second
+                  - Terabytes/Second
+                  - Bits/Second
+                  - Kilobits/Second
+                  - Megabits/Second
+                  - Gigabits/Second
+                  - Terabits/Second
+                  - Count/Second
+                  - None
+                tags:
+                  description: Metadata, which can be used to manage the fleet metric.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      summary: Amazon IoT Device Defender Create Fleet Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Fleet Metric
+    delete:
+      operationId: DeleteFleetMetric
+      description: <p>Deletes the specified fleet metric. Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteFleetMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: VersionConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionConflictException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: The name of the fleet metric to delete.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_\-\.]+'
+          minLength: 1
+          maxLength: 128
+      - name: expectedVersion
+        in: query
+        required: false
+        description: The expected version of the fleet metric to delete.
+        schema:
+          type: integer
+      summary: Amazon IoT Device Defender Delete Fleet Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Fleet Metric
+    get:
+      operationId: DescribeFleetMetric
+      description: <p>Gets information about the specified fleet metric.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeFleetMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeFleetMetricResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: The name of the fleet metric to describe.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_\-\.]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT Device Defender Describe Fleet Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Fleet Metric
+    patch:
+      operationId: UpdateFleetMetric
+      description: <p>Updates the data for a fleet metric.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateFleetMetric</a> action.</p>
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: InvalidQueryException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidQueryException'
+        '487':
+          description: InvalidAggregationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidAggregationException'
+        '488':
+          description: VersionConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionConflictException'
+        '489':
+          description: IndexNotReadyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexNotReadyException'
+      parameters:
+      - name: metricName
+        in: path
+        required: true
+        description: The name of the fleet metric to update.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_\-\.]+'
+          minLength: 1
+          maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - indexName
+              properties:
+                queryString:
+                  description: The search query string.
+                  type: string
+                  minLength: 1
+                aggregationType:
+                  description: The type of aggregation queries.
+                  type: object
+                  properties:
+                    name:
+                      allOf:
+                      - $ref: '#/components/schemas/AggregationTypeName'
+                      - description: The name of the aggregation type.
+                    values:
+                      allOf:
+                      - $ref: '#/components/schemas/AggregationTypeValues'
+                      - description: A list of the values of aggregation types.
+                period:
+                  description: The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.
+                  type: integer
+                  minimum: 60
+                  maximum: 86400
+                aggregationField:
+                  description: The field to aggregate.
+                  type: string
+                  minLength: 1
+                description:
+                  description: The description of the fleet metric.
+                  type: string
+                  pattern: '[\p{Graph}\x20]*'
+                  maxLength: 1024
+                queryVersion:
+                  description: The version of the query.
+                  type: string
+                indexName:
+                  description: The name of the index to search.
+                  type: string
+                  pattern: '[a-zA-Z0-9:_-]+'
+                  minLength: 1
+                  maxLength: 128
+                unit:
+                  description: Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.
+                  type: string
+                  enum:
+                  - Seconds
+                  - Microseconds
+                  - Milliseconds
+                  - Bytes
+                  - Kilobytes
+                  - Megabytes
+                  - Gigabytes
+                  - Terabytes
+                  - Bits
+                  - Kilobits
+                  - Megabits
+                  - Gigabits
+                  - Terabits
+                  - Percent
+                  - Count
+                  - Bytes/Second
+                  - Kilobytes/Second
+                  - Megabytes/Second
+                  - Gigabytes/Second
+                  - Terabytes/Second
+                  - Bits/Second
+                  - Kilobits/Second
+                  - Megabits/Second
+                  - Gigabits/Second
+                  - Terabits/Second
+                  - Count/Second
+                  - None
+                expectedVersion:
+                  description: The expected version of the fleet metric record in the registry.
+                  type: integer
+      summary: Amazon IoT Device Defender Update Fleet Metric
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Fleet Metric
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    AggregationTypeName:
+      type: string
+      enum:
+      - Statistics
+      - Percentiles
+      - Cardinality
+    ResourceNotFoundException: {}
+    FleetMetricPeriod:
+      type: integer
+      minimum: 60
+      maximum: 86400
+    FleetMetricArn:
+      type: string
+    InternalFailureException: {}
+    CreationDate:
+      type: string
+      format: date-time
+    ServiceUnavailableException: {}
+    AggregationTypeValue:
+      type: string
+      pattern: '[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 12
+    ResourceAlreadyExistsException: {}
+    UnauthorizedException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    QueryVersion:
+      type: string
+    AggregationField:
+      type: string
+      minLength: 1
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    AggregationTypeValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/AggregationTypeValue'
+    FleetMetricUnit:
+      type: string
+      enum:
+      - Seconds
+      - Microseconds
+      - Milliseconds
+      - Bytes
+      - Kilobytes
+      - Megabytes
+      - Gigabytes
+      - Terabytes
+      - Bits
+      - Kilobits
+      - Megabits
+      - Gigabits
+      - Terabits
+      - Percent
+      - Count
+      - Bytes/Second
+      - Kilobytes/Second
+      - Megabytes/Second
+      - Gigabytes/Second
+      - Terabytes/Second
+      - Bits/Second
+      - Kilobits/Second
+      - Megabits/Second
+      - Gigabits/Second
+      - Terabits/Second
+      - Count/Second
+      - None
+    ThrottlingException: {}
+    InvalidQueryException: {}
+    InvalidRequestException: {}
+    QueryString:
+      type: string
+      minLength: 1
+    AggregationType:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/AggregationTypeName'
+          - description: The name of the aggregation type.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/AggregationTypeValues'
+          - description: A list of the values of aggregation types.
+      description: The type of aggregation queries.
+    FleetMetricName:
+      type: string
+      pattern: '[a-zA-Z0-9_\-\.]+'
+      minLength: 1
+      maxLength: 128
+    CreateFleetMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricName'
+          - description: The name of the fleet metric to create.
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricArn'
+          - description: The Amazon Resource Name (ARN) of the new fleet metric.
+    IndexNotReadyException: {}
+    IndexName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    DescribeFleetMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricName'
+          - description: The name of the fleet metric to describe.
+        queryString:
+          allOf:
+          - $ref: '#/components/schemas/QueryString'
+          - description: The search query string.
+        aggregationType:
+          allOf:
+          - $ref: '#/components/schemas/AggregationType'
+          - description: The type of the aggregation query.
+        period:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricPeriod'
+          - description: The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.
+        aggregationField:
+          allOf:
+          - $ref: '#/components/schemas/AggregationField'
+          - description: The field to aggregate.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricDescription'
+          - description: The fleet metric description.
+        queryVersion:
+          allOf:
+          - $ref: '#/components/schemas/QueryVersion'
+          - description: The query version.
+        indexName:
+          allOf:
+          - $ref: '#/components/schemas/IndexName'
+          - description: The name of the index to search.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The date when the fleet metric is created.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/LastModifiedDate'
+          - description: The date when the fleet metric is last modified.
+        unit:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricUnit'
+          - description: Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The version of the fleet metric.
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricArn'
+          - description: The ARN of the fleet metric to describe.
+    VersionConflictException: {}
+    LastModifiedDate:
+      type: string
+      format: date-time
+    Version:
+      type: integer
+    FleetMetricDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 1024
+    LimitExceededException: {}
+    InvalidAggregationException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

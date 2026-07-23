@@ -1,0 +1,841 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Job Templates API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Job Templates
+paths:
+  /job-templates/{jobTemplateId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CreateJobTemplate
+      description: <p>Creates a job template.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateJobTemplateResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '483':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+        '484':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: jobTemplateId
+        in: path
+        required: true
+        description: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - description
+              properties:
+                jobArn:
+                  description: The ARN of the job to use as the basis for the job template.
+                  type: string
+                documentSource:
+                  description: <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p> <note> <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p> <p>The placeholder link is of the following form:</p> <p> <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code> </p> <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p> </note>
+                  type: string
+                  minLength: 1
+                  maxLength: 1350
+                document:
+                  description: The job document. Required if you don't specify a value for <code>documentSource</code>.
+                  type: string
+                  maxLength: 32768
+                description:
+                  description: A description of the job document.
+                  type: string
+                  pattern: '[^\p{C}]+'
+                  maxLength: 2028
+                presignedUrlConfig:
+                  description: Configuration for pre-signed S3 URLs.
+                  type: object
+                  properties:
+                    roleArn:
+                      allOf:
+                      - $ref: '#/components/schemas/RoleArn'
+                      - description: <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p> <important> <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p> </important>
+                    expiresInSec:
+                      allOf:
+                      - $ref: '#/components/schemas/ExpiresInSec'
+                      - description: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
+                jobExecutionsRolloutConfig:
+                  description: Allows you to create a staged rollout of a job.
+                  type: object
+                  properties:
+                    maximumPerMinute:
+                      allOf:
+                      - $ref: '#/components/schemas/MaxJobExecutionsPerMin'
+                      - description: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+                    exponentialRate:
+                      allOf:
+                      - $ref: '#/components/schemas/ExponentialRolloutRate'
+                      - description: The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+                abortConfig:
+                  description: The criteria that determine when and how a job abort takes place.
+                  type: object
+                  properties:
+                    criteriaList:
+                      allOf:
+                      - $ref: '#/components/schemas/AbortCriteriaList'
+                      - description: The list of criteria that determine when and how to abort the job.
+                timeoutConfig:
+                  description: Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+                  type: object
+                  properties:
+                    inProgressTimeoutInMinutes:
+                      allOf:
+                      - $ref: '#/components/schemas/InProgressTimeoutInMinutes'
+                      - description: Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code> status.
+                tags:
+                  description: Metadata that can be used to manage the job template.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+                jobExecutionsRetryConfig:
+                  description: The configuration that determines how many retries are allowed for each failure type for a job.
+                  type: object
+                  properties:
+                    criteriaList:
+                      allOf:
+                      - $ref: '#/components/schemas/RetryCriteriaList'
+                      - description: The list of criteria that determines how many retries are allowed for each failure type for a job.
+                maintenanceWindows:
+                  description: Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MaintenanceWindow'
+      summary: Amazon IoT Device Defender Create Job Template
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Job Templates
+    delete:
+      operationId: DeleteJobTemplate
+      description: Deletes the specified job template.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: jobTemplateId
+        in: path
+        required: true
+        description: The unique identifier of the job template to delete.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      summary: Amazon IoT Device Defender Delete Job Template
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Job Templates
+    get:
+      operationId: DescribeJobTemplate
+      description: Returns information about a job template.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeJobTemplateResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: jobTemplateId
+        in: path
+        required: true
+        description: The unique identifier of the job template.
+        schema:
+          type: string
+          pattern: '[a-zA-Z0-9_-]+'
+          minLength: 1
+          maxLength: 64
+      summary: Amazon IoT Device Defender Describe Job Template
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Job Templates
+  /job-templates:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListJobTemplates
+      description: <p>Returns a list of job templates.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListJobTemplatesResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return in the list.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: nextToken
+        in: query
+        required: false
+        description: The token to use to return the next set of results in the list.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender List Job Templates
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Job Templates
+components:
+  schemas:
+    DurationInMinutes:
+      type: integer
+      minimum: 30
+      maximum: 1430
+    JobExecutionsRolloutConfig:
+      type: object
+      properties:
+        maximumPerMinute:
+          allOf:
+          - $ref: '#/components/schemas/MaxJobExecutionsPerMin'
+          - description: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        exponentialRate:
+          allOf:
+          - $ref: '#/components/schemas/ExponentialRolloutRate'
+          - description: The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+      description: Allows you to create a staged rollout of a job.
+    AbortThresholdPercentage:
+      type: number
+      format: double
+      maximum: 100
+    ResourceNotFoundException: {}
+    JobTemplateId:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      minLength: 1
+      maxLength: 64
+    PresignedUrlConfig:
+      type: object
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p> <important> <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p> </important>
+        expiresInSec:
+          allOf:
+          - $ref: '#/components/schemas/ExpiresInSec'
+          - description: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
+      description: Configuration for pre-signed S3 URLs.
+    DateType:
+      type: string
+      format: date-time
+    InternalFailureException: {}
+    MinimumNumberOfExecutedThings:
+      type: integer
+      minimum: 1
+    MaintenanceWindow:
+      type: object
+      required:
+      - startTime
+      - durationInMinutes
+      properties:
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/CronExpression'
+          - description: Displays the start time of the next maintenance window.
+        durationInMinutes:
+          allOf:
+          - $ref: '#/components/schemas/DurationInMinutes'
+          - description: Displays the duration of the next maintenance window.
+      description: An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+    ExponentialRolloutRate:
+      type: object
+      required:
+      - baseRatePerMinute
+      - incrementFactor
+      - rateIncreaseCriteria
+      properties:
+        baseRatePerMinute:
+          allOf:
+          - $ref: '#/components/schemas/RolloutRatePerMinute'
+          - description: The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
+        incrementFactor:
+          allOf:
+          - $ref: '#/components/schemas/IncrementFactor'
+          - description: <p>The exponential factor to increase the rate of rollout for a job.</p> <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+        rateIncreaseCriteria:
+          allOf:
+          - $ref: '#/components/schemas/RateIncreaseCriteria'
+          - description: The criteria to initiate the increase in rate of rollout for a job.
+      description: Allows you to create an exponential rate of rollout for a job.
+    IncrementFactor:
+      type: number
+      format: double
+      minimum: 1.1
+      maximum: 5
+    JobDescription:
+      type: string
+      pattern: '[^\p{C}]+'
+      maxLength: 2028
+    NextToken:
+      type: string
+    MaintenanceWindows:
+      type: array
+      items:
+        $ref: '#/components/schemas/MaintenanceWindow'
+    JobExecutionsRetryConfig:
+      type: object
+      required:
+      - criteriaList
+      properties:
+        criteriaList:
+          allOf:
+          - $ref: '#/components/schemas/RetryCriteriaList'
+          - description: The list of criteria that determines how many retries are allowed for each failure type for a job.
+      description: The configuration that determines how many retries are allowed for each failure type for a job.
+    JobTemplateSummary:
+      type: object
+      properties:
+        jobTemplateArn:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateArn'
+          - description: The ARN of the job template.
+        jobTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateId'
+          - description: The unique identifier of the job template.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/JobDescription'
+          - description: A description of the job template.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job template was created.
+      description: An object that contains information about the job template.
+    NumberOfRetries:
+      type: integer
+      minimum: 0
+      maximum: 10
+    InProgressTimeoutInMinutes:
+      type: integer
+    ConflictException: {}
+    JobDocumentSource:
+      type: string
+      minLength: 1
+      maxLength: 1350
+    RateIncreaseCriteria:
+      type: object
+      properties:
+        numberOfNotifiedThings:
+          allOf:
+          - $ref: '#/components/schemas/NumberOfThings'
+          - description: The threshold for number of notified things that will initiate the increase in rate of rollout.
+        numberOfSucceededThings:
+          allOf:
+          - $ref: '#/components/schemas/NumberOfThings'
+          - description: The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+      description: Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    RetryableFailureType:
+      type: string
+      enum:
+      - FAILED
+      - TIMED_OUT
+      - ALL
+    MaxJobExecutionsPerMin:
+      type: integer
+      minimum: 1
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    JobTemplateArn:
+      type: string
+      pattern: ^arn:[!-~]+$
+      minLength: 1
+      maxLength: 1600
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    CreateJobTemplateResponse:
+      type: object
+      properties:
+        jobTemplateArn:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateArn'
+          - description: The ARN of the job template.
+        jobTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateId'
+          - description: The unique identifier of the job template.
+    JobDocument:
+      type: string
+      maxLength: 32768
+    ExpiresInSec:
+      type: integer
+      minimum: 60
+      maximum: 3600
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    AbortCriteriaList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AbortCriteria'
+      minItems: 1
+    DescribeJobTemplateResponse:
+      type: object
+      properties:
+        jobTemplateArn:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateArn'
+          - description: The ARN of the job template.
+        jobTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateId'
+          - description: The unique identifier of the job template.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/JobDescription'
+          - description: A description of the job template.
+        documentSource:
+          allOf:
+          - $ref: '#/components/schemas/JobDocumentSource'
+          - description: An S3 link to the job document.
+        document:
+          allOf:
+          - $ref: '#/components/schemas/JobDocument'
+          - description: The job document.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The time, in seconds since the epoch, when the job template was created.
+        presignedUrlConfig:
+          $ref: '#/components/schemas/PresignedUrlConfig'
+        jobExecutionsRolloutConfig:
+          $ref: '#/components/schemas/JobExecutionsRolloutConfig'
+        abortConfig:
+          $ref: '#/components/schemas/AbortConfig'
+        timeoutConfig:
+          $ref: '#/components/schemas/TimeoutConfig'
+        jobExecutionsRetryConfig:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionsRetryConfig'
+          - description: The configuration that determines how many retries are allowed for each failure type for a job.
+        maintenanceWindows:
+          allOf:
+          - $ref: '#/components/schemas/MaintenanceWindows'
+          - description: Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.
+    CronExpression:
+      type: string
+      minLength: 1
+      maxLength: 256
+    AbortCriteria:
+      type: object
+      required:
+      - failureType
+      - action
+      - thresholdPercentage
+      - minNumberOfExecutedThings
+      properties:
+        failureType:
+          allOf:
+          - $ref: '#/components/schemas/JobExecutionFailureType'
+          - description: The type of job execution failures that can initiate a job abort.
+        action:
+          allOf:
+          - $ref: '#/components/schemas/AbortAction'
+          - description: The type of job action to take to initiate the job abort.
+        thresholdPercentage:
+          allOf:
+          - $ref: '#/components/schemas/AbortThresholdPercentage'
+          - description: <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p> <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+        minNumberOfExecutedThings:
+          allOf:
+          - $ref: '#/components/schemas/MinimumNumberOfExecutedThings'
+          - description: The minimum number of things which must receive job execution notifications before the job can be aborted.
+      description: The criteria that determine when and how a job abort takes place.
+    AbortConfig:
+      type: object
+      required:
+      - criteriaList
+      properties:
+        criteriaList:
+          allOf:
+          - $ref: '#/components/schemas/AbortCriteriaList'
+          - description: The list of criteria that determine when and how to abort the job.
+      description: The criteria that determine when and how a job abort takes place.
+    ListJobTemplatesResponse:
+      type: object
+      properties:
+        jobTemplates:
+          allOf:
+          - $ref: '#/components/schemas/JobTemplateSummaryList'
+          - description: A list of objects that contain information about the job templates.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results, or <b>null</b> if there are no additional results.
+    ThrottlingException: {}
+    TimeoutConfig:
+      type: object
+      properties:
+        inProgressTimeoutInMinutes:
+          allOf:
+          - $ref: '#/components/schemas/InProgressTimeoutInMinutes'
+          - description: Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code> status.
+      description: Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+    AbortAction:
+      type: string
+      enum:
+      - CANCEL
+    InvalidRequestException: {}
+    JobTemplateSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobTemplateSummary'
+    RetryCriteria:
+      type: object
+      required:
+      - failureType
+      - numberOfRetries
+      properties:
+        failureType:
+          allOf:
+          - $ref: '#/components/schemas/RetryableFailureType'
+          - description: The type of job execution failures that can initiate a job retry.
+        numberOfRetries:
+          allOf:
+          - $ref: '#/components/schemas/NumberOfRetries'
+          - description: The number of retries allowed for a failure type for the job.
+      description: The criteria that determines how many retries are allowed for each failure type for a job.
+    RetryCriteriaList:
+      type: array
+      items:
+        $ref: '#/components/schemas/RetryCriteria'
+      minItems: 1
+      maxItems: 2
+    NumberOfThings:
+      type: integer
+      minimum: 1
+    RolloutRatePerMinute:
+      type: integer
+      minimum: 1
+      maximum: 1000
+    LimitExceededException: {}
+    JobExecutionFailureType:
+      type: string
+      enum:
+      - FAILED
+      - REJECTED
+      - TIMED_OUT
+      - ALL
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true

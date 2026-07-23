@@ -1,0 +1,465 @@
+openapi: 3.0.0
+info:
+  version: 2015-05-28
+  x-release: v4
+  title: AWS IoT Accept Certificate Transfer Security Profile Behaviors API
+  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iot
+  x-aws-signingName: iot
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: https://iot.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT multi-region endpoint
+- url: http://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+- url: https://iot.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Security Profile Behaviors
+paths:
+  /security-profile-behaviors/validate:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ValidateSecurityProfileBehaviors
+      description: <p>Validates a Device Defender security profile behaviors specification.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateSecurityProfileBehaviorsResponse'
+        '480':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '481':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - behaviors
+              properties:
+                behaviors:
+                  description: Specifies the behaviors that, when violated by a device (thing), cause an alert.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Behavior'
+                  maxItems: 100
+      summary: Amazon IoT Device Defender Validate Security Profile Behaviors
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Security Profile Behaviors
+components:
+  schemas:
+    Behavior:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/BehaviorName'
+          - description: The name you've given to the behavior.
+        metric:
+          allOf:
+          - $ref: '#/components/schemas/BehaviorMetric'
+          - description: What is measured by the behavior.
+        metricDimension:
+          allOf:
+          - $ref: '#/components/schemas/MetricDimension'
+          - description: The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. This can't be used with custom metrics.
+        criteria:
+          allOf:
+          - $ref: '#/components/schemas/BehaviorCriteria'
+          - description: The criteria that determine if a device is behaving normally in regard to the <code>metric</code>.
+        suppressAlerts:
+          allOf:
+          - $ref: '#/components/schemas/SuppressAlerts'
+          - description: ' Suppresses alerts. '
+      description: A Device Defender security profile behavior.
+    EvaluationStatistic:
+      type: string
+      pattern: (p0|p0\.1|p0\.01|p1|p10|p50|p90|p99|p99\.9|p99\.99|p100)
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/stringValue'
+    ValidationError:
+      type: object
+      properties:
+        errorMessage:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The description of an error found in the behaviors.
+      description: Information about an error found in a behavior specification.
+    Number:
+      type: number
+      format: double
+    InternalFailureException: {}
+    DimensionValueOperator:
+      type: string
+      enum:
+      - IN
+      - NOT_IN
+    NumberList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Number'
+    stringValue:
+      type: string
+    MetricDimension:
+      type: object
+      required:
+      - dimensionName
+      properties:
+        dimensionName:
+          allOf:
+          - $ref: '#/components/schemas/DimensionName'
+          - description: A unique identifier for the dimension.
+        operator:
+          allOf:
+          - $ref: '#/components/schemas/DimensionValueOperator'
+          - description: 'Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn''t match any of the topic filters. The operator is optional: if it''s not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.'
+      description: The dimension of a metric.
+    ErrorMessage:
+      type: string
+      maxLength: 2048
+    BehaviorMetric:
+      type: string
+    Cidrs:
+      type: array
+      items:
+        $ref: '#/components/schemas/Cidr'
+    Valid:
+      type: boolean
+    BehaviorName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    SuppressAlerts:
+      type: boolean
+    ConsecutiveDatapointsToClear:
+      type: integer
+      minimum: 1
+      maximum: 10
+    DurationSeconds:
+      type: integer
+    ValidateSecurityProfileBehaviorsResponse:
+      type: object
+      properties:
+        valid:
+          allOf:
+          - $ref: '#/components/schemas/Valid'
+          - description: True if the behaviors were valid.
+        validationErrors:
+          allOf:
+          - $ref: '#/components/schemas/ValidationErrors'
+          - description: The list of any errors found in the behaviors.
+    ValidationErrors:
+      type: array
+      items:
+        $ref: '#/components/schemas/ValidationError'
+    MachineLearningDetectionConfig:
+      type: object
+      required:
+      - confidenceLevel
+      properties:
+        confidenceLevel:
+          allOf:
+          - $ref: '#/components/schemas/ConfidenceLevel'
+          - description: ' The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>. '
+      description: ' The configuration of an ML Detect Security Profile. '
+    MetricValue:
+      type: object
+      properties:
+        count:
+          allOf:
+          - $ref: '#/components/schemas/UnsignedLong'
+          - description: If the <code>comparisonOperator</code> calls for a numeric value, use this to specify that numeric value to be compared with the <code>metric</code>.
+        cidrs:
+          allOf:
+          - $ref: '#/components/schemas/Cidrs'
+          - description: If the <code>comparisonOperator</code> calls for a set of CIDRs, use this to specify that set to be compared with the <code>metric</code>.
+        ports:
+          allOf:
+          - $ref: '#/components/schemas/Ports'
+          - description: If the <code>comparisonOperator</code> calls for a set of ports, use this to specify that set to be compared with the <code>metric</code>.
+        number:
+          allOf:
+          - $ref: '#/components/schemas/Number'
+          - description: ' The numeral value of a metric. '
+        numbers:
+          allOf:
+          - $ref: '#/components/schemas/NumberList'
+          - description: ' The numeral values of a metric. '
+        strings:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: ' The string values of a metric. '
+      description: The value to be compared with the <code>metric</code>.
+    ThrottlingException: {}
+    Port:
+      type: integer
+      minimum: 0
+      maximum: 65535
+    InvalidRequestException: {}
+    Ports:
+      type: array
+      items:
+        $ref: '#/components/schemas/Port'
+    StatisticalThreshold:
+      type: object
+      properties:
+        statistic:
+          allOf:
+          - $ref: '#/components/schemas/EvaluationStatistic'
+          - description: The percentile that resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
+      description: A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+    Cidr:
+      type: string
+      pattern: '[a-fA-F0-9:\.\/]+'
+      minLength: 2
+      maxLength: 43
+    ConfidenceLevel:
+      type: string
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+    ConsecutiveDatapointsToAlarm:
+      type: integer
+      minimum: 1
+      maximum: 10
+    ComparisonOperator:
+      type: string
+      enum:
+      - less-than
+      - less-than-equals
+      - greater-than
+      - greater-than-equals
+      - in-cidr-set
+      - not-in-cidr-set
+      - in-port-set
+      - not-in-port-set
+      - in-set
+      - not-in-set
+    UnsignedLong:
+      type: integer
+      minimum: 0
+    BehaviorCriteria:
+      type: object
+      properties:
+        comparisonOperator:
+          allOf:
+          - $ref: '#/components/schemas/ComparisonOperator'
+          - description: '<p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p> <ul> <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li> <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li> </ul>'
+        value:
+          allOf:
+          - $ref: '#/components/schemas/MetricValue'
+          - description: The value to be compared with the <code>metric</code>.
+        durationSeconds:
+          allOf:
+          - $ref: '#/components/schemas/DurationSeconds'
+          - description: Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.
+        consecutiveDatapointsToAlarm:
+          allOf:
+          - $ref: '#/components/schemas/ConsecutiveDatapointsToAlarm'
+          - description: If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
+        consecutiveDatapointsToClear:
+          allOf:
+          - $ref: '#/components/schemas/ConsecutiveDatapointsToClear'
+          - description: If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
+        statisticalThreshold:
+          allOf:
+          - $ref: '#/components/schemas/StatisticalThreshold'
+          - description: A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+        mlDetectionConfig:
+          allOf:
+          - $ref: '#/components/schemas/MachineLearningDetectionConfig'
+          - description: ' The configuration of an ML Detect '
+      description: The criteria by which the behavior is determined to be normal.
+    DimensionName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iot/
+x-hasEquivalentPaths: true
