@@ -1,0 +1,4740 @@
+{
+  "info": {
+    "_postman_id": "f41f4b96-b42c-4f5b-abea-96334edbaaa4",
+    "name": "AWS IoT Accept Certificate Transfer Thing Groups API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:32:58.000Z",
+    "updatedAt": "2026-07-28T10:32:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f41f4b96-b42c-4f5b-abea-96334edbaaa4"
+  },
+  "item": [
+    {
+      "name": "thing-groups",
+      "item": [
+        {
+          "name": "addThingToThingGroup",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender Add Thing to Thing Group",
+              "id": "1d50f1ef-1b5a-4e86-85fa-ac3907056fb5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thingGroupName\": \"q\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"rqCQgIL2Qh\",\n  \"thingArn\": \"<string>\",\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/addThingToThingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    "addThingToThingGroup"
+                  ]
+                },
+                "description": "<p>Adds a thing to a thing group.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">AddThingToThingGroup</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "4533ada9-363c-4e63-bbd4-1787b431b0f6",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"q\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"rqCQgIL2Qh\",\n  \"thingArn\": \"<string>\",\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/addThingToThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "addThingToThingGroup"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-4533ada9-363c-4e63-bbd4-1787b431b0f6"
+                },
+                {
+                  "id": "bb2888b7-4133-4719-994f-093d532e3568",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"q\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"rqCQgIL2Qh\",\n  \"thingArn\": \"<string>\",\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/addThingToThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "addThingToThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-bb2888b7-4133-4719-994f-093d532e3568"
+                },
+                {
+                  "id": "494065e3-178f-4193-bd84-9e1c0cf171a9",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"q\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"rqCQgIL2Qh\",\n  \"thingArn\": \"<string>\",\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/addThingToThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "addThingToThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-494065e3-178f-4193-bd84-9e1c0cf171a9"
+                },
+                {
+                  "id": "abc9494a-8fd7-4023-8cce-816b78dc95df",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"q\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"rqCQgIL2Qh\",\n  \"thingArn\": \"<string>\",\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/addThingToThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "addThingToThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-abc9494a-8fd7-4023-8cce-816b78dc95df"
+                },
+                {
+                  "id": "0624a86c-44ff-4326-8a9c-5b47a9b98d61",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"q\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"rqCQgIL2Qh\",\n  \"thingArn\": \"<string>\",\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/addThingToThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "addThingToThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-0624a86c-44ff-4326-8a9c-5b47a9b98d61"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-1d50f1ef-1b5a-4e86-85fa-ac3907056fb5"
+            }
+          ],
+          "id": "80e6212a-94eb-4838-a9ad-213e7e6df380",
+          "createdAt": "2026-07-28T10:32:59.000Z",
+          "updatedAt": "2026-07-28T10:32:59.000Z",
+          "uid": "35240-80e6212a-94eb-4838-a9ad-213e7e6df380"
+        },
+        {
+          "name": "{thingGroupName}",
+          "item": [
+            {
+              "name": "things",
+              "item": [
+                {
+                  "name": "Amazon IoT Device Defender List Things in Thing Group",
+                  "id": "d6f0a18c-69bc-46a2-bcd6-f1a1e680c91c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName/things?recursive=<boolean>&nextToken=<string>&maxResults=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, list things in this thing group and in all child groups as well.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return at one time.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0792295d-d8bd-42a2-8005-0b42e067bddc",
+                          "key": "thingGroupName",
+                          "value": "n",
+                          "description": "(Required) The thing group name."
+                        }
+                      ]
+                    },
+                    "description": "<p>Lists the things in the specified group.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListThingsInThingGroup</a> action.</p>"
+                  },
+                  "response": [
+                    {
+                      "id": "e90bd563-395b-449b-b9ee-62531566f7b7",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/thing-groups/:thingGroupName/things?recursive=<boolean>&nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "thing-groups",
+                            ":thingGroupName",
+                            "things"
+                          ],
+                          "query": [
+                            {
+                              "description": "When true, list things in this thing group and in all child groups as well.",
+                              "key": "recursive",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of results to return at one time.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "thingGroupName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"things\": [\n    \"ToZy3\",\n    \"FHZq:_trsJ\"\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T10:32:59.000Z",
+                      "updatedAt": "2026-07-28T10:32:59.000Z",
+                      "uid": "35240-e90bd563-395b-449b-b9ee-62531566f7b7"
+                    },
+                    {
+                      "id": "35f5604e-cce6-452c-ab1f-7196279b87e3",
+                      "name": "InvalidRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/thing-groups/:thingGroupName/things?recursive=<boolean>&nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "thing-groups",
+                            ":thingGroupName",
+                            "things"
+                          ],
+                          "query": [
+                            {
+                              "description": "When true, list things in this thing group and in all child groups as well.",
+                              "key": "recursive",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of results to return at one time.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "thingGroupName"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:32:59.000Z",
+                      "updatedAt": "2026-07-28T10:32:59.000Z",
+                      "uid": "35240-35f5604e-cce6-452c-ab1f-7196279b87e3"
+                    },
+                    {
+                      "id": "024682f5-767c-4362-bba9-c7d2cc7b62db",
+                      "name": "InternalFailureException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/thing-groups/:thingGroupName/things?recursive=<boolean>&nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "thing-groups",
+                            ":thingGroupName",
+                            "things"
+                          ],
+                          "query": [
+                            {
+                              "description": "When true, list things in this thing group and in all child groups as well.",
+                              "key": "recursive",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of results to return at one time.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "thingGroupName"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:32:59.000Z",
+                      "updatedAt": "2026-07-28T10:32:59.000Z",
+                      "uid": "35240-024682f5-767c-4362-bba9-c7d2cc7b62db"
+                    },
+                    {
+                      "id": "6dfcdfee-4f7c-43d6-b5b0-947ee0fc2296",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/thing-groups/:thingGroupName/things?recursive=<boolean>&nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "thing-groups",
+                            ":thingGroupName",
+                            "things"
+                          ],
+                          "query": [
+                            {
+                              "description": "When true, list things in this thing group and in all child groups as well.",
+                              "key": "recursive",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of results to return at one time.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "thingGroupName"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:32:59.000Z",
+                      "updatedAt": "2026-07-28T10:32:59.000Z",
+                      "uid": "35240-6dfcdfee-4f7c-43d6-b5b0-947ee0fc2296"
+                    },
+                    {
+                      "id": "8e5d843d-3965-4ecf-b189-76016ac6253c",
+                      "name": "ThrottlingException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/thing-groups/:thingGroupName/things?recursive=<boolean>&nextToken=<string>&maxResults=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "thing-groups",
+                            ":thingGroupName",
+                            "things"
+                          ],
+                          "query": [
+                            {
+                              "description": "When true, list things in this thing group and in all child groups as well.",
+                              "key": "recursive",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of results to return at one time.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "thingGroupName"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:32:59.000Z",
+                      "updatedAt": "2026-07-28T10:32:59.000Z",
+                      "uid": "35240-8e5d843d-3965-4ecf-b189-76016ac6253c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-d6f0a18c-69bc-46a2-bcd6-f1a1e680c91c"
+                }
+              ],
+              "id": "0983aa3b-54b8-459a-a136-d2da8ed3aeb2",
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-0983aa3b-54b8-459a-a136-d2da8ed3aeb2"
+            },
+            {
+              "name": "Amazon IoT Device Defender Create Thing Group",
+              "id": "d43e6035-0f60-49f8-9bd9-a7ff5fe72feb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"parentGroupName\": \"vt\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"Gr\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"laborum_e9\": \".4K\",\n        \"dolor_a_\": \"Co6ZJYjRMJ\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"Key\": \"_+..@L@\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"L\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    ":thingGroupName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7fc895b9-efd9-46f1-9358-ccc5bf757050",
+                      "key": "thingGroupName",
+                      "value": "n",
+                      "description": "(Required) The thing group name to create."
+                    }
+                  ]
+                },
+                "description": "<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html\">Authorization</a> for information about authorizing control plane actions.</p> </note> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateThingGroup</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "23909b35-f141-47bd-af8c-1ec7c2fddf94",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"parentGroupName\": \"vt\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"Gr\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"laborum_e9\": \".4K\",\n        \"dolor_a_\": \"Co6ZJYjRMJ\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"Key\": \"_+..@L@\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"L\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"thingGroupName\": \"kD6\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingGroupId\": \"VBie8MU-\"\n}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-23909b35-f141-47bd-af8c-1ec7c2fddf94"
+                },
+                {
+                  "id": "1964d260-8137-4b2d-8ab1-0833e9659690",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"parentGroupName\": \"vt\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"Gr\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"laborum_e9\": \".4K\",\n        \"dolor_a_\": \"Co6ZJYjRMJ\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"Key\": \"_+..@L@\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"L\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-1964d260-8137-4b2d-8ab1-0833e9659690"
+                },
+                {
+                  "id": "58652866-227b-4650-9ed8-70a527ad5423",
+                  "name": "ResourceAlreadyExistsException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"parentGroupName\": \"vt\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"Gr\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"laborum_e9\": \".4K\",\n        \"dolor_a_\": \"Co6ZJYjRMJ\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"Key\": \"_+..@L@\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"L\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-58652866-227b-4650-9ed8-70a527ad5423"
+                },
+                {
+                  "id": "6e351bb4-4c29-4954-8006-cd1cbe3e1fe0",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"parentGroupName\": \"vt\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"Gr\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"laborum_e9\": \".4K\",\n        \"dolor_a_\": \"Co6ZJYjRMJ\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"Key\": \"_+..@L@\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"L\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-6e351bb4-4c29-4954-8006-cd1cbe3e1fe0"
+                },
+                {
+                  "id": "5cc1d0d9-5f07-47d3-b361-69ac945d5ab9",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"parentGroupName\": \"vt\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"Gr\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"laborum_e9\": \".4K\",\n        \"dolor_a_\": \"Co6ZJYjRMJ\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"Key\": \"_+..@L@\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"L\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-5cc1d0d9-5f07-47d3-b361-69ac945d5ab9"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-d43e6035-0f60-49f8-9bd9-a7ff5fe72feb"
+            },
+            {
+              "name": "Amazon IoT Device Defender Delete Thing Group",
+              "id": "c1e06c87-9d92-4a2e-8bed-705beea9f444",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/:thingGroupName?expectedVersion=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    ":thingGroupName"
+                  ],
+                  "query": [
+                    {
+                      "description": "The expected version of the thing group to delete.",
+                      "key": "expectedVersion",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "7c9ecac2-74b1-4472-b758-5ae262d3eee4",
+                      "key": "thingGroupName",
+                      "value": "n",
+                      "description": "(Required) The name of the thing group to delete."
+                    }
+                  ]
+                },
+                "description": "<p>Deletes a thing group.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteThingGroup</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "68d3f846-ef05-4b2a-b81a-8990b705562c",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName?expectedVersion=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "query": [
+                        {
+                          "description": "The expected version of the thing group to delete.",
+                          "key": "expectedVersion",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-68d3f846-ef05-4b2a-b81a-8990b705562c"
+                },
+                {
+                  "id": "46e2087d-308b-4f18-bd9e-6ccb6c66b0c5",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName?expectedVersion=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "query": [
+                        {
+                          "description": "The expected version of the thing group to delete.",
+                          "key": "expectedVersion",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-46e2087d-308b-4f18-bd9e-6ccb6c66b0c5"
+                },
+                {
+                  "id": "d60f4f2a-8ac7-4f41-a838-c926291db9a3",
+                  "name": "VersionConflictException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName?expectedVersion=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "query": [
+                        {
+                          "description": "The expected version of the thing group to delete.",
+                          "key": "expectedVersion",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-d60f4f2a-8ac7-4f41-a838-c926291db9a3"
+                },
+                {
+                  "id": "12594f50-3230-42a7-8629-6a26e2612dbd",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName?expectedVersion=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "query": [
+                        {
+                          "description": "The expected version of the thing group to delete.",
+                          "key": "expectedVersion",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-12594f50-3230-42a7-8629-6a26e2612dbd"
+                },
+                {
+                  "id": "27967ab0-38aa-4ba2-ae27-1e4a8aa57efb",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName?expectedVersion=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "query": [
+                        {
+                          "description": "The expected version of the thing group to delete.",
+                          "key": "expectedVersion",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-27967ab0-38aa-4ba2-ae27-1e4a8aa57efb"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-c1e06c87-9d92-4a2e-8bed-705beea9f444"
+            },
+            {
+              "name": "Amazon IoT Device Defender Describe Thing Group",
+              "id": "326d6936-9899-4afd-937b-fd5c8c768aec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    ":thingGroupName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7bde7fad-14d5-4e77-9e0f-4b8b70f5155e",
+                      "key": "thingGroupName",
+                      "value": "n",
+                      "description": "(Required) The name of the thing group."
+                    }
+                  ]
+                },
+                "description": "<p>Describe a thing group.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeThingGroup</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "9ddecf35-7d0e-463e-b40a-aa1c190c7ba7",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"thingGroupName\": \"bfkXmbTYwZD\",\n  \"thingGroupId\": \"iDO-\",\n  \"thingGroupArn\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"}}rr{{h\",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"deserunt4\": \"FgD\",\n        \"ut6\": \"91OGxReM\",\n        \"proident_31_\": \"D-p\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"thingGroupMetadata\": {\n    \"parentGroupName\": \"aoYwF_tX\",\n    \"rootToParentThingGroups\": [\n      {\n        \"groupName\": \"JK\",\n        \"groupArn\": \"<string>\"\n      },\n      {\n        \"groupName\": \"t\",\n        \"groupArn\": \"<string>\"\n      }\n    ],\n    \"creationDate\": \"<dateTime>\"\n  },\n  \"indexName\": \"Z64a4:\",\n  \"queryString\": \"<string>\",\n  \"queryVersion\": \"<string>\",\n  \"status\": \"REBUILDING\"\n}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-9ddecf35-7d0e-463e-b40a-aa1c190c7ba7"
+                },
+                {
+                  "id": "c45f4fc2-ea71-4308-b43f-4035e8f3762e",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-c45f4fc2-ea71-4308-b43f-4035e8f3762e"
+                },
+                {
+                  "id": "6cab7913-b825-486d-b5ad-2bdc48310c93",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-6cab7913-b825-486d-b5ad-2bdc48310c93"
+                },
+                {
+                  "id": "d46f8343-ecc6-469b-80ed-415e88878a9e",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-d46f8343-ecc6-469b-80ed-415e88878a9e"
+                },
+                {
+                  "id": "c86a8ff2-893a-47e7-a834-e5fdbc00947a",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-c86a8ff2-893a-47e7-a834-e5fdbc00947a"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-326d6936-9899-4afd-937b-fd5c8c768aec"
+            },
+            {
+              "name": "Amazon IoT Device Defender Update Thing Group",
+              "id": "1d8b0e31-4cb4-4d2e-9d8b-b1038e175824",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    ":thingGroupName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "77615d06-16f5-43f2-bc12-18c25d4cf2ee",
+                      "key": "thingGroupName",
+                      "value": "n",
+                      "description": "(Required) The thing group to update."
+                    }
+                  ]
+                },
+                "description": "<p>Update a thing group.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateThingGroup</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "a3b1479d-386d-4bd7-8b44-5b1d3b82e4fd",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"version\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-a3b1479d-386d-4bd7-8b44-5b1d3b82e4fd"
+                },
+                {
+                  "id": "92206bb2-786e-429c-8057-496ba70be678",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-92206bb2-786e-429c-8057-496ba70be678"
+                },
+                {
+                  "id": "65c88308-f0c0-421f-8e9b-f9abca17d7b1",
+                  "name": "VersionConflictException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-65c88308-f0c0-421f-8e9b-f9abca17d7b1"
+                },
+                {
+                  "id": "f50c5ca1-a89c-4c8d-b643-2f3a1ff33859",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-f50c5ca1-a89c-4c8d-b643-2f3a1ff33859"
+                },
+                {
+                  "id": "82c0267c-4ee7-450a-99af-49c062d54274",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-82c0267c-4ee7-450a-99af-49c062d54274"
+                },
+                {
+                  "id": "83934413-b5ba-4745-95d6-a8f112103d39",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupProperties\": {\n    \"thingGroupDescription\": \"{}GppGah} \",\n    \"attributePayload\": {\n      \"attributes\": {\n        \"elit_42\": \"oe\"\n      },\n      \"merge\": \"<boolean>\"\n    }\n  },\n  \"expectedVersion\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/:thingGroupName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        ":thingGroupName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "thingGroupName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-83934413-b5ba-4745-95d6-a8f112103d39"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-1d8b0e31-4cb4-4d2e-9d8b-b1038e175824"
+            }
+          ],
+          "id": "1677d0f0-4c8a-40a8-aab5-2682eacd5ba4",
+          "createdAt": "2026-07-28T10:32:59.000Z",
+          "updatedAt": "2026-07-28T10:32:59.000Z",
+          "uid": "35240-1677d0f0-4c8a-40a8-aab5-2682eacd5ba4"
+        },
+        {
+          "name": "removeThingFromThingGroup",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender Remove Thing from Thing Group",
+              "id": "bb77010b-bbdf-4396-88ac-283ac1ad5189",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thingGroupName\": \"g\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"ezK7qs\",\n  \"thingArn\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/removeThingFromThingGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    "removeThingFromThingGroup"
+                  ]
+                },
+                "description": "<p>Remove the specified thing from the specified group.</p> <p>You must specify either a <code>thingGroupArn</code> or a <code>thingGroupName</code> to identify the thing group and either a <code>thingArn</code> or a <code>thingName</code> to identify the thing to remove from the thing group. </p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">RemoveThingFromThingGroup</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "726f44bf-b5d8-4f5d-954d-1cfc83015dbb",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"g\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"ezK7qs\",\n  \"thingArn\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/removeThingFromThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "removeThingFromThingGroup"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-726f44bf-b5d8-4f5d-954d-1cfc83015dbb"
+                },
+                {
+                  "id": "da6c045f-c744-4da5-ba39-d9daf25e8ee0",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"g\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"ezK7qs\",\n  \"thingArn\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/removeThingFromThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "removeThingFromThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-da6c045f-c744-4da5-ba39-d9daf25e8ee0"
+                },
+                {
+                  "id": "c66d3d91-9c4e-4cef-92c0-32faa209864b",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"g\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"ezK7qs\",\n  \"thingArn\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/removeThingFromThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "removeThingFromThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-c66d3d91-9c4e-4cef-92c0-32faa209864b"
+                },
+                {
+                  "id": "c3657ba1-6c97-4b11-bbad-facd28ec9fc7",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"g\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"ezK7qs\",\n  \"thingArn\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/removeThingFromThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "removeThingFromThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-c3657ba1-6c97-4b11-bbad-facd28ec9fc7"
+                },
+                {
+                  "id": "91e9494c-f2d4-4c18-9393-5fda7978440d",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingGroupName\": \"g\",\n  \"thingGroupArn\": \"<string>\",\n  \"thingName\": \"ezK7qs\",\n  \"thingArn\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/removeThingFromThingGroup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "removeThingFromThingGroup"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-91e9494c-f2d4-4c18-9393-5fda7978440d"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-bb77010b-bbdf-4396-88ac-283ac1ad5189"
+            }
+          ],
+          "id": "4e7af494-98fe-43e4-8ea3-013dce121c10",
+          "createdAt": "2026-07-28T10:32:59.000Z",
+          "updatedAt": "2026-07-28T10:32:59.000Z",
+          "uid": "35240-4e7af494-98fe-43e4-8ea3-013dce121c10"
+        },
+        {
+          "name": "updateThingGroupsForThing",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender Update Thing Groups for Thing",
+              "id": "d7a1f872-4bef-487c-b7d7-5353558c29b7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thingName\": \"k0LDVIx\",\n  \"thingGroupsToAdd\": [\n    \"MSkX9b_bRX\",\n    \"V42beYOs\"\n  ],\n  \"thingGroupsToRemove\": [\n    \"Yd0fbJM3\",\n    \"KhYI1TWfz-\"\n  ],\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups/updateThingGroupsForThing",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups",
+                    "updateThingGroupsForThing"
+                  ]
+                },
+                "description": "<p>Updates the groups to which the thing belongs.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateThingGroupsForThing</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "e38cb0df-b38f-4c5d-a04c-a25d504a06be",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingName\": \"k0LDVIx\",\n  \"thingGroupsToAdd\": [\n    \"MSkX9b_bRX\",\n    \"V42beYOs\"\n  ],\n  \"thingGroupsToRemove\": [\n    \"Yd0fbJM3\",\n    \"KhYI1TWfz-\"\n  ],\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/updateThingGroupsForThing",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "updateThingGroupsForThing"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-e38cb0df-b38f-4c5d-a04c-a25d504a06be"
+                },
+                {
+                  "id": "9cf8a40f-e8ad-48ab-9b96-67442b0c824e",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingName\": \"k0LDVIx\",\n  \"thingGroupsToAdd\": [\n    \"MSkX9b_bRX\",\n    \"V42beYOs\"\n  ],\n  \"thingGroupsToRemove\": [\n    \"Yd0fbJM3\",\n    \"KhYI1TWfz-\"\n  ],\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/updateThingGroupsForThing",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "updateThingGroupsForThing"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-9cf8a40f-e8ad-48ab-9b96-67442b0c824e"
+                },
+                {
+                  "id": "5b84419f-7d6b-46d0-ab3b-a4fa5a96b041",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingName\": \"k0LDVIx\",\n  \"thingGroupsToAdd\": [\n    \"MSkX9b_bRX\",\n    \"V42beYOs\"\n  ],\n  \"thingGroupsToRemove\": [\n    \"Yd0fbJM3\",\n    \"KhYI1TWfz-\"\n  ],\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/updateThingGroupsForThing",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "updateThingGroupsForThing"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-5b84419f-7d6b-46d0-ab3b-a4fa5a96b041"
+                },
+                {
+                  "id": "2101a2b0-23d2-4752-b5ba-968164442d29",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingName\": \"k0LDVIx\",\n  \"thingGroupsToAdd\": [\n    \"MSkX9b_bRX\",\n    \"V42beYOs\"\n  ],\n  \"thingGroupsToRemove\": [\n    \"Yd0fbJM3\",\n    \"KhYI1TWfz-\"\n  ],\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/updateThingGroupsForThing",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "updateThingGroupsForThing"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-2101a2b0-23d2-4752-b5ba-968164442d29"
+                },
+                {
+                  "id": "62cec342-a23c-4802-82b2-8e60cf7aaf12",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingName\": \"k0LDVIx\",\n  \"thingGroupsToAdd\": [\n    \"MSkX9b_bRX\",\n    \"V42beYOs\"\n  ],\n  \"thingGroupsToRemove\": [\n    \"Yd0fbJM3\",\n    \"KhYI1TWfz-\"\n  ],\n  \"overrideDynamicGroups\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/thing-groups/updateThingGroupsForThing",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "thing-groups",
+                        "updateThingGroupsForThing"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:59.000Z",
+                  "updatedAt": "2026-07-28T10:32:59.000Z",
+                  "uid": "35240-62cec342-a23c-4802-82b2-8e60cf7aaf12"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-d7a1f872-4bef-487c-b7d7-5353558c29b7"
+            }
+          ],
+          "id": "f0aaf108-7787-4651-a34d-2f56a6903fe1",
+          "createdAt": "2026-07-28T10:32:59.000Z",
+          "updatedAt": "2026-07-28T10:32:59.000Z",
+          "uid": "35240-f0aaf108-7787-4651-a34d-2f56a6903fe1"
+        },
+        {
+          "name": "Amazon IoT Device Defender List Thing Groups",
+          "id": "cc8bb681-2fe1-4bc4-b496-54e4f45d58f4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/thing-groups?nextToken=<string>&maxResults=<integer>&parentGroup=n&namePrefixFilter=n&recursive=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "thing-groups"
+              ],
+              "query": [
+                {
+                  "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of results to return at one time.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "A filter that limits the results to those with the specified parent group.",
+                  "key": "parentGroup",
+                  "value": "n"
+                },
+                {
+                  "description": "A filter that limits the results to those with the specified name prefix.",
+                  "key": "namePrefixFilter",
+                  "value": "n"
+                },
+                {
+                  "description": "If true, return child groups as well.",
+                  "key": "recursive",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "<p>List the thing groups in your account.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListThingGroups</a> action.</p>"
+          },
+          "response": [
+            {
+              "id": "4b7c55a9-f32d-4bca-8ca4-52a3303df49e",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups?nextToken=<string>&maxResults=<integer>&parentGroup=n&namePrefixFilter=n&recursive=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return at one time.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified parent group.",
+                      "key": "parentGroup",
+                      "value": "n"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified name prefix.",
+                      "key": "namePrefixFilter",
+                      "value": "n"
+                    },
+                    {
+                      "description": "If true, return child groups as well.",
+                      "key": "recursive",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"thingGroups\": [\n    {\n      \"groupName\": \"146lW\",\n      \"groupArn\": \"<string>\"\n    },\n    {\n      \"groupName\": \"pGqim\",\n      \"groupArn\": \"<string>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-4b7c55a9-f32d-4bca-8ca4-52a3303df49e"
+            },
+            {
+              "id": "f0435aac-db08-4596-902a-b42c4c781b94",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups?nextToken=<string>&maxResults=<integer>&parentGroup=n&namePrefixFilter=n&recursive=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return at one time.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified parent group.",
+                      "key": "parentGroup",
+                      "value": "n"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified name prefix.",
+                      "key": "namePrefixFilter",
+                      "value": "n"
+                    },
+                    {
+                      "description": "If true, return child groups as well.",
+                      "key": "recursive",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-f0435aac-db08-4596-902a-b42c4c781b94"
+            },
+            {
+              "id": "05931051-98e0-4033-ac16-fbbd03bd5286",
+              "name": "InternalFailureException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups?nextToken=<string>&maxResults=<integer>&parentGroup=n&namePrefixFilter=n&recursive=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return at one time.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified parent group.",
+                      "key": "parentGroup",
+                      "value": "n"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified name prefix.",
+                      "key": "namePrefixFilter",
+                      "value": "n"
+                    },
+                    {
+                      "description": "If true, return child groups as well.",
+                      "key": "recursive",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-05931051-98e0-4033-ac16-fbbd03bd5286"
+            },
+            {
+              "id": "2f67ccb5-dcc5-40bd-90cf-6e9328139c39",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups?nextToken=<string>&maxResults=<integer>&parentGroup=n&namePrefixFilter=n&recursive=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return at one time.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified parent group.",
+                      "key": "parentGroup",
+                      "value": "n"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified name prefix.",
+                      "key": "namePrefixFilter",
+                      "value": "n"
+                    },
+                    {
+                      "description": "If true, return child groups as well.",
+                      "key": "recursive",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-2f67ccb5-dcc5-40bd-90cf-6e9328139c39"
+            },
+            {
+              "id": "33e1c3f4-7de3-4be8-8fdc-4cf1ff6b40f7",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/thing-groups?nextToken=<string>&maxResults=<integer>&parentGroup=n&namePrefixFilter=n&recursive=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "thing-groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return at one time.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified parent group.",
+                      "key": "parentGroup",
+                      "value": "n"
+                    },
+                    {
+                      "description": "A filter that limits the results to those with the specified name prefix.",
+                      "key": "namePrefixFilter",
+                      "value": "n"
+                    },
+                    {
+                      "description": "If true, return child groups as well.",
+                      "key": "recursive",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:59.000Z",
+              "updatedAt": "2026-07-28T10:32:59.000Z",
+              "uid": "35240-33e1c3f4-7de3-4be8-8fdc-4cf1ff6b40f7"
+            }
+          ],
+          "createdAt": "2026-07-28T10:32:59.000Z",
+          "updatedAt": "2026-07-28T10:32:59.000Z",
+          "uid": "35240-cc8bb681-2fe1-4bc4-b496-54e4f45d58f4"
+        }
+      ],
+      "id": "d0920545-fb2c-4bc7-b3c6-f876864cd05e",
+      "createdAt": "2026-07-28T10:32:59.000Z",
+      "updatedAt": "2026-07-28T10:32:59.000Z",
+      "uid": "35240-d0920545-fb2c-4bc7-b3c6-f876864cd05e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,774 @@
+{
+  "info": {
+    "_postman_id": "5f1a924b-6b02-44c6-807f-03218bce51e5",
+    "name": "AWS IoT Accept Certificate Transfer Policy Principals#x Amzn Iot Policy API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:32:35.000Z",
+    "updatedAt": "2026-07-28T10:32:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5f1a924b-6b02-44c6-807f-03218bce51e5"
+  },
+  "item": [
+    {
+      "name": "policy-principals#x-amzn-iot-policy",
+      "item": [
+        {
+          "name": "Amazon IoT Device Defender List Policy Principals",
+          "id": "7682d3ea-c2e3-4afc-a116-129452cd1c71",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The policy name.",
+                "key": "x-amzn-iot-policy",
+                "value": "3PtoGK"
+              },
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "policy-principals"
+              ],
+              "query": [
+                {
+                  "description": "The marker for the next set of results.",
+                  "key": "marker",
+                  "value": "rBO8Ymc="
+                },
+                {
+                  "description": "The result page size.",
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                  "key": "isAscendingOrder",
+                  "value": "<boolean>"
+                }
+              ],
+              "hash": "x-amzn-iot-policy"
+            },
+            "description": "<p>Lists the principals associated with the specified policy.</p> <p> <b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListTargetsForPolicy</a> instead.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListPolicyPrincipals</a> action.</p>"
+          },
+          "response": [
+            {
+              "id": "85e1e462-69cf-41db-a061-9c0a0842096e",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"principals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nextMarker\": \"fJei7\"\n}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-85e1e462-69cf-41db-a061-9c0a0842096e"
+            },
+            {
+              "id": "03178035-15b5-4a47-a150-de7bf6b7b91a",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-03178035-15b5-4a47-a150-de7bf6b7b91a"
+            },
+            {
+              "id": "af39eed7-fdaa-4fb7-aa53-12fd4e1c6450",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-af39eed7-fdaa-4fb7-aa53-12fd4e1c6450"
+            },
+            {
+              "id": "ad4fd4dc-723c-49df-ab3e-368cda0db53b",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-ad4fd4dc-723c-49df-ab3e-368cda0db53b"
+            },
+            {
+              "id": "356773ba-c18c-479d-8665-e5518efd39a4",
+              "name": "UnauthorizedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-356773ba-c18c-479d-8665-e5518efd39a4"
+            },
+            {
+              "id": "6b15408b-4ee4-4dcf-923a-10cc671c8511",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-6b15408b-4ee4-4dcf-923a-10cc671c8511"
+            },
+            {
+              "id": "f25d35a2-bab4-46b6-a888-0a91430be264",
+              "name": "InternalFailureException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The policy name.",
+                    "key": "x-amzn-iot-policy",
+                    "value": "3PtoGK"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/policy-principals?marker=rBO8Ymc=&pageSize=<integer>&isAscendingOrder=<boolean>#x-amzn-iot-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "policy-principals"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "rBO8Ymc="
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies the order for results. If true, the results are returned in ascending creation order.",
+                      "key": "isAscendingOrder",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "hash": "x-amzn-iot-policy"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:36.000Z",
+              "updatedAt": "2026-07-28T10:32:36.000Z",
+              "uid": "35240-f25d35a2-bab4-46b6-a888-0a91430be264"
+            }
+          ],
+          "createdAt": "2026-07-28T10:32:36.000Z",
+          "updatedAt": "2026-07-28T10:32:36.000Z",
+          "uid": "35240-7682d3ea-c2e3-4afc-a116-129452cd1c71"
+        }
+      ],
+      "id": "77fd5dce-4f85-4074-b2c3-44724e053037",
+      "createdAt": "2026-07-28T10:32:36.000Z",
+      "updatedAt": "2026-07-28T10:32:36.000Z",
+      "uid": "35240-77fd5dce-4f85-4074-b2c3-44724e053037"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,3490 @@
+{
+  "info": {
+    "_postman_id": "cdaef4ba-d662-40dc-aced-e62db723f2de",
+    "name": "AWS IoT Accept Certificate Transfer DomainConfigurations API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:31:39.000Z",
+    "updatedAt": "2026-07-28T10:31:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cdaef4ba-d662-40dc-aced-e62db723f2de"
+  },
+  "item": [
+    {
+      "name": "domainConfigurations",
+      "item": [
+        {
+          "name": "{domainConfigurationName}",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender Create Domain Configuration",
+              "id": "0e1d86f3-6350-4fec-8fe3-f35372577e79",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations",
+                    ":domainConfigurationName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3a9694a5-0280-4792-b439-2190f8ca6e60",
+                      "key": "domainConfigurationName",
+                      "value": "A8ldnLvFM",
+                      "description": "(Required) The name of the domain configuration. This value must be unique to a region."
+                    }
+                  ]
+                },
+                "description": "<p>Creates a domain configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateDomainConfiguration</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "91fde893-dbd6-4369-b217-9706e34df9b8",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"domainConfigurationName\": \"xL\",\n  \"domainConfigurationArn\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-91fde893-dbd6-4369-b217-9706e34df9b8"
+                },
+                {
+                  "id": "56d3dbbf-6819-466b-b385-fe258df0189a",
+                  "name": "LimitExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-56d3dbbf-6819-466b-b385-fe258df0189a"
+                },
+                {
+                  "id": "77688058-a71b-4625-bb1d-aabe8d0dd369",
+                  "name": "CertificateValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-77688058-a71b-4625-bb1d-aabe8d0dd369"
+                },
+                {
+                  "id": "3b19d4af-5d20-4d91-9355-167beafcfbfe",
+                  "name": "ResourceAlreadyExistsException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-3b19d4af-5d20-4d91-9355-167beafcfbfe"
+                },
+                {
+                  "id": "6ab11779-7a7b-42fa-bdf6-42210e0124e7",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-6ab11779-7a7b-42fa-bdf6-42210e0124e7"
+                },
+                {
+                  "id": "6106dba6-7ef5-4215-998b-39d4d02d57f1",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-6106dba6-7ef5-4215-998b-39d4d02d57f1"
+                },
+                {
+                  "id": "9468d2bb-11fd-427f-b10e-c58d16ccc559",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-9468d2bb-11fd-427f-b10e-c58d16ccc559"
+                },
+                {
+                  "id": "59462bac-bfb0-499f-9a8d-470d2e4b44d2",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-59462bac-bfb0-499f-9a8d-470d2e4b44d2"
+                },
+                {
+                  "id": "1618a9da-28dd-4678-97c6-38ee1d85441c",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"domainName\": \"Q/}1$\",\n  \"serverCertificateArns\": [\n    \"arn:aws-iso:acm:mr-gov-bzpoinkqa-3:576003780418:certificate/UU\"\n  ],\n  \"validationCertificateArn\": \"arn:aws:acm:uf-isob-iizt-2:060205042202:certificate/u8FmuZ2r9fW\",\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"kiPAuLGk\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"serviceType\": \"JOBS\",\n  \"tags\": [\n    {\n      \"Key\": \" \",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"Z=Np{_}\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-1618a9da-28dd-4678-97c6-38ee1d85441c"
+                }
+              ],
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-0e1d86f3-6350-4fec-8fe3-f35372577e79"
+            },
+            {
+              "name": "Amazon IoT Device Defender Delete Domain Configuration",
+              "id": "7ba00d0e-5fc7-4665-8ed8-d47fcedc1b24",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations",
+                    ":domainConfigurationName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3df731ff-c67f-482a-bd6d-aabd541958ad",
+                      "key": "domainConfigurationName",
+                      "value": "A8ldnLvFM",
+                      "description": "(Required) The name of the domain configuration to be deleted."
+                    }
+                  ]
+                },
+                "description": "<p>Deletes the specified domain configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteDomainConfiguration</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "1cf8288b-e28f-4c5e-88c6-b6223e2370cc",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-1cf8288b-e28f-4c5e-88c6-b6223e2370cc"
+                },
+                {
+                  "id": "0d3f47c9-0ead-483a-801f-146167d4277a",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-0d3f47c9-0ead-483a-801f-146167d4277a"
+                },
+                {
+                  "id": "96687ba5-2879-40a4-8356-393d6027cf05",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-96687ba5-2879-40a4-8356-393d6027cf05"
+                },
+                {
+                  "id": "0a0954d9-5426-4081-9d21-f8e314c1ae8e",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-0a0954d9-5426-4081-9d21-f8e314c1ae8e"
+                },
+                {
+                  "id": "e811d03d-995f-4fc0-acd4-529e414d4a51",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-e811d03d-995f-4fc0-acd4-529e414d4a51"
+                },
+                {
+                  "id": "af309f6e-e19f-46dc-8889-fefd2c715698",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-af309f6e-e19f-46dc-8889-fefd2c715698"
+                },
+                {
+                  "id": "e79b2401-46da-4959-8ab1-21043e519d8a",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-e79b2401-46da-4959-8ab1-21043e519d8a"
+                }
+              ],
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-7ba00d0e-5fc7-4665-8ed8-d47fcedc1b24"
+            },
+            {
+              "name": "Amazon IoT Device Defender Describe Domain Configuration",
+              "id": "e5ded03e-0b86-4f89-bc80-da684c3dee14",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations",
+                    ":domainConfigurationName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "703b44b1-d2f7-49fc-bdde-868c3b9c7ce7",
+                      "key": "domainConfigurationName",
+                      "value": "N-TxEEYj",
+                      "description": "(Required) The name of the domain configuration."
+                    }
+                  ]
+                },
+                "description": "<p>Gets summary information about a domain configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeDomainConfiguration</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "98c00cf9-a523-4252-8417-3ade6bec521e",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"domainConfigurationName\": \"L\",\n  \"domainConfigurationArn\": \"<string>\",\n  \"domainName\": \");(o\\tg\ufeffI\u202f\",\n  \"serverCertificates\": [\n    {\n      \"serverCertificateArn\": \"arn:aws:acm:va-iso-smjdfgkr-5:309167950593:certificate/IwtvkUHtN6\",\n      \"serverCertificateStatus\": \"VALID\",\n      \"serverCertificateStatusDetail\": \"<string>\"\n    },\n    {\n      \"serverCertificateArn\": \"arn:aws-cn:acm:tn-xzbdfbbum-2:208543380539:certificate/CenaABvp\",\n      \"serverCertificateStatus\": \"VALID\",\n      \"serverCertificateStatusDetail\": \"<string>\"\n    }\n  ],\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"4kP81i@h\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"ENABLED\",\n  \"serviceType\": \"DATA\",\n  \"domainType\": \"ENDPOINT\",\n  \"lastStatusChangeDate\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-98c00cf9-a523-4252-8417-3ade6bec521e"
+                },
+                {
+                  "id": "f29284a1-d1e6-4a71-8ade-2de4e58dd40a",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-f29284a1-d1e6-4a71-8ade-2de4e58dd40a"
+                },
+                {
+                  "id": "f65803a8-4f18-4af4-b2cd-860ea0f3cbf9",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-f65803a8-4f18-4af4-b2cd-860ea0f3cbf9"
+                },
+                {
+                  "id": "fe37c36c-92b2-476a-b5d5-23b720070878",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-fe37c36c-92b2-476a-b5d5-23b720070878"
+                },
+                {
+                  "id": "689fb7a7-87f1-4112-a8c2-a32db97b73f9",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-689fb7a7-87f1-4112-a8c2-a32db97b73f9"
+                },
+                {
+                  "id": "cb8604f3-6087-446b-b1ca-93a9fb603eb6",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-cb8604f3-6087-446b-b1ca-93a9fb603eb6"
+                },
+                {
+                  "id": "a8af5bda-c737-45a2-95b3-3dd4a0ca0a0e",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-a8af5bda-c737-45a2-95b3-3dd4a0ca0a0e"
+                }
+              ],
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-e5ded03e-0b86-4f89-bc80-da684c3dee14"
+            },
+            {
+              "name": "Amazon IoT Device Defender Update Domain Configuration",
+              "id": "3448039c-452f-4c16-a791-14b7d98ef5ba",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations",
+                    ":domainConfigurationName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "721aa802-ac03-4b57-8a5d-d1cec8ca0791",
+                      "key": "domainConfigurationName",
+                      "value": "N-TxEEYj",
+                      "description": "(Required) The name of the domain configuration to be updated."
+                    }
+                  ]
+                },
+                "description": "<p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateDomainConfiguration</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "438b56ff-29f7-4bd7-9ba5-db0bda2e77e8",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"domainConfigurationName\": \"V2fD58N\",\n  \"domainConfigurationArn\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-438b56ff-29f7-4bd7-9ba5-db0bda2e77e8"
+                },
+                {
+                  "id": "e4b9ed18-37d4-43c5-9f6e-c62675f5a649",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-e4b9ed18-37d4-43c5-9f6e-c62675f5a649"
+                },
+                {
+                  "id": "41355c50-4368-4c11-bf3d-a7565210a72b",
+                  "name": "CertificateValidationException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-41355c50-4368-4c11-bf3d-a7565210a72b"
+                },
+                {
+                  "id": "b1feffe2-a7dd-4e88-b131-0d76920092d8",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-b1feffe2-a7dd-4e88-b131-0d76920092d8"
+                },
+                {
+                  "id": "abc6d355-027e-4d58-b786-b232e8108130",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-abc6d355-027e-4d58-b786-b232e8108130"
+                },
+                {
+                  "id": "8dd9d54d-ecbf-4403-88d6-0750663b22ea",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-8dd9d54d-ecbf-4403-88d6-0750663b22ea"
+                },
+                {
+                  "id": "30d4e6e5-323e-4ca4-a158-6616afd09132",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-30d4e6e5-323e-4ca4-a158-6616afd09132"
+                },
+                {
+                  "id": "03a5d5ef-fd25-48dd-b339-7c4288902381",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizerConfig\": {\n    \"defaultAuthorizerName\": \"9UqUs9SNad\",\n    \"allowAuthorizerOverride\": \"<boolean>\"\n  },\n  \"domainConfigurationStatus\": \"DISABLED\",\n  \"removeAuthorizerConfig\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domainConfigurations/:domainConfigurationName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domainConfigurations",
+                        ":domainConfigurationName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domainConfigurationName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:31:39.000Z",
+                  "updatedAt": "2026-07-28T10:31:39.000Z",
+                  "uid": "35240-03a5d5ef-fd25-48dd-b339-7c4288902381"
+                }
+              ],
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-3448039c-452f-4c16-a791-14b7d98ef5ba"
+            }
+          ],
+          "id": "22cd7e0c-e0f9-4028-b5c6-a9b524a3ead9",
+          "createdAt": "2026-07-28T10:31:39.000Z",
+          "updatedAt": "2026-07-28T10:31:39.000Z",
+          "uid": "35240-22cd7e0c-e0f9-4028-b5c6-a9b524a3ead9"
+        },
+        {
+          "name": "Amazon IoT Device Defender List Domain Configurations",
+          "id": "0d46c5cb-aec4-4f89-8ce7-45b2b891ecc3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "domainConfigurations"
+              ],
+              "query": [
+                {
+                  "description": "The marker for the next set of results.",
+                  "key": "marker",
+                  "value": "GFLwhEPV"
+                },
+                {
+                  "description": "The result page size.",
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The type of service delivered by the endpoint.",
+                  "key": "serviceType",
+                  "value": "CREDENTIAL_PROVIDER"
+                }
+              ]
+            },
+            "description": "<p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListDomainConfigurations</a> action.</p>"
+          },
+          "response": [
+            {
+              "id": "8adc1d47-62c2-435d-ab63-be940142bd5e",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "GFLwhEPV"
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The type of service delivered by the endpoint.",
+                      "key": "serviceType",
+                      "value": "CREDENTIAL_PROVIDER"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"domainConfigurations\": [\n    {\n      \"domainConfigurationName\": \"Xh4ilj6u\",\n      \"domainConfigurationArn\": \"<string>\",\n      \"serviceType\": \"DATA\"\n    },\n    {\n      \"domainConfigurationName\": \"VGhAwc\",\n      \"domainConfigurationArn\": \"<string>\",\n      \"serviceType\": \"JOBS\"\n    }\n  ],\n  \"nextMarker\": \"1LZrhIysKE==\"\n}",
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-8adc1d47-62c2-435d-ab63-be940142bd5e"
+            },
+            {
+              "id": "91ae479c-c53c-4497-8207-395fa7d68f57",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "GFLwhEPV"
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The type of service delivered by the endpoint.",
+                      "key": "serviceType",
+                      "value": "CREDENTIAL_PROVIDER"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-91ae479c-c53c-4497-8207-395fa7d68f57"
+            },
+            {
+              "id": "49ad3f66-a90f-4dd2-8621-3c19703a9af0",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "GFLwhEPV"
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The type of service delivered by the endpoint.",
+                      "key": "serviceType",
+                      "value": "CREDENTIAL_PROVIDER"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-49ad3f66-a90f-4dd2-8621-3c19703a9af0"
+            },
+            {
+              "id": "6d0a8570-ddf9-422a-bd5d-96516314c1be",
+              "name": "UnauthorizedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "GFLwhEPV"
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The type of service delivered by the endpoint.",
+                      "key": "serviceType",
+                      "value": "CREDENTIAL_PROVIDER"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-6d0a8570-ddf9-422a-bd5d-96516314c1be"
+            },
+            {
+              "id": "e7588af1-c97f-4dee-8023-154c010ef43e",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "GFLwhEPV"
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The type of service delivered by the endpoint.",
+                      "key": "serviceType",
+                      "value": "CREDENTIAL_PROVIDER"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-e7588af1-c97f-4dee-8023-154c010ef43e"
+            },
+            {
+              "id": "619c7555-ac88-4927-9bf0-0de2a3f7e343",
+              "name": "InternalFailureException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domainConfigurations?marker=GFLwhEPV&pageSize=<integer>&serviceType=CREDENTIAL_PROVIDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domainConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The marker for the next set of results.",
+                      "key": "marker",
+                      "value": "GFLwhEPV"
+                    },
+                    {
+                      "description": "The result page size.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The type of service delivered by the endpoint.",
+                      "key": "serviceType",
+                      "value": "CREDENTIAL_PROVIDER"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:31:39.000Z",
+              "updatedAt": "2026-07-28T10:31:39.000Z",
+              "uid": "35240-619c7555-ac88-4927-9bf0-0de2a3f7e343"
+            }
+          ],
+          "createdAt": "2026-07-28T10:31:39.000Z",
+          "updatedAt": "2026-07-28T10:31:39.000Z",
+          "uid": "35240-0d46c5cb-aec4-4f89-8ce7-45b2b891ecc3"
+        }
+      ],
+      "id": "d5a6486f-58d8-460f-b193-b3e1509626e6",
+      "createdAt": "2026-07-28T10:31:39.000Z",
+      "updatedAt": "2026-07-28T10:31:39.000Z",
+      "uid": "35240-d5a6486f-58d8-460f-b193-b3e1509626e6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

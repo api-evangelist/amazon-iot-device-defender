@@ -1,0 +1,1112 @@
+{
+  "info": {
+    "_postman_id": "90d35376-4c54-4ac2-9d55-bface81e30e5",
+    "name": "AWS IoT Accept Certificate Transfer Indexing API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:31:59.000Z",
+    "updatedAt": "2026-07-28T10:32:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-90d35376-4c54-4ac2-9d55-bface81e30e5"
+  },
+  "item": [
+    {
+      "name": "indexing",
+      "item": [
+        {
+          "name": "config",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender Get Indexing Configuration",
+              "id": "4313e5bb-a600-418d-a851-812124cc1d0d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/indexing/config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "indexing",
+                    "config"
+                  ]
+                },
+                "description": "<p>Gets the indexing configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetIndexingConfiguration</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "9ba5bef9-0941-4cfa-9002-5ec7754fedef",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"false\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"VIOLATIONS\",\n    \"namedShadowIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"bBXCuPQn4a\",\n        \"rw68C6PAE\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-9ba5bef9-0941-4cfa-9002-5ec7754fedef"
+                },
+                {
+                  "id": "696fcdfe-faf4-4320-a465-1b7db3dbed45",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-696fcdfe-faf4-4320-a465-1b7db3dbed45"
+                },
+                {
+                  "id": "85873ae4-21f9-470a-99f1-8c4887aa78cc",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-85873ae4-21f9-470a-99f1-8c4887aa78cc"
+                },
+                {
+                  "id": "455477f3-ebc8-4ad2-9dcf-ce04ac95f449",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-455477f3-ebc8-4ad2-9dcf-ce04ac95f449"
+                },
+                {
+                  "id": "976b2216-690d-4c76-80b5-396ee3e05b44",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-976b2216-690d-4c76-80b5-396ee3e05b44"
+                },
+                {
+                  "id": "7cca1ceb-c070-4e5d-9743-4f6afd0f16b0",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-7cca1ceb-c070-4e5d-9743-4f6afd0f16b0"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:00.000Z",
+              "updatedAt": "2026-07-28T10:32:00.000Z",
+              "uid": "35240-4313e5bb-a600-418d-a851-812124cc1d0d"
+            },
+            {
+              "name": "Amazon IoT Device Defender Update Indexing Configuration",
+              "id": "d7d60b5d-05df-4163-8b96-fa81499c4a20",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/indexing/config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "indexing",
+                    "config"
+                  ]
+                },
+                "description": "<p>Updates the search configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateIndexingConfiguration</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "11878c2c-8758-425d-b093-ae562fd70c72",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-11878c2c-8758-425d-b093-ae562fd70c72"
+                },
+                {
+                  "id": "c3bc5b80-106f-4483-b08c-766bbd8cd157",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-c3bc5b80-106f-4483-b08c-766bbd8cd157"
+                },
+                {
+                  "id": "b1578acf-07fc-4081-bc89-19453cb14a9f",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-b1578acf-07fc-4081-bc89-19453cb14a9f"
+                },
+                {
+                  "id": "48dc1683-9be2-46cf-8185-db92224caf72",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-48dc1683-9be2-46cf-8185-db92224caf72"
+                },
+                {
+                  "id": "f4d78b94-af62-42c2-92f6-d1ed7b0afdd4",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-f4d78b94-af62-42c2-92f6-d1ed7b0afdd4"
+                },
+                {
+                  "id": "ba4eef27-57e8-45cf-82ae-f58d5f9f07e7",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"thingIndexingConfiguration\": {\n    \"thingIndexingMode\": \"REGISTRY\",\n    \"thingConnectivityIndexingMode\": \"STATUS\",\n    \"deviceDefenderIndexingMode\": \"false\",\n    \"namedShadowIndexingMode\": \"false\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ],\n    \"filter\": {\n      \"namedShadowNames\": [\n        \"YAs6I\",\n        \"maacumALVS\"\n      ]\n    }\n  },\n  \"thingGroupIndexingConfiguration\": {\n    \"thingGroupIndexingMode\": \"true\",\n    \"managedFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Boolean\"\n      }\n    ],\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"String\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"Number\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/indexing/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "indexing",
+                        "config"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:00.000Z",
+                  "updatedAt": "2026-07-28T10:32:00.000Z",
+                  "uid": "35240-ba4eef27-57e8-45cf-82ae-f58d5f9f07e7"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:00.000Z",
+              "updatedAt": "2026-07-28T10:32:00.000Z",
+              "uid": "35240-d7d60b5d-05df-4163-8b96-fa81499c4a20"
+            }
+          ],
+          "id": "9a79b951-0db8-4056-a720-73e2b1833d10",
+          "createdAt": "2026-07-28T10:32:00.000Z",
+          "updatedAt": "2026-07-28T10:32:00.000Z",
+          "uid": "35240-9a79b951-0db8-4056-a720-73e2b1833d10"
+        }
+      ],
+      "id": "3a2a2298-38f1-4d6f-a061-07b9d7b47ec0",
+      "createdAt": "2026-07-28T10:32:00.000Z",
+      "updatedAt": "2026-07-28T10:32:00.000Z",
+      "uid": "35240-3a2a2298-38f1-4d6f-a061-07b9d7b47ec0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

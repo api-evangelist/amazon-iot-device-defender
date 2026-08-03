@@ -1,0 +1,877 @@
+{
+  "info": {
+    "_postman_id": "e3317ee1-c255-4161-ba03-ce1cfe88ec64",
+    "name": "AWS IoT Accept Certificate Transfer Attached Policies API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:30:43.000Z",
+    "updatedAt": "2026-07-28T10:30:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e3317ee1-c255-4161-ba03-ce1cfe88ec64"
+  },
+  "item": [
+    {
+      "name": "attached-policies",
+      "item": [
+        {
+          "name": "{target}",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender List Attached Policies",
+              "id": "822641f1-fa03-4d1f-93f7-647fb96689fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "attached-policies",
+                    ":target"
+                  ],
+                  "query": [
+                    {
+                      "description": "When true, recursively list attached policies.",
+                      "key": "recursive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The token to retrieve the next set of results.",
+                      "key": "marker",
+                      "value": "w35PHgrwS"
+                    },
+                    {
+                      "description": "The maximum number of results to be returned per request.",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "cfde7549-4b35-4f84-a819-a959c34c5cc0",
+                      "key": "target",
+                      "value": "<string>",
+                      "description": "(Required) The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>)."
+                    }
+                  ]
+                },
+                "description": "<p>Lists the policies attached to the specified thing group.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListAttachedPolicies</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "605efc33-f1c8-40a1-8ac7-dfd39fa37897",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"policies\": [\n    {\n      \"policyName\": \"3FEAF\",\n      \"policyArn\": \"<string>\"\n    },\n    {\n      \"policyName\": \"p0uxy8yTN\",\n      \"policyArn\": \"<string>\"\n    }\n  ],\n  \"nextMarker\": \"QTOz+d95M2f\"\n}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-605efc33-f1c8-40a1-8ac7-dfd39fa37897"
+                },
+                {
+                  "id": "894f2360-1c4e-40c0-be07-d2e480a5eab7",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-894f2360-1c4e-40c0-be07-d2e480a5eab7"
+                },
+                {
+                  "id": "14907867-ff28-4f08-84e1-05ed24347177",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-14907867-ff28-4f08-84e1-05ed24347177"
+                },
+                {
+                  "id": "a272b648-acc7-441a-a1a1-6dea52a42fc2",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-a272b648-acc7-441a-a1a1-6dea52a42fc2"
+                },
+                {
+                  "id": "3b87ba27-af2c-4570-b2c9-0c460bcc2b9d",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-3b87ba27-af2c-4570-b2c9-0c460bcc2b9d"
+                },
+                {
+                  "id": "b893f2b5-39f0-4114-8f73-2df7d4cc751e",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-b893f2b5-39f0-4114-8f73-2df7d4cc751e"
+                },
+                {
+                  "id": "1a41dfd7-37be-4a42-bc9d-8cc3d8957f09",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-1a41dfd7-37be-4a42-bc9d-8cc3d8957f09"
+                },
+                {
+                  "id": "65e0e301-c7ec-4c2e-880c-915e5ffe2f98",
+                  "name": "LimitExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attached-policies/:target?recursive=<boolean>&marker=w35PHgrwS&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attached-policies",
+                        ":target"
+                      ],
+                      "query": [
+                        {
+                          "description": "When true, recursively list attached policies.",
+                          "key": "recursive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The token to retrieve the next set of results.",
+                          "key": "marker",
+                          "value": "w35PHgrwS"
+                        },
+                        {
+                          "description": "The maximum number of results to be returned per request.",
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "target"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:30:44.000Z",
+                  "updatedAt": "2026-07-28T10:30:44.000Z",
+                  "uid": "35240-65e0e301-c7ec-4c2e-880c-915e5ffe2f98"
+                }
+              ],
+              "createdAt": "2026-07-28T10:30:44.000Z",
+              "updatedAt": "2026-07-28T10:30:44.000Z",
+              "uid": "35240-822641f1-fa03-4d1f-93f7-647fb96689fe"
+            }
+          ],
+          "id": "b148d33a-08c7-44d9-9ca1-ce2455844cbe",
+          "createdAt": "2026-07-28T10:30:44.000Z",
+          "updatedAt": "2026-07-28T10:30:44.000Z",
+          "uid": "35240-b148d33a-08c7-44d9-9ca1-ce2455844cbe"
+        }
+      ],
+      "id": "a9bad0db-814b-4ca8-a061-581c4b7b48d4",
+      "createdAt": "2026-07-28T10:30:44.000Z",
+      "updatedAt": "2026-07-28T10:30:44.000Z",
+      "uid": "35240-a9bad0db-814b-4ca8-a061-581c4b7b48d4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

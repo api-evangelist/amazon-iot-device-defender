@@ -1,0 +1,847 @@
+{
+  "info": {
+    "_postman_id": "6985c218-f0ad-45af-b480-dcf8150f1b35",
+    "name": "AWS IoT Accept Certificate Transfer Test Authorization API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:32:57.000Z",
+    "updatedAt": "2026-07-28T10:32:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6985c218-f0ad-45af-b480-dcf8150f1b35"
+  },
+  "item": [
+    {
+      "name": "test-authorization",
+      "item": [
+        {
+          "name": "Amazon IoT Device Defender Test Authorization",
+          "id": "414a248a-6c3a-45f5-8f5b-87e287dc641b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "test-authorization"
+              ],
+              "query": [
+                {
+                  "description": "The MQTT client ID.",
+                  "key": "clientId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "<p>Tests if a specified principal is authorized to perform an IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the IoT device gateway.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">TestAuthorization</a> action.</p>"
+          },
+          "response": [
+            {
+              "id": "96e8b5fd-4244-486e-b5da-3b7bc17d07bf",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"authResults\": [\n    {\n      \"authInfo\": {\n        \"resources\": [\n          \"N\\f\u2000xZ\u2029=\",\n          \"\u2004AyV\u2006F -@\"\n        ],\n        \"actionType\": \"SUBSCRIBE\"\n      },\n      \"allowed\": {\n        \"policies\": [\n          {\n            \"policyName\": \"FbMp3PLhY\",\n            \"policyArn\": \"<string>\"\n          },\n          {\n            \"policyName\": \"_GtI5ps\",\n            \"policyArn\": \"<string>\"\n          }\n        ]\n      },\n      \"denied\": {\n        \"implicitDeny\": {\n          \"policies\": [\n            {\n              \"policyName\": \"@XD7\",\n              \"policyArn\": \"<string>\"\n            },\n            {\n              \"policyName\": \"CDN-cjJ7fB\",\n              \"policyArn\": \"<string>\"\n            }\n          ]\n        },\n        \"explicitDeny\": {\n          \"policies\": [\n            {\n              \"policyName\": \"d\",\n              \"policyArn\": \"<string>\"\n            },\n            {\n              \"policyName\": \"X\",\n              \"policyArn\": \"<string>\"\n            }\n          ]\n        }\n      },\n      \"authDecision\": \"EXPLICIT_DENY\",\n      \"missingContextValues\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"authInfo\": {\n        \"resources\": [\n          \"z\u205fY';\u2005N.+\",\n          \"n\\tib)\u3000\u2008\u00a0\"\n        ],\n        \"actionType\": \"PUBLISH\"\n      },\n      \"allowed\": {\n        \"policies\": [\n          {\n            \"policyName\": \"q-oCnP9o\",\n            \"policyArn\": \"<string>\"\n          },\n          {\n            \"policyName\": \"p\",\n            \"policyArn\": \"<string>\"\n          }\n        ]\n      },\n      \"denied\": {\n        \"implicitDeny\": {\n          \"policies\": [\n            {\n              \"policyName\": \"G=ZL4J\",\n              \"policyArn\": \"<string>\"\n            },\n            {\n              \"policyName\": \"y@+pmo\",\n              \"policyArn\": \"<string>\"\n            }\n          ]\n        },\n        \"explicitDeny\": {\n          \"policies\": [\n            {\n              \"policyName\": \"DT\",\n              \"policyArn\": \"<string>\"\n            },\n            {\n              \"policyName\": \"+p0\",\n              \"policyArn\": \"<string>\"\n            }\n          ]\n        }\n      },\n      \"authDecision\": \"IMPLICIT_DENY\",\n      \"missingContextValues\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-96e8b5fd-4244-486e-b5da-3b7bc17d07bf"
+            },
+            {
+              "id": "3ad26be7-0e6e-4ce2-8033-48ef14d65944",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-3ad26be7-0e6e-4ce2-8033-48ef14d65944"
+            },
+            {
+              "id": "87b8ab24-505b-4c7d-af5a-39e6acf01fd1",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-87b8ab24-505b-4c7d-af5a-39e6acf01fd1"
+            },
+            {
+              "id": "3c2c3fdb-fda4-41fb-b012-7731635c25b0",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-3c2c3fdb-fda4-41fb-b012-7731635c25b0"
+            },
+            {
+              "id": "ef9fc1e2-6996-4c45-b902-bb208d9e1a58",
+              "name": "UnauthorizedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-ef9fc1e2-6996-4c45-b902-bb208d9e1a58"
+            },
+            {
+              "id": "29f20419-24cb-45ee-8f26-93b3a02fcc28",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-29f20419-24cb-45ee-8f26-93b3a02fcc28"
+            },
+            {
+              "id": "239d5df8-1d35-4f50-804f-831ffbe09491",
+              "name": "InternalFailureException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-239d5df8-1d35-4f50-804f-831ffbe09491"
+            },
+            {
+              "id": "bc7a0a9a-98e4-4065-a57e-befe627a8987",
+              "name": "LimitExceededException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authInfos\": [\n    {\n      \"resources\": [\n        \"\\r$/oJ>f\u2007<P\",\n        \"o.-<0H\"\n      ],\n      \"actionType\": \"SUBSCRIBE\"\n    }\n  ],\n  \"principal\": \"<string>\",\n  \"cognitoIdentityPoolId\": \"<string>\",\n  \"policyNamesToAdd\": [\n    \"_Ouh\",\n    \"L4wvOx\"\n  ],\n  \"policyNamesToSkip\": [\n    \"yNXhhr69L\",\n    \"6M\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/test-authorization?clientId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-authorization"
+                  ],
+                  "query": [
+                    {
+                      "description": "The MQTT client ID.",
+                      "key": "clientId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:57.000Z",
+              "updatedAt": "2026-07-28T10:32:57.000Z",
+              "uid": "35240-bc7a0a9a-98e4-4065-a57e-befe627a8987"
+            }
+          ],
+          "createdAt": "2026-07-28T10:32:57.000Z",
+          "updatedAt": "2026-07-28T10:32:57.000Z",
+          "uid": "35240-414a248a-6c3a-45f5-8f5b-87e287dc641b"
+        }
+      ],
+      "id": "dbdc64e2-df65-4796-8057-6a461d767269",
+      "createdAt": "2026-07-28T10:32:57.000Z",
+      "updatedAt": "2026-07-28T10:32:57.000Z",
+      "uid": "35240-dbdc64e2-df65-4796-8057-6a461d767269"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

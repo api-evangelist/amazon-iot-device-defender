@@ -1,0 +1,751 @@
+{
+  "info": {
+    "_postman_id": "2b04ef9b-44d7-4d79-b390-28757ecc8e13",
+    "name": "AWS IoT Accept Certificate Transfer Principals API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:32:39.000Z",
+    "updatedAt": "2026-07-28T10:32:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2b04ef9b-44d7-4d79-b390-28757ecc8e13"
+  },
+  "item": [
+    {
+      "name": "principals",
+      "item": [
+        {
+          "name": "things#x-amzn-principal",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender List Principal Things",
+              "id": "c8a358c9-6883-4dcb-b833-7237e624fdd8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The principal.",
+                    "key": "x-amzn-principal",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "principals",
+                    "things"
+                  ],
+                  "query": [
+                    {
+                      "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of results to return in this operation.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "hash": "x-amzn-principal"
+                },
+                "description": "<p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListPrincipalThings</a> action.</p>"
+              },
+              "response": [
+                {
+                  "id": "74b34e26-f37e-428c-8824-fe6c8f2c2649",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"things\": [\n    \"oVFouVdO2x\",\n    \"H8y\"\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-74b34e26-f37e-428c-8824-fe6c8f2c2649"
+                },
+                {
+                  "id": "23aae861-60bb-4eb8-b0ec-d7d36508b847",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-23aae861-60bb-4eb8-b0ec-d7d36508b847"
+                },
+                {
+                  "id": "9c3d34a1-5594-4b40-93fa-f089cc931dd0",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-9c3d34a1-5594-4b40-93fa-f089cc931dd0"
+                },
+                {
+                  "id": "df70707e-ac32-40a8-a145-560024981202",
+                  "name": "UnauthorizedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-df70707e-ac32-40a8-a145-560024981202"
+                },
+                {
+                  "id": "f1afc141-120c-4ef0-b721-9699fdfd7c07",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-f1afc141-120c-4ef0-b721-9699fdfd7c07"
+                },
+                {
+                  "id": "ed62f2c3-3414-4a10-8a51-fee97a5de6cf",
+                  "name": "InternalFailureException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-ed62f2c3-3414-4a10-8a51-fee97a5de6cf"
+                },
+                {
+                  "id": "83ca7ffd-e410-4da2-b5ac-275907ce55cd",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The principal.",
+                        "key": "x-amzn-principal",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/principals/things?nextToken=<string>&maxResults=<integer>#x-amzn-principal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "principals",
+                        "things"
+                      ],
+                      "query": [
+                        {
+                          "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of results to return in this operation.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "hash": "x-amzn-principal"
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:40.000Z",
+                  "updatedAt": "2026-07-28T10:32:40.000Z",
+                  "uid": "35240-83ca7ffd-e410-4da2-b5ac-275907ce55cd"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:40.000Z",
+              "updatedAt": "2026-07-28T10:32:40.000Z",
+              "uid": "35240-c8a358c9-6883-4dcb-b833-7237e624fdd8"
+            }
+          ],
+          "id": "f6214511-2ed5-496d-b377-bf4978e53872",
+          "createdAt": "2026-07-28T10:32:40.000Z",
+          "updatedAt": "2026-07-28T10:32:40.000Z",
+          "uid": "35240-f6214511-2ed5-496d-b377-bf4978e53872"
+        }
+      ],
+      "id": "4ae8c104-dd87-436f-86d8-90009a0210aa",
+      "createdAt": "2026-07-28T10:32:40.000Z",
+      "updatedAt": "2026-07-28T10:32:40.000Z",
+      "uid": "35240-4ae8c104-dd87-436f-86d8-90009a0210aa"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}

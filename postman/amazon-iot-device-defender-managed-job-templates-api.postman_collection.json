@@ -1,0 +1,1047 @@
+{
+  "info": {
+    "_postman_id": "7da70503-47ff-4153-943c-1c34078f226e",
+    "name": "AWS IoT Accept Certificate Transfer Managed Job Templates API",
+    "description": "<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html\">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:32:07.000Z",
+    "updatedAt": "2026-07-28T10:32:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7da70503-47ff-4153-943c-1c34078f226e"
+  },
+  "item": [
+    {
+      "name": "managed-job-templates",
+      "item": [
+        {
+          "name": "{templateName}",
+          "item": [
+            {
+              "name": "Amazon IoT Device Defender Describe Managed Job Template",
+              "id": "d86737e3-388a-4f45-b08b-cba3d2cf882f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managed-job-templates/:templateName?templateVersion=6E2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managed-job-templates",
+                    ":templateName"
+                  ],
+                  "query": [
+                    {
+                      "description": "An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.",
+                      "key": "templateVersion",
+                      "value": "6E2"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0078f80f-3ad4-45c1-bc35-75661e7de70e",
+                      "key": "templateName",
+                      "value": "<string>",
+                      "description": "(Required) The unique name of a managed job template, which is required."
+                    }
+                  ]
+                },
+                "description": "View details of a managed job template."
+              },
+              "response": [
+                {
+                  "id": "b20aab9e-1627-4f59-a5c2-212e2377f8dd",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/managed-job-templates/:templateName?templateVersion=6E2",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managed-job-templates",
+                        ":templateName"
+                      ],
+                      "query": [
+                        {
+                          "description": "An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.",
+                          "key": "templateVersion",
+                          "value": "6E2"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "templateName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"templateName\": \"<string>\",\n  \"templateArn\": \"arn:,RwBkW>*O\",\n  \"description\": \"tcc\",\n  \"templateVersion\": \"854961191x106\",\n  \"environments\": [\n    \"[y'-ZEDWJ6\",\n    \"0X_^1t!R\"\n  ],\n  \"documentParameters\": [\n    {\n      \"key\": \"oL\",\n      \"description\": \"E>n9\",\n      \"regex\": \"<string>\",\n      \"example\": \";/&\",\n      \"optional\": \"<boolean>\"\n    },\n    {\n      \"key\": \"sJeO\",\n      \"description\": \"<4\",\n      \"regex\": \"<string>\",\n      \"example\": \"g?@J4v#\",\n      \"optional\": \"<boolean>\"\n    }\n  ],\n  \"document\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:32:07.000Z",
+                  "updatedAt": "2026-07-28T10:32:07.000Z",
+                  "uid": "35240-b20aab9e-1627-4f59-a5c2-212e2377f8dd"
+                },
+                {
+                  "id": "ac81ba4f-dd13-4dc7-a4b3-4836ca1ad1d2",
+                  "name": "InvalidRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/managed-job-templates/:templateName?templateVersion=6E2",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managed-job-templates",
+                        ":templateName"
+                      ],
+                      "query": [
+                        {
+                          "description": "An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.",
+                          "key": "templateVersion",
+                          "value": "6E2"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "templateName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:07.000Z",
+                  "updatedAt": "2026-07-28T10:32:07.000Z",
+                  "uid": "35240-ac81ba4f-dd13-4dc7-a4b3-4836ca1ad1d2"
+                },
+                {
+                  "id": "3f591828-c933-4d48-925e-f06d6ac91875",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/managed-job-templates/:templateName?templateVersion=6E2",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managed-job-templates",
+                        ":templateName"
+                      ],
+                      "query": [
+                        {
+                          "description": "An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.",
+                          "key": "templateVersion",
+                          "value": "6E2"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "templateName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:07.000Z",
+                  "updatedAt": "2026-07-28T10:32:07.000Z",
+                  "uid": "35240-3f591828-c933-4d48-925e-f06d6ac91875"
+                },
+                {
+                  "id": "4067b331-7e17-48e2-8cb2-382d13a0f525",
+                  "name": "ThrottlingException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/managed-job-templates/:templateName?templateVersion=6E2",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managed-job-templates",
+                        ":templateName"
+                      ],
+                      "query": [
+                        {
+                          "description": "An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.",
+                          "key": "templateVersion",
+                          "value": "6E2"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "templateName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:07.000Z",
+                  "updatedAt": "2026-07-28T10:32:07.000Z",
+                  "uid": "35240-4067b331-7e17-48e2-8cb2-382d13a0f525"
+                },
+                {
+                  "id": "fbd6c000-1ea9-41eb-aaad-0daaf8c98e4f",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/managed-job-templates/:templateName?templateVersion=6E2",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managed-job-templates",
+                        ":templateName"
+                      ],
+                      "query": [
+                        {
+                          "description": "An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.",
+                          "key": "templateVersion",
+                          "value": "6E2"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "templateName"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:32:07.000Z",
+                  "updatedAt": "2026-07-28T10:32:07.000Z",
+                  "uid": "35240-fbd6c000-1ea9-41eb-aaad-0daaf8c98e4f"
+                }
+              ],
+              "createdAt": "2026-07-28T10:32:07.000Z",
+              "updatedAt": "2026-07-28T10:32:07.000Z",
+              "uid": "35240-d86737e3-388a-4f45-b08b-cba3d2cf882f"
+            }
+          ],
+          "id": "0cb987b8-fe55-4f80-b903-76d2ce4e453a",
+          "createdAt": "2026-07-28T10:32:07.000Z",
+          "updatedAt": "2026-07-28T10:32:07.000Z",
+          "uid": "35240-0cb987b8-fe55-4f80-b903-76d2ce4e453a"
+        },
+        {
+          "name": "Amazon IoT Device Defender List Managed Job Templates",
+          "id": "fd96db35-25e4-4e53-a247-de1f5d2fe628",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/managed-job-templates?templateName=<string>&maxResults=<integer>&nextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "managed-job-templates"
+              ],
+              "query": [
+                {
+                  "description": "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.",
+                  "key": "templateName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of entries that can be returned.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The token to retrieve the next set of results.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of managed job templates."
+          },
+          "response": [
+            {
+              "id": "c4cc75b9-acae-4577-86b1-4259ef58c8f4",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managed-job-templates?templateName=<string>&maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managed-job-templates"
+                  ],
+                  "query": [
+                    {
+                      "description": "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.",
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of entries that can be returned.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to retrieve the next set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"managedJobTemplates\": [\n    {\n      \"templateArn\": \"arn:fHeKa50d$m\",\n      \"templateName\": \"<string>\",\n      \"description\": \"'[J5T:V\",\n      \"environments\": [\n        \"!M\",\n        \"(_+=B]\"\n      ],\n      \"templateVersion\": \"882978b8009595246\"\n    },\n    {\n      \"templateArn\": \"arn:854O8\",\n      \"templateName\": \"<string>\",\n      \"description\": \"9i;NDH\",\n      \"environments\": [\n        \"=YZN;(s\",\n        \"w:ug.\"\n      ],\n      \"templateVersion\": \"157741996O7518997918\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:32:07.000Z",
+              "updatedAt": "2026-07-28T10:32:07.000Z",
+              "uid": "35240-c4cc75b9-acae-4577-86b1-4259ef58c8f4"
+            },
+            {
+              "id": "051b8602-5385-487d-9587-287c43b2b41f",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managed-job-templates?templateName=<string>&maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managed-job-templates"
+                  ],
+                  "query": [
+                    {
+                      "description": "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.",
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of entries that can be returned.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to retrieve the next set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:07.000Z",
+              "updatedAt": "2026-07-28T10:32:07.000Z",
+              "uid": "35240-051b8602-5385-487d-9587-287c43b2b41f"
+            },
+            {
+              "id": "e8689957-22ba-41ac-9625-338a6f3c5e1e",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managed-job-templates?templateName=<string>&maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managed-job-templates"
+                  ],
+                  "query": [
+                    {
+                      "description": "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.",
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of entries that can be returned.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to retrieve the next set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:07.000Z",
+              "updatedAt": "2026-07-28T10:32:07.000Z",
+              "uid": "35240-e8689957-22ba-41ac-9625-338a6f3c5e1e"
+            },
+            {
+              "id": "14c00971-9a4b-4d0d-ae25-ae9ec9fc1fb4",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managed-job-templates?templateName=<string>&maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managed-job-templates"
+                  ],
+                  "query": [
+                    {
+                      "description": "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.",
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of entries that can be returned.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to retrieve the next set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:07.000Z",
+              "updatedAt": "2026-07-28T10:32:07.000Z",
+              "uid": "35240-14c00971-9a4b-4d0d-ae25-ae9ec9fc1fb4"
+            },
+            {
+              "id": "fba7901d-8821-4633-b039-d737f8a6687f",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managed-job-templates?templateName=<string>&maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managed-job-templates"
+                  ],
+                  "query": [
+                    {
+                      "description": "An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.",
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of entries that can be returned.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token to retrieve the next set of results.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:32:07.000Z",
+              "updatedAt": "2026-07-28T10:32:07.000Z",
+              "uid": "35240-fba7901d-8821-4633-b039-d737f8a6687f"
+            }
+          ],
+          "createdAt": "2026-07-28T10:32:07.000Z",
+          "updatedAt": "2026-07-28T10:32:07.000Z",
+          "uid": "35240-fd96db35-25e4-4e53-a247-de1f5d2fe628"
+        }
+      ],
+      "id": "e56b7ff7-3fe1-45cd-afa2-873504e7ef84",
+      "createdAt": "2026-07-28T10:32:07.000Z",
+      "updatedAt": "2026-07-28T10:32:07.000Z",
+      "uid": "35240-e56b7ff7-3fe1-45cd-afa2-873504e7ef84"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iot.{{region}}.amazonaws.com"
+    }
+  ]
+}
