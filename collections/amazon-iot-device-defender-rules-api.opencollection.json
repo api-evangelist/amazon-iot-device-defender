@@ -1,0 +1,399 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Rules API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Get Topic Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/rules/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule."
+              }
+            ]
+          },
+          "docs": "<p>Gets information about the rule.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetTopicRule</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Create Topic Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/rules/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              },
+              {
+                "name": "x-amz-tagging",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateTopicRule</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Replace Topic Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://iot.{region}.amazonaws.com/rules/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ReplaceTopicRule</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Delete Topic Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://iot.{region}.amazonaws.com/rules/:ruleName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule."
+              }
+            ]
+          },
+          "docs": "<p>Deletes the rule.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteTopicRule</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Disable Topic Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/rules/:ruleName/disable",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the rule to disable."
+              }
+            ]
+          },
+          "docs": "<p>Disables the rule.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DisableTopicRule</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Enable Topic Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/rules/:ruleName/enable",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ruleName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the topic rule to enable."
+              }
+            ]
+          },
+          "docs": "<p>Enables the rule.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">EnableTopicRule</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Topic Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/rules",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "topic",
+                "value": "",
+                "type": "query",
+                "description": "The topic."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results."
+              },
+              {
+                "name": "ruleDisabled",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether the rule is disabled."
+              }
+            ]
+          },
+          "docs": "<p>Lists the rules for the specific topic.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListTopicRules</a> action.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

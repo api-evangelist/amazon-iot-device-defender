@@ -1,0 +1,556 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Provisioning Templates API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Provisioning Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Create Provisioning Claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName/provisioning-claim",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the provisioning template to use."
+              }
+            ]
+          },
+          "docs": "<p>Creates a provisioning claim.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateProvisioningClaim</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Provisioning Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return at one time."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A token to retrieve the next set of results."
+              }
+            ]
+          },
+          "docs": "<p>Lists the provisioning templates in your Amazon Web Services account.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListProvisioningTemplates</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Create Provisioning Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Creates a provisioning template.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateProvisioningTemplate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Provisioning Template Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName/versions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the provisioning template."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return at one time."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "A token to retrieve the next set of results."
+              }
+            ]
+          },
+          "docs": "<p>A list of provisioning template versions.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListProvisioningTemplateVersions</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Create Provisioning Template Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName/versions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the provisioning template."
+              },
+              {
+                "name": "setAsDefault",
+                "value": "",
+                "type": "query",
+                "description": "Sets a fleet provision template version as the default version."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Creates a new version of a provisioning template.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateProvisioningTemplateVersion</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Describe Provisioning Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the provisioning template."
+              }
+            ]
+          },
+          "docs": "<p>Returns information about a provisioning template.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeProvisioningTemplate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Update Provisioning Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the provisioning template."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Updates a provisioning template.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateProvisioningTemplate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Delete Provisioning Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the fleet provision template to delete."
+              }
+            ]
+          },
+          "docs": "<p>Deletes a provisioning template.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteProvisioningTemplate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Describe Provisioning Template Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName/versions/:versionId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The template name."
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The provisioning template version ID."
+              }
+            ]
+          },
+          "docs": "<p>Returns information about a provisioning template version.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeProvisioningTemplateVersion</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Delete Provisioning Template Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://iot.{region}.amazonaws.com/provisioning-templates/:templateName/versions/:versionId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the provisioning template version to delete."
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The provisioning template version ID to delete."
+              }
+            ]
+          },
+          "docs": "<p>Deletes a provisioning template version.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteProvisioningTemplateVersion</a> action.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

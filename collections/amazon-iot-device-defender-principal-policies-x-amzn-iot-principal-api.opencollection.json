@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Principal Policies#x Amzn Iot Principal API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Principal Policies#x Amzn Iot Principal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Principal Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/principal-policies#x-amzn-iot-principal",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              },
+              {
+                "name": "x-amzn-iot-principal",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "marker",
+                "value": "",
+                "type": "query",
+                "description": "The marker for the next set of results."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The result page size."
+              },
+              {
+                "name": "isAscendingOrder",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the order for results. If true, results are returned in ascending creation order."
+              }
+            ]
+          },
+          "docs": "<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListAttachedPolicies</a> instead.</p> <p>Requires permission to acce"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

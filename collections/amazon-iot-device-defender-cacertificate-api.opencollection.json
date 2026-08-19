@@ -1,0 +1,248 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Cacertificate API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cacertificate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Describe C a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/cacertificate/:caCertificateId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "caCertificateId",
+                "value": "",
+                "type": "path",
+                "description": "The CA certificate identifier."
+              }
+            ]
+          },
+          "docs": "<p>Describes a registered CA certificate.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeCACertificate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Update C a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://iot.{region}.amazonaws.com/cacertificate/:caCertificateId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "caCertificateId",
+                "value": "",
+                "type": "path",
+                "description": "The CA certificate identifier."
+              },
+              {
+                "name": "newStatus",
+                "value": "",
+                "type": "query",
+                "description": "<p>The updated status of the CA certificate.</p> <p> <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
+              },
+              {
+                "name": "newAutoRegistrationStatus",
+                "value": "",
+                "type": "query",
+                "description": "The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\"."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Updates a registered CA certificate.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateCACertificate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Delete C a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://iot.{region}.amazonaws.com/cacertificate/:caCertificateId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "caCertificateId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)"
+              }
+            ]
+          },
+          "docs": "<p>Deletes a registered CA certificate.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteCACertificate</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Register C a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/cacertificate",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "setAsActive",
+                "value": "",
+                "type": "query",
+                "description": "<p>A boolean value that specifies if the CA certificate is set to active.</p> <p>Valid values: <code>ACTIVE | INACTIVE</code> </p>"
+              },
+              {
+                "name": "allowAutoRegistration",
+                "value": "",
+                "type": "query",
+                "description": "Allows this CA certificate to be used for auto registration of device certificates."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to the number of CA certificates you can register in your Amazon Web Services account. You can register up to 10 CA certificates with the same <code>CA subject field</code> per Amazon Web Services account.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">RegisterCACertificate</a> action.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

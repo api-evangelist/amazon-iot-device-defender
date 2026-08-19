@@ -1,0 +1,480 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Security Profiles API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Security Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Attach Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName/targets#securityProfileTargetArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The security profile that is attached."
+              },
+              {
+                "name": "securityProfileTargetArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the target (thing group) to which the security profile is attached."
+              }
+            ]
+          },
+          "docs": "<p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">AttachSecurityProfile</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Detach Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName/targets#securityProfileTargetArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The security profile that is detached."
+              },
+              {
+                "name": "securityProfileTargetArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the thing group from which the security profile is detached."
+              }
+            ]
+          },
+          "docs": "<p>Disassociates a Device Defender security profile from a thing group or from this account.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DetachSecurityProfile</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Describe Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the security profile whose information you want to get."
+              }
+            ]
+          },
+          "docs": "<p>Gets information about a Device Defender security profile.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeSecurityProfile</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Create Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The name you are giving to the security profile."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Creates a Device Defender security profile.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CreateSecurityProfile</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Update Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the security profile you want to update."
+              },
+              {
+                "name": "expectedVersion",
+                "value": "",
+                "type": "query",
+                "description": "The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Updates a Device Defender security profile.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateSecurityProfile</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Delete Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the security profile to be deleted."
+              },
+              {
+                "name": "expectedVersion",
+                "value": "",
+                "type": "query",
+                "description": "The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown."
+              }
+            ]
+          },
+          "docs": "<p>Deletes a Device Defender security profile.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteSecurityProfile</a> action.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Security Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for the next set of results."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return at one time."
+              },
+              {
+                "name": "dimensionName",
+                "value": "",
+                "type": "query",
+                "description": "A filter to limit results to the security profiles that use the defined dimension. Cannot be used with <code>metricName</code> "
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query",
+                "description": " The name of the custom metric. Cannot be used with <code>dimensionName</code>. "
+              }
+            ]
+          },
+          "docs": "<p>Lists the Device Defender security profiles you've created. You can filter security profiles by dimension or custom metric.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListSecurityProfiles</a> action.</p> <note> <p> <code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p> </note>"
+        },
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Targets for Security Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/security-profiles/:securityProfileName/targets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "path",
+                "description": "The security profile."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for the next set of results."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return at one time."
+              }
+            ]
+          },
+          "docs": "<p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListTargetsForSecurityProfile</a> action.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

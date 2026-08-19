@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Behavior Model Training API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Behavior Model Training",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender Get Behavior Model Training Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/behavior-model-training/summaries",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "securityProfileName",
+                "value": "",
+                "type": "query",
+                "description": " The name of the security profile. "
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": " The maximum number of results to return at one time. The default is 10. "
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": " The token for the next set of results. "
+              }
+            ]
+          },
+          "docs": "<p> Returns a Device Defender's ML Detect Security Profile training model's status. </p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetBehaviorModelTrainingSummaries</a> action.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

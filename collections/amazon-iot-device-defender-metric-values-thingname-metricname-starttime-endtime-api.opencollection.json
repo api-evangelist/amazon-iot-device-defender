@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS IoT Accept Certificate Transfer Metric Values#thingName&metricName&startTime&endTime API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metric Values#thingName&metricName&startTime&endTime",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IoT Device Defender List Metric Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://iot.{region}.amazonaws.com/metric-values#thingName&metricName&startTime&endTime",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "thingName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the thing for which security profile metric values are returned."
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the security profile metric for which values are returned."
+              },
+              {
+                "name": "dimensionName",
+                "value": "",
+                "type": "query",
+                "description": "The dimension name."
+              },
+              {
+                "name": "dimensionValueOperator",
+                "value": "",
+                "type": "query",
+                "description": "The dimension value operator."
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time period for which metric values are returned."
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time period for which metric values are returned."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return at one time."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "The token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric) by the given thing during the specified time period."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
