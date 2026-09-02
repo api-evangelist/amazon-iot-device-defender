@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWS IoT Accept Certificate Transfer Indices API
   description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
@@ -799,131 +799,7 @@ paths:
       tags:
       - Indices
 components:
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    GetBucketsAggregationResponse:
-      type: object
-      properties:
-        totalCount:
-          allOf:
-          - $ref: '#/components/schemas/Count'
-          - description: The total number of things that fit the query string criteria.
-        buckets:
-          allOf:
-          - $ref: '#/components/schemas/Buckets'
-          - description: '<p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p> <p> <code>keyValue</code>: The aggregation field value counted for the particular bucket.</p> <p> <code>count</code>: The number of documents that have that value.</p>'
-    ResourceNotFoundException: {}
-    Count:
-      type: integer
-    ThingGroupNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingGroupName'
-    ThingGroupDocument:
-      type: object
-      properties:
-        thingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/ThingGroupName'
-          - description: The thing group name.
-        thingGroupId:
-          allOf:
-          - $ref: '#/components/schemas/ThingGroupId'
-          - description: The thing group ID.
-        thingGroupDescription:
-          allOf:
-          - $ref: '#/components/schemas/ThingGroupDescription'
-          - description: The thing group description.
-        attributes:
-          allOf:
-          - $ref: '#/components/schemas/Attributes'
-          - description: The thing group attributes.
-        parentGroupNames:
-          allOf:
-          - $ref: '#/components/schemas/ThingGroupNameList'
-          - description: Parent group names.
-      description: The thing group search index document.
-    InternalFailureException: {}
-    PercentValue:
-      type: number
-      format: double
-    ThingGroupDocumentList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingGroupDocument'
-    NextToken:
-      type: string
-    Attributes:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/AttributeValue'
-    GetPercentilesResponse:
-      type: object
-      properties:
-        percentiles:
-          allOf:
-          - $ref: '#/components/schemas/Percentiles'
-          - description: The percentile values of the aggregated fields.
-    ServiceUnavailableException: {}
-    Average:
-      type: number
-      format: double
-    ThingTypeName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    ThingName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    StdDeviation:
-      type: number
-      format: double
-    UnauthorizedException: {}
     GetStatisticsResponse:
       type: object
       properties:
@@ -931,11 +807,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/Statistics'
           - description: The statistics returned by the Fleet Indexing service based on the query and aggregation field.
-    Boolean:
-      type: boolean
-    SumOfSquares:
-      type: number
-      format: double
+    UnauthorizedException: {}
+    ThingGroupDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 2028
     ThingDocumentList:
       type: array
       items:
@@ -944,25 +820,37 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Bucket'
-    Sum:
-      type: number
-      format: double
-    ThingGroupId:
-      type: string
-      pattern: '[a-zA-Z0-9\-]+'
-      minLength: 1
-      maxLength: 128
-    ListIndicesResponse:
+    DescribeIndexResponse:
       type: object
       properties:
-        indexNames:
+        indexName:
           allOf:
-          - $ref: '#/components/schemas/IndexNamesList'
-          - description: The index names.
-        nextToken:
+          - $ref: '#/components/schemas/IndexName'
+          - description: The index name.
+        indexStatus:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token used to get the next set of results, or <code>null</code> if there are no additional results.
+          - $ref: '#/components/schemas/IndexStatus'
+          - description: The index status.
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/IndexSchema'
+          - description: <p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ul> <li> <p>REGISTRY – Your thing index contains only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p> </li> <li> <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.</p> </li> <li> <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.</p> </li> <li> <p>MULTI_INDEXING_MODE - Your thing index contains multiple data sources. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html">GetIndexingConfiguration</a>.</p> </li> </ul>
+    ThingConnectivity:
+      type: object
+      properties:
+        connected:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not connected.
+        timestamp:
+          allOf:
+          - $ref: '#/components/schemas/ConnectivityTimestamp'
+          - description: The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing.
+        disconnectReason:
+          allOf:
+          - $ref: '#/components/schemas/DisconnectReason'
+          - description: The reason why the client is disconnected. If the thing has been disconnected for approximately an hour, the <code>disconnectReason</code> value might be missing.
+      description: The connectivity status of the thing.
     Statistics:
       type: object
       properties:
@@ -999,6 +887,77 @@ components:
           - $ref: '#/components/schemas/StdDeviation'
           - description: The standard deviation of the aggregated field values.
       description: A map of key-value pairs for all supported statistics. For issues with missing or unexpected values for this API, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-indexing-troubleshooting.html"> Fleet indexing troubleshooting guide</a>.
+    TermsAggregation:
+      type: object
+      properties:
+        maxBuckets:
+          allOf:
+          - $ref: '#/components/schemas/MaxBuckets'
+          - description: The number of buckets to return in the response. Default to 10.
+      description: Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.
+    InvalidQueryException: {}
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ConnectivityTimestamp:
+      type: integer
+    Count:
+      type: integer
+    Boolean:
+      type: boolean
+    ThingTypeName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    Maximum:
+      type: number
+      format: double
+    Percentiles:
+      type: array
+      items:
+        $ref: '#/components/schemas/PercentPair'
+    Attributes:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/AttributeValue'
+    ThingGroupDocumentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingGroupDocument'
+    Minimum:
+      type: number
+      format: double
+    JsonDocument:
+      type: string
+    AttributeValue:
+      type: string
+      pattern: '[a-zA-Z0-9_.,@/:#-]*'
+      maxLength: 800
+    ThingName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ThingId:
+      type: string
+    NextToken:
+      type: string
+    ThingGroupId:
+      type: string
+      pattern: '[a-zA-Z0-9\-]+'
+      minLength: 1
+      maxLength: 128
+    GetCardinalityResponse:
+      type: object
+      properties:
+        cardinality:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The approximate count of unique values that match the query.
+    InvalidRequestException: {}
     SearchIndexResponse:
       type: object
       properties:
@@ -1014,73 +973,46 @@ components:
           allOf:
           - $ref: '#/components/schemas/ThingGroupDocumentList'
           - description: The thing groups that match the search query.
-    Maximum:
-      type: number
-      format: double
     BucketKeyValue:
       type: string
-    ThrottlingException: {}
-    AttributeValue:
-      type: string
-      pattern: '[a-zA-Z0-9_.,@/:#-]*'
-      maxLength: 800
-    Percentiles:
-      type: array
-      items:
-        $ref: '#/components/schemas/PercentPair'
-    IndexSchema:
-      type: string
-    InvalidQueryException: {}
-    InvalidRequestException: {}
-    TermsAggregation:
+    ThingGroupDocument:
       type: object
       properties:
-        maxBuckets:
+        thingGroupName:
           allOf:
-          - $ref: '#/components/schemas/MaxBuckets'
-          - description: The number of buckets to return in the response. Default to 10.
-      description: Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.
-    Percent:
+          - $ref: '#/components/schemas/ThingGroupName'
+          - description: The thing group name.
+        thingGroupId:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupId'
+          - description: The thing group ID.
+        thingGroupDescription:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupDescription'
+          - description: The thing group description.
+        attributes:
+          allOf:
+          - $ref: '#/components/schemas/Attributes'
+          - description: The thing group attributes.
+        parentGroupNames:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupNameList'
+          - description: Parent group names.
+      description: The thing group search index document.
+    Average:
       type: number
       format: double
-      minimum: 0
-      maximum: 100
-    DescribeIndexResponse:
+    ListIndicesResponse:
       type: object
       properties:
-        indexName:
+        indexNames:
           allOf:
-          - $ref: '#/components/schemas/IndexName'
-          - description: The index name.
-        indexStatus:
+          - $ref: '#/components/schemas/IndexNamesList'
+          - description: The index names.
+        nextToken:
           allOf:
-          - $ref: '#/components/schemas/IndexStatus'
-          - description: The index status.
-        schema:
-          allOf:
-          - $ref: '#/components/schemas/IndexSchema'
-          - description: <p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ul> <li> <p>REGISTRY – Your thing index contains only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p> </li> <li> <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.</p> </li> <li> <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.</p> </li> <li> <p>MULTI_INDEXING_MODE - Your thing index contains multiple data sources. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html">GetIndexingConfiguration</a>.</p> </li> </ul>
-    Minimum:
-      type: number
-      format: double
-    ThingId:
-      type: string
-    DisconnectReason:
-      type: string
-    ThingGroupName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    IndexNotReadyException: {}
-    IndexName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    Variance:
-      type: number
-      format: double
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token used to get the next set of results, or <code>null</code> if there are no additional results.
     PercentPair:
       type: object
       properties:
@@ -1093,6 +1025,22 @@ components:
           - $ref: '#/components/schemas/PercentValue'
           - description: The value of the percentile.
       description: Describes the percentile and percentile value.
+    InternalFailureException: {}
+    GetBucketsAggregationResponse:
+      type: object
+      properties:
+        totalCount:
+          allOf:
+          - $ref: '#/components/schemas/Count'
+          - description: The total number of things that fit the query string criteria.
+        buckets:
+          allOf:
+          - $ref: '#/components/schemas/Buckets'
+          - description: '<p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p> <p> <code>keyValue</code>: The aggregation field value counted for the particular bucket.</p> <p> <code>count</code>: The number of documents that have that value.</p>'
+    Variance:
+      type: number
+      format: double
+    ServiceUnavailableException: {}
     ThingDocument:
       type: object
       properties:
@@ -1129,14 +1077,39 @@ components:
           - $ref: '#/components/schemas/ThingConnectivity'
           - description: Indicates whether the thing is connected to the Amazon Web Services IoT Core service.
       description: The thing search index document.
-    JsonDocument:
+    ThrottlingException: {}
+    IndexSchema:
       type: string
-    IndexNamesList:
+    GetPercentilesResponse:
+      type: object
+      properties:
+        percentiles:
+          allOf:
+          - $ref: '#/components/schemas/Percentiles'
+          - description: The percentile values of the aggregated fields.
+    InvalidAggregationException: {}
+    ResourceNotFoundException: {}
+    IndexNotReadyException: {}
+    ThingGroupNameList:
       type: array
       items:
-        $ref: '#/components/schemas/IndexName'
-    ConnectivityTimestamp:
-      type: integer
+        $ref: '#/components/schemas/ThingGroupName'
+    Percent:
+      type: number
+      format: double
+      minimum: 0
+      maximum: 100
+    Sum:
+      type: number
+      format: double
+    StdDeviation:
+      type: number
+      format: double
+    SumOfSquares:
+      type: number
+      format: double
+    DisconnectReason:
+      type: string
     Bucket:
       type: object
       properties:
@@ -1149,44 +1122,71 @@ components:
           - $ref: '#/components/schemas/Count'
           - description: The number of documents that have the value counted for the particular bucket.
       description: A count of documents that meets a specific aggregation criteria.
-    ThingConnectivity:
-      type: object
-      properties:
-        connected:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not connected.
-        timestamp:
-          allOf:
-          - $ref: '#/components/schemas/ConnectivityTimestamp'
-          - description: The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for approximately an hour, the time value might be missing.
-        disconnectReason:
-          allOf:
-          - $ref: '#/components/schemas/DisconnectReason'
-          - description: The reason why the client is disconnected. If the thing has been disconnected for approximately an hour, the <code>disconnectReason</code> value might be missing.
-      description: The connectivity status of the thing.
-    InvalidAggregationException: {}
-    GetCardinalityResponse:
-      type: object
-      properties:
-        cardinality:
-          allOf:
-          - $ref: '#/components/schemas/Count'
-          - description: The approximate count of unique values that match the query.
+    IndexName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    PercentValue:
+      type: number
+      format: double
     IndexStatus:
       type: string
       enum:
       - ACTIVE
       - BUILDING
       - REBUILDING
+    IndexNamesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/IndexName'
     MaxBuckets:
       type: integer
       minimum: 1
       maximum: 10000
-    ThingGroupDescription:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 2028
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

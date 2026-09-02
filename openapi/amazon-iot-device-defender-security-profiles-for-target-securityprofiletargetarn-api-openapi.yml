@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWS IoT Accept Certificate Transfer Security Profiles For Target#securityProfileTargetArn API
   description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
@@ -191,51 +191,25 @@ paths:
       tags:
       - Security Profiles For Target#securityProfileTargetArn
 components:
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ResourceNotFoundException: {}
+    SecurityProfileTargetMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/SecurityProfileTargetMapping'
+    SecurityProfileArn:
+      type: string
+    SecurityProfileTargetMapping:
+      type: object
+      properties:
+        securityProfileIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileIdentifier'
+          - description: Information that identifies the security profile.
+        target:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileTarget'
+          - description: Information about the target (thing group) associated with the security profile.
+      description: Information about a security profile and the target associated with it.
     SecurityProfileIdentifier:
       type: object
       required:
@@ -251,42 +225,11 @@ components:
           - $ref: '#/components/schemas/SecurityProfileArn'
           - description: The ARN of the security profile.
       description: Identifying information for a Device Defender security profile.
-    InternalFailureException: {}
     NextToken:
       type: string
-    SecurityProfileTargetMappings:
-      type: array
-      items:
-        $ref: '#/components/schemas/SecurityProfileTargetMapping'
-    SecurityProfileTarget:
-      type: object
-      required:
-      - arn
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/SecurityProfileTargetArn'
-          - description: The ARN of the security profile.
-      description: A target to which an alert is sent when a security profile behavior is violated.
-    ThrottlingException: {}
     InvalidRequestException: {}
-    SecurityProfileTargetMapping:
-      type: object
-      properties:
-        securityProfileIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/SecurityProfileIdentifier'
-          - description: Information that identifies the security profile.
-        target:
-          allOf:
-          - $ref: '#/components/schemas/SecurityProfileTarget'
-          - description: Information about the target (thing group) associated with the security profile.
-      description: Information about a security profile and the target associated with it.
-    SecurityProfileName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
+    InternalFailureException: {}
+    ThrottlingException: {}
     ListSecurityProfilesForTargetResponse:
       type: object
       properties:
@@ -298,10 +241,67 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    ResourceNotFoundException: {}
+    SecurityProfileTarget:
+      type: object
+      required:
+      - arn
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileTargetArn'
+          - description: The ARN of the security profile.
+      description: A target to which an alert is sent when a security profile behavior is violated.
     SecurityProfileTargetArn:
       type: string
-    SecurityProfileArn:
+    SecurityProfileName:
       type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
