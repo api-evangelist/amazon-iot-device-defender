@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer Rules API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT Rules API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateTopicRule
-      description: <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRule</a> action.</p>
+      description: 'Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+
+
+        Requires permission to access the CreateTopicRule action.'
       responses:
         '200':
           description: Success
@@ -226,7 +232,10 @@ paths:
       - Rules
     delete:
       operationId: DeleteTopicRule
-      description: <p>Deletes the rule.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRule</a> action.</p>
+      description: 'Deletes the rule.
+
+
+        Requires permission to access the DeleteTopicRule action.'
       responses:
         '200':
           description: Success
@@ -278,7 +287,10 @@ paths:
       - Rules
     get:
       operationId: GetTopicRule
-      description: <p>Gets information about the rule.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRule</a> action.</p>
+      description: 'Gets information about the rule.
+
+
+        Requires permission to access the GetTopicRule action.'
       responses:
         '200':
           description: Success
@@ -328,7 +340,10 @@ paths:
       - Rules
     patch:
       operationId: ReplaceTopicRule
-      description: <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ReplaceTopicRule</a> action.</p>
+      description: 'Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+
+
+        Requires permission to access the ReplaceTopicRule action.'
       responses:
         '200':
           description: Success
@@ -432,7 +447,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DisableTopicRule
-      description: <p>Disables the rule.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisableTopicRule</a> action.</p>
+      description: 'Disables the rule.
+
+
+        Requires permission to access the DisableTopicRule action.'
       responses:
         '200':
           description: Success
@@ -493,7 +511,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: EnableTopicRule
-      description: <p>Enables the rule.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">EnableTopicRule</a> action.</p>
+      description: 'Enables the rule.
+
+
+        Requires permission to access the EnableTopicRule action.'
       responses:
         '200':
           description: Success
@@ -554,7 +575,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListTopicRules
-      description: <p>Lists the rules for the specific topic.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRules</a> action.</p>
+      description: 'Lists the rules for the specific topic.
+
+
+        Requires permission to access the ListTopicRules action.'
       responses:
         '200':
           description: Success
@@ -615,36 +639,449 @@ paths:
       - Rules
 components:
   schemas:
-    String:
+    DynamoDBv2Action:
+      type: object
+      required:
+      - roleArn
+      - putItem
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access to the DynamoDB table.
+        putItem:
+          allOf:
+          - $ref: '#/components/schemas/PutItemInput'
+          - description: '<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p> <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }</code> </p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>'
+      description: <p>Describes an action to write to a DynamoDB table.</p> <p>This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.</p>
+    ConflictingResourceUpdateException: {}
+    AlarmName:
       type: string
-    PutAssetPropertyValueEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PutAssetPropertyValueEntry'
-      minItems: 1
-    ContentType:
+    DynamoOperation:
       type: string
-      minLength: 0
-      maxLength: 1024
-    ChannelName:
+    AssetPropertyAlias:
+      type: string
+      minLength: 1
+    LocationAction:
+      type: object
+      required:
+      - roleArn
+      - trackerName
+      - deviceId
+      - latitude
+      - longitude
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role that grants permission to write to the Amazon Location resource.
+        trackerName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The name of the tracker resource in Amazon Location in which the location is updated.
+        deviceId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The unique ID of the device providing the location data.
+        timestamp:
+          allOf:
+          - $ref: '#/components/schemas/LocationTimestamp'
+          - description: The time that the location data was sampled. The default value is the time the MQTT message was processed.
+        latitude:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A string that evaluates to a double value that represents the latitude of the device's location.
+        longitude:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A string that evaluates to a double value that represents the longitude of the device's location.
+      description: The Amazon Location rule action sends device location updates from an MQTT message to an Amazon Location tracker resource.
+    TimestreamAction:
+      type: object
+      required:
+      - roleArn
+      - databaseName
+      - tableName
+      - dimensions
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        databaseName:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamDatabaseName'
+          - description: The name of an Amazon Timestream database.
+        tableName:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamTableName'
+          - description: The name of the database table into which to write the measure records.
+        dimensions:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamDimensionList'
+          - description: Metadata attributes of the time series that are written in each measure record.
+        timestamp:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamTimestamp'
+          - description: <p>Specifies an application-defined value to replace the default value assigned to the Timestream record's timestamp in the <code>time</code> column.</p> <p>You can use this property to specify the value and the precision of the Timestream record's timestamp. You can specify a value from the message payload or a value computed by a substitution template.</p> <p>If omitted, the topic rule action assigns the timestamp, in milliseconds, at the time it processed the rule. </p>
+      description: The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html">Timestream</a> topic rule action documentation.
+    AssetPropertyOffsetInNanos:
+      type: string
+    TableName:
       type: string
     TopicRuleList:
       type: array
       items:
         $ref: '#/components/schemas/TopicRuleListItem'
+    ServiceName:
+      type: string
+    HttpActionHeader:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/HeaderKey'
+          - description: The HTTP header key.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/HeaderValue'
+          - description: The HTTP header value. Substitution templates are supported.
+      description: The HTTP action header.
+    AssetPropertyEntryId:
+      type: string
+    DeliveryStreamName:
+      type: string
+    KafkaAction:
+      type: object
+      required:
+      - destinationArn
+      - topic
+      - clientProperties
+      properties:
+        destinationArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.
+        topic:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Kafka topic for messages to be sent to the Kafka broker.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Kafka message key.
+        partition:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Kafka message partition.
+        clientProperties:
+          allOf:
+          - $ref: '#/components/schemas/ClientProperties'
+          - description: Properties of the Apache Kafka producer client.
+      description: Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+    AssetPropertyTimeInSeconds:
+      type: string
+    QueueUrl:
+      type: string
+    UserPropertyKey:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    AwsArn:
+      type: string
+    CloudwatchAlarmAction:
+      type: object
+      required:
+      - roleArn
+      - alarmName
+      - stateReason
+      - stateValue
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role that allows access to the CloudWatch alarm.
+        alarmName:
+          allOf:
+          - $ref: '#/components/schemas/AlarmName'
+          - description: The CloudWatch alarm name.
+        stateReason:
+          allOf:
+          - $ref: '#/components/schemas/StateReason'
+          - description: The reason for the alarm change.
+        stateValue:
+          allOf:
+          - $ref: '#/components/schemas/StateValue'
+          - description: 'The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.'
+      description: Describes an action that updates a CloudWatch alarm.
+    ChannelName:
+      type: string
+    CloudwatchLogsAction:
+      type: object
+      required:
+      - roleArn
+      - logGroupName
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role that allows access to the CloudWatch log.
+        logGroupName:
+          allOf:
+          - $ref: '#/components/schemas/LogGroupName'
+          - description: The CloudWatch log group to which the action sends data.
+        batchMode:
+          allOf:
+          - $ref: '#/components/schemas/BatchMode'
+          - description: Indicates whether batches of log records will be extracted and uploaded into CloudWatch. Values include <code>true</code> or <code>false</code> <i>(default)</i>.
+      description: Describes an action that sends data to CloudWatch Logs.
+    UserProperties:
+      type: array
+      items:
+        $ref: '#/components/schemas/UserProperty'
+      minItems: 1
+      maxItems: 100
+    DynamoKeyType:
+      type: string
+      enum:
+      - STRING
+      - NUMBER
     UnauthorizedException: {}
-    ListTopicRulesResponse:
+    TopicRule:
       type: object
       properties:
-        rules:
+        ruleName:
           allOf:
-          - $ref: '#/components/schemas/TopicRuleList'
-          - description: The rules.
-        nextToken:
+          - $ref: '#/components/schemas/RuleName'
+          - description: The name of the rule.
+        sql:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
-      description: The output from the ListTopicRules operation.
+          - $ref: '#/components/schemas/SQL'
+          - description: The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The description of the rule.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/CreatedAtDate'
+          - description: The date and time the rule was created.
+        actions:
+          allOf:
+          - $ref: '#/components/schemas/ActionList'
+          - description: The actions associated with the rule.
+        ruleDisabled:
+          allOf:
+          - $ref: '#/components/schemas/IsDisabled'
+          - description: Specifies whether the rule is disabled.
+        awsIotSqlVersion:
+          allOf:
+          - $ref: '#/components/schemas/AwsIotSqlVersion'
+          - description: The version of the SQL rules engine to use when evaluating the rule.
+        errorAction:
+          allOf:
+          - $ref: '#/components/schemas/Action'
+          - description: The action to perform when an error occurs.
+      description: Describes a rule.
+    SqsAction:
+      type: object
+      required:
+      - roleArn
+      - queueUrl
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access.
+        queueUrl:
+          allOf:
+          - $ref: '#/components/schemas/QueueUrl'
+          - description: The URL of the Amazon SQS queue.
+        useBase64:
+          allOf:
+          - $ref: '#/components/schemas/UseBase64'
+          - description: Specifies whether to use Base64 encoding.
+      description: Describes an action to publish data to an Amazon SQS queue.
+    AssetId:
+      type: string
+    KinesisAction:
+      type: object
+      required:
+      - roleArn
+      - streamName
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+        streamName:
+          allOf:
+          - $ref: '#/components/schemas/StreamName'
+          - description: The name of the Amazon Kinesis stream.
+        partitionKey:
+          allOf:
+          - $ref: '#/components/schemas/PartitionKey'
+          - description: The partition key.
+      description: Describes an action to write data to an Amazon Kinesis stream.
+    StateReason:
+      type: string
+    StepFunctionsAction:
+      type: object
+      required:
+      - stateMachineName
+      - roleArn
+      properties:
+        executionNamePrefix:
+          allOf:
+          - $ref: '#/components/schemas/ExecutionNamePrefix'
+          - description: (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
+        stateMachineName:
+          allOf:
+          - $ref: '#/components/schemas/StateMachineName'
+          - description: The name of the Step Functions state machine whose execution will be started.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+      description: Starts execution of a Step Functions state machine.
+    TimestreamDimensionName:
+      type: string
+    ContentType:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    S3Action:
+      type: object
+      required:
+      - roleArn
+      - bucketName
+      - key
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access.
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: The Amazon S3 bucket.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/Key'
+          - description: The object key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources, and condition keys for Amazon S3</a>.
+        cannedAcl:
+          allOf:
+          - $ref: '#/components/schemas/CannedAccessControlList'
+          - description: The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.
+      description: Describes an action to write data to an Amazon S3 bucket.
+    HeaderKey:
+      type: string
+      minLength: 1
+      maxLength: 256
+    HttpAuthorization:
+      type: object
+      properties:
+        sigv4:
+          allOf:
+          - $ref: '#/components/schemas/SigV4Authorization'
+          - description: Use Sig V4 authorization. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.
+      description: The authorization method used to send messages.
+    IotSiteWiseAction:
+      type: object
+      required:
+      - putAssetPropertyValueEntries
+      - roleArn
+      properties:
+        putAssetPropertyValueEntries:
+          allOf:
+          - $ref: '#/components/schemas/PutAssetPropertyValueEntryList'
+          - description: A list of asset property value entries.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: 'The ARN of the role that grants IoT permission to send an asset property value to IoT SiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust policy can restrict access to specific asset hierarchy paths.'
+      description: Describes an action to send data from an MQTT message that triggered the rule to IoT SiteWise asset properties.
+    PutAssetPropertyValueEntry:
+      type: object
+      required:
+      - propertyValues
+      properties:
+        entryId:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyEntryId'
+          - description: Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+        assetId:
+          allOf:
+          - $ref: '#/components/schemas/AssetId'
+          - description: The ID of the IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.
+        propertyId:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyId'
+          - description: The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.
+        propertyAlias:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyAlias'
+          - description: The name of the property alias associated with your asset property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.
+        propertyValues:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyValueList'
+          - description: A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+      description: An asset property value entry containing the following information.
+    BucketName:
+      type: string
+    MessageExpiry:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    ElasticsearchEndpoint:
+      type: string
+      pattern: https?://.*
+    ElasticsearchIndex:
+      type: string
+    AssetPropertyValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AssetPropertyValue'
+      minItems: 1
+    AssetPropertyIntegerValue:
+      type: string
+    SalesforceAction:
+      type: object
+      required:
+      - token
+      - url
+      properties:
+        token:
+          allOf:
+          - $ref: '#/components/schemas/SalesforceToken'
+          - description: The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+        url:
+          allOf:
+          - $ref: '#/components/schemas/SalesforceEndpoint'
+          - description: The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+      description: Describes an action to write a message to a Salesforce IoT Cloud Input Stream.
+    TimestreamDimensionValue:
+      type: string
+    SqlParseException: {}
+    AssetPropertyId:
+      type: string
+    AssetPropertyTimestamp:
+      type: object
+      required:
+      - timeInSeconds
+      properties:
+        timeInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyTimeInSeconds'
+          - description: A string that contains the time in seconds since epoch. Accepts substitution templates.
+        offsetInNanos:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyOffsetInNanos'
+          - description: Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+      description: An asset property timestamp entry containing the following information.
     CloudwatchMetricAction:
       type: object
       required:
@@ -679,40 +1116,77 @@ components:
           - $ref: '#/components/schemas/String'
           - description: An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.
       description: Describes an action that captures a CloudWatch metric.
-    CorrelationData:
+    ElasticsearchAction:
+      type: object
+      required:
+      - roleArn
+      - endpoint
+      - index
+      - type
+      - id
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role ARN that has access to OpenSearch.
+        endpoint:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchEndpoint'
+          - description: The endpoint of your OpenSearch domain.
+        index:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchIndex'
+          - description: The index where you want to store your data.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchType'
+          - description: The type of document you are storing.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchId'
+          - description: The unique identifier for the document you are storing.
+      description: <p>Describes an action that writes data to an Amazon OpenSearch Service domain.</p> <note> <p>The <code>Elasticsearch</code> action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the <code>OpenSearch</code> rule action instead. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.</p> </note>
+    LambdaAction:
+      type: object
+      required:
+      - functionArn
+      properties:
+        functionArn:
+          allOf:
+          - $ref: '#/components/schemas/FunctionArn'
+          - description: The ARN of the Lambda function.
+      description: Describes an action to invoke a Lambda function.
+    SalesforceToken:
       type: string
-      minLength: 0
-      maxLength: 1024
-    Description:
-      type: string
-    AssetPropertyQuality:
-      type: string
-    AssetPropertyId:
-      type: string
+      minLength: 40
+    TimestreamDimension:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamDimensionName'
+          - description: '<p>The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.</p> <p>Dimensions cannot be named: <code>measure_name</code>, <code>measure_value</code>, or <code>time</code>. These names are reserved. Dimension names cannot start with <code>ts_</code> or <code>measure_value</code> and they cannot contain the colon (<code>:</code>) character.</p>'
+        value:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamDimensionValue'
+          - description: The value to write in this column of the database record.
+      description: Metadata attributes of the time series that are written in each measure record.
+    ServiceUnavailableException: {}
+    ClientProperties:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
     MessageFormat:
       type: string
       enum:
       - RAW
       - JSON
-    AssetPropertyValue:
-      type: object
-      required:
-      - value
-      - timestamp
-      properties:
-        value:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyVariant'
-          - description: The value of the asset property.
-        timestamp:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyTimestamp'
-          - description: The asset property value timestamp.
-        quality:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyQuality'
-          - description: Optional. A string that describes the quality of the value. Accepts substitution templates. Must be <code>GOOD</code>, <code>BAD</code>, or <code>UNCERTAIN</code>.
-      description: An asset property value entry containing the following information.
+    FirehoseSeparator:
+      type: string
+      pattern: ([\n\t])|(\r\n)|(,)
     HttpAction:
       type: object
       required:
@@ -735,20 +1209,425 @@ components:
           - $ref: '#/components/schemas/HttpAuthorization'
           - description: The authentication method to use when sending data to an HTTPS endpoint.
       description: Send data to an HTTPS endpoint.
-    AssetPropertyTimestamp:
+    CannedAccessControlList:
+      type: string
+      enum:
+      - private
+      - public-read
+      - public-read-write
+      - aws-exec-read
+      - authenticated-read
+      - bucket-owner-read
+      - bucket-owner-full-control
+      - log-delivery-write
+    CreatedAtDate:
+      type: string
+      format: date-time
+    TimestreamDimensionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/TimestreamDimension'
+      minItems: 1
+      maxItems: 128
+    RepublishAction:
       type: object
       required:
-      - timeInSeconds
+      - roleArn
+      - topic
       properties:
-        timeInSeconds:
+        roleArn:
           allOf:
-          - $ref: '#/components/schemas/AssetPropertyTimeInSeconds'
-          - description: A string that contains the time in seconds since epoch. Accepts substitution templates.
-        offsetInNanos:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access.
+        topic:
           allOf:
-          - $ref: '#/components/schemas/AssetPropertyOffsetInNanos'
-          - description: Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
-      description: An asset property timestamp entry containing the following information.
+          - $ref: '#/components/schemas/TopicPattern'
+          - description: The name of the MQTT topic.
+        qos:
+          allOf:
+          - $ref: '#/components/schemas/Qos'
+          - description: The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+        headers:
+          allOf:
+          - $ref: '#/components/schemas/MqttHeaders'
+          - description: MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from the Amazon Web Services IoT Core Developer Guide.
+      description: Describes an action to republish to another topic.
+    AwsIotSqlVersion:
+      type: string
+    IsDisabled:
+      type: boolean
+    CorrelationData:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    GetTopicRuleResponse:
+      type: object
+      properties:
+        ruleArn:
+          allOf:
+          - $ref: '#/components/schemas/RuleArn'
+          - description: The rule ARN.
+        rule:
+          allOf:
+          - $ref: '#/components/schemas/TopicRule'
+          - description: The rule.
+      description: The output from the GetTopicRule operation.
+    ResponseTopic:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    StreamName:
+      type: string
+    ElasticsearchType:
+      type: string
+    FunctionArn:
+      type: string
+    HashKeyField:
+      type: string
+    TimestreamTimestamp:
+      type: object
+      required:
+      - value
+      - unit
+      properties:
+        value:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamTimestampValue'
+          - description: An expression that returns a long epoch time value.
+        unit:
+          allOf:
+          - $ref: '#/components/schemas/TimestreamTimestampUnit'
+          - description: '<p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>'
+      description: Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+    IotEventsAction:
+      type: object
+      required:
+      - inputName
+      - roleArn
+      properties:
+        inputName:
+          allOf:
+          - $ref: '#/components/schemas/InputName'
+          - description: The name of the IoT Events input.
+        messageId:
+          allOf:
+          - $ref: '#/components/schemas/MessageId'
+          - description: <p>The ID of the message. The default <code>messageId</code> is a new UUID value.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>--a new UUID value will be assigned.</p> <p>Assign a value to this property to ensure that only one input (message) with a given <code>messageId</code> will be processed by an IoT Events detector.</p>
+        batchMode:
+          allOf:
+          - $ref: '#/components/schemas/BatchMode'
+          - description: <p>Whether to process the event actions as a batch. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>. </p> <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when it's sent to IoT Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"> <code>BatchPutMessage</code> </a>. The resulting array can't have more than 10 messages.</p>
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the role that grants IoT permission to send an input to an IoT Events detector. ("Action":"iotevents:BatchPutMessage").
+      description: Sends an input to an IoT Events detector.
+    PartitionKey:
+      type: string
+    UserPropertyValue:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    AssetPropertyBooleanValue:
+      type: string
+    ActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Action'
+      minItems: 0
+      maxItems: 10
+    String:
+      type: string
+    AssetPropertyVariant:
+      type: object
+      properties:
+        stringValue:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyStringValue'
+          - description: Optional. The string value of the value entry. Accepts substitution templates.
+        integerValue:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyIntegerValue'
+          - description: Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+        doubleValue:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyDoubleValue'
+          - description: Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+        booleanValue:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyBooleanValue'
+          - description: Optional. A string that contains the boolean value (<code>true</code> or <code>false</code>) of the value entry. Accepts substitution templates.
+      description: Contains an asset property value (of a single type).
+    InvalidRequestException: {}
+    ResourceAlreadyExistsException: {}
+    RangeKeyValue:
+      type: string
+    StateMachineName:
+      type: string
+    UserProperty:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/UserPropertyKey'
+          - description: A key to be specified in <code>UserProperty</code>.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/UserPropertyValue'
+          - description: A value to be specified in <code>UserProperty</code>.
+      description: A key-value pair that you define in the header. Both the key and the value are either literal strings or valid <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.
+    TimestreamTimestampValue:
+      type: string
+    Url:
+      type: string
+      maxLength: 2000
+    FirehoseAction:
+      type: object
+      required:
+      - roleArn
+      - deliveryStreamName
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role that grants access to the Amazon Kinesis Firehose stream.
+        deliveryStreamName:
+          allOf:
+          - $ref: '#/components/schemas/DeliveryStreamName'
+          - description: The delivery stream name.
+        separator:
+          allOf:
+          - $ref: '#/components/schemas/FirehoseSeparator'
+          - description: 'A character separator that will be used to separate records written to the Firehose stream. Valid values are: ''\n'' (newline), ''\t'' (tab), ''\r\n'' (Windows newline), '','' (comma).'
+        batchMode:
+          allOf:
+          - $ref: '#/components/schemas/BatchMode'
+          - description: <p>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"> <code>PutRecordBatch</code> </a>. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code> and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"> <code>PutRecordBatch</code> </a> request. The resulting array can't have more than 500 records.</p>
+      description: Describes an action that writes data to an Amazon Kinesis Firehose stream.
+    SnsAction:
+      type: object
+      required:
+      - targetArn
+      - roleArn
+      properties:
+        targetArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the SNS topic.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access.
+        messageFormat:
+          allOf:
+          - $ref: '#/components/schemas/MessageFormat'
+          - description: (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.
+      description: Describes an action to publish to an Amazon SNS topic.
+    MessageId:
+      type: string
+      maxLength: 128
+    MqttHeaders:
+      type: object
+      properties:
+        payloadFormatIndicator:
+          allOf:
+          - $ref: '#/components/schemas/PayloadFormatIndicator'
+          - description: <p>An <code>Enum</code> string value that indicates whether the payload is formatted as UTF-8.</p> <p>Valid values are <code>UNSPECIFIED_BYTES</code> and <code>UTF8_DATA</code>.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111"> Payload Format Indicator</a> from the MQTT Version 5.0 specification.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
+        contentType:
+          allOf:
+          - $ref: '#/components/schemas/ContentType'
+          - description: <p>A UTF-8 encoded string that describes the content of the publishing message.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118"> Content Type</a> from the MQTT Version 5.0 specification.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
+        responseTopic:
+          allOf:
+          - $ref: '#/components/schemas/ResponseTopic'
+          - description: <p>A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic which the receiver should publish to as part of the request-response flow. The topic must not contain wildcard characters.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114"> Response Topic</a> from the MQTT Version 5.0 specification.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
+        correlationData:
+          allOf:
+          - $ref: '#/components/schemas/CorrelationData'
+          - description: <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is for when it's received.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115"> Correlation Data</a> from the MQTT Version 5.0 specification.</p> <note> <p> This binary data must be based64-encoded. </p> </note> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
+        messageExpiry:
+          allOf:
+          - $ref: '#/components/schemas/MessageExpiry'
+          - description: <p>A user-defined integer value that will persist a message at the message broker for a specified amount of time to ensure that the message will expire if it's no longer relevant to the subscriber. The value of <code>messageExpiry</code> represents the number of seconds before it expires. For more information about the limits of <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">Amazon Web Services IoT Core message broker and protocol limits and quotas </a> from the Amazon Web Services Reference Guide.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
+        userProperties:
+          allOf:
+          - $ref: '#/components/schemas/UserProperties'
+          - description: An array of key-value pairs that you define in the MQTT5 header.
+      description: Specifies MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from Amazon Web Services IoT Core Developer Guide.
+    LogGroupName:
+      type: string
+    PutItemInput:
+      type: object
+      required:
+      - tableName
+      properties:
+        tableName:
+          allOf:
+          - $ref: '#/components/schemas/TableName'
+          - description: The table where the message data will be written.
+      description: The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+    AssetPropertyStringValue:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    RangeKeyField:
+      type: string
+    ListTopicRulesResponse:
+      type: object
+      properties:
+        rules:
+          allOf:
+          - $ref: '#/components/schemas/TopicRuleList'
+          - description: The rules.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+      description: The output from the ListTopicRules operation.
+    IotAnalyticsAction:
+      type: object
+      properties:
+        channelArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: (deprecated) The ARN of the IoT Analytics channel to which message data will be sent.
+        channelName:
+          allOf:
+          - $ref: '#/components/schemas/ChannelName'
+          - description: The name of the IoT Analytics channel to which message data will be sent.
+        batchMode:
+          allOf:
+          - $ref: '#/components/schemas/BatchMode'
+          - description: <p>Whether to process the action as a batch. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"> <code>BatchPutMessage</code> </a> to the IoT Analytics channel. The resulting array can't have more than 100 messages.</p>
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+      description: Sends message data to an IoT Analytics channel.
+    InternalException: {}
+    ExecutionNamePrefix:
+      type: string
+    BatchMode:
+      type: boolean
+    Qos:
+      type: integer
+      minimum: 0
+      maximum: 1
+    PutAssetPropertyValueEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PutAssetPropertyValueEntry'
+      minItems: 1
+    StateValue:
+      type: string
+    TimestreamTableName:
+      type: string
+    HeaderValue:
+      type: string
+    LocationTimestamp:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An expression that returns a long epoch time value.
+        unit:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: '<p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>'
+      description: Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+    UseBase64:
+      type: boolean
+    ElasticsearchId:
+      type: string
+    PayloadFormatIndicator:
+      type: string
+      minLength: 0
+      maxLength: 1024
+    Key:
+      type: string
+    Description:
+      type: string
+    TopicRuleListItem:
+      type: object
+      properties:
+        ruleArn:
+          allOf:
+          - $ref: '#/components/schemas/RuleArn'
+          - description: The rule ARN.
+        ruleName:
+          allOf:
+          - $ref: '#/components/schemas/RuleName'
+          - description: The name of the rule.
+        topicPattern:
+          allOf:
+          - $ref: '#/components/schemas/TopicPattern'
+          - description: The pattern for the topic names that apply.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/CreatedAtDate'
+          - description: The date and time the rule was created.
+        ruleDisabled:
+          allOf:
+          - $ref: '#/components/schemas/IsDisabled'
+          - description: Specifies whether the rule is disabled.
+      description: Describes a rule.
+    HashKeyValue:
+      type: string
+    OpenSearchAction:
+      type: object
+      required:
+      - roleArn
+      - endpoint
+      - index
+      - type
+      - id
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role ARN that has access to OpenSearch.
+        endpoint:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchEndpoint'
+          - description: The endpoint of your OpenSearch domain.
+        index:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchIndex'
+          - description: The OpenSearch index where you want to store your data.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchType'
+          - description: The type of document you are storing.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ElasticsearchId'
+          - description: The unique identifier for the document you are storing.
+      description: Describes an action that writes data to an Amazon OpenSearch Service domain.
+    AssetPropertyQuality:
+      type: string
+    AssetPropertyDoubleValue:
+      type: string
+    PayloadField:
+      type: string
+    InputName:
+      type: string
+      minLength: 1
+      maxLength: 128
+    SalesforceEndpoint:
+      type: string
+      pattern: https://ingestion-[a-zA-Z0-9]{1,12}\.[a-zA-Z0-9]+\.((sfdc-matrix\.net)|(sfdcnow\.com))/streams/\w{1,20}/\w{1,20}/event
+      maxLength: 2000
+    RuleName:
+      type: string
+      pattern: ^[a-zA-Z0-9_]+$
+      minLength: 1
+      maxLength: 128
     Action:
       type: object
       properties:
@@ -845,71 +1724,31 @@ components:
           - $ref: '#/components/schemas/LocationAction'
           - description: The Amazon Location Service rule action sends device location updates from an MQTT message to an Amazon Location tracker resource.
       description: Describes the actions associated with a rule.
-    DynamoOperation:
-      type: string
-    IotEventsAction:
-      type: object
-      required:
-      - inputName
-      - roleArn
-      properties:
-        inputName:
-          allOf:
-          - $ref: '#/components/schemas/InputName'
-          - description: The name of the IoT Events input.
-        messageId:
-          allOf:
-          - $ref: '#/components/schemas/MessageId'
-          - description: <p>The ID of the message. The default <code>messageId</code> is a new UUID value.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>--a new UUID value will be assigned.</p> <p>Assign a value to this property to ensure that only one input (message) with a given <code>messageId</code> will be processed by an IoT Events detector.</p>
-        batchMode:
-          allOf:
-          - $ref: '#/components/schemas/BatchMode'
-          - description: <p>Whether to process the event actions as a batch. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>. </p> <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when it's sent to IoT Events by calling <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html"> <code>BatchPutMessage</code> </a>. The resulting array can't have more than 10 messages.</p>
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the role that grants IoT permission to send an input to an IoT Events detector. ("Action":"iotevents:BatchPutMessage").
-      description: Sends an input to an IoT Events detector.
-    ServiceName:
-      type: string
-    HttpAuthorization:
-      type: object
-      properties:
-        sigv4:
-          allOf:
-          - $ref: '#/components/schemas/SigV4Authorization'
-          - description: Use Sig V4 authorization. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.
-      description: The authorization method used to send messages.
-    AssetPropertyDoubleValue:
-      type: string
-    UserProperties:
+    HeaderList:
       type: array
       items:
-        $ref: '#/components/schemas/UserProperty'
-      minItems: 1
+        $ref: '#/components/schemas/HttpActionHeader'
+      minItems: 0
       maxItems: 100
-    StateValue:
-      type: string
-    LocationTimestamp:
+    AssetPropertyValue:
       type: object
       required:
       - value
+      - timestamp
       properties:
         value:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: An expression that returns a long epoch time value.
-        unit:
+          - $ref: '#/components/schemas/AssetPropertyVariant'
+          - description: The value of the asset property.
+        timestamp:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: '<p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>'
-      description: Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
-    ElasticsearchIndex:
-      type: string
-    InputName:
-      type: string
-      minLength: 1
-      maxLength: 128
+          - $ref: '#/components/schemas/AssetPropertyTimestamp'
+          - description: The asset property value timestamp.
+        quality:
+          allOf:
+          - $ref: '#/components/schemas/AssetPropertyQuality'
+          - description: Optional. A string that describes the quality of the value. Accepts substitution templates. Must be <code>GOOD</code>, <code>BAD</code>, or <code>UNCERTAIN</code>.
+      description: An asset property value entry containing the following information.
     SigV4Authorization:
       type: object
       required:
@@ -930,49 +1769,14 @@ components:
           - $ref: '#/components/schemas/AwsArn'
           - description: The ARN of the signing role.
       description: For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a>.
-    TopicRule:
-      type: object
-      properties:
-        ruleName:
-          allOf:
-          - $ref: '#/components/schemas/RuleName'
-          - description: The name of the rule.
-        sql:
-          allOf:
-          - $ref: '#/components/schemas/SQL'
-          - description: The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The description of the rule.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/CreatedAtDate'
-          - description: The date and time the rule was created.
-        actions:
-          allOf:
-          - $ref: '#/components/schemas/ActionList'
-          - description: The actions associated with the rule.
-        ruleDisabled:
-          allOf:
-          - $ref: '#/components/schemas/IsDisabled'
-          - description: Specifies whether the rule is disabled.
-        awsIotSqlVersion:
-          allOf:
-          - $ref: '#/components/schemas/AwsIotSqlVersion'
-          - description: The version of the SQL rules engine to use when evaluating the rule.
-        errorAction:
-          allOf:
-          - $ref: '#/components/schemas/Action'
-          - description: The action to perform when an error occurs.
-      description: Describes a rule.
-    InvalidRequestException: {}
-    ActionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Action'
-      minItems: 0
-      maxItems: 10
+    TimestreamDatabaseName:
+      type: string
+    SQL:
+      type: string
+    NextToken:
+      type: string
+    RuleArn:
+      type: string
     DynamoDBAction:
       type: object
       required:
@@ -1022,819 +1826,15 @@ components:
           - $ref: '#/components/schemas/PayloadField'
           - description: The action payload. This name can be customized.
       description: '<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p> <code>"hashKeyValue": "${topic(3)}"</code> </p> <p>The following field uses the timestamp:</p> <p> <code>"rangeKeyValue": "${timestamp()}"</code> </p>'
-    Url:
-      type: string
-      maxLength: 2000
-    BatchMode:
-      type: boolean
-    ServiceUnavailableException: {}
-    OpenSearchAction:
-      type: object
-      required:
-      - roleArn
-      - endpoint
-      - index
-      - type
-      - id
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role ARN that has access to OpenSearch.
-        endpoint:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchEndpoint'
-          - description: The endpoint of your OpenSearch domain.
-        index:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchIndex'
-          - description: The OpenSearch index where you want to store your data.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchType'
-          - description: The type of document you are storing.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchId'
-          - description: The unique identifier for the document you are storing.
-      description: Describes an action that writes data to an Amazon OpenSearch Service domain.
-    AssetPropertyAlias:
-      type: string
-      minLength: 1
     TimestreamTimestampUnit:
       type: string
-    ElasticsearchEndpoint:
-      type: string
-      pattern: https?://.*
-    CreatedAtDate:
-      type: string
-      format: date-time
-    PayloadFormatIndicator:
-      type: string
-      minLength: 0
-      maxLength: 1024
-    StepFunctionsAction:
-      type: object
-      required:
-      - stateMachineName
-      - roleArn
-      properties:
-        executionNamePrefix:
-          allOf:
-          - $ref: '#/components/schemas/ExecutionNamePrefix'
-          - description: (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
-        stateMachineName:
-          allOf:
-          - $ref: '#/components/schemas/StateMachineName'
-          - description: The name of the Step Functions state machine whose execution will be started.
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
-      description: Starts execution of a Step Functions state machine.
-    CloudwatchAlarmAction:
-      type: object
-      required:
-      - roleArn
-      - alarmName
-      - stateReason
-      - stateValue
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role that allows access to the CloudWatch alarm.
-        alarmName:
-          allOf:
-          - $ref: '#/components/schemas/AlarmName'
-          - description: The CloudWatch alarm name.
-        stateReason:
-          allOf:
-          - $ref: '#/components/schemas/StateReason'
-          - description: The reason for the alarm change.
-        stateValue:
-          allOf:
-          - $ref: '#/components/schemas/StateValue'
-          - description: 'The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.'
-      description: Describes an action that updates a CloudWatch alarm.
-    RuleArn:
-      type: string
-    ResourceAlreadyExistsException: {}
-    PutAssetPropertyValueEntry:
-      type: object
-      required:
-      - propertyValues
-      properties:
-        entryId:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyEntryId'
-          - description: Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
-        assetId:
-          allOf:
-          - $ref: '#/components/schemas/AssetId'
-          - description: The ID of the IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.
-        propertyId:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyId'
-          - description: The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.
-        propertyAlias:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyAlias'
-          - description: The name of the property alias associated with your asset property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.
-        propertyValues:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyValueList'
-          - description: A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
-      description: An asset property value entry containing the following information.
-    StateReason:
-      type: string
-    BucketName:
-      type: string
-    Key:
-      type: string
-    ElasticsearchType:
-      type: string
-    CloudwatchLogsAction:
-      type: object
-      required:
-      - roleArn
-      - logGroupName
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role that allows access to the CloudWatch log.
-        logGroupName:
-          allOf:
-          - $ref: '#/components/schemas/LogGroupName'
-          - description: The CloudWatch log group to which the action sends data.
-        batchMode:
-          allOf:
-          - $ref: '#/components/schemas/BatchMode'
-          - description: Indicates whether batches of log records will be extracted and uploaded into CloudWatch. Values include <code>true</code> or <code>false</code> <i>(default)</i>.
-      description: Describes an action that sends data to CloudWatch Logs.
-    DeliveryStreamName:
-      type: string
-    UserProperty:
-      type: object
-      required:
-      - key
-      - value
-      properties:
-        key:
-          allOf:
-          - $ref: '#/components/schemas/UserPropertyKey'
-          - description: A key to be specified in <code>UserProperty</code>.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/UserPropertyValue'
-          - description: A value to be specified in <code>UserProperty</code>.
-      description: A key-value pair that you define in the header. Both the key and the value are either literal strings or valid <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.
-    ExecutionNamePrefix:
-      type: string
-    MqttHeaders:
-      type: object
-      properties:
-        payloadFormatIndicator:
-          allOf:
-          - $ref: '#/components/schemas/PayloadFormatIndicator'
-          - description: <p>An <code>Enum</code> string value that indicates whether the payload is formatted as UTF-8.</p> <p>Valid values are <code>UNSPECIFIED_BYTES</code> and <code>UTF8_DATA</code>.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111"> Payload Format Indicator</a> from the MQTT Version 5.0 specification.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
-        contentType:
-          allOf:
-          - $ref: '#/components/schemas/ContentType'
-          - description: <p>A UTF-8 encoded string that describes the content of the publishing message.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118"> Content Type</a> from the MQTT Version 5.0 specification.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
-        responseTopic:
-          allOf:
-          - $ref: '#/components/schemas/ResponseTopic'
-          - description: <p>A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic which the receiver should publish to as part of the request-response flow. The topic must not contain wildcard characters.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114"> Response Topic</a> from the MQTT Version 5.0 specification.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
-        correlationData:
-          allOf:
-          - $ref: '#/components/schemas/CorrelationData'
-          - description: <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is for when it's received.</p> <p>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115"> Correlation Data</a> from the MQTT Version 5.0 specification.</p> <note> <p> This binary data must be based64-encoded. </p> </note> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
-        messageExpiry:
-          allOf:
-          - $ref: '#/components/schemas/MessageExpiry'
-          - description: <p>A user-defined integer value that will persist a message at the message broker for a specified amount of time to ensure that the message will expire if it's no longer relevant to the subscriber. The value of <code>messageExpiry</code> represents the number of seconds before it expires. For more information about the limits of <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">Amazon Web Services IoT Core message broker and protocol limits and quotas </a> from the Amazon Web Services Reference Guide.</p> <p>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution templates</a>.</p>
-        userProperties:
-          allOf:
-          - $ref: '#/components/schemas/UserProperties'
-          - description: An array of key-value pairs that you define in the MQTT5 header.
-      description: Specifies MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from Amazon Web Services IoT Core Developer Guide.
-    HashKeyField:
-      type: string
-    AssetPropertyOffsetInNanos:
-      type: string
-    S3Action:
-      type: object
-      required:
-      - roleArn
-      - bucketName
-      - key
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access.
-        bucketName:
-          allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: The Amazon S3 bucket.
-        key:
-          allOf:
-          - $ref: '#/components/schemas/Key'
-          - description: The object key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources, and condition keys for Amazon S3</a>.
-        cannedAcl:
-          allOf:
-          - $ref: '#/components/schemas/CannedAccessControlList'
-          - description: The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.
-      description: Describes an action to write data to an Amazon S3 bucket.
-    AssetPropertyIntegerValue:
-      type: string
-    InternalException: {}
-    RepublishAction:
-      type: object
-      required:
-      - roleArn
-      - topic
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access.
-        topic:
-          allOf:
-          - $ref: '#/components/schemas/TopicPattern'
-          - description: The name of the MQTT topic.
-        qos:
-          allOf:
-          - $ref: '#/components/schemas/Qos'
-          - description: The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
-        headers:
-          allOf:
-          - $ref: '#/components/schemas/MqttHeaders'
-          - description: MQTT Version 5.0 headers information. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"> MQTT</a> from the Amazon Web Services IoT Core Developer Guide.
-      description: Describes an action to republish to another topic.
-    ClientProperties:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
-    UserPropertyKey:
-      type: string
-      minLength: 0
-      maxLength: 1024
-    StateMachineName:
-      type: string
-    FirehoseAction:
-      type: object
-      required:
-      - roleArn
-      - deliveryStreamName
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role that grants access to the Amazon Kinesis Firehose stream.
-        deliveryStreamName:
-          allOf:
-          - $ref: '#/components/schemas/DeliveryStreamName'
-          - description: The delivery stream name.
-        separator:
-          allOf:
-          - $ref: '#/components/schemas/FirehoseSeparator'
-          - description: 'A character separator that will be used to separate records written to the Firehose stream. Valid values are: ''\n'' (newline), ''\t'' (tab), ''\r\n'' (Windows newline), '','' (comma).'
-        batchMode:
-          allOf:
-          - $ref: '#/components/schemas/BatchMode'
-          - description: <p>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"> <code>PutRecordBatch</code> </a>. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code> and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html"> <code>PutRecordBatch</code> </a> request. The resulting array can't have more than 500 records.</p>
-      description: Describes an action that writes data to an Amazon Kinesis Firehose stream.
-    AssetId:
-      type: string
-    QueueUrl:
-      type: string
-    TimestreamDimensionName:
-      type: string
-    DynamoKeyType:
-      type: string
-      enum:
-      - STRING
-      - NUMBER
-    TopicRuleListItem:
-      type: object
-      properties:
-        ruleArn:
-          allOf:
-          - $ref: '#/components/schemas/RuleArn'
-          - description: The rule ARN.
-        ruleName:
-          allOf:
-          - $ref: '#/components/schemas/RuleName'
-          - description: The name of the rule.
-        topicPattern:
-          allOf:
-          - $ref: '#/components/schemas/TopicPattern'
-          - description: The pattern for the topic names that apply.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/CreatedAtDate'
-          - description: The date and time the rule was created.
-        ruleDisabled:
-          allOf:
-          - $ref: '#/components/schemas/IsDisabled'
-          - description: Specifies whether the rule is disabled.
-      description: Describes a rule.
-    ElasticsearchAction:
-      type: object
-      required:
-      - roleArn
-      - endpoint
-      - index
-      - type
-      - id
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role ARN that has access to OpenSearch.
-        endpoint:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchEndpoint'
-          - description: The endpoint of your OpenSearch domain.
-        index:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchIndex'
-          - description: The index where you want to store your data.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchType'
-          - description: The type of document you are storing.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ElasticsearchId'
-          - description: The unique identifier for the document you are storing.
-      description: <p>Describes an action that writes data to an Amazon OpenSearch Service domain.</p> <note> <p>The <code>Elasticsearch</code> action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the <code>OpenSearch</code> rule action instead. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.</p> </note>
-    TableName:
-      type: string
-    AlarmName:
-      type: string
-    GetTopicRuleResponse:
-      type: object
-      properties:
-        ruleArn:
-          allOf:
-          - $ref: '#/components/schemas/RuleArn'
-          - description: The rule ARN.
-        rule:
-          allOf:
-          - $ref: '#/components/schemas/TopicRule'
-          - description: The rule.
-      description: The output from the GetTopicRule operation.
-    PayloadField:
-      type: string
-    AssetPropertyEntryId:
-      type: string
-    SnsAction:
-      type: object
-      required:
-      - targetArn
-      - roleArn
-      properties:
-        targetArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the SNS topic.
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access.
-        messageFormat:
-          allOf:
-          - $ref: '#/components/schemas/MessageFormat'
-          - description: (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.
-      description: Describes an action to publish to an Amazon SNS topic.
-    TimestreamDimension:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamDimensionName'
-          - description: '<p>The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.</p> <p>Dimensions cannot be named: <code>measure_name</code>, <code>measure_value</code>, or <code>time</code>. These names are reserved. Dimension names cannot start with <code>ts_</code> or <code>measure_value</code> and they cannot contain the colon (<code>:</code>) character.</p>'
-        value:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamDimensionValue'
-          - description: The value to write in this column of the database record.
-      description: Metadata attributes of the time series that are written in each measure record.
-    AwsArn:
-      type: string
-    RangeKeyValue:
-      type: string
-    RangeKeyField:
-      type: string
-    TimestreamTimestampValue:
-      type: string
-    ConflictingResourceUpdateException: {}
-    HashKeyValue:
+    SigningRegion:
       type: string
     TopicPattern:
       type: string
-    ResponseTopic:
-      type: string
-      minLength: 0
-      maxLength: 1024
-    KafkaAction:
-      type: object
-      required:
-      - destinationArn
-      - topic
-      - clientProperties
-      properties:
-        destinationArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.
-        topic:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The Kafka topic for messages to be sent to the Kafka broker.
-        key:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The Kafka message key.
-        partition:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The Kafka message partition.
-        clientProperties:
-          allOf:
-          - $ref: '#/components/schemas/ClientProperties'
-          - description: Properties of the Apache Kafka producer client.
-      description: Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
-    SalesforceEndpoint:
-      type: string
-      pattern: https://ingestion-[a-zA-Z0-9]{1,12}\.[a-zA-Z0-9]+\.((sfdc-matrix\.net)|(sfdcnow\.com))/streams/\w{1,20}/\w{1,20}/event
-      maxLength: 2000
-    UseBase64:
-      type: boolean
-    HeaderList:
-      type: array
-      items:
-        $ref: '#/components/schemas/HttpActionHeader'
-      minItems: 0
-      maxItems: 100
-    AwsIotSqlVersion:
-      type: string
-    TimestreamTimestamp:
-      type: object
-      required:
-      - value
-      - unit
-      properties:
-        value:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamTimestampValue'
-          - description: An expression that returns a long epoch time value.
-        unit:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamTimestampUnit'
-          - description: '<p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>'
-      description: Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
-    TimestreamDatabaseName:
-      type: string
-    DynamoDBv2Action:
-      type: object
-      required:
-      - roleArn
-      - putItem
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access to the DynamoDB table.
-        putItem:
-          allOf:
-          - $ref: '#/components/schemas/PutItemInput'
-          - description: '<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p> <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }</code> </p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>'
-      description: <p>Describes an action to write to a DynamoDB table.</p> <p>This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.</p>
-    StreamName:
-      type: string
-    MessageExpiry:
-      type: string
-      minLength: 0
-      maxLength: 1024
-    SalesforceAction:
-      type: object
-      required:
-      - token
-      - url
-      properties:
-        token:
-          allOf:
-          - $ref: '#/components/schemas/SalesforceToken'
-          - description: The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-        url:
-          allOf:
-          - $ref: '#/components/schemas/SalesforceEndpoint'
-          - description: The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-      description: Describes an action to write a message to a Salesforce IoT Cloud Input Stream.
-    SigningRegion:
-      type: string
-    FunctionArn:
-      type: string
-    NextToken:
-      type: string
-    AssetPropertyBooleanValue:
-      type: string
-    AssetPropertyValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AssetPropertyValue'
-      minItems: 1
-    LambdaAction:
-      type: object
-      required:
-      - functionArn
-      properties:
-        functionArn:
-          allOf:
-          - $ref: '#/components/schemas/FunctionArn'
-          - description: The ARN of the Lambda function.
-      description: Describes an action to invoke a Lambda function.
-    ElasticsearchId:
-      type: string
-    TimestreamDimensionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/TimestreamDimension'
-      minItems: 1
-      maxItems: 128
-    KinesisAction:
-      type: object
-      required:
-      - roleArn
-      - streamName
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        streamName:
-          allOf:
-          - $ref: '#/components/schemas/StreamName'
-          - description: The name of the Amazon Kinesis stream.
-        partitionKey:
-          allOf:
-          - $ref: '#/components/schemas/PartitionKey'
-          - description: The partition key.
-      description: Describes an action to write data to an Amazon Kinesis stream.
-    PartitionKey:
-      type: string
-    HttpActionHeader:
-      type: object
-      required:
-      - key
-      - value
-      properties:
-        key:
-          allOf:
-          - $ref: '#/components/schemas/HeaderKey'
-          - description: The HTTP header key.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/HeaderValue'
-          - description: The HTTP header value. Substitution templates are supported.
-      description: The HTTP action header.
-    SqlParseException: {}
-    LocationAction:
-      type: object
-      required:
-      - roleArn
-      - trackerName
-      - deviceId
-      - latitude
-      - longitude
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role that grants permission to write to the Amazon Location resource.
-        trackerName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The name of the tracker resource in Amazon Location in which the location is updated.
-        deviceId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The unique ID of the device providing the location data.
-        timestamp:
-          allOf:
-          - $ref: '#/components/schemas/LocationTimestamp'
-          - description: The time that the location data was sampled. The default value is the time the MQTT message was processed.
-        latitude:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A string that evaluates to a double value that represents the latitude of the device's location.
-        longitude:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A string that evaluates to a double value that represents the longitude of the device's location.
-      description: The Amazon Location rule action sends device location updates from an MQTT message to an Amazon Location tracker resource.
-    CannedAccessControlList:
-      type: string
-      enum:
-      - private
-      - public-read
-      - public-read-write
-      - aws-exec-read
-      - authenticated-read
-      - bucket-owner-read
-      - bucket-owner-full-control
-      - log-delivery-write
-    AssetPropertyStringValue:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    TimestreamAction:
-      type: object
-      required:
-      - roleArn
-      - databaseName
-      - tableName
-      - dimensions
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the role that grants permission to write to the Amazon Timestream database table.
-        databaseName:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamDatabaseName'
-          - description: The name of an Amazon Timestream database.
-        tableName:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamTableName'
-          - description: The name of the database table into which to write the measure records.
-        dimensions:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamDimensionList'
-          - description: Metadata attributes of the time series that are written in each measure record.
-        timestamp:
-          allOf:
-          - $ref: '#/components/schemas/TimestreamTimestamp'
-          - description: <p>Specifies an application-defined value to replace the default value assigned to the Timestream record's timestamp in the <code>time</code> column.</p> <p>You can use this property to specify the value and the precision of the Timestream record's timestamp. You can specify a value from the message payload or a value computed by a substitution template.</p> <p>If omitted, the topic rule action assigns the timestamp, in milliseconds, at the time it processed the rule. </p>
-      description: The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html">Timestream</a> topic rule action documentation.
-    RuleName:
-      type: string
-      pattern: ^[a-zA-Z0-9_]+$
-      minLength: 1
-      maxLength: 128
-    AssetPropertyTimeInSeconds:
-      type: string
-    FirehoseSeparator:
-      type: string
-      pattern: ([\n\t])|(\r\n)|(,)
-    MessageId:
-      type: string
-      maxLength: 128
-    SqsAction:
-      type: object
-      required:
-      - roleArn
-      - queueUrl
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access.
-        queueUrl:
-          allOf:
-          - $ref: '#/components/schemas/QueueUrl'
-          - description: The URL of the Amazon SQS queue.
-        useBase64:
-          allOf:
-          - $ref: '#/components/schemas/UseBase64'
-          - description: Specifies whether to use Base64 encoding.
-      description: Describes an action to publish data to an Amazon SQS queue.
-    PutItemInput:
-      type: object
-      required:
-      - tableName
-      properties:
-        tableName:
-          allOf:
-          - $ref: '#/components/schemas/TableName'
-          - description: The table where the message data will be written.
-      description: The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
-    LogGroupName:
-      type: string
-    IotAnalyticsAction:
-      type: object
-      properties:
-        channelArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: (deprecated) The ARN of the IoT Analytics channel to which message data will be sent.
-        channelName:
-          allOf:
-          - $ref: '#/components/schemas/ChannelName'
-          - description: The name of the IoT Analytics channel to which message data will be sent.
-        batchMode:
-          allOf:
-          - $ref: '#/components/schemas/BatchMode'
-          - description: <p>Whether to process the action as a batch. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html"> <code>BatchPutMessage</code> </a> to the IoT Analytics channel. The resulting array can't have more than 100 messages.</p>
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
-      description: Sends message data to an IoT Analytics channel.
-    SQL:
-      type: string
-    Qos:
-      type: integer
-      minimum: 0
-      maximum: 1
-    TimestreamDimensionValue:
-      type: string
-    SalesforceToken:
-      type: string
-      minLength: 40
-    IotSiteWiseAction:
-      type: object
-      required:
-      - putAssetPropertyValueEntries
-      - roleArn
-      properties:
-        putAssetPropertyValueEntries:
-          allOf:
-          - $ref: '#/components/schemas/PutAssetPropertyValueEntryList'
-          - description: A list of asset property value entries.
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: 'The ARN of the role that grants IoT permission to send an asset property value to IoT SiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust policy can restrict access to specific asset hierarchy paths.'
-      description: Describes an action to send data from an MQTT message that triggered the rule to IoT SiteWise asset properties.
-    UserPropertyValue:
-      type: string
-      minLength: 0
-      maxLength: 1024
-    HeaderKey:
-      type: string
-      minLength: 1
-      maxLength: 256
-    HeaderValue:
-      type: string
-    TimestreamTableName:
-      type: string
-    IsDisabled:
-      type: boolean
-    AssetPropertyVariant:
-      type: object
-      properties:
-        stringValue:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyStringValue'
-          - description: Optional. The string value of the value entry. Accepts substitution templates.
-        integerValue:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyIntegerValue'
-          - description: Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
-        doubleValue:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyDoubleValue'
-          - description: Optional. A string that contains the double value of the value entry. Accepts substitution templates.
-        booleanValue:
-          allOf:
-          - $ref: '#/components/schemas/AssetPropertyBooleanValue'
-          - description: Optional. A string that contains the boolean value (<code>true</code> or <code>false</code>) of the value entry. Accepts substitution templates.
-      description: Contains an asset property value (of a single type).
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -1845,8 +1845,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

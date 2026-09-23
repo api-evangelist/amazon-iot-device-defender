@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer Dimensions API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT Dimensions API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateDimension
-      description: <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
+      description: 'Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender. For example, using a TOPIC_FILTER dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.
+
+
+        Requires permission to access the CreateDimension action.'
       responses:
         '200':
           description: Success
@@ -215,7 +221,10 @@ paths:
       - Dimensions
     delete:
       operationId: DeleteDimension
-      description: <p>Removes the specified dimension from your Amazon Web Services accounts.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
+      description: 'Removes the specified dimension from your Amazon Web Services accounts.
+
+
+        Requires permission to access the DeleteDimension action.'
       responses:
         '200':
           description: Success
@@ -259,7 +268,10 @@ paths:
       - Dimensions
     get:
       operationId: DescribeDimension
-      description: <p>Provides details about a dimension that is defined in your Amazon Web Services accounts.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a> action.</p>
+      description: 'Provides details about a dimension that is defined in your Amazon Web Services accounts.
+
+
+        Requires permission to access the DescribeDimension action.'
       responses:
         '200':
           description: Success
@@ -309,7 +321,10 @@ paths:
       - Dimensions
     patch:
       operationId: UpdateDimension
-      description: <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and recreate it).</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDimension</a> action.</p>
+      description: 'Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and recreate it).
+
+
+        Requires permission to access the UpdateDimension action.'
       responses:
         '200':
           description: Success
@@ -384,7 +399,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListDimensions
-      description: <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
+      description: 'List the set of dimensions that are defined for your Amazon Web Services accounts.
+
+
+        Requires permission to access the ListDimensions action.'
       responses:
         '200':
           description: Success
@@ -433,91 +451,26 @@ paths:
       - Dimensions
 components:
   schemas:
-    DescribeDimensionResponse:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/DimensionName'
-          - description: The unique identifier for the dimension.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/DimensionArn'
-          - description: The Amazon Resource Name (ARN) for the dimension.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/DimensionType'
-          - description: The type of the dimension.
-        stringValues:
-          allOf:
-          - $ref: '#/components/schemas/DimensionStringValues'
-          - description: The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date the dimension was created.
-        lastModifiedDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date the dimension was last modified.
-    DimensionName:
+    DimensionArn:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    ThrottlingException: {}
+    DimensionNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/DimensionName'
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
       maxLength: 128
     DimensionStringValue:
       type: string
       minLength: 1
       maxLength: 256
-    CreateDimensionResponse:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/DimensionName'
-          - description: A unique identifier for the dimension.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/DimensionArn'
-          - description: The Amazon Resource Name (ARN) of the created dimension.
-    DimensionStringValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/DimensionStringValue'
-      minItems: 1
-      maxItems: 100
-    DimensionType:
-      type: string
-      enum:
-      - TOPIC_FILTER
-    ListDimensionsResponse:
-      type: object
-      properties:
-        dimensionNames:
-          allOf:
-          - $ref: '#/components/schemas/DimensionNames'
-          - description: A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    Timestamp:
-      type: string
-      format: date-time
-    DeleteDimensionResponse:
-      type: object
-      properties: {}
-    DimensionNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/DimensionName'
-    NextToken:
-      type: string
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    InvalidRequestException: {}
     UpdateDimensionResponse:
       type: object
       properties:
@@ -545,12 +498,60 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time, in milliseconds since epoch, when the dimension was most recently updated.
-    InternalFailureException: {}
-    LimitExceededException: {}
-    ThrottlingException: {}
+    InvalidRequestException: {}
     ResourceNotFoundException: {}
-    DimensionArn:
+    ResourceAlreadyExistsException: {}
+    DimensionType:
       type: string
+      enum:
+      - TOPIC_FILTER
+    CreateDimensionResponse:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/DimensionName'
+          - description: A unique identifier for the dimension.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/DimensionArn'
+          - description: The Amazon Resource Name (ARN) of the created dimension.
+    DescribeDimensionResponse:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/DimensionName'
+          - description: The unique identifier for the dimension.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/DimensionArn'
+          - description: The Amazon Resource Name (ARN) for the dimension.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/DimensionType'
+          - description: The type of the dimension.
+        stringValues:
+          allOf:
+          - $ref: '#/components/schemas/DimensionStringValues'
+          - description: The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date the dimension was created.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date the dimension was last modified.
+    DeleteDimensionResponse:
+      type: object
+      properties: {}
+    DimensionStringValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/DimensionStringValue'
+      minItems: 1
+      maxItems: 100
     Tag:
       type: object
       required:
@@ -565,21 +566,38 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    ResourceAlreadyExistsException: {}
-    TagKey:
+    DimensionName:
       type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      pattern: '[a-zA-Z0-9:_-]+'
       minLength: 1
       maxLength: 128
+    NextToken:
+      type: string
+    ListDimensionsResponse:
+      type: object
+      properties:
+        dimensionNames:
+          allOf:
+          - $ref: '#/components/schemas/DimensionNames'
+          - description: A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    Timestamp:
+      type: string
+      format: date-time
+    InternalFailureException: {}
+    LimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -590,14 +608,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -608,8 +620,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer Security Profile Behaviors API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT Security Profile Behaviors API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ValidateSecurityProfileBehaviors
-      description: <p>Validates a Device Defender security profile behaviors specification.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
+      description: 'Validates a Device Defender security profile behaviors specification.
+
+
+        Requires permission to access the ValidateSecurityProfileBehaviors action.'
       responses:
         '200':
           description: Success
@@ -175,25 +181,6 @@ paths:
       - Security Profile Behaviors
 components:
   schemas:
-    BehaviorName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    NumberList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Number'
-    DurationSeconds:
-      type: integer
-    EvaluationStatistic:
-      type: string
-      pattern: (p0|p0\.1|p0\.01|p1|p10|p50|p90|p99|p99\.9|p99\.99|p100)
-    DimensionName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
     MetricDimension:
       type: object
       required:
@@ -208,12 +195,6 @@ components:
           - $ref: '#/components/schemas/DimensionValueOperator'
           - description: 'Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn''t match any of the topic filters. The operator is optional: if it''s not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.'
       description: The dimension of a metric.
-    ConfidenceLevel:
-      type: string
-      enum:
-      - LOW
-      - MEDIUM
-      - HIGH
     BehaviorCriteria:
       type: object
       properties:
@@ -246,82 +227,11 @@ components:
           - $ref: '#/components/schemas/MachineLearningDetectionConfig'
           - description: ' The configuration of an ML Detect '
       description: The criteria by which the behavior is determined to be normal.
-    Number:
-      type: number
-      format: double
-    ValidateSecurityProfileBehaviorsResponse:
-      type: object
-      properties:
-        valid:
-          allOf:
-          - $ref: '#/components/schemas/Valid'
-          - description: True if the behaviors were valid.
-        validationErrors:
-          allOf:
-          - $ref: '#/components/schemas/ValidationErrors'
-          - description: The list of any errors found in the behaviors.
-    DimensionValueOperator:
+    BehaviorName:
       type: string
-      enum:
-      - IN
-      - NOT_IN
-    Valid:
-      type: boolean
-    Ports:
-      type: array
-      items:
-        $ref: '#/components/schemas/Port'
-    ErrorMessage:
-      type: string
-      maxLength: 2048
-    InvalidRequestException: {}
-    stringValue:
-      type: string
-    Port:
-      type: integer
-      minimum: 0
-      maximum: 65535
-    UnsignedLong:
-      type: integer
-      minimum: 0
-    InternalFailureException: {}
-    ComparisonOperator:
-      type: string
-      enum:
-      - less-than
-      - less-than-equals
-      - greater-than
-      - greater-than-equals
-      - in-cidr-set
-      - not-in-cidr-set
-      - in-port-set
-      - not-in-port-set
-      - in-set
-      - not-in-set
-    Cidr:
-      type: string
-      pattern: '[a-fA-F0-9:\.\/]+'
-      minLength: 2
-      maxLength: 43
-    ConsecutiveDatapointsToClear:
-      type: integer
-      minimum: 1
-      maximum: 10
-    ThrottlingException: {}
-    BehaviorMetric:
-      type: string
-    ValidationErrors:
-      type: array
-      items:
-        $ref: '#/components/schemas/ValidationError'
-    Cidrs:
-      type: array
-      items:
-        $ref: '#/components/schemas/Cidr'
-    ConsecutiveDatapointsToAlarm:
-      type: integer
-      minimum: 1
-      maximum: 10
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
     MetricValue:
       type: object
       properties:
@@ -350,6 +260,120 @@ components:
           - $ref: '#/components/schemas/StringList'
           - description: ' The string values of a metric. '
       description: The value to be compared with the <code>metric</code>.
+    MachineLearningDetectionConfig:
+      type: object
+      required:
+      - confidenceLevel
+      properties:
+        confidenceLevel:
+          allOf:
+          - $ref: '#/components/schemas/ConfidenceLevel'
+          - description: ' The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>. '
+      description: ' The configuration of an ML Detect Security Profile. '
+    ThrottlingException: {}
+    ErrorMessage:
+      type: string
+      maxLength: 2048
+    ConfidenceLevel:
+      type: string
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+    ValidationErrors:
+      type: array
+      items:
+        $ref: '#/components/schemas/ValidationError'
+    Ports:
+      type: array
+      items:
+        $ref: '#/components/schemas/Port'
+    StatisticalThreshold:
+      type: object
+      properties:
+        statistic:
+          allOf:
+          - $ref: '#/components/schemas/EvaluationStatistic'
+          - description: The percentile that resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
+      description: A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/stringValue'
+    ConsecutiveDatapointsToAlarm:
+      type: integer
+      minimum: 1
+      maximum: 10
+    NumberList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Number'
+    InvalidRequestException: {}
+    BehaviorMetric:
+      type: string
+    stringValue:
+      type: string
+    SuppressAlerts:
+      type: boolean
+    Port:
+      type: integer
+      minimum: 0
+      maximum: 65535
+    Cidr:
+      type: string
+      pattern: '[a-fA-F0-9:\.\/]+'
+      minLength: 2
+      maxLength: 43
+    ComparisonOperator:
+      type: string
+      enum:
+      - less-than
+      - less-than-equals
+      - greater-than
+      - greater-than-equals
+      - in-cidr-set
+      - not-in-cidr-set
+      - in-port-set
+      - not-in-port-set
+      - in-set
+      - not-in-set
+    Number:
+      type: number
+      format: double
+    UnsignedLong:
+      type: integer
+      minimum: 0
+    ConsecutiveDatapointsToClear:
+      type: integer
+      minimum: 1
+      maximum: 10
+    DimensionName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ValidateSecurityProfileBehaviorsResponse:
+      type: object
+      properties:
+        valid:
+          allOf:
+          - $ref: '#/components/schemas/Valid'
+          - description: True if the behaviors were valid.
+        validationErrors:
+          allOf:
+          - $ref: '#/components/schemas/ValidationErrors'
+          - description: The list of any errors found in the behaviors.
+    DimensionValueOperator:
+      type: string
+      enum:
+      - IN
+      - NOT_IN
+    EvaluationStatistic:
+      type: string
+      pattern: (p0|p0\.1|p0\.01|p1|p10|p50|p90|p99|p99\.9|p99\.99|p100)
+    DurationSeconds:
+      type: integer
+    InternalFailureException: {}
     Behavior:
       type: object
       required:
@@ -376,16 +400,8 @@ components:
           - $ref: '#/components/schemas/SuppressAlerts'
           - description: ' Suppresses alerts. '
       description: A Device Defender security profile behavior.
-    MachineLearningDetectionConfig:
-      type: object
-      required:
-      - confidenceLevel
-      properties:
-        confidenceLevel:
-          allOf:
-          - $ref: '#/components/schemas/ConfidenceLevel'
-          - description: ' The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>. '
-      description: ' The configuration of an ML Detect Security Profile. '
+    Valid:
+      type: boolean
     ValidationError:
       type: object
       properties:
@@ -394,29 +410,19 @@ components:
           - $ref: '#/components/schemas/ErrorMessage'
           - description: The description of an error found in the behaviors.
       description: Information about an error found in a behavior specification.
-    StatisticalThreshold:
-      type: object
-      properties:
-        statistic:
-          allOf:
-          - $ref: '#/components/schemas/EvaluationStatistic'
-          - description: The percentile that resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
-      description: A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-    SuppressAlerts:
-      type: boolean
-    StringList:
+    Cidrs:
       type: array
       items:
-        $ref: '#/components/schemas/stringValue'
+        $ref: '#/components/schemas/Cidr'
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -427,14 +433,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -445,8 +445,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

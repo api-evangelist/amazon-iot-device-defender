@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer Role Aliases API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT Role Aliases API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateRoleAlias
-      description: <p>Creates a role alias.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a> action.</p>
+      description: 'Creates a role alias.
+
+
+        Requires permission to access the CreateRoleAlias action.'
       responses:
         '200':
           description: Success
@@ -217,7 +223,10 @@ paths:
       - Role Aliases
     delete:
       operationId: DeleteRoleAlias
-      description: <p>Deletes a role alias</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRoleAlias</a> action.</p>
+      description: 'Deletes a role alias
+
+
+        Requires permission to access the DeleteRoleAlias action.'
       responses:
         '200':
           description: Success
@@ -285,7 +294,10 @@ paths:
       - Role Aliases
     get:
       operationId: DescribeRoleAlias
-      description: <p>Describes a role alias.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeRoleAlias</a> action.</p>
+      description: 'Describes a role alias.
+
+
+        Requires permission to access the DescribeRoleAlias action.'
       responses:
         '200':
           description: Success
@@ -347,7 +359,10 @@ paths:
       - Role Aliases
     put:
       operationId: UpdateRoleAlias
-      description: <p>Updates a role alias.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
+      description: 'Updates a role alias.
+
+
+        Requires permission to access the UpdateRoleAlias action.'
       responses:
         '200':
           description: Success
@@ -435,7 +450,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListRoleAliases
-      description: <p>Lists the role aliases registered in your account.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
+      description: 'Lists the role aliases registered in your account.
+
+
+        Requires permission to access the ListRoleAliases action.'
       responses:
         '200':
           description: Success
@@ -504,11 +522,15 @@ paths:
       - Role Aliases
 components:
   schemas:
-    UnauthorizedException: {}
-    Marker:
+    TagValue:
       type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
+      minLength: 0
+      maxLength: 256
+    RoleAliasArn:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    ThrottlingException: {}
     ListRoleAliasesResponse:
       type: object
       properties:
@@ -520,9 +542,76 @@ components:
           allOf:
           - $ref: '#/components/schemas/Marker'
           - description: A marker used to get the next set of results.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    DateType:
+      type: string
+      format: date-time
+    DeleteConflictException: {}
+    UpdateRoleAliasResponse:
+      type: object
+      properties:
+        roleAlias:
+          allOf:
+          - $ref: '#/components/schemas/RoleAlias'
+          - description: The role alias.
+        roleAliasArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleAliasArn'
+          - description: The role alias ARN.
+    CredentialDurationSeconds:
+      type: integer
+      minimum: 900
+      maximum: 43200
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    InvalidRequestException: {}
+    DescribeRoleAliasResponse:
+      type: object
+      properties:
+        roleAliasDescription:
+          allOf:
+          - $ref: '#/components/schemas/RoleAliasDescription'
+          - description: The role alias description.
+    ResourceNotFoundException: {}
+    ResourceAlreadyExistsException: {}
+    RoleAlias:
+      type: string
+      pattern: '[\w=,@-]+'
+      minLength: 1
+      maxLength: 128
+    RoleAliases:
+      type: array
+      items:
+        $ref: '#/components/schemas/RoleAlias'
+    UnauthorizedException: {}
+    ServiceUnavailableException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
     DeleteRoleAliasResponse:
       type: object
       properties: {}
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
     RoleAliasDescription:
       type: object
       properties:
@@ -555,33 +644,11 @@ components:
           - $ref: '#/components/schemas/DateType'
           - description: The UNIX timestamp of when the role alias was last modified.
       description: Role alias description.
-    DateType:
-      type: string
-      format: date-time
-    RoleAliases:
-      type: array
-      items:
-        $ref: '#/components/schemas/RoleAlias'
-    RoleAlias:
-      type: string
-      pattern: '[\w=,@-]+'
-      minLength: 1
-      maxLength: 128
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    InvalidRequestException: {}
     AwsAccountId:
       type: string
       pattern: '[0-9]+'
       minLength: 12
       maxLength: 12
-    DeleteConflictException: {}
-    RoleAliasArn:
-      type: string
-      minLength: 1
-      maxLength: 2048
     CreateRoleAliasResponse:
       type: object
       properties:
@@ -594,65 +661,16 @@ components:
           - $ref: '#/components/schemas/RoleAliasArn'
           - description: The role alias ARN.
     InternalFailureException: {}
-    ServiceUnavailableException: {}
     LimitExceededException: {}
-    ThrottlingException: {}
-    UpdateRoleAliasResponse:
-      type: object
-      properties:
-        roleAlias:
-          allOf:
-          - $ref: '#/components/schemas/RoleAlias'
-          - description: The role alias.
-        roleAliasArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleAliasArn'
-          - description: The role alias ARN.
-    RoleArn:
-      type: string
-      minLength: 20
-      maxLength: 2048
-    ResourceNotFoundException: {}
-    CredentialDurationSeconds:
-      type: integer
-      minimum: 900
-      maximum: 43200
-    DescribeRoleAliasResponse:
-      type: object
-      properties:
-        roleAliasDescription:
-          allOf:
-          - $ref: '#/components/schemas/RoleAliasDescription'
-          - description: The role alias description.
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag's key.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag's value.
-      description: A set of key/value pairs that are used to manage the resource.
-    ResourceAlreadyExistsException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -663,14 +681,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -681,8 +693,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

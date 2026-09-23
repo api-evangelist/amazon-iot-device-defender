@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer Mitigationactions API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT Mitigationactions API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateMitigationAction
-      description: <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateMitigationAction</a> action.</p>
+      description: 'Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see Mitigation actions. Each mitigation action can apply only one type of change.
+
+
+        Requires permission to access the CreateMitigationAction action.'
       responses:
         '200':
           description: Success
@@ -228,7 +234,10 @@ paths:
       - Mitigationactions
     delete:
       operationId: DeleteMitigationAction
-      description: <p>Deletes a defined mitigation action from your Amazon Web Services accounts.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteMitigationAction</a> action.</p>
+      description: 'Deletes a defined mitigation action from your Amazon Web Services accounts.
+
+
+        Requires permission to access the DeleteMitigationAction action.'
       responses:
         '200':
           description: Success
@@ -271,7 +280,10 @@ paths:
       - Mitigationactions
     get:
       operationId: DescribeMitigationAction
-      description: <p>Gets information about a mitigation action.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
+      description: 'Gets information about a mitigation action.
+
+
+        Requires permission to access the DescribeMitigationAction action.'
       responses:
         '200':
           description: Success
@@ -320,7 +332,10 @@ paths:
       - Mitigationactions
     patch:
       operationId: UpdateMitigationAction
-      description: <p>Updates the definition for the specified mitigation action.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateMitigationAction</a> action.</p>
+      description: 'Updates the definition for the specified mitigation action.
+
+
+        Requires permission to access the UpdateMitigationAction action.'
       responses:
         '200':
           description: Success
@@ -418,7 +433,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListMitigationActions
-      description: <p>Gets a list of all mitigation actions that match the specified filter criteria.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
+      description: 'Gets a list of all mitigation actions that match the specified filter criteria.
+
+
+        Requires permission to access the ListMitigationActions action.'
       responses:
         '200':
           description: Success
@@ -480,23 +498,36 @@ paths:
       - Mitigationactions
 components:
   schemas:
-    AddThingsToThingGroupParams:
+    DeleteMitigationActionResponse:
+      type: object
+      properties: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    MitigationActionType:
+      type: string
+      enum:
+      - UPDATE_DEVICE_CERTIFICATE
+      - UPDATE_CA_CERTIFICATE
+      - ADD_THINGS_TO_THING_GROUP
+      - REPLACE_DEFAULT_POLICY_VERSION
+      - ENABLE_IOT_LOGGING
+      - PUBLISH_FINDING_TO_SNS
+    ThrottlingException: {}
+    PublishFindingToSnsParams:
       type: object
       required:
-      - thingGroupNames
+      - topicArn
       properties:
-        thingGroupNames:
+        topicArn:
           allOf:
-          - $ref: '#/components/schemas/ThingGroupNames'
-          - description: The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
-        overrideDynamicGroups:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
-      description: Parameters used when defining a mitigation action that move a set of things to a thing group.
-    ThingGroupName:
+          - $ref: '#/components/schemas/SnsTopicArn'
+          - description: The ARN of the topic to which you want to publish the findings.
+      description: Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+    TagKey:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
       maxLength: 128
     ReplaceDefaultPolicyVersionParams:
@@ -509,24 +540,14 @@ components:
           - $ref: '#/components/schemas/PolicyTemplateName'
           - description: The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.
       description: Parameters to define a mitigation action that adds a blank policy to restrict permissions.
-    MitigationActionId:
+    MitigationActionIdentifierList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MitigationActionIdentifier'
+    NullableBoolean:
+      type: boolean
+    MitigationActionArn:
       type: string
-    MitigationActionType:
-      type: string
-      enum:
-      - UPDATE_DEVICE_CERTIFICATE
-      - UPDATE_CA_CERTIFICATE
-      - ADD_THINGS_TO_THING_GROUP
-      - REPLACE_DEFAULT_POLICY_VERSION
-      - ENABLE_IOT_LOGGING
-      - PUBLISH_FINDING_TO_SNS
-    MitigationActionName:
-      type: string
-      pattern: '[a-zA-Z0-9_-]+'
-      maxLength: 128
-    Timestamp:
-      type: string
-      format: date-time
     CreateMitigationActionResponse:
       type: object
       properties:
@@ -538,58 +559,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/MitigationActionId'
           - description: A unique identifier for the new mitigation action.
-    CACertificateUpdateAction:
-      type: string
-      enum:
-      - DEACTIVATE
-    PublishFindingToSnsParams:
-      type: object
-      required:
-      - topicArn
-      properties:
-        topicArn:
-          allOf:
-          - $ref: '#/components/schemas/SnsTopicArn'
-          - description: The ARN of the topic to which you want to publish the findings.
-      description: Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-    NextToken:
-      type: string
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    InvalidRequestException: {}
-    MitigationActionIdentifier:
-      type: object
-      properties:
-        actionName:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionName'
-          - description: The friendly name of the mitigation action.
-        actionArn:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionArn'
-          - description: The IAM role ARN used to apply this mitigation action.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date when this mitigation action was created.
-      description: Information that identifies a mitigation action. This information is returned by ListMitigationActions.
-    UpdateDeviceCertificateParams:
-      type: object
-      required:
-      - action
-      properties:
-        action:
-          allOf:
-          - $ref: '#/components/schemas/DeviceCertificateUpdateAction'
-          - description: The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.
-      description: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
-    MitigationActionArn:
-      type: string
-    SnsTopicArn:
-      type: string
-      maxLength: 350
     EnableIoTLoggingParams:
       type: object
       required:
@@ -605,6 +574,9 @@ components:
           - $ref: '#/components/schemas/LogLevel'
           - description: Specifies the type of information to be logged.
       description: Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    ResourceAlreadyExistsException: {}
     DescribeMitigationActionResponse:
       type: object
       properties:
@@ -640,14 +612,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time when the mitigation action was last changed.
-    LogLevel:
-      type: string
-      enum:
-      - DEBUG
-      - INFO
-      - ERROR
-      - WARN
-      - DISABLED
     UpdateMitigationActionResponse:
       type: object
       properties:
@@ -659,31 +623,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/MitigationActionId'
           - description: A unique identifier for the mitigation action.
-    InternalFailureException: {}
-    NullableBoolean:
-      type: boolean
-    ListMitigationActionsResponse:
-      type: object
-      properties:
-        actionIdentifiers:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionIdentifierList'
-          - description: A set of actions that matched the specified filter criteria.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token for the next set of results.
-    DeleteMitigationActionResponse:
-      type: object
-      properties: {}
-    LimitExceededException: {}
-    ThrottlingException: {}
-    ThingGroupNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingGroupName'
-      minItems: 1
-      maxItems: 10
     UpdateCACertificateParams:
       type: object
       required:
@@ -694,10 +633,6 @@ components:
           - $ref: '#/components/schemas/CACertificateUpdateAction'
           - description: The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.
       description: Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-    RoleArn:
-      type: string
-      minLength: 20
-      maxLength: 2048
     MitigationActionParams:
       type: object
       properties:
@@ -726,15 +661,27 @@ components:
           - $ref: '#/components/schemas/PublishFindingToSnsParams'
           - description: Parameters to define a mitigation action that publishes findings to Amazon Simple Notification Service (Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
       description: The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
-    ResourceNotFoundException: {}
-    PolicyTemplateName:
-      type: string
-      enum:
-      - BLANK_POLICY
-    MitigationActionIdentifierList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MitigationActionIdentifier'
+    UpdateDeviceCertificateParams:
+      type: object
+      required:
+      - action
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/DeviceCertificateUpdateAction'
+          - description: The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.
+      description: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+    ListMitigationActionsResponse:
+      type: object
+      properties:
+        actionIdentifiers:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionIdentifierList'
+          - description: A set of actions that matched the specified filter criteria.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results.
     Tag:
       type: object
       required:
@@ -749,25 +696,96 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
+    ThingGroupNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingGroupName'
+      minItems: 1
+      maxItems: 10
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    AddThingsToThingGroupParams:
+      type: object
+      required:
+      - thingGroupNames
+      properties:
+        thingGroupNames:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupNames'
+          - description: The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
+        overrideDynamicGroups:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
+      description: Parameters used when defining a mitigation action that move a set of things to a thing group.
+    MitigationActionId:
+      type: string
+    NextToken:
+      type: string
     DeviceCertificateUpdateAction:
       type: string
       enum:
       - DEACTIVATE
-    ResourceAlreadyExistsException: {}
-    TagKey:
+    PolicyTemplateName:
       type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      enum:
+      - BLANK_POLICY
+    Timestamp:
+      type: string
+      format: date-time
+    CACertificateUpdateAction:
+      type: string
+      enum:
+      - DEACTIVATE
+    LogLevel:
+      type: string
+      enum:
+      - DEBUG
+      - INFO
+      - ERROR
+      - WARN
+      - DISABLED
+    MitigationActionIdentifier:
+      type: object
+      properties:
+        actionName:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionName'
+          - description: The friendly name of the mitigation action.
+        actionArn:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionArn'
+          - description: The IAM role ARN used to apply this mitigation action.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date when this mitigation action was created.
+      description: Information that identifies a mitigation action. This information is returned by ListMitigationActions.
+    InternalFailureException: {}
+    LimitExceededException: {}
+    SnsTopicArn:
+      type: string
+      maxLength: 350
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
       minLength: 1
       maxLength: 128
+    MitigationActionName:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      maxLength: 128
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -778,14 +796,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -796,8 +808,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

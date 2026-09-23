@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer V2 Logging Options API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT V2 Logging Options API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -112,7 +115,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: V2LoggingOptions
+- name: V2 Logging Options
 paths:
   /v2LoggingOptions:
     parameters:
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: GetV2LoggingOptions
-      description: <p>Gets the fine grained logging options.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
+      description: 'Gets the fine grained logging options.
+
+
+        Requires permission to access the GetV2LoggingOptions action.'
       responses:
         '200':
           description: Success
@@ -157,10 +163,13 @@ paths:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - V2LoggingOptions
+      - V2 Logging Options
     post:
       operationId: SetV2LoggingOptions
-      description: <p>Sets the logging options for the V2 logging service.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingOptions</a> action.</p>
+      description: 'Sets the logging options for the V2 logging service.
+
+
+        Requires permission to access the SetV2LoggingOptions action.'
       responses:
         '200':
           description: Success
@@ -210,49 +219,17 @@ paths:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - V2LoggingOptions
+      - V2 Logging Options
 components:
-  schemas:
-    NotConfiguredException: {}
-    AwsArn:
-      type: string
-    LogLevel:
-      type: string
-      enum:
-      - DEBUG
-      - INFO
-      - ERROR
-      - WARN
-      - DISABLED
-    InternalException: {}
-    ServiceUnavailableException: {}
-    DisableAllLogs:
-      type: boolean
-    GetV2LoggingOptionsResponse:
-      type: object
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The IAM role ARN IoT uses to write to your CloudWatch logs.
-        defaultLogLevel:
-          allOf:
-          - $ref: '#/components/schemas/LogLevel'
-          - description: The default log level.
-        disableAllLogs:
-          allOf:
-          - $ref: '#/components/schemas/DisableAllLogs'
-          - description: Disables all logs.
-    InvalidRequestException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -269,14 +246,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -287,6 +258,44 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    NotConfiguredException: {}
+    InternalException: {}
+    ServiceUnavailableException: {}
+    DisableAllLogs:
+      type: boolean
+    LogLevel:
+      type: string
+      enum:
+      - DEBUG
+      - INFO
+      - ERROR
+      - WARN
+      - DISABLED
+    InvalidRequestException: {}
+    GetV2LoggingOptionsResponse:
+      type: object
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The IAM role ARN IoT uses to write to your CloudWatch logs.
+        defaultLogLevel:
+          allOf:
+          - $ref: '#/components/schemas/LogLevel'
+          - description: The default log level.
+        disableAllLogs:
+          allOf:
+          - $ref: '#/components/schemas/DisableAllLogs'
+          - description: Disables all logs.
+    AwsArn:
+      type: string
   securitySchemes:
     hmac:
       type: apiKey

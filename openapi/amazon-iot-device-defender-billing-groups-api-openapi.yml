@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2015-05-28
   x-release: v4
-  title: AWS IoT Accept Certificate Transfer Billing Groups API
-  description: '<fullname>IoT</fullname> <p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p> <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p> <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>'
+  title: AWS IoT Billing Groups API
+  description: 'IoT
+
+    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -24,6 +26,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iot-2015-05-28.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     put:
       operationId: AddThingToBillingGroup
-      description: <p>Adds a thing to a billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToBillingGroup</a> action.</p>
+      description: 'Adds a thing to a billing group.
+
+
+        Requires permission to access the AddThingToBillingGroup action.'
       responses:
         '200':
           description: Success
@@ -200,7 +206,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateBillingGroup
-      description: <p>Creates a billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
+      description: 'Creates a billing group.
+
+
+        Requires permission to access the CreateBillingGroup action.'
       responses:
         '200':
           description: Success
@@ -270,7 +279,10 @@ paths:
       - Billing Groups
     delete:
       operationId: DeleteBillingGroup
-      description: <p>Deletes the billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
+      description: 'Deletes the billing group.
+
+
+        Requires permission to access the DeleteBillingGroup action.'
       responses:
         '200':
           description: Success
@@ -326,7 +338,10 @@ paths:
       - Billing Groups
     get:
       operationId: DescribeBillingGroup
-      description: <p>Returns information about a billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
+      description: 'Returns information about a billing group.
+
+
+        Requires permission to access the DescribeBillingGroup action.'
       responses:
         '200':
           description: Success
@@ -376,7 +391,10 @@ paths:
       - Billing Groups
     patch:
       operationId: UpdateBillingGroup
-      description: <p>Updates information about the billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateBillingGroup</a> action.</p>
+      description: 'Updates information about the billing group.
+
+
+        Requires permission to access the UpdateBillingGroup action.'
       responses:
         '200':
           description: Success
@@ -461,7 +479,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListBillingGroups
-      description: <p>Lists the billing groups you have created.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListBillingGroups</a> action.</p>
+      description: 'Lists the billing groups you have created.
+
+
+        Requires permission to access the ListBillingGroups action.'
       responses:
         '200':
           description: Success
@@ -534,7 +555,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListThingsInBillingGroup
-      description: <p>Lists the things you have added to the given billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInBillingGroup</a> action.</p>
+      description: 'Lists the things you have added to the given billing group.
+
+
+        Requires permission to access the ListThingsInBillingGroup action.'
       responses:
         '200':
           description: Success
@@ -607,7 +631,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     put:
       operationId: RemoveThingFromBillingGroup
-      description: <p>Removes the given thing from the billing group.</p> <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p> <note> <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p> </note>
+      description: 'Removes the given thing from the billing group.
+
+
+        Requires permission to access the RemoveThingFromBillingGroup action.
+
+
+        This call is asynchronous. It might take several seconds for the detachment to propagate.'
       responses:
         '200':
           description: Success
@@ -673,6 +703,53 @@ paths:
       - Billing Groups
 components:
   schemas:
+    GroupNameAndArn:
+      type: object
+      properties:
+        groupName:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupName'
+          - description: The group name.
+        groupArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupArn'
+          - description: The group ARN.
+      description: The name and ARN of a group.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    VersionConflictException: {}
+    ThingNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingName'
+    UpdateBillingGroupResponse:
+      type: object
+      properties:
+        version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The latest version of the billing group.
+    ThingGroupArn:
+      type: string
+    ThrottlingException: {}
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    ListThingsInBillingGroupResponse:
+      type: object
+      properties:
+        things:
+          allOf:
+          - $ref: '#/components/schemas/ThingNameList'
+          - description: A list of things in the billing group.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results. Will not be returned if operation has returned all results.
     BillingGroupProperties:
       type: object
       properties:
@@ -681,40 +758,10 @@ components:
           - $ref: '#/components/schemas/BillingGroupDescription'
           - description: The description of the billing group.
       description: The properties of a billing group.
-    CreateBillingGroupResponse:
-      type: object
-      properties:
-        billingGroupName:
-          allOf:
-          - $ref: '#/components/schemas/BillingGroupName'
-          - description: The name you gave to the billing group.
-        billingGroupArn:
-          allOf:
-          - $ref: '#/components/schemas/BillingGroupArn'
-          - description: The ARN of the billing group.
-        billingGroupId:
-          allOf:
-          - $ref: '#/components/schemas/BillingGroupId'
-          - description: The ID of the billing group.
-    ThingGroupArn:
-      type: string
-    UpdateBillingGroupResponse:
-      type: object
-      properties:
-        version:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The latest version of the billing group.
-    Version:
-      type: integer
-    ThingGroupName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    DeleteBillingGroupResponse:
-      type: object
-      properties: {}
+    BillingGroupNameAndArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GroupNameAndArn'
     DescribeBillingGroupResponse:
       type: object
       properties:
@@ -742,56 +789,44 @@ components:
           allOf:
           - $ref: '#/components/schemas/BillingGroupMetadata'
           - description: Additional information about the billing group.
-    ThingName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    GroupNameAndArn:
+    CreateBillingGroupResponse:
       type: object
       properties:
-        groupName:
+        billingGroupName:
           allOf:
-          - $ref: '#/components/schemas/ThingGroupName'
-          - description: The group name.
-        groupArn:
+          - $ref: '#/components/schemas/BillingGroupName'
+          - description: The name you gave to the billing group.
+        billingGroupArn:
           allOf:
-          - $ref: '#/components/schemas/ThingGroupArn'
-          - description: The group ARN.
-      description: The name and ARN of a group.
-    NextToken:
-      type: string
-    ThingNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingName'
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    InvalidRequestException: {}
-    BillingGroupMetadata:
-      type: object
-      properties:
-        creationDate:
+          - $ref: '#/components/schemas/BillingGroupArn'
+          - description: The ARN of the billing group.
+        billingGroupId:
           allOf:
-          - $ref: '#/components/schemas/CreationDate'
-          - description: The date the billing group was created.
-      description: Additional information about the billing group.
+          - $ref: '#/components/schemas/BillingGroupId'
+          - description: The ID of the billing group.
     BillingGroupDescription:
       type: string
       pattern: '[\p{Graph}\x20]*'
       maxLength: 2028
+    CreationDate:
+      type: string
+      format: date-time
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    ResourceAlreadyExistsException: {}
+    BillingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    DeleteBillingGroupResponse:
+      type: object
+      properties: {}
     BillingGroupId:
       type: string
       pattern: '[a-zA-Z0-9\-]+'
       minLength: 1
       maxLength: 128
-    InternalFailureException: {}
-    CreationDate:
-      type: string
-      format: date-time
-    ThrottlingException: {}
     ListBillingGroupsResponse:
       type: object
       properties:
@@ -803,31 +838,8 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
-    ListThingsInBillingGroupResponse:
-      type: object
-      properties:
-        things:
-          allOf:
-          - $ref: '#/components/schemas/ThingNameList'
-          - description: A list of things in the billing group.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token to use to get the next set of results. Will not be returned if operation has returned all results.
-    ResourceNotFoundException: {}
-    BillingGroupNameAndArnList:
-      type: array
-      items:
-        $ref: '#/components/schemas/GroupNameAndArn'
-    BillingGroupName:
+    BillingGroupArn:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    VersionConflictException: {}
-    AddThingToBillingGroupResponse:
-      type: object
-      properties: {}
     Tag:
       type: object
       required:
@@ -842,26 +854,44 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    BillingGroupArn:
+    NextToken:
       type: string
-    ResourceAlreadyExistsException: {}
-    TagKey:
+    ThingName:
       type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      pattern: '[a-zA-Z0-9:_-]+'
       minLength: 1
       maxLength: 128
+    Version:
+      type: integer
+    InternalFailureException: {}
+    BillingGroupMetadata:
+      type: object
+      properties:
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The date the billing group was created.
+      description: Additional information about the billing group.
     RemoveThingFromBillingGroupResponse:
       type: object
       properties: {}
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    AddThingToBillingGroupResponse:
+      type: object
+      properties: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -872,14 +902,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -890,8 +914,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
