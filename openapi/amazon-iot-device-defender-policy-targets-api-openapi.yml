@@ -214,36 +214,19 @@ paths:
       tags:
       - Policy Targets
 components:
-  schemas:
-    ListTargetsForPolicyResponse:
-      type: object
-      properties:
-        targets:
-          allOf:
-          - $ref: '#/components/schemas/PolicyTargets'
-          - description: The policy targets.
-        nextMarker:
-          allOf:
-          - $ref: '#/components/schemas/Marker'
-          - description: A marker used to get the next set of results.
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    UnauthorizedException: {}
-    ThrottlingException: {}
-    PolicyTargets:
-      type: array
-      items:
-        $ref: '#/components/schemas/PolicyTarget'
-    ServiceUnavailableException: {}
-    PolicyTarget:
-      type: string
-    InvalidRequestException: {}
-    InternalFailureException: {}
-    LimitExceededException: {}
-    ResourceNotFoundException: {}
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -252,12 +235,6 @@ components:
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -274,18 +251,41 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    PolicyTargets:
+      type: array
+      items:
+        $ref: '#/components/schemas/PolicyTarget'
+    ResourceNotFoundException: {}
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    UnauthorizedException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    InvalidRequestException: {}
+    ListTargetsForPolicyResponse:
+      type: object
+      properties:
+        targets:
+          allOf:
+          - $ref: '#/components/schemas/PolicyTargets'
+          - description: The policy targets.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: A marker used to get the next set of results.
+    LimitExceededException: {}
+    PolicyTarget:
+      type: string
+    ThrottlingException: {}
   securitySchemes:
     hmac:
       type: apiKey

@@ -513,50 +513,10 @@ paths:
       - Thing Types
 components:
   schemas:
-    TagValue:
+    AttributeName:
       type: string
-      minLength: 0
-      maxLength: 256
-    CreateThingTypeResponse:
-      type: object
-      properties:
-        thingTypeName:
-          allOf:
-          - $ref: '#/components/schemas/ThingTypeName'
-          - description: The name of the thing type.
-        thingTypeArn:
-          allOf:
-          - $ref: '#/components/schemas/ThingTypeArn'
-          - description: The Amazon Resource Name (ARN) of the thing type.
-        thingTypeId:
-          allOf:
-          - $ref: '#/components/schemas/ThingTypeId'
-          - description: The thing type ID.
-      description: The output of the CreateThingType operation.
-    ThrottlingException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
+      pattern: '[a-zA-Z0-9_.,@/:#-]+'
       maxLength: 128
-    DeleteThingTypeResponse:
-      type: object
-      properties: {}
-      description: The output for the DeleteThingType operation.
-    ThingTypeId:
-      type: string
-    Boolean:
-      type: boolean
-    DeprecationDate:
-      type: string
-      format: date-time
-    CreationDate:
-      type: string
-      format: date-time
-    ThingTypeArn:
-      type: string
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
     ThingTypeDefinition:
       type: object
       properties:
@@ -577,7 +537,35 @@ components:
           - $ref: '#/components/schemas/ThingTypeMetadata'
           - description: 'The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.'
       description: The definition of the thing type, including thing type name and description.
+    Boolean:
+      type: boolean
+    NextToken:
+      type: string
+    SearchableAttributes:
+      type: array
+      items:
+        $ref: '#/components/schemas/AttributeName'
+    DeprecateThingTypeResponse:
+      type: object
+      properties: {}
+      description: The output for the DeprecateThingType operation.
     ResourceAlreadyExistsException: {}
+    ThingTypeName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ThingTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingTypeDefinition'
+    UnauthorizedException: {}
+    ThingTypeDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 2028
+    ThingTypeArn:
+      type: string
     DescribeThingTypeResponse:
       type: object
       properties:
@@ -602,15 +590,26 @@ components:
           - $ref: '#/components/schemas/ThingTypeMetadata'
           - description: 'The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.'
       description: The output for the DescribeThingType operation.
-    UnauthorizedException: {}
-    DeprecateThingTypeResponse:
+    ThingTypeId:
+      type: string
+    ThrottlingException: {}
+    DeleteThingTypeResponse:
       type: object
       properties: {}
-      description: The output for the DeprecateThingType operation.
-    ThingTypeDescription:
+      description: The output for the DeleteThingType operation.
+    InternalFailureException: {}
+    DeprecationDate:
       type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 2028
+      format: date-time
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    ServiceUnavailableException: {}
+    CreationDate:
+      type: string
+      format: date-time
+    InvalidRequestException: {}
     ThingTypeMetadata:
       type: object
       properties:
@@ -627,7 +626,7 @@ components:
           - $ref: '#/components/schemas/CreationDate'
           - description: The date and time when the thing type was created.
       description: 'The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.'
-    ServiceUnavailableException: {}
+    ResourceNotFoundException: {}
     Tag:
       type: object
       required:
@@ -642,29 +641,6 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    ThingTypeProperties:
-      type: object
-      properties:
-        thingTypeDescription:
-          allOf:
-          - $ref: '#/components/schemas/ThingTypeDescription'
-          - description: The description of the thing type.
-        searchableAttributes:
-          allOf:
-          - $ref: '#/components/schemas/SearchableAttributes'
-          - description: A list of searchable thing attribute names.
-      description: 'The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.'
-    AttributeName:
-      type: string
-      pattern: '[a-zA-Z0-9_.,@/:#-]+'
-      maxLength: 128
-    ThingTypeName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    NextToken:
-      type: string
     ListThingTypesResponse:
       type: object
       properties:
@@ -677,30 +653,54 @@ components:
           - $ref: '#/components/schemas/NextToken'
           - description: The token for the next set of results. Will not be returned if operation has returned all results.
       description: The output for the ListThingTypes operation.
-    ThingTypeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingTypeDefinition'
-    SearchableAttributes:
-      type: array
-      items:
-        $ref: '#/components/schemas/AttributeName'
-    InternalFailureException: {}
+    CreateThingTypeResponse:
+      type: object
+      properties:
+        thingTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeName'
+          - description: The name of the thing type.
+        thingTypeArn:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeArn'
+          - description: The Amazon Resource Name (ARN) of the thing type.
+        thingTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeId'
+          - description: The thing type ID.
+      description: The output of the CreateThingType operation.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    ThingTypeProperties:
+      type: object
+      properties:
+        thingTypeDescription:
+          allOf:
+          - $ref: '#/components/schemas/ThingTypeDescription'
+          - description: The description of the thing type.
+        searchableAttributes:
+          allOf:
+          - $ref: '#/components/schemas/SearchableAttributes'
+          - description: A list of searchable thing attribute names.
+      description: 'The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.'
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -717,14 +717,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

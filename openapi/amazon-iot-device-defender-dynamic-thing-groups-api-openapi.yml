@@ -399,28 +399,13 @@ paths:
       - Dynamic Thing Groups
 components:
   schemas:
-    TagValue:
+    QueryVersion:
       type: string
-      minLength: 0
-      maxLength: 256
+    DeleteDynamicThingGroupResponse:
+      type: object
+      properties: {}
     VersionConflictException: {}
-    ThingGroupArn:
-      type: string
-    ThrottlingException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ThingGroupId:
-      type: string
-      pattern: '[a-zA-Z0-9\-]+'
-      minLength: 1
-      maxLength: 128
-    AttributeValue:
-      type: string
-      pattern: '[a-zA-Z0-9_.,@/:#-]*'
-      maxLength: 800
+    ResourceAlreadyExistsException: {}
     AttributePayload:
       type: object
       properties:
@@ -433,20 +418,73 @@ components:
           - $ref: '#/components/schemas/Flag'
           - description: <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with the attributes stored in the registry, instead of overwriting them.</p> <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p> <note> <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p> </note>
       description: The attribute payload.
-    ThingGroupName:
+    Flag:
+      type: boolean
+    ThingGroupArn:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
+    ThrottlingException: {}
     IndexName:
       type: string
       pattern: '[a-zA-Z0-9:_-]+'
       minLength: 1
       maxLength: 128
+    InternalFailureException: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    ThingGroupDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 2028
+    InvalidRequestException: {}
+    Version:
+      type: integer
+    AttributeValue:
+      type: string
+      pattern: '[a-zA-Z0-9_.,@/:#-]*'
+      maxLength: 800
+    LimitExceededException: {}
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    InvalidQueryException: {}
+    UpdateDynamicThingGroupResponse:
+      type: object
+      properties:
+        version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The dynamic thing group version.
+    ThingGroupId:
+      type: string
+      pattern: '[a-zA-Z0-9\-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceNotFoundException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
     Attributes:
       type: object
       additionalProperties:
         $ref: '#/components/schemas/AttributeValue'
+    QueryString:
+      type: string
+      minLength: 1
     CreateDynamicThingGroupResponse:
       type: object
       properties:
@@ -474,64 +512,26 @@ components:
           allOf:
           - $ref: '#/components/schemas/QueryVersion'
           - description: The dynamic thing group query version.
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    DeleteDynamicThingGroupResponse:
-      type: object
-      properties: {}
-    ResourceAlreadyExistsException: {}
-    QueryString:
+    TagKey:
       type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag's key.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag's value.
-      description: A set of key/value pairs that are used to manage the resource.
-    UpdateDynamicThingGroupResponse:
-      type: object
-      properties:
-        version:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The dynamic thing group version.
-    QueryVersion:
-      type: string
-    Flag:
-      type: boolean
-    InvalidQueryException: {}
-    Version:
-      type: integer
-    InternalFailureException: {}
-    LimitExceededException: {}
-    ThingGroupDescription:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 2028
+      maxLength: 128
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -548,14 +548,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

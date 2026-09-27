@@ -209,49 +209,13 @@ paths:
       tags:
       - Event Configurations
 components:
-  schemas:
-    EventConfigurations:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Configuration'
-    UpdateEventConfigurationsResponse:
-      type: object
-      properties: {}
-    LastModifiedDate:
-      type: string
-      format: date-time
-    ThrottlingException: {}
-    DescribeEventConfigurationsResponse:
-      type: object
-      properties:
-        eventConfigurations:
-          allOf:
-          - $ref: '#/components/schemas/EventConfigurations'
-          - description: The event configurations.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/CreationDate'
-          - description: The creation date of the event configuration.
-        lastModifiedDate:
-          allOf:
-          - $ref: '#/components/schemas/LastModifiedDate'
-          - description: The date the event configurations were last modified.
-    CreationDate:
-      type: string
-      format: date-time
-    InternalFailureException: {}
-    Configuration:
-      type: object
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/Enabled'
-          - description: True to enable the configuration.
-      description: Configuration.
-    InvalidRequestException: {}
-    Enabled:
-      type: boolean
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -270,12 +234,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -288,12 +246,54 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    DescribeEventConfigurationsResponse:
+      type: object
+      properties:
+        eventConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/EventConfigurations'
+          - description: The event configurations.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The creation date of the event configuration.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/LastModifiedDate'
+          - description: The date the event configurations were last modified.
+    UpdateEventConfigurationsResponse:
+      type: object
+      properties: {}
+    InternalFailureException: {}
+    LastModifiedDate:
+      type: string
+      format: date-time
+    EventConfigurations:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Configuration'
+    CreationDate:
+      type: string
+      format: date-time
+    InvalidRequestException: {}
+    Enabled:
+      type: boolean
+    Configuration:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/Enabled'
+          - description: True to enable the configuration.
+      description: Configuration.
+    ThrottlingException: {}
   securitySchemes:
     hmac:
       type: apiKey

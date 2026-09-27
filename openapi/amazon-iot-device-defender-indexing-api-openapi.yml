@@ -283,57 +283,11 @@ paths:
       - Indexing
 components:
   schemas:
-    FieldName:
-      type: string
-    ShadowName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 64
-    ThrottlingException: {}
     ThingGroupIndexingMode:
       type: string
       enum:
       - false
       - true
-    NamedShadowNamesFilter:
-      type: array
-      items:
-        $ref: '#/components/schemas/ShadowName'
-    IndexingFilter:
-      type: object
-      properties:
-        namedShadowNames:
-          allOf:
-          - $ref: '#/components/schemas/NamedShadowNamesFilter'
-          - description: 'The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>. '
-      description: Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.
-    FieldType:
-      type: string
-      enum:
-      - Number
-      - String
-      - Boolean
-    InvalidRequestException: {}
-    ThingIndexingMode:
-      type: string
-      enum:
-      - false
-      - REGISTRY
-      - REGISTRY_AND_SHADOW
-    UnauthorizedException: {}
-    Field:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FieldName'
-          - description: The name of the field.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/FieldType'
-          - description: The data type of the field.
-      description: Describes the name and data type at a field.
     ThingGroupIndexingConfiguration:
       type: object
       required:
@@ -352,26 +306,46 @@ components:
           - $ref: '#/components/schemas/Fields'
           - description: <p>A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields.</p> <p>Contains custom field names and their data type.</p>
       description: Thing group indexing configuration.
-    NamedShadowIndexingMode:
-      type: string
-      enum:
-      - false
-      - true
-    Fields:
+    NamedShadowNamesFilter:
       type: array
       items:
-        $ref: '#/components/schemas/Field'
-    ServiceUnavailableException: {}
+        $ref: '#/components/schemas/ShadowName'
+    UpdateIndexingConfigurationResponse:
+      type: object
+      properties: {}
+    FieldName:
+      type: string
+    IndexingFilter:
+      type: object
+      properties:
+        namedShadowNames:
+          allOf:
+          - $ref: '#/components/schemas/NamedShadowNamesFilter'
+          - description: 'The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>. '
+      description: Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.
     DeviceDefenderIndexingMode:
       type: string
       enum:
       - false
       - VIOLATIONS
-    ThingConnectivityIndexingMode:
+    UnauthorizedException: {}
+    ShadowName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 64
+    ThrottlingException: {}
+    ThingIndexingMode:
       type: string
       enum:
       - false
-      - STATUS
+      - REGISTRY
+      - REGISTRY_AND_SHADOW
+    InternalFailureException: {}
+    Fields:
+      type: array
+      items:
+        $ref: '#/components/schemas/Field'
     ThingIndexingConfiguration:
       type: object
       required:
@@ -406,6 +380,31 @@ components:
           - $ref: '#/components/schemas/IndexingFilter'
           - description: Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.
       description: The thing indexing configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html">Managing Thing Indexing</a>.
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    NamedShadowIndexingMode:
+      type: string
+      enum:
+      - false
+      - true
+    FieldType:
+      type: string
+      enum:
+      - Number
+      - String
+      - Boolean
+    Field:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FieldName'
+          - description: The name of the field.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/FieldType'
+          - description: The data type of the field.
+      description: Describes the name and data type at a field.
     GetIndexingConfigurationResponse:
       type: object
       properties:
@@ -417,25 +416,26 @@ components:
           allOf:
           - $ref: '#/components/schemas/ThingGroupIndexingConfiguration'
           - description: The index configuration.
-    UpdateIndexingConfigurationResponse:
-      type: object
-      properties: {}
-    InternalFailureException: {}
+    ThingConnectivityIndexingMode:
+      type: string
+      enum:
+      - false
+      - STATUS
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -452,14 +452,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

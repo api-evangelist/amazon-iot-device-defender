@@ -186,58 +186,7 @@ paths:
       tags:
       - Keys And Certificate
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ThrottlingException: {}
-    CertificatePem:
-      type: string
-      pattern: '[\s\S]*'
-      description: The PEM of a certificate.
-      minLength: 1
-      maxLength: 65536
-    InvalidRequestException: {}
     CreateKeysAndCertificateResponse:
       type: object
       properties:
@@ -258,9 +207,29 @@ components:
           - $ref: '#/components/schemas/KeyPair'
           - description: The generated key pair.
       description: The output of the CreateKeysAndCertificate operation.
-    UnauthorizedException: {}
-    CertificateArn:
+    CertificatePem:
       type: string
+      pattern: '[\s\S]*'
+      description: The PEM of a certificate.
+      minLength: 1
+      maxLength: 65536
+    UnauthorizedException: {}
+    PublicKey:
+      type: string
+      minLength: 1
+    ThrottlingException: {}
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    PrivateKey:
+      type: string
+      minLength: 1
+      format: password
+    CertificateId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
     KeyPair:
       type: object
       properties:
@@ -273,20 +242,51 @@ components:
           - $ref: '#/components/schemas/PrivateKey'
           - description: The private key.
       description: Describes a key pair.
-    ServiceUnavailableException: {}
-    PrivateKey:
+    CertificateArn:
       type: string
-      minLength: 1
-      format: password
-    InternalFailureException: {}
-    PublicKey:
-      type: string
-      minLength: 1
-    CertificateId:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      minLength: 64
-      maxLength: 64
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

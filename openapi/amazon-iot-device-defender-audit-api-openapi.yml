@@ -2228,118 +2228,93 @@ paths:
       - Audit
 components:
   schemas:
+    DayOfWeek:
+      type: string
+      enum:
+      - SUN
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+    ReasonForNonCompliance:
+      type: string
+    Enabled:
+      type: boolean
+    StartAuditMitigationActionsTaskResponse:
+      type: object
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionsTaskId'
+          - description: The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.
+    ErrorCode:
+      type: string
+    AuditMitigationActionExecutionMetadataList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuditMitigationActionExecutionMetadata'
+    DescribeAccountAuditConfigurationResponse:
+      type: object
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: <p>The ARN of the role that grants permission to IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required.</p>
+        auditNotificationTargetConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/AuditNotificationTargetConfigurations'
+          - description: Information about the targets to which audit notifications are sent for this account.
+        auditCheckConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/AuditCheckConfigurations'
+          - description: Which audit checks are enabled and disabled for this account.
+    FindingIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/FindingId'
+      minItems: 1
+      maxItems: 25
+    CognitoIdentityPoolId:
+      type: string
+    ListAuditFindingsResponse:
+      type: object
+      properties:
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/AuditFindings'
+          - description: The findings (results) of the audit.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    IsSuppressed:
+      type: boolean
+    TotalResourcesCount:
+      type: integer
+    ThingGroupNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingGroupName'
+      minItems: 1
+      maxItems: 10
+    CheckCompliant:
+      type: boolean
+    PolicyName:
+      type: string
+      pattern: '[\w+=,.@-]+'
+      minLength: 1
+      maxLength: 128
+    InternalFailureException: {}
     TagValue:
       type: string
       minLength: 0
       maxLength: 256
-    AuditCheckToReasonCodeFilter:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/ReasonForNonComplianceCodes'
-    ErrorMessage:
-      type: string
-      maxLength: 2048
-    TaskAlreadyExistsException: {}
-    ListRelatedResourcesForAuditFindingResponse:
-      type: object
-      properties:
-        relatedResources:
-          allOf:
-          - $ref: '#/components/schemas/RelatedResources'
-          - description: The related resources.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> for the first API call.
-    NonCompliantChecksCount:
-      type: integer
-    EnableIoTLoggingParams:
-      type: object
-      required:
-      - roleArnForLogging
-      - logLevel
-      properties:
-        roleArnForLogging:
-          allOf:
-          - $ref: '#/components/schemas/RoleArn'
-          - description: The Amazon Resource Name (ARN) of the IAM role used for logging.
-        logLevel:
-          allOf:
-          - $ref: '#/components/schemas/LogLevel'
-          - description: Specifies the type of information to be logged.
-      description: Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.
-    DescribeAuditMitigationActionsTaskResponse:
-      type: object
-      properties:
-        taskStatus:
-          allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionsTaskStatus'
-          - description: The current status of the task.
-        startTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the task was started.
-        endTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the task was completed or canceled.
-        taskStatistics:
-          allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionsTaskStatistics'
-          - description: Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.
-        target:
-          allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionsTaskTarget'
-          - description: Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.
-        auditCheckToActionsMapping:
-          allOf:
-          - $ref: '#/components/schemas/AuditCheckToActionsMapping'
-          - description: Specifies the mitigation actions that should be applied to specific audit checks.
-        actionsDefinition:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionList'
-          - description: Specifies the mitigation actions and their parameters that are applied as part of this task.
-    ClientId:
-      type: string
-    UpdateScheduledAuditResponse:
-      type: object
-      properties:
-        scheduledAuditArn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledAuditArn'
-          - description: The ARN of the scheduled audit.
-    DescribeAuditFindingResponse:
-      type: object
-      properties:
-        finding:
-          $ref: '#/components/schemas/AuditFinding'
-    IssuerCertificateSubject:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 1000
-    MitigationAction:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionName'
-          - description: A user-friendly name for the mitigation action.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionId'
-          - description: A unique identifier for the mitigation action.
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleArn'
-          - description: The IAM role ARN used to apply this mitigation action.
-        actionParams:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionParams'
-          - description: The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
-      description: Describes which changes should be applied as part of a mitigation action.
-    UpdateAccountAuditConfigurationResponse:
-      type: object
-      properties: {}
+    AuditFindings:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuditFinding'
     TaskStatisticsForAuditCheck:
       type: object
       properties:
@@ -2364,51 +2339,32 @@ components:
           - $ref: '#/components/schemas/CanceledFindingsCount'
           - description: The number of findings to which the mitigation action task was canceled when applied.
       description: Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.
-    MitigationActionParams:
+    AuditTaskType:
+      type: string
+      enum:
+      - ON_DEMAND_AUDIT_TASK
+      - SCHEDULED_AUDIT_TASK
+    MitigationAction:
       type: object
       properties:
-        updateDeviceCertificateParams:
+        name:
           allOf:
-          - $ref: '#/components/schemas/UpdateDeviceCertificateParams'
-          - description: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
-        updateCACertificateParams:
+          - $ref: '#/components/schemas/MitigationActionName'
+          - description: A user-friendly name for the mitigation action.
+        id:
           allOf:
-          - $ref: '#/components/schemas/UpdateCACertificateParams'
-          - description: Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-        addThingsToThingGroupParams:
+          - $ref: '#/components/schemas/MitigationActionId'
+          - description: A unique identifier for the mitigation action.
+        roleArn:
           allOf:
-          - $ref: '#/components/schemas/AddThingsToThingGroupParams'
-          - description: Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
-        replaceDefaultPolicyVersionParams:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The IAM role ARN used to apply this mitigation action.
+        actionParams:
           allOf:
-          - $ref: '#/components/schemas/ReplaceDefaultPolicyVersionParams'
-          - description: Parameters to define a mitigation action that adds a blank policy to restrict permissions.
-        enableIoTLoggingParams:
-          allOf:
-          - $ref: '#/components/schemas/EnableIoTLoggingParams'
-          - description: Parameters to define a mitigation action that enables Amazon Web Services IoT Core logging at a specified level of detail.
-        publishFindingToSnsParams:
-          allOf:
-          - $ref: '#/components/schemas/PublishFindingToSnsParams'
-          - description: Parameters to define a mitigation action that publishes findings to Amazon Simple Notification Service (Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-      description: The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
-    DeleteAccountAuditConfigurationResponse:
-      type: object
-      properties: {}
-    AuditMitigationActionsTaskStatistics:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/TaskStatisticsForAuditCheck'
-    SuppressIndefinitely:
-      type: boolean
-    ErrorCode:
-      type: string
-    WaitingForDataCollectionChecksCount:
-      type: integer
-    AuditTaskMetadataList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuditTaskMetadata'
+          - $ref: '#/components/schemas/MitigationActionParams'
+          - description: The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
+      description: Describes which changes should be applied as part of a mitigation action.
+    TaskAlreadyExistsException: {}
     CreateScheduledAuditResponse:
       type: object
       properties:
@@ -2416,197 +2372,31 @@ components:
           allOf:
           - $ref: '#/components/schemas/ScheduledAuditArn'
           - description: The ARN of the scheduled audit.
-    ScheduledAuditMetadata:
-      type: object
-      properties:
-        scheduledAuditName:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledAuditName'
-          - description: The name of the scheduled audit.
-        scheduledAuditArn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledAuditArn'
-          - description: The ARN of the scheduled audit.
-        frequency:
-          allOf:
-          - $ref: '#/components/schemas/AuditFrequency'
-          - description: How often the scheduled audit occurs.
-        dayOfMonth:
-          allOf:
-          - $ref: '#/components/schemas/DayOfMonth'
-          - description: The day of the month on which the scheduled audit is run (if the <code>frequency</code> is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-        dayOfWeek:
-          allOf:
-          - $ref: '#/components/schemas/DayOfWeek'
-          - description: The day of the week on which the scheduled audit is run (if the <code>frequency</code> is "WEEKLY" or "BIWEEKLY").
-      description: Information about the scheduled audit.
-    DescribeScheduledAuditResponse:
-      type: object
-      properties:
-        frequency:
-          allOf:
-          - $ref: '#/components/schemas/AuditFrequency'
-          - description: How often the scheduled audit takes place, either one of <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the system.
-        dayOfMonth:
-          allOf:
-          - $ref: '#/components/schemas/DayOfMonth'
-          - description: The day of the month on which the scheduled audit takes place. This is will be <code>1</code> through <code>31</code> or <code>LAST</code>. If days <code>29</code>-<code>31</code> are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code> day of the month.
-        dayOfWeek:
-          allOf:
-          - $ref: '#/components/schemas/DayOfWeek'
-          - description: The day of the week on which the scheduled audit takes place, either one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.
-        targetCheckNames:
-          allOf:
-          - $ref: '#/components/schemas/TargetAuditCheckNames'
-          - description: Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)
-        scheduledAuditName:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledAuditName'
-          - description: The name of the scheduled audit.
-        scheduledAuditArn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledAuditArn'
-          - description: The ARN of the scheduled audit.
-    AuditFindings:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuditFinding'
-    CreateAuditSuppressionResponse:
-      type: object
-      properties: {}
-    CertificateId:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      minLength: 64
-      maxLength: 64
-    DescribeAuditSuppressionResponse:
-      type: object
-      properties:
-        checkName:
-          $ref: '#/components/schemas/AuditCheckName'
-        resourceIdentifier:
-          $ref: '#/components/schemas/ResourceIdentifier'
-        expirationDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The epoch timestamp in seconds at which this suppression expires. '
-        suppressIndefinitely:
-          allOf:
-          - $ref: '#/components/schemas/SuppressIndefinitely'
-          - description: ' Indicates whether a suppression should exist indefinitely or not. '
-        description:
-          allOf:
-          - $ref: '#/components/schemas/AuditDescription'
-          - description: ' The description of the audit suppression. '
-    MitigationActionName:
-      type: string
-      pattern: '[a-zA-Z0-9_-]+'
-      maxLength: 128
-    Enabled:
-      type: boolean
-    ScheduledAuditArn:
-      type: string
-    RoleAliasArn:
-      type: string
-      minLength: 1
-      maxLength: 2048
-    IssuerCertificateIdentifier:
-      type: object
-      properties:
-        issuerCertificateSubject:
-          allOf:
-          - $ref: '#/components/schemas/IssuerCertificateSubject'
-          - description: The subject of the issuer certificate.
-        issuerId:
-          allOf:
-          - $ref: '#/components/schemas/IssuerId'
-          - description: The issuer ID.
-        issuerCertificateSerialNumber:
-          allOf:
-          - $ref: '#/components/schemas/IssuerCertificateSerialNumber'
-          - description: The issuer certificate serial number.
-      description: The certificate issuer indentifier.
-    PolicyName:
-      type: string
-      pattern: '[\w+=,.@-]+'
-      minLength: 1
-      maxLength: 128
-    NonCompliantResource:
-      type: object
-      properties:
-        resourceType:
-          allOf:
-          - $ref: '#/components/schemas/ResourceType'
-          - description: The type of the noncompliant resource.
-        resourceIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/ResourceIdentifier'
-          - description: Information that identifies the noncompliant resource.
-        additionalInfo:
-          allOf:
-          - $ref: '#/components/schemas/StringMap'
-          - description: Other information about the noncompliant resource.
-      description: Information about the resource that was noncompliant with the audit check.
-    AuditSuppressionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuditSuppression'
-    AuditNotificationTargetConfigurations:
+    AuditDetails:
       type: object
       additionalProperties:
-        $ref: '#/components/schemas/AuditNotificationTarget'
-    ReplaceDefaultPolicyVersionParams:
+        $ref: '#/components/schemas/AuditCheckDetails'
+    AuditCheckToActionsMapping:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/MitigationActionNameList'
+    CancelAuditTaskResponse:
+      type: object
+      properties: {}
+    Tag:
       type: object
       required:
-      - templateName
+      - Key
       properties:
-        templateName:
+        Key:
           allOf:
-          - $ref: '#/components/schemas/PolicyTemplateName'
-          - description: The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.
-      description: Parameters to define a mitigation action that adds a blank policy to restrict permissions.
-    MitigationActionsTaskId:
-      type: string
-      pattern: '[a-zA-Z0-9_-]+'
-      minLength: 1
-      maxLength: 128
-    IsSuppressed:
-      type: boolean
-    ListAuditTasksResponse:
-      type: object
-      properties:
-        tasks:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
           allOf:
-          - $ref: '#/components/schemas/AuditTaskMetadataList'
-          - description: The audits that were performed during the specified time period.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    NullableBoolean:
-      type: boolean
-    CanceledFindingsCount:
-      type: integer
-    StartAuditMitigationActionsTaskResponse:
-      type: object
-      properties:
-        taskId:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionsTaskId'
-          - description: The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.
-    AuditFindingSeverity:
-      type: string
-      enum:
-      - CRITICAL
-      - HIGH
-      - MEDIUM
-      - LOW
-    NonCompliantResourcesCount:
-      type: integer
-    IssuerCertificateSerialNumber:
-      type: string
-      pattern: '[a-fA-F0-9:]+'
-      maxLength: 20
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
     AuditCheckRunStatus:
       type: string
       enum:
@@ -2616,17 +2406,38 @@ components:
       - COMPLETED_COMPLIANT
       - COMPLETED_NON_COMPLIANT
       - FAILED
-    FindingIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/FindingId'
-      minItems: 1
-      maxItems: 25
-    StringMap:
+    CanceledFindingsCount:
+      type: integer
+    PolicyVersionIdentifier:
       type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
-    ResourceNotFoundException: {}
+      properties:
+        policyName:
+          allOf:
+          - $ref: '#/components/schemas/PolicyName'
+          - description: The name of the policy.
+        policyVersionId:
+          allOf:
+          - $ref: '#/components/schemas/PolicyVersionId'
+          - description: The ID of the version of the policy associated with the resource.
+      description: Information about the version of the policy associated with the resource.
+    TargetArn:
+      type: string
+      maxLength: 2048
+    CreateAuditSuppressionResponse:
+      type: object
+      properties: {}
+    String:
+      type: string
+    AuditFindingSeverity:
+      type: string
+      enum:
+      - CRITICAL
+      - HIGH
+      - MEDIUM
+      - LOW
+    SnsTopicArn:
+      type: string
+      maxLength: 350
     StartOnDemandAuditTaskResponse:
       type: object
       properties:
@@ -2634,70 +2445,27 @@ components:
           allOf:
           - $ref: '#/components/schemas/AuditTaskId'
           - description: The ID of the on-demand audit you started.
+    ScheduledAuditMetadataList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScheduledAuditMetadata'
+    CancelAuditMitigationActionsTaskResponse:
+      type: object
+      properties: {}
+    IssuerCertificateSubject:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 1000
+    ResourceAlreadyExistsException: {}
+    TargetAuditCheckNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuditCheckName'
     ScheduledAuditName:
       type: string
       pattern: '[a-zA-Z0-9_-]+'
       minLength: 1
       maxLength: 128
-    ResourceIdentifier:
-      type: object
-      properties:
-        deviceCertificateId:
-          allOf:
-          - $ref: '#/components/schemas/CertificateId'
-          - description: The ID of the certificate attached to the resource.
-        caCertificateId:
-          allOf:
-          - $ref: '#/components/schemas/CertificateId'
-          - description: The ID of the CA certificate used to authorize the certificate.
-        cognitoIdentityPoolId:
-          allOf:
-          - $ref: '#/components/schemas/CognitoIdentityPoolId'
-          - description: The ID of the Amazon Cognito identity pool.
-        clientId:
-          allOf:
-          - $ref: '#/components/schemas/ClientId'
-          - description: The client ID.
-        policyVersionIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/PolicyVersionIdentifier'
-          - description: The version of the policy associated with the resource.
-        account:
-          allOf:
-          - $ref: '#/components/schemas/AwsAccountId'
-          - description: The account with which the resource is associated.
-        iamRoleArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleArn'
-          - description: The ARN of the IAM role that has overly permissive actions.
-        roleAliasArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleAliasArn'
-          - description: The ARN of the role alias that has overly permissive actions.
-        issuerCertificateIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/IssuerCertificateIdentifier'
-          - description: The issuer certificate identifier.
-        deviceCertificateArn:
-          allOf:
-          - $ref: '#/components/schemas/CertificateArn'
-          - description: The ARN of the identified device certificate.
-      description: Information that identifies the noncompliant resource.
-    DescribeAccountAuditConfigurationResponse:
-      type: object
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleArn'
-          - description: <p>The ARN of the role that grants permission to IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required.</p>
-        auditNotificationTargetConfigurations:
-          allOf:
-          - $ref: '#/components/schemas/AuditNotificationTargetConfigurations'
-          - description: Information about the targets to which audit notifications are sent for this account.
-        auditCheckConfigurations:
-          allOf:
-          - $ref: '#/components/schemas/AuditCheckConfigurations'
-          - description: Which audit checks are enabled and disabled for this account.
     AuditCheckDetails:
       type: object
       properties:
@@ -2730,327 +2498,53 @@ components:
           - $ref: '#/components/schemas/ErrorMessage'
           - description: The message associated with any error encountered when this check is performed during this audit.
       description: Information about the audit check.
-    SucceededFindingsCount:
-      type: integer
-    DayOfMonth:
-      type: string
-      pattern: ^([1-9]|[12][0-9]|3[01])$|^LAST$
-    ReasonForNonComplianceCodes:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReasonForNonComplianceCode'
-      minItems: 1
-      maxItems: 25
-    AuditCheckName:
-      type: string
-      description: An audit check name. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)
-    CheckCompliant:
-      type: boolean
-    AuditTaskMetadata:
+    ScheduledAuditMetadata:
       type: object
       properties:
-        taskId:
-          allOf:
-          - $ref: '#/components/schemas/AuditTaskId'
-          - description: The ID of this audit.
-        taskStatus:
-          allOf:
-          - $ref: '#/components/schemas/AuditTaskStatus'
-          - description: The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
-        taskType:
-          allOf:
-          - $ref: '#/components/schemas/AuditTaskType'
-          - description: The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
-      description: The audits that were performed.
-    MitigationActionNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MitigationActionName'
-      minItems: 1
-      maxItems: 5
-    AuditCheckConfigurations:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/AuditCheckConfiguration'
-    RoleArn:
-      type: string
-      minLength: 20
-      maxLength: 2048
-    AddThingsToThingGroupParams:
-      type: object
-      required:
-      - thingGroupNames
-      properties:
-        thingGroupNames:
-          allOf:
-          - $ref: '#/components/schemas/ThingGroupNames'
-          - description: The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
-        overrideDynamicGroups:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
-      description: Parameters used when defining a mitigation action that move a set of things to a thing group.
-    CancelAuditMitigationActionsTaskResponse:
-      type: object
-      properties: {}
-    ResourceType:
-      type: string
-      enum:
-      - DEVICE_CERTIFICATE
-      - CA_CERTIFICATE
-      - IOT_POLICY
-      - COGNITO_IDENTITY_POOL
-      - CLIENT_ID
-      - ACCOUNT_SETTINGS
-      - ROLE_ALIAS
-      - IAM_ROLE
-      - ISSUER_CERTIFICATE
-    Timestamp:
-      type: string
-      format: date-time
-    AuditNotificationTarget:
-      type: object
-      properties:
-        targetArn:
-          allOf:
-          - $ref: '#/components/schemas/TargetArn'
-          - description: The ARN of the target (SNS topic) to which audit notifications are sent.
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleArn'
-          - description: The ARN of the role that grants permission to send notifications to the target.
-        enabled:
-          allOf:
-          - $ref: '#/components/schemas/Enabled'
-          - description: True if notifications to the target are enabled.
-      description: Information about the targets to which audit notifications are sent.
-    LogLevel:
-      type: string
-      enum:
-      - DEBUG
-      - INFO
-      - ERROR
-      - WARN
-      - DISABLED
-    RelatedResources:
-      type: array
-      items:
-        $ref: '#/components/schemas/RelatedResource'
-    InternalFailureException: {}
-    SnsTopicArn:
-      type: string
-      maxLength: 350
-    UpdateAuditSuppressionResponse:
-      type: object
-      properties: {}
-    TaskStatistics:
-      type: object
-      properties:
-        totalChecks:
-          allOf:
-          - $ref: '#/components/schemas/TotalChecksCount'
-          - description: The number of checks in this audit.
-        inProgressChecks:
-          allOf:
-          - $ref: '#/components/schemas/InProgressChecksCount'
-          - description: The number of checks in progress.
-        waitingForDataCollectionChecks:
-          allOf:
-          - $ref: '#/components/schemas/WaitingForDataCollectionChecksCount'
-          - description: The number of checks waiting for data collection.
-        compliantChecks:
-          allOf:
-          - $ref: '#/components/schemas/CompliantChecksCount'
-          - description: The number of checks that found compliant resources.
-        nonCompliantChecks:
-          allOf:
-          - $ref: '#/components/schemas/NonCompliantChecksCount'
-          - description: The number of checks that found noncompliant resources.
-        failedChecks:
-          allOf:
-          - $ref: '#/components/schemas/FailedChecksCount'
-          - description: The number of checks.
-        canceledChecks:
-          allOf:
-          - $ref: '#/components/schemas/CanceledChecksCount'
-          - description: The number of checks that did not run because the audit was canceled.
-      description: Statistics for the checks performed during the audit.
-    ListScheduledAuditsResponse:
-      type: object
-      properties:
-        scheduledAudits:
-          allOf:
-          - $ref: '#/components/schemas/ScheduledAuditMetadataList'
-          - description: The list of scheduled audits.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    AuditCheckConfiguration:
-      type: object
-      properties:
-        enabled:
-          allOf:
-          - $ref: '#/components/schemas/Enabled'
-          - description: True if this audit check is enabled for this account.
-      description: Which audit checks are enabled and disabled for this account.
-    PublishFindingToSnsParams:
-      type: object
-      required:
-      - topicArn
-      properties:
-        topicArn:
-          allOf:
-          - $ref: '#/components/schemas/SnsTopicArn'
-          - description: The ARN of the topic to which you want to publish the findings.
-      description: Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-    ThrottlingException: {}
-    FindingId:
-      type: string
-      pattern: '[a-zA-Z0-9_-]+'
-      minLength: 1
-      maxLength: 128
-    ReasonForNonComplianceCode:
-      type: string
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ReasonForNonCompliance:
-      type: string
-    TotalResourcesCount:
-      type: integer
-    TotalFindingsCount:
-      type: integer
-    DayOfWeek:
-      type: string
-      enum:
-      - SUN
-      - MON
-      - TUE
-      - WED
-      - THU
-      - FRI
-      - SAT
-    CompliantChecksCount:
-      type: integer
-    AuditMitigationActionsTaskMetadata:
-      type: object
-      properties:
-        taskId:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionsTaskId'
-          - description: The unique identifier for the task.
-        startTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time at which the audit mitigation actions task was started.
-        taskStatus:
-          allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionsTaskStatus'
-          - description: The current state of the audit mitigation actions task.
-      description: Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.
-    DescribeAuditTaskResponse:
-      type: object
-      properties:
-        taskStatus:
-          allOf:
-          - $ref: '#/components/schemas/AuditTaskStatus'
-          - description: 'The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".'
-        taskType:
-          allOf:
-          - $ref: '#/components/schemas/AuditTaskType'
-          - description: 'The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".'
-        taskStartTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time the audit started.
-        taskStatistics:
-          allOf:
-          - $ref: '#/components/schemas/TaskStatistics'
-          - description: Statistical information about the audit.
         scheduledAuditName:
           allOf:
           - $ref: '#/components/schemas/ScheduledAuditName'
-          - description: The name of the scheduled audit (only if the audit was a scheduled audit).
-        auditDetails:
+          - description: The name of the scheduled audit.
+        scheduledAuditArn:
           allOf:
-          - $ref: '#/components/schemas/AuditDetails'
-          - description: Detailed information about each check performed during this audit.
-    String:
-      type: string
-    InvalidRequestException: {}
-    ResourceAlreadyExistsException: {}
-    SuppressedNonCompliantResourcesCount:
-      type: integer
-    CertificateArn:
-      type: string
-    AuditMitigationActionExecutionMetadata:
+          - $ref: '#/components/schemas/ScheduledAuditArn'
+          - description: The ARN of the scheduled audit.
+        frequency:
+          allOf:
+          - $ref: '#/components/schemas/AuditFrequency'
+          - description: How often the scheduled audit occurs.
+        dayOfMonth:
+          allOf:
+          - $ref: '#/components/schemas/DayOfMonth'
+          - description: The day of the month on which the scheduled audit is run (if the <code>frequency</code> is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+        dayOfWeek:
+          allOf:
+          - $ref: '#/components/schemas/DayOfWeek'
+          - description: The day of the week on which the scheduled audit is run (if the <code>frequency</code> is "WEEKLY" or "BIWEEKLY").
+      description: Information about the scheduled audit.
+    DescribeAuditSuppressionResponse:
       type: object
       properties:
-        taskId:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionsTaskId'
-          - description: The unique identifier for the task that applies the mitigation action.
-        findingId:
-          allOf:
-          - $ref: '#/components/schemas/FindingId'
-          - description: The unique identifier for the findings to which the task and associated mitigation action are applied.
-        actionName:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionName'
-          - description: The friendly name of the mitigation action being applied by the task.
-        actionId:
-          allOf:
-          - $ref: '#/components/schemas/MitigationActionId'
-          - description: The unique identifier for the mitigation action being applied by the task.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionsExecutionStatus'
-          - description: The current status of the task being executed.
-        startTime:
+        checkName:
+          $ref: '#/components/schemas/AuditCheckName'
+        resourceIdentifier:
+          $ref: '#/components/schemas/ResourceIdentifier'
+        expirationDate:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the task was started.
-        endTime:
+          - description: ' The epoch timestamp in seconds at which this suppression expires. '
+        suppressIndefinitely:
           allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the task was completed or canceled. Blank if the task is still running.
-        errorCode:
+          - $ref: '#/components/schemas/SuppressIndefinitely'
+          - description: ' Indicates whether a suppression should exist indefinitely or not. '
+        description:
           allOf:
-          - $ref: '#/components/schemas/ErrorCode'
-          - description: If an error occurred, the code that indicates which type of error occurred.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/ErrorMessage'
-          - description: If an error occurred, a message that describes the error.
-      description: Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.
-    ListAuditMitigationActionsExecutionsResponse:
-      type: object
-      properties:
-        actionsExecutions:
-          allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionExecutionMetadataList'
-          - description: A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token for the next set of results.
-    UpdateDeviceCertificateParams:
-      type: object
-      required:
-      - action
-      properties:
-        action:
-          allOf:
-          - $ref: '#/components/schemas/DeviceCertificateUpdateAction'
-          - description: The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.
-      description: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
-    AuditMitigationActionsTaskMetadataList:
+          - $ref: '#/components/schemas/AuditDescription'
+          - description: ' The description of the audit suppression. '
+    AuditTaskMetadataList:
       type: array
       items:
-        $ref: '#/components/schemas/AuditMitigationActionsTaskMetadata'
+        $ref: '#/components/schemas/AuditTaskMetadata'
     AuditFinding:
       type: object
       properties:
@@ -3099,20 +2593,535 @@ components:
           - $ref: '#/components/schemas/IsSuppressed'
           - description: ' Indicates whether the audit finding was suppressed or not during reporting. '
       description: The findings (results) of the audit.
-    Tag:
+    UpdateDeviceCertificateParams:
       type: object
       required:
-      - Key
+      - action
       properties:
-        Key:
+        action:
           allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag's key.
-        Value:
+          - $ref: '#/components/schemas/DeviceCertificateUpdateAction'
+          - description: The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.
+      description: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+    AuditMitigationActionsTaskMetadataList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuditMitigationActionsTaskMetadata'
+    AuditDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 1000
+    DeleteAccountAuditConfigurationResponse:
+      type: object
+      properties: {}
+    DescribeAuditTaskResponse:
+      type: object
+      properties:
+        taskStatus:
           allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag's value.
-      description: A set of key/value pairs that are used to manage the resource.
+          - $ref: '#/components/schemas/AuditTaskStatus'
+          - description: 'The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".'
+        taskType:
+          allOf:
+          - $ref: '#/components/schemas/AuditTaskType'
+          - description: 'The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".'
+        taskStartTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time the audit started.
+        taskStatistics:
+          allOf:
+          - $ref: '#/components/schemas/TaskStatistics'
+          - description: Statistical information about the audit.
+        scheduledAuditName:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledAuditName'
+          - description: The name of the scheduled audit (only if the audit was a scheduled audit).
+        auditDetails:
+          allOf:
+          - $ref: '#/components/schemas/AuditDetails'
+          - description: Detailed information about each check performed during this audit.
+    IssuerId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      maxLength: 64
+    ListScheduledAuditsResponse:
+      type: object
+      properties:
+        scheduledAudits:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledAuditMetadataList'
+          - description: The list of scheduled audits.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    DescribeAuditFindingResponse:
+      type: object
+      properties:
+        finding:
+          $ref: '#/components/schemas/AuditFinding'
+    CanceledChecksCount:
+      type: integer
+    DeleteScheduledAuditResponse:
+      type: object
+      properties: {}
+    AuditSuppressionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuditSuppression'
+    LimitExceededException: {}
+    TotalFindingsCount:
+      type: integer
+    NonCompliantResource:
+      type: object
+      properties:
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of the noncompliant resource.
+        resourceIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/ResourceIdentifier'
+          - description: Information that identifies the noncompliant resource.
+        additionalInfo:
+          allOf:
+          - $ref: '#/components/schemas/StringMap'
+          - description: Other information about the noncompliant resource.
+      description: Information about the resource that was noncompliant with the audit check.
+    PolicyVersionId:
+      type: string
+      pattern: '[0-9]+'
+    LogLevel:
+      type: string
+      enum:
+      - DEBUG
+      - INFO
+      - ERROR
+      - WARN
+      - DISABLED
+    MitigationActionsTaskId:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      minLength: 1
+      maxLength: 128
+    UpdateAccountAuditConfigurationResponse:
+      type: object
+      properties: {}
+    AddThingsToThingGroupParams:
+      type: object
+      required:
+      - thingGroupNames
+      properties:
+        thingGroupNames:
+          allOf:
+          - $ref: '#/components/schemas/ThingGroupNames'
+          - description: The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
+        overrideDynamicGroups:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
+      description: Parameters used when defining a mitigation action that move a set of things to a thing group.
+    WaitingForDataCollectionChecksCount:
+      type: integer
+    ResourceNotFoundException: {}
+    SkippedFindingsCount:
+      type: integer
+    CertificateId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
+    MitigationActionId:
+      type: string
+    TaskStatistics:
+      type: object
+      properties:
+        totalChecks:
+          allOf:
+          - $ref: '#/components/schemas/TotalChecksCount'
+          - description: The number of checks in this audit.
+        inProgressChecks:
+          allOf:
+          - $ref: '#/components/schemas/InProgressChecksCount'
+          - description: The number of checks in progress.
+        waitingForDataCollectionChecks:
+          allOf:
+          - $ref: '#/components/schemas/WaitingForDataCollectionChecksCount'
+          - description: The number of checks waiting for data collection.
+        compliantChecks:
+          allOf:
+          - $ref: '#/components/schemas/CompliantChecksCount'
+          - description: The number of checks that found compliant resources.
+        nonCompliantChecks:
+          allOf:
+          - $ref: '#/components/schemas/NonCompliantChecksCount'
+          - description: The number of checks that found noncompliant resources.
+        failedChecks:
+          allOf:
+          - $ref: '#/components/schemas/FailedChecksCount'
+          - description: The number of checks.
+        canceledChecks:
+          allOf:
+          - $ref: '#/components/schemas/CanceledChecksCount'
+          - description: The number of checks that did not run because the audit was canceled.
+      description: Statistics for the checks performed during the audit.
+    StringMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    FailedFindingsCount:
+      type: integer
+    AuditTaskId:
+      type: string
+      pattern: '[a-zA-Z0-9\-]+'
+      minLength: 1
+      maxLength: 40
+    PublishFindingToSnsParams:
+      type: object
+      required:
+      - topicArn
+      properties:
+        topicArn:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopicArn'
+          - description: The ARN of the topic to which you want to publish the findings.
+      description: Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+    ReplaceDefaultPolicyVersionParams:
+      type: object
+      required:
+      - templateName
+      properties:
+        templateName:
+          allOf:
+          - $ref: '#/components/schemas/PolicyTemplateName'
+          - description: The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.
+      description: Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+    ResourceIdentifier:
+      type: object
+      properties:
+        deviceCertificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The ID of the certificate attached to the resource.
+        caCertificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The ID of the CA certificate used to authorize the certificate.
+        cognitoIdentityPoolId:
+          allOf:
+          - $ref: '#/components/schemas/CognitoIdentityPoolId'
+          - description: The ID of the Amazon Cognito identity pool.
+        clientId:
+          allOf:
+          - $ref: '#/components/schemas/ClientId'
+          - description: The client ID.
+        policyVersionIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/PolicyVersionIdentifier'
+          - description: The version of the policy associated with the resource.
+        account:
+          allOf:
+          - $ref: '#/components/schemas/AwsAccountId'
+          - description: The account with which the resource is associated.
+        iamRoleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The ARN of the IAM role that has overly permissive actions.
+        roleAliasArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleAliasArn'
+          - description: The ARN of the role alias that has overly permissive actions.
+        issuerCertificateIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/IssuerCertificateIdentifier'
+          - description: The issuer certificate identifier.
+        deviceCertificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The ARN of the identified device certificate.
+      description: Information that identifies the noncompliant resource.
+    NextToken:
+      type: string
+    SuppressedNonCompliantResourcesCount:
+      type: integer
+    ScheduledAuditArn:
+      type: string
+    CACertificateUpdateAction:
+      type: string
+      enum:
+      - DEACTIVATE
+    Timestamp:
+      type: string
+      format: date-time
+    FailedChecksCount:
+      type: integer
+    RelatedResource:
+      type: object
+      properties:
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The type of resource.
+        resourceIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/ResourceIdentifier'
+          - description: Information that identifies the resource.
+        additionalInfo:
+          allOf:
+          - $ref: '#/components/schemas/StringMap'
+          - description: Other information about the resource.
+      description: Information about a related resource.
+    AuditCheckConfiguration:
+      type: object
+      properties:
+        enabled:
+          allOf:
+          - $ref: '#/components/schemas/Enabled'
+          - description: True if this audit check is enabled for this account.
+      description: Which audit checks are enabled and disabled for this account.
+    ReasonForNonComplianceCodes:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReasonForNonComplianceCode'
+      minItems: 1
+      maxItems: 25
+    AuditNotificationTargetConfigurations:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/AuditNotificationTarget'
+    ThrottlingException: {}
+    AuditTaskMetadata:
+      type: object
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/AuditTaskId'
+          - description: The ID of this audit.
+        taskStatus:
+          allOf:
+          - $ref: '#/components/schemas/AuditTaskStatus'
+          - description: The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+        taskType:
+          allOf:
+          - $ref: '#/components/schemas/AuditTaskType'
+          - description: The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
+      description: The audits that were performed.
+    ListAuditSuppressionsResponse:
+      type: object
+      properties:
+        suppressions:
+          allOf:
+          - $ref: '#/components/schemas/AuditSuppressionList'
+          - description: ' List of audit suppressions. '
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
+    AuditCheckToReasonCodeFilter:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ReasonForNonComplianceCodes'
+    AuditNotificationTarget:
+      type: object
+      properties:
+        targetArn:
+          allOf:
+          - $ref: '#/components/schemas/TargetArn'
+          - description: The ARN of the target (SNS topic) to which audit notifications are sent.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The ARN of the role that grants permission to send notifications to the target.
+        enabled:
+          allOf:
+          - $ref: '#/components/schemas/Enabled'
+          - description: True if notifications to the target are enabled.
+      description: Information about the targets to which audit notifications are sent.
+    ThingGroupName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    UpdateAuditSuppressionResponse:
+      type: object
+      properties: {}
+    ListRelatedResourcesForAuditFindingResponse:
+      type: object
+      properties:
+        relatedResources:
+          allOf:
+          - $ref: '#/components/schemas/RelatedResources'
+          - description: The related resources.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> for the first API call.
+    SuppressIndefinitely:
+      type: boolean
+    ReasonForNonComplianceCode:
+      type: string
+    AuditCheckConfigurations:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/AuditCheckConfiguration'
+    AuditFrequency:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+      - BIWEEKLY
+      - MONTHLY
+    RoleAliasArn:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    MitigationActionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MitigationAction'
+    NonCompliantChecksCount:
+      type: integer
+    IssuerCertificateIdentifier:
+      type: object
+      properties:
+        issuerCertificateSubject:
+          allOf:
+          - $ref: '#/components/schemas/IssuerCertificateSubject'
+          - description: The subject of the issuer certificate.
+        issuerId:
+          allOf:
+          - $ref: '#/components/schemas/IssuerId'
+          - description: The issuer ID.
+        issuerCertificateSerialNumber:
+          allOf:
+          - $ref: '#/components/schemas/IssuerCertificateSerialNumber'
+          - description: The issuer certificate serial number.
+      description: The certificate issuer indentifier.
+    CertificateArn:
+      type: string
+    DescribeScheduledAuditResponse:
+      type: object
+      properties:
+        frequency:
+          allOf:
+          - $ref: '#/components/schemas/AuditFrequency'
+          - description: How often the scheduled audit takes place, either one of <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the system.
+        dayOfMonth:
+          allOf:
+          - $ref: '#/components/schemas/DayOfMonth'
+          - description: The day of the month on which the scheduled audit takes place. This is will be <code>1</code> through <code>31</code> or <code>LAST</code>. If days <code>29</code>-<code>31</code> are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code> day of the month.
+        dayOfWeek:
+          allOf:
+          - $ref: '#/components/schemas/DayOfWeek'
+          - description: The day of the week on which the scheduled audit takes place, either one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.
+        targetCheckNames:
+          allOf:
+          - $ref: '#/components/schemas/TargetAuditCheckNames'
+          - description: Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)
+        scheduledAuditName:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledAuditName'
+          - description: The name of the scheduled audit.
+        scheduledAuditArn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduledAuditArn'
+          - description: The ARN of the scheduled audit.
+    InProgressChecksCount:
+      type: integer
+    ClientId:
+      type: string
+    SucceededFindingsCount:
+      type: integer
+    DeleteAuditSuppressionResponse:
+      type: object
+      properties: {}
+    FindingId:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceType:
+      type: string
+      enum:
+      - DEVICE_CERTIFICATE
+      - CA_CERTIFICATE
+      - IOT_POLICY
+      - COGNITO_IDENTITY_POOL
+      - CLIENT_ID
+      - ACCOUNT_SETTINGS
+      - ROLE_ALIAS
+      - IAM_ROLE
+      - ISSUER_CERTIFICATE
+    MitigationActionParams:
+      type: object
+      properties:
+        updateDeviceCertificateParams:
+          allOf:
+          - $ref: '#/components/schemas/UpdateDeviceCertificateParams'
+          - description: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        updateCACertificateParams:
+          allOf:
+          - $ref: '#/components/schemas/UpdateCACertificateParams'
+          - description: Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        addThingsToThingGroupParams:
+          allOf:
+          - $ref: '#/components/schemas/AddThingsToThingGroupParams'
+          - description: Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
+        replaceDefaultPolicyVersionParams:
+          allOf:
+          - $ref: '#/components/schemas/ReplaceDefaultPolicyVersionParams'
+          - description: Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        enableIoTLoggingParams:
+          allOf:
+          - $ref: '#/components/schemas/EnableIoTLoggingParams'
+          - description: Parameters to define a mitigation action that enables Amazon Web Services IoT Core logging at a specified level of detail.
+        publishFindingToSnsParams:
+          allOf:
+          - $ref: '#/components/schemas/PublishFindingToSnsParams'
+          - description: Parameters to define a mitigation action that publishes findings to Amazon Simple Notification Service (Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+      description: The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
+    AwsAccountId:
+      type: string
+      pattern: '[0-9]+'
+      minLength: 12
+      maxLength: 12
+    ListAuditMitigationActionsExecutionsResponse:
+      type: object
+      properties:
+        actionsExecutions:
+          allOf:
+          - $ref: '#/components/schemas/AuditMitigationActionExecutionMetadataList'
+          - description: A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results.
+    NullableBoolean:
+      type: boolean
+    NonCompliantResourcesCount:
+      type: integer
+    DayOfMonth:
+      type: string
+      pattern: ^([1-9]|[12][0-9]|3[01])$|^LAST$
+    IssuerCertificateSerialNumber:
+      type: string
+      pattern: '[a-fA-F0-9:]+'
+      maxLength: 20
+    AuditMitigationActionsTaskStatistics:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/TaskStatisticsForAuditCheck'
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    MitigationActionNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MitigationActionName'
+      minItems: 1
+      maxItems: 5
     AuditSuppression:
       type: object
       required:
@@ -3136,81 +3145,64 @@ components:
           - $ref: '#/components/schemas/AuditDescription'
           - description: ' The description of the audit suppression. '
       description: ' Filters out specific findings of a Device Defender audit. '
-    AuditFrequency:
-      type: string
-      enum:
-      - DAILY
-      - WEEKLY
-      - BIWEEKLY
-      - MONTHLY
-    PolicyVersionIdentifier:
+    DescribeAuditMitigationActionsTaskResponse:
       type: object
       properties:
-        policyName:
+        taskStatus:
           allOf:
-          - $ref: '#/components/schemas/PolicyName'
-          - description: The name of the policy.
-        policyVersionId:
+          - $ref: '#/components/schemas/AuditMitigationActionsTaskStatus'
+          - description: The current status of the task.
+        startTime:
           allOf:
-          - $ref: '#/components/schemas/PolicyVersionId'
-          - description: The ID of the version of the policy associated with the resource.
-      description: Information about the version of the policy associated with the resource.
-    ScheduledAuditMetadataList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ScheduledAuditMetadata'
-    MitigationActionId:
-      type: string
-    PolicyVersionId:
-      type: string
-      pattern: '[0-9]+'
-    IssuerId:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      maxLength: 64
-    AuditMitigationActionExecutionMetadataList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuditMitigationActionExecutionMetadata'
-    AuditTaskStatus:
-      type: string
-      enum:
-      - IN_PROGRESS
-      - COMPLETED
-      - FAILED
-      - CANCELED
-    ListAuditMitigationActionsTasksResponse:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the task was started.
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the task was completed or canceled.
+        taskStatistics:
+          allOf:
+          - $ref: '#/components/schemas/AuditMitigationActionsTaskStatistics'
+          - description: Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.
+        target:
+          allOf:
+          - $ref: '#/components/schemas/AuditMitigationActionsTaskTarget'
+          - description: Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.
+        auditCheckToActionsMapping:
+          allOf:
+          - $ref: '#/components/schemas/AuditCheckToActionsMapping'
+          - description: Specifies the mitigation actions that should be applied to specific audit checks.
+        actionsDefinition:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionList'
+          - description: Specifies the mitigation actions and their parameters that are applied as part of this task.
+    EnableIoTLoggingParams:
+      type: object
+      required:
+      - roleArnForLogging
+      - logLevel
+      properties:
+        roleArnForLogging:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The Amazon Resource Name (ARN) of the IAM role used for logging.
+        logLevel:
+          allOf:
+          - $ref: '#/components/schemas/LogLevel'
+          - description: Specifies the type of information to be logged.
+      description: Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.
+    ListAuditTasksResponse:
       type: object
       properties:
         tasks:
           allOf:
-          - $ref: '#/components/schemas/AuditMitigationActionsTaskMetadataList'
-          - description: The collection of audit mitigation tasks that matched the filter criteria.
+          - $ref: '#/components/schemas/AuditTaskMetadataList'
+          - description: The audits that were performed during the specified time period.
         nextToken:
           allOf:
           - $ref: '#/components/schemas/NextToken'
-          - description: The token for the next set of results.
-    AuditTaskId:
-      type: string
-      pattern: '[a-zA-Z0-9\-]+'
-      minLength: 1
-      maxLength: 40
-    SkippedFindingsCount:
-      type: integer
-    FailedChecksCount:
-      type: integer
-    AuditDetails:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/AuditCheckDetails'
-    FailedFindingsCount:
-      type: integer
-    AuditTaskType:
-      type: string
-      enum:
-      - ON_DEMAND_AUDIT_TASK
-      - SCHEDULED_AUDIT_TASK
-    AuditMitigationActionsTaskStatus:
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    AuditTaskStatus:
       type: string
       enum:
       - IN_PROGRESS
@@ -3226,6 +3218,106 @@ components:
       - CANCELED
       - SKIPPED
       - PENDING
+    RelatedResources:
+      type: array
+      items:
+        $ref: '#/components/schemas/RelatedResource'
+    CompliantChecksCount:
+      type: integer
+    ErrorMessage:
+      type: string
+      maxLength: 2048
+    AuditCheckName:
+      type: string
+      description: An audit check name. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)
+    InvalidRequestException: {}
+    DeviceCertificateUpdateAction:
+      type: string
+      enum:
+      - DEACTIVATE
+    PolicyTemplateName:
+      type: string
+      enum:
+      - BLANK_POLICY
+    AuditMitigationActionsTaskMetadata:
+      type: object
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionsTaskId'
+          - description: The unique identifier for the task.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time at which the audit mitigation actions task was started.
+        taskStatus:
+          allOf:
+          - $ref: '#/components/schemas/AuditMitigationActionsTaskStatus'
+          - description: The current state of the audit mitigation actions task.
+      description: Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.
+    UpdateCACertificateParams:
+      type: object
+      required:
+      - action
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/CACertificateUpdateAction'
+          - description: The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.
+      description: Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+    AuditMitigationActionsTaskStatus:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - COMPLETED
+      - FAILED
+      - CANCELED
+    MitigationActionName:
+      type: string
+      pattern: '[a-zA-Z0-9_-]+'
+      maxLength: 128
+    AuditMitigationActionExecutionMetadata:
+      type: object
+      properties:
+        taskId:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionsTaskId'
+          - description: The unique identifier for the task that applies the mitigation action.
+        findingId:
+          allOf:
+          - $ref: '#/components/schemas/FindingId'
+          - description: The unique identifier for the findings to which the task and associated mitigation action are applied.
+        actionName:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionName'
+          - description: The friendly name of the mitigation action being applied by the task.
+        actionId:
+          allOf:
+          - $ref: '#/components/schemas/MitigationActionId'
+          - description: The unique identifier for the mitigation action being applied by the task.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AuditMitigationActionsExecutionStatus'
+          - description: The current status of the task being executed.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the task was started.
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the task was completed or canceled. Blank if the task is still running.
+        errorCode:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: If an error occurred, the code that indicates which type of error occurred.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: If an error occurred, a message that describes the error.
+      description: Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.
+    TotalChecksCount:
+      type: integer
     AuditMitigationActionsTaskTarget:
       type: object
       properties:
@@ -3242,130 +3334,32 @@ components:
           - $ref: '#/components/schemas/AuditCheckToReasonCodeFilter'
           - description: Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
       description: Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.
-    ListAuditFindingsResponse:
+    UpdateScheduledAuditResponse:
       type: object
       properties:
-        findings:
+        scheduledAuditArn:
           allOf:
-          - $ref: '#/components/schemas/AuditFindings'
-          - description: The findings (results) of the audit.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    DeleteScheduledAuditResponse:
-      type: object
-      properties: {}
-    MitigationActionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MitigationAction'
-    TargetAuditCheckNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuditCheckName'
-    RelatedResource:
-      type: object
-      properties:
-        resourceType:
-          allOf:
-          - $ref: '#/components/schemas/ResourceType'
-          - description: The type of resource.
-        resourceIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/ResourceIdentifier'
-          - description: Information that identifies the resource.
-        additionalInfo:
-          allOf:
-          - $ref: '#/components/schemas/StringMap'
-          - description: Other information about the resource.
-      description: Information about a related resource.
-    TotalChecksCount:
-      type: integer
-    InProgressChecksCount:
-      type: integer
-    UpdateCACertificateParams:
-      type: object
-      required:
-      - action
-      properties:
-        action:
-          allOf:
-          - $ref: '#/components/schemas/CACertificateUpdateAction'
-          - description: The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.
-      description: Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-    CognitoIdentityPoolId:
+          - $ref: '#/components/schemas/ScheduledAuditArn'
+          - description: The ARN of the scheduled audit.
+    TagKey:
       type: string
-    ThingGroupNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingGroupName'
-      minItems: 1
-      maxItems: 10
-    TargetArn:
-      type: string
-      maxLength: 2048
-    AuditDescription:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 1000
-    CancelAuditTaskResponse:
-      type: object
-      properties: {}
-    AwsAccountId:
-      type: string
-      pattern: '[0-9]+'
-      minLength: 12
-      maxLength: 12
-    NextToken:
-      type: string
-    DeviceCertificateUpdateAction:
-      type: string
-      enum:
-      - DEACTIVATE
-    PolicyTemplateName:
-      type: string
-      enum:
-      - BLANK_POLICY
-    ListAuditSuppressionsResponse:
-      type: object
-      properties:
-        suppressions:
-          allOf:
-          - $ref: '#/components/schemas/AuditSuppressionList'
-          - description: ' List of audit suppressions. '
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
-    CACertificateUpdateAction:
-      type: string
-      enum:
-      - DEACTIVATE
-    CanceledChecksCount:
-      type: integer
-    DeleteAuditSuppressionResponse:
-      type: object
-      properties: {}
-    AuditCheckToActionsMapping:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/MitigationActionNameList'
-    LimitExceededException: {}
-    ThingGroupName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
       maxLength: 128
+    ListAuditMitigationActionsTasksResponse:
+      type: object
+      properties:
+        tasks:
+          allOf:
+          - $ref: '#/components/schemas/AuditMitigationActionsTaskMetadataList'
+          - description: The collection of audit mitigation tasks that matched the filter criteria.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results.
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -3376,26 +3370,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string

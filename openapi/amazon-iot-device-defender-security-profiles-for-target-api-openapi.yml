@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2015-05-28
   x-release: v4
-  title: AWS IoT V2 Logging Level#target Type&target Name API
+  title: AWS IoT Security Profiles For Target API
   description: 'IoT
 
     IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
@@ -115,9 +115,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: V2LoggingLevel#targetType&targetName
+- name: Security Profiles For Target
 paths:
-  /v2LoggingLevel#targetType&targetName:
+  /security-profiles-for-target#securityProfileTargetArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -126,68 +126,148 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    delete:
-      operationId: DeleteV2LoggingLevel
-      description: 'Deletes a logging level.
+    get:
+      operationId: ListSecurityProfilesForTarget
+      description: 'Lists the Device Defender security profiles attached to a target (thing group).
 
 
-        Requires permission to access the DeleteV2LoggingLevel action.'
+        Requires permission to access the ListSecurityProfilesForTarget action.'
       responses:
         '200':
           description: Success
-        '480':
-          description: InternalException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalException'
-        '481':
+                $ref: '#/components/schemas/ListSecurityProfilesForTargetResponse'
+        '480':
           description: InvalidRequestException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidRequestException'
-        '482':
-          description: ServiceUnavailableException
+        '481':
+          description: ThrottlingException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceUnavailableException'
+                $ref: '#/components/schemas/ThrottlingException'
+        '482':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
       parameters:
-      - name: targetType
+      - name: nextToken
         in: query
-        required: true
-        description: The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.
+        required: false
+        description: The token for the next set of results.
         schema:
           type: string
-          enum:
-          - DEFAULT
-          - THING_GROUP
-          - CLIENT_ID
-          - SOURCE_IP
-          - PRINCIPAL_ID
-      - name: targetName
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of results to return at one time.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: recursive
+        in: query
+        required: false
+        description: If true, return child groups too.
+        schema:
+          type: boolean
+      - name: securityProfileTargetArn
         in: query
         required: true
-        description: The name of the resource for which you are configuring logging.
+        description: The ARN of the target (thing group) whose attached security profiles you want to get.
         schema:
           type: string
-      summary: Amazon IoT Device Defender Delete V2 Logging Level
+      summary: Amazon IoT Device Defender List Security Profiles for Target
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - V2LoggingLevel#targetType&targetName
+      - Security Profiles For Target
 components:
+  schemas:
+    SecurityProfileArn:
+      type: string
+    NextToken:
+      type: string
+    SecurityProfileTargetMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/SecurityProfileTargetMapping'
+    SecurityProfileTarget:
+      type: object
+      required:
+      - arn
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileTargetArn'
+          - description: The ARN of the security profile.
+      description: A target to which an alert is sent when a security profile behavior is violated.
+    SecurityProfileIdentifier:
+      type: object
+      required:
+      - name
+      - arn
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileName'
+          - description: The name you've given to the security profile.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileArn'
+          - description: The ARN of the security profile.
+      description: Identifying information for a Device Defender security profile.
+    SecurityProfileTargetArn:
+      type: string
+    SecurityProfileTargetMapping:
+      type: object
+      properties:
+        securityProfileIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileIdentifier'
+          - description: Information that identifies the security profile.
+        target:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileTarget'
+          - description: Information about the target (thing group) associated with the security profile.
+      description: Information about a security profile and the target associated with it.
+    ThrottlingException: {}
+    InternalFailureException: {}
+    SecurityProfileName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    ListSecurityProfilesForTargetResponse:
+      type: object
+      properties:
+        securityProfileTargetMappings:
+          allOf:
+          - $ref: '#/components/schemas/SecurityProfileTargetMappings'
+          - description: A list of security profiles and their associated targets.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -198,14 +278,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -222,10 +296,18 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    InternalException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

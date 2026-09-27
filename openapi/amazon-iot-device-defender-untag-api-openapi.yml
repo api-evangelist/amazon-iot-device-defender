@@ -190,6 +190,18 @@ paths:
       - Untag
 components:
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -198,12 +210,6 @@ components:
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -220,19 +226,15 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
   schemas:
+    ResourceNotFoundException: {}
+    InternalFailureException: {}
     ThrottlingException: {}
     TagKey:
       type: string
@@ -240,11 +242,9 @@ components:
       minLength: 1
       maxLength: 128
     InvalidRequestException: {}
-    InternalFailureException: {}
     UntagResourceResponse:
       type: object
       properties: {}
-    ResourceNotFoundException: {}
   securitySchemes:
     hmac:
       type: apiKey

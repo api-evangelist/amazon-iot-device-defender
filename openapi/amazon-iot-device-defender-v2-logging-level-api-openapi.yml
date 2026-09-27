@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2015-05-28
   x-release: v4
-  title: AWS IoT V2 Logging Level API
+  title: AWS IoT V2Logging Level API
   description: 'IoT
 
     IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
@@ -117,6 +117,67 @@ security:
 tags:
 - name: V2 Logging Level
 paths:
+  /v2LoggingLevel#targetType&targetName:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteV2LoggingLevel
+      description: 'Deletes a logging level.
+
+
+        Requires permission to access the DeleteV2LoggingLevel action.'
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: InternalException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+      parameters:
+      - name: targetType
+        in: query
+        required: true
+        description: The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.
+        schema:
+          type: string
+          enum:
+          - DEFAULT
+          - THING_GROUP
+          - CLIENT_ID
+          - SOURCE_IP
+          - PRINCIPAL_ID
+      - name: targetName
+        in: query
+        required: true
+        description: The name of the resource for which you are configuring logging.
+        schema:
+          type: string
+      summary: Amazon IoT Device Defender Delete V2 Logging Level
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - V2 Logging Level
   /v2LoggingLevel:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
@@ -275,33 +336,22 @@ paths:
       - V2 Logging Level
 components:
   schemas:
-    LogTargetType:
-      type: string
-      enum:
-      - DEFAULT
-      - THING_GROUP
-      - CLIENT_ID
-      - SOURCE_IP
-      - PRINCIPAL_ID
     LogTargetConfigurations:
       type: array
       items:
         $ref: '#/components/schemas/LogTargetConfiguration'
-    ListV2LoggingLevelsResponse:
+    LogTargetConfiguration:
       type: object
       properties:
-        logTargetConfigurations:
+        logTarget:
           allOf:
-          - $ref: '#/components/schemas/LogTargetConfigurations'
-          - description: The logging configuration for a target.
-        nextToken:
+          - $ref: '#/components/schemas/LogTarget'
+          - description: A log target
+        logLevel:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
-    InvalidRequestException: {}
-    LogTargetName:
-      type: string
-    NotConfiguredException: {}
+          - $ref: '#/components/schemas/LogLevel'
+          - description: The logging level.
+      description: The target configuration.
     LogTarget:
       type: object
       required:
@@ -316,9 +366,22 @@ components:
           - $ref: '#/components/schemas/LogTargetName'
           - description: The target name.
       description: A log target.
-    ServiceUnavailableException: {}
     NextToken:
       type: string
+    LogTargetType:
+      type: string
+      enum:
+      - DEFAULT
+      - THING_GROUP
+      - CLIENT_ID
+      - SOURCE_IP
+      - PRINCIPAL_ID
+    NotConfiguredException: {}
+    LogTargetName:
+      type: string
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    LimitExceededException: {}
     LogLevel:
       type: string
       enum:
@@ -327,35 +390,33 @@ components:
       - ERROR
       - WARN
       - DISABLED
-    LimitExceededException: {}
     InternalException: {}
-    LogTargetConfiguration:
+    ListV2LoggingLevelsResponse:
       type: object
       properties:
-        logTarget:
+        logTargetConfigurations:
           allOf:
-          - $ref: '#/components/schemas/LogTarget'
-          - description: A log target
-        logLevel:
+          - $ref: '#/components/schemas/LogTargetConfigurations'
+          - description: The logging configuration for a target.
+        nextToken:
           allOf:
-          - $ref: '#/components/schemas/LogLevel'
-          - description: The logging level.
-      description: The target configuration.
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -372,14 +433,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

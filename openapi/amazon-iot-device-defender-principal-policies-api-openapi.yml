@@ -274,16 +274,107 @@ paths:
         dispatcher: FALLBACK
       tags:
       - Principal Policies
+  /principal-policies#x-amzn-iot-principal:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      deprecated: true
+      operationId: ListPrincipalPolicies
+      description: 'Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in AmazonCognito Identity format.
+
+
+        Note: This action is deprecated and works as expected for backward compatibility, but we won''t add enhancements. Use ListAttachedPolicies instead.
+
+
+        Requires permission to access the ListPrincipalPolicies action.'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPrincipalPoliciesResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '482':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '483':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '484':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '485':
+          description: InternalFailureException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+      parameters:
+      - name: x-amzn-iot-principal
+        in: header
+        required: true
+        description: The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).
+        schema:
+          type: string
+      - name: marker
+        in: query
+        required: false
+        description: The marker for the next set of results.
+        schema:
+          type: string
+          pattern: '[A-Za-z0-9+/]+={0,2}'
+          maxLength: 1024
+      - name: pageSize
+        in: query
+        required: false
+        description: The result page size.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 250
+      - name: isAscendingOrder
+        in: query
+        required: false
+        description: Specifies the order for results. If true, results are returned in ascending creation order.
+        schema:
+          type: boolean
+      summary: Amazon IoT Device Defender List Principal Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Principal Policies
 components:
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -294,14 +385,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -318,13 +403,64 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    ListPrincipalPoliciesResponse:
+      type: object
+      properties:
+        policies:
+          allOf:
+          - $ref: '#/components/schemas/Policies'
+          - description: The policies.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results, or null if there are no additional results.
+      description: The output from the ListPrincipalPolicies operation.
     UnauthorizedException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
     ThrottlingException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
+    PolicyName:
+      type: string
+      pattern: '[\w+=,.@-]+'
+      minLength: 1
+      maxLength: 128
     InternalFailureException: {}
+    ServiceUnavailableException: {}
+    Policies:
+      type: array
+      items:
+        $ref: '#/components/schemas/Policy'
+    InvalidRequestException: {}
     LimitExceededException: {}
+    Policy:
+      type: object
+      properties:
+        policyName:
+          allOf:
+          - $ref: '#/components/schemas/PolicyName'
+          - description: The policy name.
+        policyArn:
+          allOf:
+          - $ref: '#/components/schemas/PolicyArn'
+          - description: The policy ARN.
+      description: Describes an IoT policy.
+    PolicyArn:
+      type: string
     ResourceNotFoundException: {}
   securitySchemes:
     hmac:

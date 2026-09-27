@@ -212,20 +212,20 @@ paths:
       - Effective Policies
 components:
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -242,25 +242,42 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
   schemas:
+    UnauthorizedException: {}
+    EffectivePolicies:
+      type: array
+      items:
+        $ref: '#/components/schemas/EffectivePolicy'
+    PolicyDocument:
+      type: string
+      pattern: '[\s\S]*'
+      minLength: 0
+      maxLength: 404600
     ThrottlingException: {}
     PolicyName:
       type: string
       pattern: '[\w+=,.@-]+'
       minLength: 1
       maxLength: 128
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    LimitExceededException: {}
+    PolicyArn:
+      type: string
+    ResourceNotFoundException: {}
     GetEffectivePoliciesResponse:
       type: object
       properties:
@@ -284,23 +301,6 @@ components:
           - $ref: '#/components/schemas/PolicyDocument'
           - description: The IAM policy document.
       description: The policy that has the effect on the authorization results.
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    EffectivePolicies:
-      type: array
-      items:
-        $ref: '#/components/schemas/EffectivePolicy'
-    UnauthorizedException: {}
-    ServiceUnavailableException: {}
-    InternalFailureException: {}
-    LimitExceededException: {}
-    PolicyArn:
-      type: string
-    PolicyDocument:
-      type: string
-      pattern: '[\s\S]*'
-      minLength: 0
-      maxLength: 404600
   securitySchemes:
     hmac:
       type: apiKey

@@ -938,121 +938,25 @@ paths:
       - Provisioning Templates
 components:
   schemas:
-    ProvisioningTemplateVersionSummary:
-      type: object
-      properties:
-        versionId:
-          allOf:
-          - $ref: '#/components/schemas/TemplateVersionId'
-          - description: The ID of the fleet provisioning template version.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/DateType'
-          - description: The date when the provisioning template version was created
-        isDefaultVersion:
-          allOf:
-          - $ref: '#/components/schemas/IsDefaultVersion'
-          - description: True if the provisioning template version is the default version, otherwise false.
-      description: A summary of information about a fleet provision template version.
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    ProvisioningTemplateListing:
-      type: array
-      items:
-        $ref: '#/components/schemas/ProvisioningTemplateSummary'
-    ConflictingResourceUpdateException: {}
-    ThrottlingException: {}
-    ListProvisioningTemplateVersionsResponse:
-      type: object
-      properties:
-        versions:
-          allOf:
-          - $ref: '#/components/schemas/ProvisioningTemplateVersionListing'
-          - description: The list of provisioning template versions.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token to retrieve the next set of results.
-    DeleteProvisioningTemplateResponse:
-      type: object
-      properties: {}
-    CreateProvisioningTemplateVersionResponse:
-      type: object
-      properties:
-        templateArn:
-          allOf:
-          - $ref: '#/components/schemas/TemplateArn'
-          - description: The ARN that identifies the provisioning template.
-        templateName:
-          allOf:
-          - $ref: '#/components/schemas/TemplateName'
-          - description: The name of the provisioning template.
-        versionId:
-          allOf:
-          - $ref: '#/components/schemas/TemplateVersionId'
-          - description: The version of the provisioning template.
-        isDefaultVersion:
-          allOf:
-          - $ref: '#/components/schemas/IsDefaultVersion'
-          - description: True if the provisioning template version is the default version, otherwise false.
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
     DateType:
       type: string
       format: date-time
-    ProvisioningTemplateSummary:
+    ProvisioningHook:
       type: object
+      required:
+      - targetArn
       properties:
-        templateArn:
+        payloadVersion:
           allOf:
-          - $ref: '#/components/schemas/TemplateArn'
-          - description: The ARN of the provisioning template.
-        templateName:
+          - $ref: '#/components/schemas/PayloadVersion'
+          - description: <p>The payload that was sent to the target function.</p> <p> <i>Note:</i> Only Lambda functions are currently supported.</p>
+        targetArn:
           allOf:
-          - $ref: '#/components/schemas/TemplateName'
-          - description: The name of the provisioning template.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/TemplateDescription'
-          - description: The description of the provisioning template.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/DateType'
-          - description: The date when the provisioning template summary was created.
-        lastModifiedDate:
-          allOf:
-          - $ref: '#/components/schemas/DateType'
-          - description: The date when the provisioning template summary was last modified.
-        enabled:
-          allOf:
-          - $ref: '#/components/schemas/Enabled'
-          - description: True if the fleet provision template is enabled, otherwise false.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/TemplateType'
-          - description: 'The type you define in a provisioning template. You can create a template with only one type. You can''t change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>. '
-      description: A summary of information about a provisioning template.
-    CertificatePem:
-      type: string
-      pattern: '[\s\S]*'
-      description: The PEM of a certificate.
-      minLength: 1
-      maxLength: 65536
-    TemplateType:
-      type: string
-      enum:
-      - FLEET_PROVISIONING
-      - JITP
-    TemplateBody:
-      type: string
-      pattern: '[\s\S]*'
-      minLength: 0
-      maxLength: 10240
+          - $ref: '#/components/schemas/TargetArn'
+          - description: <p>The ARN of the target function.</p> <p> <i>Note:</i> Only Lambda functions are currently supported.</p>
+      description: Structure that contains <code>payloadVersion</code> and <code>targetArn</code>.
+    Enabled:
+      type: boolean
     CreateProvisioningClaimResponse:
       type: object
       properties:
@@ -1072,9 +976,46 @@ components:
           allOf:
           - $ref: '#/components/schemas/DateType'
           - description: The provisioning claim expiration time.
-    TemplateVersionId:
-      type: integer
-    DeleteConflictException: {}
+    CertificatePem:
+      type: string
+      pattern: '[\s\S]*'
+      description: The PEM of a certificate.
+      minLength: 1
+      maxLength: 65536
+    DeleteProvisioningTemplateVersionResponse:
+      type: object
+      properties: {}
+    NextToken:
+      type: string
+    TemplateType:
+      type: string
+      enum:
+      - FLEET_PROVISIONING
+      - JITP
+    ResourceAlreadyExistsException: {}
+    DescribeProvisioningTemplateVersionResponse:
+      type: object
+      properties:
+        versionId:
+          allOf:
+          - $ref: '#/components/schemas/TemplateVersionId'
+          - description: The provisioning template version ID.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date when the provisioning template version was created.
+        templateBody:
+          allOf:
+          - $ref: '#/components/schemas/TemplateBody'
+          - description: The JSON formatted contents of the provisioning template version.
+        isDefaultVersion:
+          allOf:
+          - $ref: '#/components/schemas/IsDefaultVersion'
+          - description: True if the provisioning template version is the default version.
+    RoleArn:
+      type: string
+      minLength: 20
+      maxLength: 2048
     DescribeProvisioningTemplateResponse:
       type: object
       properties:
@@ -1122,6 +1063,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/TemplateType'
           - description: 'The type you define in a provisioning template. You can create a template with only one type. You can''t change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>. '
+    UnauthorizedException: {}
+    VersionsLimitExceededException: {}
+    PublicKey:
+      type: string
+      minLength: 1
+    UpdateProvisioningTemplateResponse:
+      type: object
+      properties: {}
     ListProvisioningTemplatesResponse:
       type: object
       properties:
@@ -1133,35 +1082,81 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: A token to retrieve the next set of results.
+    ThrottlingException: {}
     IsDefaultVersion:
       type: boolean
-    DeleteProvisioningTemplateVersionResponse:
+    TemplateArn:
+      type: string
+    InternalFailureException: {}
+    ProvisioningTemplateSummary:
       type: object
-      properties: {}
+      properties:
+        templateArn:
+          allOf:
+          - $ref: '#/components/schemas/TemplateArn'
+          - description: The ARN of the provisioning template.
+        templateName:
+          allOf:
+          - $ref: '#/components/schemas/TemplateName'
+          - description: The name of the provisioning template.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/TemplateDescription'
+          - description: The description of the provisioning template.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date when the provisioning template summary was created.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date when the provisioning template summary was last modified.
+        enabled:
+          allOf:
+          - $ref: '#/components/schemas/Enabled'
+          - description: True if the fleet provision template is enabled, otherwise false.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TemplateType'
+          - description: 'The type you define in a provisioning template. You can create a template with only one type. You can''t change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>. '
+      description: A summary of information about a provisioning template.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    ListProvisioningTemplateVersionsResponse:
+      type: object
+      properties:
+        versions:
+          allOf:
+          - $ref: '#/components/schemas/ProvisioningTemplateVersionListing'
+          - description: The list of provisioning template versions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token to retrieve the next set of results.
+    TemplateBody:
+      type: string
+      pattern: '[\s\S]*'
+      minLength: 0
+      maxLength: 10240
+    ServiceUnavailableException: {}
     InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    ResourceAlreadyExistsException: {}
+    ConflictingResourceUpdateException: {}
     ProvisioningTemplateVersionListing:
       type: array
       items:
         $ref: '#/components/schemas/ProvisioningTemplateVersionSummary'
-    UnauthorizedException: {}
-    UpdateProvisioningTemplateResponse:
-      type: object
-      properties: {}
-    KeyPair:
-      type: object
-      properties:
-        PublicKey:
-          allOf:
-          - $ref: '#/components/schemas/PublicKey'
-          - description: The public key.
-        PrivateKey:
-          allOf:
-          - $ref: '#/components/schemas/PrivateKey'
-          - description: The private key.
-      description: Describes a key pair.
-    VersionsLimitExceededException: {}
+    LimitExceededException: {}
+    ProvisioningTemplateListing:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProvisioningTemplateSummary'
+    TemplateName:
+      type: string
+      pattern: ^[0-9A-Za-z_-]+$
+      minLength: 1
+      maxLength: 36
     CreateProvisioningTemplateResponse:
       type: object
       properties:
@@ -1177,7 +1172,23 @@ components:
           allOf:
           - $ref: '#/components/schemas/TemplateVersionId'
           - description: The default version of the provisioning template.
-    ServiceUnavailableException: {}
+    PayloadVersion:
+      type: string
+      pattern: ^[0-9-]+$
+      minLength: 10
+      maxLength: 32
+    TemplateVersionId:
+      type: integer
+    TemplateDescription:
+      type: string
+      pattern: '[^\p{C}]*'
+      minLength: 0
+      maxLength: 500
+    PrivateKey:
+      type: string
+      minLength: 1
+      format: password
+    ResourceNotFoundException: {}
     Tag:
       type: object
       required:
@@ -1192,96 +1203,85 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    DescribeProvisioningTemplateVersionResponse:
+    DeleteConflictException: {}
+    DeleteProvisioningTemplateResponse:
       type: object
-      properties:
-        versionId:
-          allOf:
-          - $ref: '#/components/schemas/TemplateVersionId'
-          - description: The provisioning template version ID.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/DateType'
-          - description: The date when the provisioning template version was created.
-        templateBody:
-          allOf:
-          - $ref: '#/components/schemas/TemplateBody'
-          - description: The JSON formatted contents of the provisioning template version.
-        isDefaultVersion:
-          allOf:
-          - $ref: '#/components/schemas/IsDefaultVersion'
-          - description: True if the provisioning template version is the default version.
-    TemplateDescription:
-      type: string
-      pattern: '[^\p{C}]*'
-      minLength: 0
-      maxLength: 500
-    TargetArn:
-      type: string
-      maxLength: 2048
-    PrivateKey:
-      type: string
-      minLength: 1
-      format: password
-    RoleArn:
-      type: string
-      minLength: 20
-      maxLength: 2048
-    NextToken:
-      type: string
-    PublicKey:
-      type: string
-      minLength: 1
-    PayloadVersion:
-      type: string
-      pattern: ^[0-9-]+$
-      minLength: 10
-      maxLength: 32
-    TemplateArn:
-      type: string
-    InternalFailureException: {}
-    LimitExceededException: {}
-    TemplateName:
-      type: string
-      pattern: ^[0-9A-Za-z_-]+$
-      minLength: 1
-      maxLength: 36
+      properties: {}
     CertificateId:
       type: string
       pattern: (0x)?[a-fA-F0-9]+
       minLength: 64
       maxLength: 64
-    ProvisioningHook:
+    CreateProvisioningTemplateVersionResponse:
       type: object
-      required:
-      - targetArn
       properties:
-        payloadVersion:
+        templateArn:
           allOf:
-          - $ref: '#/components/schemas/PayloadVersion'
-          - description: <p>The payload that was sent to the target function.</p> <p> <i>Note:</i> Only Lambda functions are currently supported.</p>
-        targetArn:
+          - $ref: '#/components/schemas/TemplateArn'
+          - description: The ARN that identifies the provisioning template.
+        templateName:
           allOf:
-          - $ref: '#/components/schemas/TargetArn'
-          - description: <p>The ARN of the target function.</p> <p> <i>Note:</i> Only Lambda functions are currently supported.</p>
-      description: Structure that contains <code>payloadVersion</code> and <code>targetArn</code>.
-    Enabled:
-      type: boolean
+          - $ref: '#/components/schemas/TemplateName'
+          - description: The name of the provisioning template.
+        versionId:
+          allOf:
+          - $ref: '#/components/schemas/TemplateVersionId'
+          - description: The version of the provisioning template.
+        isDefaultVersion:
+          allOf:
+          - $ref: '#/components/schemas/IsDefaultVersion'
+          - description: True if the provisioning template version is the default version, otherwise false.
+    KeyPair:
+      type: object
+      properties:
+        PublicKey:
+          allOf:
+          - $ref: '#/components/schemas/PublicKey'
+          - description: The public key.
+        PrivateKey:
+          allOf:
+          - $ref: '#/components/schemas/PrivateKey'
+          - description: The private key.
+      description: Describes a key pair.
+    TargetArn:
+      type: string
+      maxLength: 2048
+    ProvisioningTemplateVersionSummary:
+      type: object
+      properties:
+        versionId:
+          allOf:
+          - $ref: '#/components/schemas/TemplateVersionId'
+          - description: The ID of the fleet provisioning template version.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/DateType'
+          - description: The date when the provisioning template version was created
+        isDefaultVersion:
+          allOf:
+          - $ref: '#/components/schemas/IsDefaultVersion'
+          - description: True if the provisioning template version is the default version, otherwise false.
+      description: A summary of information about a fleet provision template version.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -1298,14 +1298,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

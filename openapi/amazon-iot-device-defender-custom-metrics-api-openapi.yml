@@ -180,6 +180,17 @@ paths:
       - Custom Metrics
 components:
   schemas:
+    MetricName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    InternalFailureException: {}
+    InvalidRequestException: {}
+    MetricNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/MetricName'
     ListCustomMetricsResponse:
       type: object
       properties:
@@ -191,21 +202,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
-    ThrottlingException: {}
     NextToken:
       type: string
-    MetricName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    InvalidRequestException: {}
-    InternalFailureException: {}
-    MetricNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/MetricName'
+    ThrottlingException: {}
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -238,12 +244,6 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string

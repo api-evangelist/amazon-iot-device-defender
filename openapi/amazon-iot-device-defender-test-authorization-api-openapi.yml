@@ -228,10 +228,6 @@ paths:
       - Test Authorization
 components:
   schemas:
-    AuthResults:
-      type: array
-      items:
-        $ref: '#/components/schemas/AuthResult'
     ImplicitDeny:
       type: object
       properties:
@@ -240,18 +236,6 @@ components:
           - $ref: '#/components/schemas/Policies'
           - description: 'Policies that don''t contain a matching allow or deny statement for the specified action on the specified resource. '
       description: Information that implicitly denies authorization. When policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
-    Denied:
-      type: object
-      properties:
-        implicitDeny:
-          allOf:
-          - $ref: '#/components/schemas/ImplicitDeny'
-          - description: Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
-        explicitDeny:
-          allOf:
-          - $ref: '#/components/schemas/ExplicitDeny'
-          - description: 'Information that explicitly denies the authorization. '
-      description: Contains information that denied the authorization.
     AuthInfo:
       type: object
       required:
@@ -266,30 +250,6 @@ components:
           - $ref: '#/components/schemas/Resources'
           - description: The resources for which the principal is being authorized to perform the specified action.
       description: A collection of authorization information.
-    ThrottlingException: {}
-    PolicyName:
-      type: string
-      pattern: '[\w+=,.@-]+'
-      minLength: 1
-      maxLength: 128
-    AuthDecision:
-      type: string
-      enum:
-      - ALLOWED
-      - EXPLICIT_DENY
-      - IMPLICIT_DENY
-    MissingContextValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/MissingContextValue'
-    Allowed:
-      type: object
-      properties:
-        policies:
-          allOf:
-          - $ref: '#/components/schemas/Policies'
-          - description: A list of policies that allowed the authentication.
-      description: Contains information that allowed the authorization.
     Resources:
       type: array
       items:
@@ -318,6 +278,54 @@ components:
           - $ref: '#/components/schemas/MissingContextValues'
           - description: Contains any missing context values found while evaluating policy.
       description: The authorizer result.
+    UnauthorizedException: {}
+    MissingContextValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/MissingContextValue'
+    Denied:
+      type: object
+      properties:
+        implicitDeny:
+          allOf:
+          - $ref: '#/components/schemas/ImplicitDeny'
+          - description: Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+        explicitDeny:
+          allOf:
+          - $ref: '#/components/schemas/ExplicitDeny'
+          - description: 'Information that explicitly denies the authorization. '
+      description: Contains information that denied the authorization.
+    ExplicitDeny:
+      type: object
+      properties:
+        policies:
+          allOf:
+          - $ref: '#/components/schemas/Policies'
+          - description: The policies that denied the authorization.
+      description: Information that explicitly denies authorization.
+    MissingContextValue:
+      type: string
+    ThrottlingException: {}
+    PolicyName:
+      type: string
+      pattern: '[\w+=,.@-]+'
+      minLength: 1
+      maxLength: 128
+    TestAuthorizationResponse:
+      type: object
+      properties:
+        authResults:
+          allOf:
+          - $ref: '#/components/schemas/AuthResults'
+          - description: The authentication results.
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    Policies:
+      type: array
+      items:
+        $ref: '#/components/schemas/Policy'
+    LimitExceededException: {}
     Policy:
       type: object
       properties:
@@ -330,21 +338,27 @@ components:
           - $ref: '#/components/schemas/PolicyArn'
           - description: The policy ARN.
       description: Describes an IoT policy.
-    Resource:
+    AuthResults:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuthResult'
+    PolicyArn:
       type: string
-      pattern: '[\s\S]*'
-      maxLength: 2048
-    MissingContextValue:
+    AuthDecision:
       type: string
-    InvalidRequestException: {}
-    TestAuthorizationResponse:
+      enum:
+      - ALLOWED
+      - EXPLICIT_DENY
+      - IMPLICIT_DENY
+    ResourceNotFoundException: {}
+    Allowed:
       type: object
       properties:
-        authResults:
+        policies:
           allOf:
-          - $ref: '#/components/schemas/AuthResults'
-          - description: The authentication results.
-    ResourceNotFoundException: {}
+          - $ref: '#/components/schemas/Policies'
+          - description: A list of policies that allowed the authentication.
+      description: Contains information that allowed the authorization.
     ActionType:
       type: string
       enum:
@@ -352,39 +366,25 @@ components:
       - SUBSCRIBE
       - RECEIVE
       - CONNECT
-    Policies:
-      type: array
-      items:
-        $ref: '#/components/schemas/Policy'
-    UnauthorizedException: {}
-    ExplicitDeny:
-      type: object
-      properties:
-        policies:
-          allOf:
-          - $ref: '#/components/schemas/Policies'
-          - description: The policies that denied the authorization.
-      description: Information that explicitly denies authorization.
-    ServiceUnavailableException: {}
-    InternalFailureException: {}
-    LimitExceededException: {}
-    PolicyArn:
+    Resource:
       type: string
+      pattern: '[\s\S]*'
+      maxLength: 2048
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -401,14 +401,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

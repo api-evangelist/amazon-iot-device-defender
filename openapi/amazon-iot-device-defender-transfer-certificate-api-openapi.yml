@@ -237,7 +237,32 @@ paths:
       tags:
       - Transfer Certificate
 components:
+  schemas:
+    TransferCertificateResponse:
+      type: object
+      properties:
+        transferredCertificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The ARN of the certificate.
+      description: The output from the TransferCertificate operation.
+    ResourceNotFoundException: {}
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    UnauthorizedException: {}
+    InvalidRequestException: {}
+    CertificateStateException: {}
+    CertificateArn:
+      type: string
+    TransferConflictException: {}
+    ThrottlingException: {}
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -256,12 +281,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -274,31 +293,12 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    TransferConflictException: {}
-    TransferCertificateResponse:
-      type: object
-      properties:
-        transferredCertificateArn:
-          allOf:
-          - $ref: '#/components/schemas/CertificateArn'
-          - description: The ARN of the certificate.
-      description: The output from the TransferCertificate operation.
-    UnauthorizedException: {}
-    ThrottlingException: {}
-    CertificateArn:
-      type: string
-    CertificateStateException: {}
-    ServiceUnavailableException: {}
-    InternalFailureException: {}
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
   securitySchemes:
     hmac:
       type: apiKey

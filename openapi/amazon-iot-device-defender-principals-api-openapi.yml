@@ -204,6 +204,18 @@ paths:
       - Principals
 components:
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -212,12 +224,6 @@ components:
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -234,35 +240,13 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
   schemas:
-    ThingNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingName'
-    UnauthorizedException: {}
-    ThrottlingException: {}
-    NextToken:
-      type: string
-    InternalFailureException: {}
-    ThingName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
     ListPrincipalThingsResponse:
       type: object
       properties:
@@ -276,6 +260,22 @@ components:
           - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
       description: The output from the ListPrincipalThings operation.
     ResourceNotFoundException: {}
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    UnauthorizedException: {}
+    ThingName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    InvalidRequestException: {}
+    NextToken:
+      type: string
+    ThrottlingException: {}
+    ThingNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingName'
   securitySchemes:
     hmac:
       type: apiKey

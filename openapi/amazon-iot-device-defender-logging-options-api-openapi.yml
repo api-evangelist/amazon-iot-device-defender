@@ -227,6 +227,12 @@ paths:
       - Logging Options
 components:
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -263,15 +269,12 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    InternalException: {}
     ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    AwsArn:
+      type: string
+    InternalException: {}
     LogLevel:
       type: string
       enum:
@@ -280,7 +283,6 @@ components:
       - ERROR
       - WARN
       - DISABLED
-    InvalidRequestException: {}
     GetLoggingOptionsResponse:
       type: object
       properties:
@@ -293,8 +295,6 @@ components:
           - $ref: '#/components/schemas/LogLevel'
           - description: The logging level.
       description: The output from the GetLoggingOptions operation.
-    AwsArn:
-      type: string
   securitySchemes:
     hmac:
       type: apiKey

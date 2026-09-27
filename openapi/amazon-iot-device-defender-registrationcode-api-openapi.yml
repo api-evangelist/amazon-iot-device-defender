@@ -228,6 +228,12 @@ paths:
       - Registrationcode
 components:
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -246,12 +252,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -264,23 +264,22 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
   schemas:
-    RegistrationCode:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      minLength: 64
-      maxLength: 64
+    ResourceNotFoundException: {}
+    InternalFailureException: {}
+    ServiceUnavailableException: {}
+    UnauthorizedException: {}
+    InvalidRequestException: {}
     DeleteRegistrationCodeResponse:
       type: object
       properties: {}
       description: The output for the DeleteRegistrationCode operation.
-    UnauthorizedException: {}
     ThrottlingException: {}
     GetRegistrationCodeResponse:
       type: object
@@ -290,10 +289,11 @@ components:
           - $ref: '#/components/schemas/RegistrationCode'
           - description: The CA certificate registration code.
       description: The output from the GetRegistrationCode operation.
-    ServiceUnavailableException: {}
-    InternalFailureException: {}
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
+    RegistrationCode:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
   securitySchemes:
     hmac:
       type: apiKey

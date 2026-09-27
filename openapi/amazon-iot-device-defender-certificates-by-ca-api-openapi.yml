@@ -208,54 +208,56 @@ paths:
       tags:
       - Certificates By Ca
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ThrottlingException: {}
     DateType:
       type: string
       format: date-time
+    CertificateMode:
+      type: string
+      enum:
+      - DEFAULT
+      - SNI_ONLY
+    UnauthorizedException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    ListCertificatesByCAResponse:
+      type: object
+      properties:
+        certificates:
+          allOf:
+          - $ref: '#/components/schemas/Certificates'
+          - description: The device certificates signed by the specified CA certificate.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results, or null if there are no additional results.
+      description: The output of the ListCertificatesByCA operation.
+    Certificates:
+      type: array
+      items:
+        $ref: '#/components/schemas/Certificate'
+    ThrottlingException: {}
+    InternalFailureException: {}
+    CertificateStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - INACTIVE
+      - REVOKED
+      - PENDING_TRANSFER
+      - REGISTER_INACTIVE
+      - PENDING_ACTIVATION
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    CertificateId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
+    CertificateArn:
+      type: string
     Certificate:
       type: object
       properties:
@@ -280,51 +282,49 @@ components:
           - $ref: '#/components/schemas/DateType'
           - description: The date and time the certificate was created.
       description: Information about a certificate.
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    InvalidRequestException: {}
-    CertificateMode:
-      type: string
-      enum:
-      - DEFAULT
-      - SNI_ONLY
-    UnauthorizedException: {}
-    CertificateArn:
-      type: string
-    ServiceUnavailableException: {}
-    ListCertificatesByCAResponse:
-      type: object
-      properties:
-        certificates:
-          allOf:
-          - $ref: '#/components/schemas/Certificates'
-          - description: The device certificates signed by the specified CA certificate.
-        nextMarker:
-          allOf:
-          - $ref: '#/components/schemas/Marker'
-          - description: The marker for the next set of results, or null if there are no additional results.
-      description: The output of the ListCertificatesByCA operation.
-    CertificateStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - INACTIVE
-      - REVOKED
-      - PENDING_TRANSFER
-      - REGISTER_INACTIVE
-      - PENDING_ACTIVATION
-    InternalFailureException: {}
-    Certificates:
-      type: array
-      items:
-        $ref: '#/components/schemas/Certificate'
-    CertificateId:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      minLength: 64
-      maxLength: 64
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

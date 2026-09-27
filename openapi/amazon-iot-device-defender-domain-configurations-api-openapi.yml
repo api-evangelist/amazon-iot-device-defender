@@ -569,37 +569,27 @@ paths:
       - Domain Configurations
 components:
   schemas:
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    ThrottlingException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ServerCertificateStatusDetail:
-      type: string
-    DomainConfigurationSummary:
-      type: object
-      properties:
-        domainConfigurationName:
-          allOf:
-          - $ref: '#/components/schemas/ReservedDomainConfigurationName'
-          - description: The name of the domain configuration. This value must be unique to a region.
-        domainConfigurationArn:
-          allOf:
-          - $ref: '#/components/schemas/DomainConfigurationArn'
-          - description: The ARN of the domain configuration.
-        serviceType:
-          allOf:
-          - $ref: '#/components/schemas/ServiceType'
-          - description: The type of service delivered by the endpoint.
-      description: <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain. A domain configuration can be associated with an Amazon Web Services-managed domain (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p> <ul> <li> <p>Data</p> </li> <li> <p>Jobs</p> </li> <li> <p>CredentialProvider</p> </li> </ul>
     DateType:
       type: string
       format: date-time
+    AllowAuthorizerOverride:
+      type: boolean
+    ServerCertificates:
+      type: array
+      items:
+        $ref: '#/components/schemas/ServerCertificateSummary'
+    ResourceAlreadyExistsException: {}
+    UnauthorizedException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    ServiceType:
+      type: string
+      enum:
+      - DATA
+      - CREDENTIAL_PROVIDER
+      - JOBS
     ServerCertificateSummary:
       type: object
       properties:
@@ -616,90 +606,22 @@ components:
           - $ref: '#/components/schemas/ServerCertificateStatusDetail'
           - description: Details that explain the status of the server certificate.
       description: An object that contains information about a server certificate.
-    AuthorizerName:
-      type: string
-      pattern: '[\w=,@-]+'
-      minLength: 1
-      maxLength: 128
-    AllowAuthorizerOverride:
-      type: boolean
-    AuthorizerConfig:
-      type: object
-      properties:
-        defaultAuthorizerName:
-          allOf:
-          - $ref: '#/components/schemas/AuthorizerName'
-          - description: The name of the authorization service for a domain configuration.
-        allowAuthorizerOverride:
-          allOf:
-          - $ref: '#/components/schemas/AllowAuthorizerOverride'
-          - description: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-      description: An object that specifies the authorization service for a domain.
-    DomainConfigurationArn:
-      type: string
-    DomainConfigurations:
-      type: array
-      items:
-        $ref: '#/components/schemas/DomainConfigurationSummary'
-    ListDomainConfigurationsResponse:
-      type: object
-      properties:
-        domainConfigurations:
-          allOf:
-          - $ref: '#/components/schemas/DomainConfigurations'
-          - description: A list of objects that contain summary information about the user's domain configurations.
-        nextMarker:
-          allOf:
-          - $ref: '#/components/schemas/Marker'
-          - description: The marker for the next set of results.
-    CertificateValidationException: {}
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    CreateDomainConfigurationResponse:
-      type: object
-      properties:
-        domainConfigurationName:
-          allOf:
-          - $ref: '#/components/schemas/DomainConfigurationName'
-          - description: The name of the domain configuration.
-        domainConfigurationArn:
-          allOf:
-          - $ref: '#/components/schemas/DomainConfigurationArn'
-          - description: The ARN of the domain configuration.
-    InvalidRequestException: {}
     DomainConfigurationStatus:
       type: string
       enum:
       - ENABLED
       - DISABLED
-    ResourceNotFoundException: {}
-    ResourceAlreadyExistsException: {}
-    AcmCertificateArn:
+    DomainType:
       type: string
-      pattern: arn:aws(-cn|-us-gov|-iso-b|-iso)?:acm:[a-z]{2}-(gov-|iso-|isob-)?[a-z]{4,9}-\d{1}:\d{12}:certificate/[a-zA-Z0-9/-]+
-      minLength: 1
-      maxLength: 2048
-    UnauthorizedException: {}
-    DeleteDomainConfigurationResponse:
-      type: object
-      properties: {}
-    ServiceUnavailableException: {}
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag's key.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag's value.
-      description: A set of key/value pairs that are used to manage the resource.
+      enum:
+      - ENDPOINT
+      - AWS_MANAGED
+      - CUSTOMER_MANAGED
+    ServerCertificateStatus:
+      type: string
+      enum:
+      - INVALID
+      - VALID
     UpdateDomainConfigurationResponse:
       type: object
       properties:
@@ -711,44 +633,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/DomainConfigurationArn'
           - description: The ARN of the domain configuration that was updated.
-    ServerCertificateStatus:
-      type: string
-      enum:
-      - INVALID
-      - VALID
-    ServiceType:
-      type: string
-      enum:
-      - DATA
-      - CREDENTIAL_PROVIDER
-      - JOBS
-    ServerCertificates:
-      type: array
-      items:
-        $ref: '#/components/schemas/ServerCertificateSummary'
-    DomainName:
-      type: string
-      pattern: '[\s\S]*'
-      minLength: 1
-      maxLength: 253
-    ReservedDomainConfigurationName:
-      type: string
-      pattern: '[\w.:-]+'
-      minLength: 1
-      maxLength: 128
-    DomainConfigurationName:
-      type: string
-      pattern: '[\w.-]+'
-      minLength: 1
-      maxLength: 128
-    DomainType:
-      type: string
-      enum:
-      - ENDPOINT
-      - AWS_MANAGED
-      - CUSTOMER_MANAGED
-    InternalFailureException: {}
-    LimitExceededException: {}
+    ThrottlingException: {}
     DescribeDomainConfigurationResponse:
       type: object
       properties:
@@ -788,21 +673,136 @@ components:
           allOf:
           - $ref: '#/components/schemas/DateType'
           - description: The date and time the domain configuration's status was last changed.
+    InternalFailureException: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    AuthorizerName:
+      type: string
+      pattern: '[\w=,@-]+'
+      minLength: 1
+      maxLength: 128
+    ServiceUnavailableException: {}
+    AuthorizerConfig:
+      type: object
+      properties:
+        defaultAuthorizerName:
+          allOf:
+          - $ref: '#/components/schemas/AuthorizerName'
+          - description: The name of the authorization service for a domain configuration.
+        allowAuthorizerOverride:
+          allOf:
+          - $ref: '#/components/schemas/AllowAuthorizerOverride'
+          - description: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+      description: An object that specifies the authorization service for a domain.
+    DomainConfigurations:
+      type: array
+      items:
+        $ref: '#/components/schemas/DomainConfigurationSummary'
+    InvalidRequestException: {}
+    LimitExceededException: {}
+    DomainName:
+      type: string
+      pattern: '[\s\S]*'
+      minLength: 1
+      maxLength: 253
+    AcmCertificateArn:
+      type: string
+      pattern: arn:aws(-cn|-us-gov|-iso-b|-iso)?:acm:[a-z]{2}-(gov-|iso-|isob-)?[a-z]{4,9}-\d{1}:\d{12}:certificate/[a-zA-Z0-9/-]+
+      minLength: 1
+      maxLength: 2048
+    ListDomainConfigurationsResponse:
+      type: object
+      properties:
+        domainConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/DomainConfigurations'
+          - description: A list of objects that contain summary information about the user's domain configurations.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results.
+    DomainConfigurationSummary:
+      type: object
+      properties:
+        domainConfigurationName:
+          allOf:
+          - $ref: '#/components/schemas/ReservedDomainConfigurationName'
+          - description: The name of the domain configuration. This value must be unique to a region.
+        domainConfigurationArn:
+          allOf:
+          - $ref: '#/components/schemas/DomainConfigurationArn'
+          - description: The ARN of the domain configuration.
+        serviceType:
+          allOf:
+          - $ref: '#/components/schemas/ServiceType'
+          - description: The type of service delivered by the endpoint.
+      description: <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain. A domain configuration can be associated with an Amazon Web Services-managed domain (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p> <ul> <li> <p>Data</p> </li> <li> <p>Jobs</p> </li> <li> <p>CredentialProvider</p> </li> </ul>
+    DomainConfigurationArn:
+      type: string
+    ReservedDomainConfigurationName:
+      type: string
+      pattern: '[\w.:-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceNotFoundException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    CreateDomainConfigurationResponse:
+      type: object
+      properties:
+        domainConfigurationName:
+          allOf:
+          - $ref: '#/components/schemas/DomainConfigurationName'
+          - description: The name of the domain configuration.
+        domainConfigurationArn:
+          allOf:
+          - $ref: '#/components/schemas/DomainConfigurationArn'
+          - description: The ARN of the domain configuration.
+    DomainConfigurationName:
+      type: string
+      pattern: '[\w.-]+'
+      minLength: 1
+      maxLength: 128
+    DeleteDomainConfigurationResponse:
+      type: object
+      properties: {}
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    CertificateValidationException: {}
+    ServerCertificateStatusDetail:
+      type: string
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -819,14 +819,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

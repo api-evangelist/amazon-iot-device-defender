@@ -199,50 +199,31 @@ paths:
       tags:
       - Certificates Out Going
 components:
-  parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    OutgoingCertificates:
+      type: array
+      items:
+        $ref: '#/components/schemas/OutgoingCertificate'
+    DateType:
+      type: string
+      format: date-time
+    AwsAccountId:
+      type: string
+      pattern: '[0-9]+'
+      minLength: 12
+      maxLength: 12
+    ListOutgoingCertificatesResponse:
+      type: object
+      properties:
+        outgoingCertificates:
+          allOf:
+          - $ref: '#/components/schemas/OutgoingCertificates'
+          - description: The certificates that are being transferred but not yet accepted.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results.
+      description: The output from the ListOutgoingCertificates operation.
     OutgoingCertificate:
       type: object
       properties:
@@ -271,50 +252,69 @@ components:
           - $ref: '#/components/schemas/DateType'
           - description: The certificate creation date.
       description: A certificate that has been transferred but not yet accepted.
-    ThrottlingException: {}
-    DateType:
-      type: string
-      format: date-time
-    Message:
-      type: string
-      pattern: '[\s\S]*'
-      maxLength: 128
+    UnauthorizedException: {}
     Marker:
       type: string
       pattern: '[A-Za-z0-9+/]+={0,2}'
       maxLength: 1024
-    InvalidRequestException: {}
-    UnauthorizedException: {}
-    CertificateArn:
-      type: string
-    ServiceUnavailableException: {}
-    OutgoingCertificates:
-      type: array
-      items:
-        $ref: '#/components/schemas/OutgoingCertificate'
-    AwsAccountId:
-      type: string
-      pattern: '[0-9]+'
-      minLength: 12
-      maxLength: 12
-    ListOutgoingCertificatesResponse:
-      type: object
-      properties:
-        outgoingCertificates:
-          allOf:
-          - $ref: '#/components/schemas/OutgoingCertificates'
-          - description: The certificates that are being transferred but not yet accepted.
-        nextMarker:
-          allOf:
-          - $ref: '#/components/schemas/Marker'
-          - description: The marker for the next set of results.
-      description: The output from the ListOutgoingCertificates operation.
+    ThrottlingException: {}
     InternalFailureException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
     CertificateId:
       type: string
       pattern: (0x)?[a-fA-F0-9]+
       minLength: 64
       maxLength: 64
+    Message:
+      type: string
+      pattern: '[\s\S]*'
+      maxLength: 128
+    CertificateArn:
+      type: string
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

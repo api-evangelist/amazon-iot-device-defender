@@ -218,20 +218,20 @@ paths:
       - Attached Policies
 components:
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -248,25 +248,31 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
   schemas:
+    UnauthorizedException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
     ThrottlingException: {}
     PolicyName:
       type: string
       pattern: '[\w+=,.@-]+'
       minLength: 1
       maxLength: 128
+    InternalFailureException: {}
     ListAttachedPoliciesResponse:
       type: object
       properties:
@@ -278,6 +284,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/Marker'
           - description: The token to retrieve the next set of results, or ``null`` if there are no more results.
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    Policies:
+      type: array
+      items:
+        $ref: '#/components/schemas/Policy'
+    LimitExceededException: {}
     Policy:
       type: object
       properties:
@@ -290,22 +303,9 @@ components:
           - $ref: '#/components/schemas/PolicyArn'
           - description: The policy ARN.
       description: Describes an IoT policy.
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    Policies:
-      type: array
-      items:
-        $ref: '#/components/schemas/Policy'
-    UnauthorizedException: {}
-    ServiceUnavailableException: {}
-    InternalFailureException: {}
-    LimitExceededException: {}
     PolicyArn:
       type: string
+    ResourceNotFoundException: {}
   securitySchemes:
     hmac:
       type: apiKey

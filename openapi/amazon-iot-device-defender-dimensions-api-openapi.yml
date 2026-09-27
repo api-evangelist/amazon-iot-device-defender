@@ -451,60 +451,34 @@ paths:
       - Dimensions
 components:
   schemas:
-    DimensionArn:
-      type: string
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    ThrottlingException: {}
-    DimensionNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/DimensionName'
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    DimensionStringValue:
-      type: string
-      minLength: 1
-      maxLength: 256
-    UpdateDimensionResponse:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/DimensionName'
-          - description: A unique identifier for the dimension.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/DimensionArn'
-          - description: The Amazon Resource Name (ARN)of the created dimension.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/DimensionType'
-          - description: The type of the dimension.
-        stringValues:
-          allOf:
-          - $ref: '#/components/schemas/DimensionStringValues'
-          - description: The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time, in milliseconds since epoch, when the dimension was initially created.
-        lastModifiedDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time, in milliseconds since epoch, when the dimension was most recently updated.
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    ResourceAlreadyExistsException: {}
     DimensionType:
       type: string
       enum:
       - TOPIC_FILTER
+    NextToken:
+      type: string
+    DimensionArn:
+      type: string
+    ResourceAlreadyExistsException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    DimensionNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/DimensionName'
+    ListDimensionsResponse:
+      type: object
+      properties:
+        dimensionNames:
+          allOf:
+          - $ref: '#/components/schemas/DimensionNames'
+          - description: A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    ThrottlingException: {}
     CreateDimensionResponse:
       type: object
       properties:
@@ -516,6 +490,19 @@ components:
           allOf:
           - $ref: '#/components/schemas/DimensionArn'
           - description: The Amazon Resource Name (ARN) of the created dimension.
+    DimensionStringValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/DimensionStringValue'
+      minItems: 1
+      maxItems: 100
+    InternalFailureException: {}
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    InvalidRequestException: {}
+    LimitExceededException: {}
     DescribeDimensionResponse:
       type: object
       properties:
@@ -543,15 +530,42 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date the dimension was last modified.
+    DimensionName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
     DeleteDimensionResponse:
       type: object
       properties: {}
-    DimensionStringValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/DimensionStringValue'
-      minItems: 1
-      maxItems: 100
+    UpdateDimensionResponse:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/DimensionName'
+          - description: A unique identifier for the dimension.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/DimensionArn'
+          - description: The Amazon Resource Name (ARN)of the created dimension.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/DimensionType'
+          - description: The type of the dimension.
+        stringValues:
+          allOf:
+          - $ref: '#/components/schemas/DimensionStringValues'
+          - description: The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time, in milliseconds since epoch, when the dimension was initially created.
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time, in milliseconds since epoch, when the dimension was most recently updated.
+    ResourceNotFoundException: {}
     Tag:
       type: object
       required:
@@ -566,44 +580,30 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    DimensionName:
+    DimensionStringValue:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 256
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
       maxLength: 128
-    NextToken:
-      type: string
-    ListDimensionsResponse:
-      type: object
-      properties:
-        dimensionNames:
-          allOf:
-          - $ref: '#/components/schemas/DimensionNames'
-          - description: A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    Timestamp:
-      type: string
-      format: date-time
-    InternalFailureException: {}
-    LimitExceededException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -620,14 +620,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

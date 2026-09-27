@@ -195,12 +195,11 @@ paths:
       - Behavior Model Training
 components:
   schemas:
-    BehaviorName:
+    NextToken:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    ThrottlingException: {}
+    Timestamp:
+      type: string
+      format: date-time
     BehaviorModelTrainingSummaries:
       type: array
       items:
@@ -210,6 +209,7 @@ components:
       format: double
       minimum: 0
       maximum: 100
+    ThrottlingException: {}
     BehaviorModelTrainingSummary:
       type: object
       properties:
@@ -238,14 +238,18 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: ' The date the model was last refreshed. '
       description: ' The summary of an ML Detect behavior model. '
-    ModelStatus:
+    InternalFailureException: {}
+    BehaviorName:
       type: string
-      enum:
-      - PENDING_BUILD
-      - ACTIVE
-      - EXPIRED
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    SecurityProfileName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
     InvalidRequestException: {}
-    ResourceNotFoundException: {}
     GetBehaviorModelTrainingSummariesResponse:
       type: object
       properties:
@@ -257,32 +261,28 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
-    SecurityProfileName:
+    ResourceNotFoundException: {}
+    ModelStatus:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    NextToken:
-      type: string
-    Timestamp:
-      type: string
-      format: date-time
-    InternalFailureException: {}
+      enum:
+      - PENDING_BUILD
+      - ACTIVE
+      - EXPIRED
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -299,14 +299,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

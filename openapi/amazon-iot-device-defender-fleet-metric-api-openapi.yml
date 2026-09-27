@@ -609,37 +609,22 @@ paths:
       - Fleet Metric
 components:
   schemas:
-    TagValue:
+    QueryVersion:
       type: string
-      minLength: 0
-      maxLength: 256
+    FleetMetricName:
+      type: string
+      pattern: '[a-zA-Z0-9_\-\.]+'
+      minLength: 1
+      maxLength: 128
+    FleetMetricDescription:
+      type: string
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 1024
     VersionConflictException: {}
+    ResourceAlreadyExistsException: {}
     LastModifiedDate:
       type: string
       format: date-time
-    ThrottlingException: {}
-    CreateFleetMetricResponse:
-      type: object
-      properties:
-        metricName:
-          allOf:
-          - $ref: '#/components/schemas/FleetMetricName'
-          - description: The name of the fleet metric to create.
-        metricArn:
-          allOf:
-          - $ref: '#/components/schemas/FleetMetricArn'
-          - description: The Amazon Resource Name (ARN) of the new fleet metric.
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    FleetMetricPeriod:
-      type: integer
-      minimum: 60
-      maximum: 86400
-    FleetMetricArn:
-      type: string
     FleetMetricUnit:
       type: string
       enum:
@@ -670,47 +655,41 @@ components:
       - Terabits/Second
       - Count/Second
       - None
-    IndexName:
+    UnauthorizedException: {}
+    FleetMetricArn:
       type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    AggregationTypeValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/AggregationTypeValue'
-    CreationDate:
-      type: string
-      format: date-time
-    IndexNotReadyException: {}
+    FleetMetricPeriod:
+      type: integer
+      minimum: 60
+      maximum: 86400
+    InvalidAggregationException: {}
     AggregationTypeName:
       type: string
       enum:
       - Statistics
       - Percentiles
       - Cardinality
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    ResourceAlreadyExistsException: {}
-    UnauthorizedException: {}
-    ServiceUnavailableException: {}
-    QueryString:
+    ThrottlingException: {}
+    IndexName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    InternalFailureException: {}
+    AggregationField:
       type: string
       minLength: 1
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag's key.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag's value.
-      description: A set of key/value pairs that are used to manage the resource.
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    ServiceUnavailableException: {}
+    CreationDate:
+      type: string
+      format: date-time
+    InvalidRequestException: {}
+    Version:
+      type: integer
     AggregationType:
       type: object
       required:
@@ -725,25 +704,41 @@ components:
           - $ref: '#/components/schemas/AggregationTypeValues'
           - description: A list of the values of aggregation types.
       description: The type of aggregation queries.
-    QueryVersion:
-      type: string
-    FleetMetricName:
-      type: string
-      pattern: '[a-zA-Z0-9_\-\.]+'
-      minLength: 1
-      maxLength: 128
+    LimitExceededException: {}
+    InvalidQueryException: {}
+    IndexNotReadyException: {}
     AggregationTypeValue:
       type: string
       pattern: '[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 12
-    InvalidAggregationException: {}
-    InvalidQueryException: {}
-    AggregationField:
+    ResourceNotFoundException: {}
+    AggregationTypeValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/AggregationTypeValue'
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    QueryString:
       type: string
       minLength: 1
-    Version:
-      type: integer
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
     DescribeFleetMetricResponse:
       type: object
       properties:
@@ -799,27 +794,32 @@ components:
           allOf:
           - $ref: '#/components/schemas/FleetMetricArn'
           - description: The ARN of the fleet metric to describe.
-    InternalFailureException: {}
-    LimitExceededException: {}
-    FleetMetricDescription:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 1024
+    CreateFleetMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricName'
+          - description: The name of the fleet metric to create.
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/FleetMetricArn'
+          - description: The Amazon Resource Name (ARN) of the new fleet metric.
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -836,14 +836,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
