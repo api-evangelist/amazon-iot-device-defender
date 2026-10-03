@@ -339,9 +339,26 @@ paths:
 components:
   schemas:
     CertificateStateException: {}
+    InvalidRequestException: {}
+    CertificateValidationException: {}
     CertificateConflictException: {}
+    RegisterCertificateWithoutCAResponse:
+      type: object
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The Amazon Resource Name (ARN) of the registered certificate.
+        certificateId:
+          allOf:
+          - $ref: '#/components/schemas/CertificateId'
+          - description: The ID of the registered certificate. (The last part of the certificate ARN contains the certificate ID.
+    InternalFailureException: {}
+    CertificateArn:
+      type: string
     ResourceAlreadyExistsException: {}
     UnauthorizedException: {}
+    ServiceUnavailableException: {}
     RegisterCertificateResponse:
       type: object
       properties:
@@ -355,43 +372,14 @@ components:
           - description: The certificate identifier.
       description: The output from the RegisterCertificate operation.
     ThrottlingException: {}
-    InternalFailureException: {}
-    RegisterCertificateWithoutCAResponse:
-      type: object
-      properties:
-        certificateArn:
-          allOf:
-          - $ref: '#/components/schemas/CertificateArn'
-          - description: The Amazon Resource Name (ARN) of the registered certificate.
-        certificateId:
-          allOf:
-          - $ref: '#/components/schemas/CertificateId'
-          - description: The ID of the registered certificate. (The last part of the certificate ARN contains the certificate ID.
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
     CertificateId:
       type: string
       pattern: (0x)?[a-fA-F0-9]+
       minLength: 64
       maxLength: 64
-    CertificateValidationException: {}
-    CertificateArn:
-      type: string
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -408,8 +396,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

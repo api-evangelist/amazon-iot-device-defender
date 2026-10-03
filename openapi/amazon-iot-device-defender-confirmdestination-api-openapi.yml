@@ -185,33 +185,18 @@ paths:
       tags:
       - Confirmdestination
 components:
+  schemas:
+    InternalException: {}
+    UnauthorizedException: {}
+    ConflictingResourceUpdateException: {}
+    InvalidRequestException: {}
+    ServiceUnavailableException: {}
+    ConfirmTopicRuleDestinationResponse:
+      type: object
+      properties: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -222,21 +207,36 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    ConfirmTopicRuleDestinationResponse:
-      type: object
-      properties: {}
-    ServiceUnavailableException: {}
-    UnauthorizedException: {}
-    InvalidRequestException: {}
-    ConflictingResourceUpdateException: {}
-    InternalException: {}
   securitySchemes:
     hmac:
       type: apiKey

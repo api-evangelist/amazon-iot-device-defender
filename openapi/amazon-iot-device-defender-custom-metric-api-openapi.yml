@@ -393,6 +393,15 @@ components:
   schemas:
     CustomMetricArn:
       type: string
+    InvalidRequestException: {}
+    DeleteCustomMetricResponse:
+      type: object
+      properties: {}
+    MetricName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
     UpdateCustomMetricResponse:
       type: object
       properties:
@@ -420,14 +429,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: ' The time the custom metric was last modified in milliseconds since epoch. '
-    ResourceAlreadyExistsException: {}
-    Timestamp:
+    CustomMetricDisplayName:
       type: string
-      format: date-time
-    DeleteCustomMetricResponse:
-      type: object
-      properties: {}
-    ThrottlingException: {}
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 128
+    InternalFailureException: {}
     CustomMetricType:
       type: string
       enum:
@@ -435,30 +441,11 @@ components:
       - ip-address-list
       - number-list
       - number
-    MetricName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    InternalFailureException: {}
     TagValue:
       type: string
       minLength: 0
       maxLength: 256
-    InvalidRequestException: {}
-    LimitExceededException: {}
-    ResourceNotFoundException: {}
-    CreateCustomMetricResponse:
-      type: object
-      properties:
-        metricName:
-          allOf:
-          - $ref: '#/components/schemas/MetricName'
-          - description: ' The name of the custom metric to be used in the metric report. '
-        metricArn:
-          allOf:
-          - $ref: '#/components/schemas/CustomMetricArn'
-          - description: ' The Amazon Resource Number (ARN) of the custom metric. For example, <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i> </code> '
+    ResourceAlreadyExistsException: {}
     Tag:
       type: object
       required:
@@ -473,15 +460,7 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    CustomMetricDisplayName:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 128
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
+    ResourceNotFoundException: {}
     DescribeCustomMetricResponse:
       type: object
       properties:
@@ -509,21 +488,30 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: ' The time the custom metric was last modified in milliseconds since epoch. '
+    Timestamp:
+      type: string
+      format: date-time
+    CreateCustomMetricResponse:
+      type: object
+      properties:
+        metricName:
+          allOf:
+          - $ref: '#/components/schemas/MetricName'
+          - description: ' The name of the custom metric to be used in the metric report. '
+        metricArn:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricArn'
+          - description: ' The Amazon Resource Number (ARN) of the custom metric. For example, <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i> </code> '
+    LimitExceededException: {}
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    ThrottlingException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -540,8 +528,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

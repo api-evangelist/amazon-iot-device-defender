@@ -203,50 +203,15 @@ paths:
       tags:
       - Principals
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    ResourceNotFoundException: {}
+    UnauthorizedException: {}
+    InvalidRequestException: {}
+    ThingNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ThingName'
+    ServiceUnavailableException: {}
     ListPrincipalThingsResponse:
       type: object
       properties:
@@ -259,23 +224,58 @@ components:
           - $ref: '#/components/schemas/NextToken'
           - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
       description: The output from the ListPrincipalThings operation.
-    ResourceNotFoundException: {}
-    InternalFailureException: {}
-    ServiceUnavailableException: {}
-    UnauthorizedException: {}
     ThingName:
       type: string
       pattern: '[a-zA-Z0-9:_-]+'
       minLength: 1
       maxLength: 128
-    InvalidRequestException: {}
+    InternalFailureException: {}
+    ThrottlingException: {}
     NextToken:
       type: string
-    ThrottlingException: {}
-    ThingNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ThingName'
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
