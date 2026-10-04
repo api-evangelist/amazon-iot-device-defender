@@ -391,76 +391,24 @@ paths:
       - Custom Metric
 components:
   schemas:
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
     CustomMetricArn:
       type: string
     InvalidRequestException: {}
-    DeleteCustomMetricResponse:
-      type: object
-      properties: {}
-    MetricName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    UpdateCustomMetricResponse:
+    CreateCustomMetricResponse:
       type: object
       properties:
         metricName:
           allOf:
           - $ref: '#/components/schemas/MetricName'
-          - description: ' The name of the custom metric. '
+          - description: ' The name of the custom metric to be used in the metric report. '
         metricArn:
           allOf:
           - $ref: '#/components/schemas/CustomMetricArn'
-          - description: ' The Amazon Resource Number (ARN) of the custom metric. '
-        metricType:
-          allOf:
-          - $ref: '#/components/schemas/CustomMetricType'
-          - description: <p> The type of the custom metric. </p> <important> <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p> </important>
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/CustomMetricDisplayName'
-          - description: ' A friendly name in the console for the custom metric '
-        creationDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The creation date of the custom metric in milliseconds since epoch. '
-        lastModifiedDate:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: ' The time the custom metric was last modified in milliseconds since epoch. '
-    CustomMetricDisplayName:
-      type: string
-      pattern: '[\p{Graph}\x20]*'
-      maxLength: 128
-    InternalFailureException: {}
-    CustomMetricType:
-      type: string
-      enum:
-      - string-list
-      - ip-address-list
-      - number-list
-      - number
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    ResourceAlreadyExistsException: {}
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The tag's key.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The tag's value.
-      description: A set of key/value pairs that are used to manage the resource.
-    ResourceNotFoundException: {}
+          - description: ' The Amazon Resource Number (ARN) of the custom metric. For example, <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i> </code> '
     DescribeCustomMetricResponse:
       type: object
       properties:
@@ -488,46 +436,80 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: ' The time the custom metric was last modified in milliseconds since epoch. '
-    Timestamp:
+    ThrottlingException: {}
+    ResourceNotFoundException: {}
+    CustomMetricDisplayName:
       type: string
-      format: date-time
-    CreateCustomMetricResponse:
+      pattern: '[\p{Graph}\x20]*'
+      maxLength: 128
+    MetricName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    LimitExceededException: {}
+    CustomMetricType:
+      type: string
+      enum:
+      - string-list
+      - ip-address-list
+      - number-list
+      - number
+    InternalFailureException: {}
+    UpdateCustomMetricResponse:
       type: object
       properties:
         metricName:
           allOf:
           - $ref: '#/components/schemas/MetricName'
-          - description: ' The name of the custom metric to be used in the metric report. '
+          - description: ' The name of the custom metric. '
         metricArn:
           allOf:
           - $ref: '#/components/schemas/CustomMetricArn'
-          - description: ' The Amazon Resource Number (ARN) of the custom metric. For example, <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i> </code> '
-    LimitExceededException: {}
+          - description: ' The Amazon Resource Number (ARN) of the custom metric. '
+        metricType:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricType'
+          - description: <p> The type of the custom metric. </p> <important> <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p> </important>
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/CustomMetricDisplayName'
+          - description: ' A friendly name in the console for the custom metric '
+        creationDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The creation date of the custom metric in milliseconds since epoch. '
+        lastModifiedDate:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: ' The time the custom metric was last modified in milliseconds since epoch. '
     TagKey:
       type: string
       pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
       maxLength: 128
-    ThrottlingException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The tag's key.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The tag's value.
+      description: A set of key/value pairs that are used to manage the resource.
+    DeleteCustomMetricResponse:
+      type: object
+      properties: {}
+    ResourceAlreadyExistsException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -548,6 +530,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

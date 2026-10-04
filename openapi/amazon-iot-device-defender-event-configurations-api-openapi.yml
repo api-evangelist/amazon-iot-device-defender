@@ -210,22 +210,6 @@ paths:
       - Event Configurations
 components:
   schemas:
-    EventConfigurations:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Configuration'
-    LastModifiedDate:
-      type: string
-      format: date-time
-    InvalidRequestException: {}
-    Configuration:
-      type: object
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/Enabled'
-          - description: True to enable the configuration.
-      description: Configuration.
     DescribeEventConfigurationsResponse:
       type: object
       properties:
@@ -241,25 +225,47 @@ components:
           allOf:
           - $ref: '#/components/schemas/LastModifiedDate'
           - description: The date the event configurations were last modified.
+    Enabled:
+      type: boolean
     CreationDate:
+      type: string
+      format: date-time
+    LastModifiedDate:
       type: string
       format: date-time
     UpdateEventConfigurationsResponse:
       type: object
       properties: {}
-    InternalFailureException: {}
-    Enabled:
-      type: boolean
     ThrottlingException: {}
+    EventConfigurations:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Configuration'
+    Configuration:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/Enabled'
+          - description: True to enable the configuration.
+      description: Configuration.
+    InvalidRequestException: {}
+    InternalFailureException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -276,20 +282,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

@@ -335,92 +335,7 @@ paths:
       tags:
       - V2 Logging Level
 components:
-  schemas:
-    LogTargetName:
-      type: string
-    NotConfiguredException: {}
-    InvalidRequestException: {}
-    ListV2LoggingLevelsResponse:
-      type: object
-      properties:
-        logTargetConfigurations:
-          allOf:
-          - $ref: '#/components/schemas/LogTargetConfigurations'
-          - description: The logging configuration for a target.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
-    LogLevel:
-      type: string
-      enum:
-      - DEBUG
-      - INFO
-      - ERROR
-      - WARN
-      - DISABLED
-    InternalException: {}
-    ServiceUnavailableException: {}
-    LogTargetType:
-      type: string
-      enum:
-      - DEFAULT
-      - THING_GROUP
-      - CLIENT_ID
-      - SOURCE_IP
-      - PRINCIPAL_ID
-    LogTargetConfigurations:
-      type: array
-      items:
-        $ref: '#/components/schemas/LogTargetConfiguration'
-    LimitExceededException: {}
-    LogTargetConfiguration:
-      type: object
-      properties:
-        logTarget:
-          allOf:
-          - $ref: '#/components/schemas/LogTarget'
-          - description: A log target
-        logLevel:
-          allOf:
-          - $ref: '#/components/schemas/LogLevel'
-          - description: The logging level.
-      description: The target configuration.
-    LogTarget:
-      type: object
-      required:
-      - targetType
-      properties:
-        targetType:
-          allOf:
-          - $ref: '#/components/schemas/LogTargetType'
-          - description: The target type.
-        targetName:
-          allOf:
-          - $ref: '#/components/schemas/LogTargetName'
-          - description: The target name.
-      description: A log target.
-    NextToken:
-      type: string
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -445,6 +360,91 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    InternalException: {}
+    ServiceUnavailableException: {}
+    LogTarget:
+      type: object
+      required:
+      - targetType
+      properties:
+        targetType:
+          allOf:
+          - $ref: '#/components/schemas/LogTargetType'
+          - description: The target type.
+        targetName:
+          allOf:
+          - $ref: '#/components/schemas/LogTargetName'
+          - description: The target name.
+      description: A log target.
+    InvalidRequestException: {}
+    ListV2LoggingLevelsResponse:
+      type: object
+      properties:
+        logTargetConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/LogTargetConfigurations'
+          - description: The logging configuration for a target.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to use to get the next set of results, or <b>null</b> if there are no additional results.
+    LogTargetConfiguration:
+      type: object
+      properties:
+        logTarget:
+          allOf:
+          - $ref: '#/components/schemas/LogTarget'
+          - description: A log target
+        logLevel:
+          allOf:
+          - $ref: '#/components/schemas/LogLevel'
+          - description: The logging level.
+      description: The target configuration.
+    NotConfiguredException: {}
+    LogTargetName:
+      type: string
+    LogTargetConfigurations:
+      type: array
+      items:
+        $ref: '#/components/schemas/LogTargetConfiguration'
+    LimitExceededException: {}
+    LogTargetType:
+      type: string
+      enum:
+      - DEFAULT
+      - THING_GROUP
+      - CLIENT_ID
+      - SOURCE_IP
+      - PRINCIPAL_ID
+    LogLevel:
+      type: string
+      enum:
+      - DEBUG
+      - INFO
+      - ERROR
+      - WARN
+      - DISABLED
+    NextToken:
+      type: string
   securitySchemes:
     hmac:
       type: apiKey

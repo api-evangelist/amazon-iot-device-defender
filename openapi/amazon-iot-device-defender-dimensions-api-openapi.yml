@@ -451,6 +451,10 @@ paths:
       - Dimensions
 components:
   schemas:
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
     UpdateDimensionResponse:
       type: object
       properties:
@@ -478,6 +482,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time, in milliseconds since epoch, when the dimension was most recently updated.
+    InvalidRequestException: {}
+    ThrottlingException: {}
+    ResourceNotFoundException: {}
     DimensionName:
       type: string
       pattern: '[a-zA-Z0-9:_-]+'
@@ -489,22 +496,7 @@ components:
         $ref: '#/components/schemas/DimensionStringValue'
       minItems: 1
       maxItems: 100
-    InvalidRequestException: {}
-    ListDimensionsResponse:
-      type: object
-      properties:
-        dimensionNames:
-          allOf:
-          - $ref: '#/components/schemas/DimensionNames'
-          - description: A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    DimensionNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/DimensionName'
+    LimitExceededException: {}
     DescribeDimensionResponse:
       type: object
       properties:
@@ -532,6 +524,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date the dimension was last modified.
+    DimensionType:
+      type: string
+      enum:
+      - TOPIC_FILTER
+    InternalFailureException: {}
     CreateDimensionResponse:
       type: object
       properties:
@@ -543,14 +540,33 @@ components:
           allOf:
           - $ref: '#/components/schemas/DimensionArn'
           - description: The Amazon Resource Name (ARN) of the created dimension.
-    DimensionArn:
+    TagKey:
       type: string
-    InternalFailureException: {}
-    TagValue:
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    DimensionStringValue:
       type: string
-      minLength: 0
+      minLength: 1
       maxLength: 256
-    ResourceAlreadyExistsException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    ListDimensionsResponse:
+      type: object
+      properties:
+        dimensionNames:
+          allOf:
+          - $ref: '#/components/schemas/DimensionNames'
+          - description: A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    DimensionNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/DimensionName'
     Tag:
       type: object
       required:
@@ -565,49 +581,15 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The tag's value.
       description: A set of key/value pairs that are used to manage the resource.
-    ResourceNotFoundException: {}
     DeleteDimensionResponse:
       type: object
       properties: {}
-    DimensionType:
-      type: string
-      enum:
-      - TOPIC_FILTER
-    Timestamp:
-      type: string
-      format: date-time
-    DimensionStringValue:
-      type: string
-      minLength: 1
-      maxLength: 256
-    LimitExceededException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ThrottlingException: {}
     NextToken:
       type: string
+    ResourceAlreadyExistsException: {}
+    DimensionArn:
+      type: string
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -628,6 +610,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

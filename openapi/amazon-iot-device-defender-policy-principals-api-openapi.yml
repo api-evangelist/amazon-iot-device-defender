@@ -218,35 +218,6 @@ paths:
       tags:
       - Policy Principals
 components:
-  schemas:
-    Principals:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrincipalArn'
-    ResourceNotFoundException: {}
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    UnauthorizedException: {}
-    ListPolicyPrincipalsResponse:
-      type: object
-      properties:
-        principals:
-          allOf:
-          - $ref: '#/components/schemas/Principals'
-          - description: The descriptions of the principals.
-        nextMarker:
-          allOf:
-          - $ref: '#/components/schemas/Marker'
-          - description: The marker for the next set of results, or null if there are no additional results.
-      description: The output from the ListPolicyPrincipals operation.
-    InvalidRequestException: {}
-    ServiceUnavailableException: {}
-    PrincipalArn:
-      type: string
-    InternalFailureException: {}
-    ThrottlingException: {}
   parameters:
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
@@ -254,8 +225,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -272,8 +243,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -284,12 +255,41 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    ListPolicyPrincipalsResponse:
+      type: object
+      properties:
+        principals:
+          allOf:
+          - $ref: '#/components/schemas/Principals'
+          - description: The descriptions of the principals.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results, or null if there are no additional results.
+      description: The output from the ListPolicyPrincipals operation.
+    ServiceUnavailableException: {}
+    ThrottlingException: {}
+    UnauthorizedException: {}
+    ResourceNotFoundException: {}
+    InvalidRequestException: {}
+    InternalFailureException: {}
+    PrincipalArn:
+      type: string
+    Principals:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrincipalArn'
   securitySchemes:
     hmac:
       type: apiKey

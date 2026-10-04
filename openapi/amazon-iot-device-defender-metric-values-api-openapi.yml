@@ -229,18 +229,50 @@ paths:
       - Metric Values
 components:
   schemas:
+    NumberList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Number'
+    UnsignedLong:
+      type: integer
+      minimum: 0
+    InvalidRequestException: {}
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/stringValue'
+    ListMetricValuesResponse:
+      type: object
+      properties:
+        metricDatumList:
+          allOf:
+          - $ref: '#/components/schemas/MetricDatumList'
+          - description: The data the thing reports for the metric during the specified time period.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+    Number:
+      type: number
+      format: double
     Cidrs:
       type: array
       items:
         $ref: '#/components/schemas/Cidr'
-    InvalidRequestException: {}
-    Number:
-      type: number
-      format: double
+    ThrottlingException: {}
     MetricDatumList:
       type: array
       items:
         $ref: '#/components/schemas/MetricDatum'
+    ResourceNotFoundException: {}
+    Ports:
+      type: array
+      items:
+        $ref: '#/components/schemas/Port'
+    Port:
+      type: integer
+      minimum: 0
+      maximum: 65535
     MetricDatum:
       type: object
       properties:
@@ -253,46 +285,19 @@ components:
           - $ref: '#/components/schemas/MetricValue'
           - description: The value reported for the metric.
       description: A metric.
-    ListMetricValuesResponse:
-      type: object
-      properties:
-        metricDatumList:
-          allOf:
-          - $ref: '#/components/schemas/MetricDatumList'
-          - description: The data the thing reports for the metric during the specified time period.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-    UnsignedLong:
-      type: integer
-      minimum: 0
     InternalFailureException: {}
-    NumberList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Number'
+    Timestamp:
+      type: string
+      format: date-time
     Cidr:
       type: string
       pattern: '[a-fA-F0-9:\.\/]+'
       minLength: 2
       maxLength: 43
-    ResourceNotFoundException: {}
-    Port:
-      type: integer
-      minimum: 0
-      maximum: 65535
-    Ports:
-      type: array
-      items:
-        $ref: '#/components/schemas/Port'
-    Timestamp:
+    NextToken:
       type: string
-      format: date-time
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/stringValue'
+    stringValue:
+      type: string
     MetricValue:
       type: object
       properties:
@@ -321,30 +326,7 @@ components:
           - $ref: '#/components/schemas/StringList'
           - description: ' The string values of a metric. '
       description: The value to be compared with the <code>metric</code>.
-    stringValue:
-      type: string
-    ThrottlingException: {}
-    NextToken:
-      type: string
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -365,6 +347,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

@@ -187,30 +187,6 @@ paths:
       - Keys And Certificate
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -223,18 +199,37 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    InvalidRequestException: {}
-    InternalFailureException: {}
-    CertificateArn:
-      type: string
-    UnauthorizedException: {}
     ServiceUnavailableException: {}
     CreateKeysAndCertificateResponse:
       type: object
@@ -256,20 +251,30 @@ components:
           - $ref: '#/components/schemas/KeyPair'
           - description: The generated key pair.
       description: The output of the CreateKeysAndCertificate operation.
+    UnauthorizedException: {}
+    InvalidRequestException: {}
     PrivateKey:
       type: string
       minLength: 1
       format: password
-    PublicKey:
+    ThrottlingException: {}
+    CertificateId:
       type: string
-      minLength: 1
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
     CertificatePem:
       type: string
       pattern: '[\s\S]*'
       description: The PEM of a certificate.
       minLength: 1
       maxLength: 65536
-    ThrottlingException: {}
+    CertificateArn:
+      type: string
+    InternalFailureException: {}
+    PublicKey:
+      type: string
+      minLength: 1
     KeyPair:
       type: object
       properties:
@@ -282,11 +287,6 @@ components:
           - $ref: '#/components/schemas/PrivateKey'
           - description: The private key.
       description: Describes a key pair.
-    CertificateId:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      minLength: 64
-      maxLength: 64
   securitySchemes:
     hmac:
       type: apiKey

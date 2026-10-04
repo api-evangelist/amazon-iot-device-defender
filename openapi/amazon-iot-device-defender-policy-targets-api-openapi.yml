@@ -226,26 +226,32 @@ components:
           allOf:
           - $ref: '#/components/schemas/Marker'
           - description: A marker used to get the next set of results.
-    ResourceNotFoundException: {}
     Marker:
       type: string
       pattern: '[A-Za-z0-9+/]+={0,2}'
       maxLength: 1024
-    UnauthorizedException: {}
     LimitExceededException: {}
-    InvalidRequestException: {}
     ServiceUnavailableException: {}
     PolicyTargets:
       type: array
       items:
         $ref: '#/components/schemas/PolicyTarget'
+    ThrottlingException: {}
+    UnauthorizedException: {}
+    ResourceNotFoundException: {}
     PolicyTarget:
       type: string
+    InvalidRequestException: {}
     InternalFailureException: {}
-    ThrottlingException: {}
   parameters:
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -268,20 +274,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

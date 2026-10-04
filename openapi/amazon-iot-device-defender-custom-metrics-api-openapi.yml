@@ -179,35 +179,15 @@ paths:
       tags:
       - Custom Metrics
 components:
-  schemas:
-    MetricNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/MetricName'
-    MetricName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    ListCustomMetricsResponse:
-      type: object
-      properties:
-        metricNames:
-          allOf:
-          - $ref: '#/components/schemas/MetricNames'
-          - description: ' The name of the custom metric. '
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
-    InvalidRequestException: {}
-    InternalFailureException: {}
-    ThrottlingException: {}
-    NextToken:
-      type: string
   parameters:
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -230,24 +210,44 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    MetricName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    ListCustomMetricsResponse:
+      type: object
+      properties:
+        metricNames:
+          allOf:
+          - $ref: '#/components/schemas/MetricNames'
+          - description: ' The name of the custom metric. '
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
+    MetricNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/MetricName'
+    NextToken:
+      type: string
+    ThrottlingException: {}
+    InvalidRequestException: {}
+    InternalFailureException: {}
   securitySchemes:
     hmac:
       type: apiKey

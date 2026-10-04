@@ -200,15 +200,26 @@ paths:
       - Certificates Out Going
 components:
   schemas:
-    InvalidRequestException: {}
+    DateType:
+      type: string
+      format: date-time
+    OutgoingCertificates:
+      type: array
+      items:
+        $ref: '#/components/schemas/OutgoingCertificate'
+    Message:
+      type: string
+      pattern: '[\s\S]*'
+      maxLength: 128
+    ServiceUnavailableException: {}
     AwsAccountId:
       type: string
       pattern: '[0-9]+'
       minLength: 12
       maxLength: 12
-    InternalFailureException: {}
-    CertificateArn:
-      type: string
+    UnauthorizedException: {}
+    InvalidRequestException: {}
+    ThrottlingException: {}
     OutgoingCertificate:
       type: object
       properties:
@@ -237,14 +248,10 @@ components:
           - $ref: '#/components/schemas/DateType'
           - description: The certificate creation date.
       description: A certificate that has been transferred but not yet accepted.
-    DateType:
+    Marker:
       type: string
-      format: date-time
-    OutgoingCertificates:
-      type: array
-      items:
-        $ref: '#/components/schemas/OutgoingCertificate'
-    UnauthorizedException: {}
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
     ListOutgoingCertificatesResponse:
       type: object
       properties:
@@ -257,40 +264,15 @@ components:
           - $ref: '#/components/schemas/Marker'
           - description: The marker for the next set of results.
       description: The output from the ListOutgoingCertificates operation.
-    ServiceUnavailableException: {}
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    ThrottlingException: {}
-    Message:
-      type: string
-      pattern: '[\s\S]*'
-      maxLength: 128
     CertificateId:
       type: string
       pattern: (0x)?[a-fA-F0-9]+
       minLength: 64
       maxLength: 64
+    CertificateArn:
+      type: string
+    InternalFailureException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -311,6 +293,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

@@ -226,35 +226,15 @@ paths:
       tags:
       - Logging Options
 components:
-  schemas:
-    InternalException: {}
-    GetLoggingOptionsResponse:
-      type: object
-      properties:
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/AwsArn'
-          - description: The ARN of the IAM role that grants access.
-        logLevel:
-          allOf:
-          - $ref: '#/components/schemas/LogLevel'
-          - description: The logging level.
-      description: The output from the GetLoggingOptions operation.
-    AwsArn:
-      type: string
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    LogLevel:
-      type: string
-      enum:
-      - DEBUG
-      - INFO
-      - ERROR
-      - WARN
-      - DISABLED
   parameters:
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -277,24 +257,44 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    InternalException: {}
+    ServiceUnavailableException: {}
+    GetLoggingOptionsResponse:
+      type: object
+      properties:
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/AwsArn'
+          - description: The ARN of the IAM role that grants access.
+        logLevel:
+          allOf:
+          - $ref: '#/components/schemas/LogLevel'
+          - description: The logging level.
+      description: The output from the GetLoggingOptions operation.
+    LogLevel:
+      type: string
+      enum:
+      - DEBUG
+      - INFO
+      - ERROR
+      - WARN
+      - DISABLED
+    AwsArn:
+      type: string
+    InvalidRequestException: {}
   securitySchemes:
     hmac:
       type: apiKey

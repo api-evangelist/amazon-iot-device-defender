@@ -209,11 +209,6 @@ paths:
       - Authorizers
 components:
   schemas:
-    AuthorizerName:
-      type: string
-      pattern: '[\w=,@-]+'
-      minLength: 1
-      maxLength: 128
     AuthorizerSummary:
       type: object
       properties:
@@ -230,10 +225,7 @@ components:
       type: string
       pattern: '[A-Za-z0-9+/]+={0,2}'
       maxLength: 1024
-    UnauthorizedException: {}
-    AuthorizerArn:
-      type: string
-      maxLength: 2048
+    ServiceUnavailableException: {}
     ListAuthorizersResponse:
       type: object
       properties:
@@ -245,15 +237,29 @@ components:
           allOf:
           - $ref: '#/components/schemas/Marker'
           - description: A marker used to get the next set of results.
-    InvalidRequestException: {}
-    ServiceUnavailableException: {}
     Authorizers:
       type: array
       items:
         $ref: '#/components/schemas/AuthorizerSummary'
-    InternalFailureException: {}
     ThrottlingException: {}
+    UnauthorizedException: {}
+    AuthorizerArn:
+      type: string
+      maxLength: 2048
+    AuthorizerName:
+      type: string
+      pattern: '[\w=,@-]+'
+      minLength: 1
+      maxLength: 128
+    InvalidRequestException: {}
+    InternalFailureException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -278,20 +284,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

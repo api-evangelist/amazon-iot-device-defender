@@ -194,11 +194,50 @@ paths:
       tags:
       - Behavior Model Training
 components:
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    BehaviorModelTrainingSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/BehaviorModelTrainingSummary'
     BehaviorModelTrainingSummary:
       type: object
       properties:
@@ -227,33 +266,35 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: ' The date the model was last refreshed. '
       description: ' The summary of an ML Detect behavior model. '
-    InvalidRequestException: {}
+    BehaviorModelTrainingSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/BehaviorModelTrainingSummary'
     DataCollectionPercentage:
       type: number
       format: double
       minimum: 0
       maximum: 100
-    SecurityProfileName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
-    InternalFailureException: {}
-    ResourceNotFoundException: {}
-    BehaviorName:
-      type: string
-      pattern: '[a-zA-Z0-9:_-]+'
-      minLength: 1
-      maxLength: 128
+    InvalidRequestException: {}
     ModelStatus:
       type: string
       enum:
       - PENDING_BUILD
       - ACTIVE
       - EXPIRED
-    Timestamp:
+    ThrottlingException: {}
+    ResourceNotFoundException: {}
+    BehaviorName:
       type: string
-      format: date-time
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    SecurityProfileName:
+      type: string
+      pattern: '[a-zA-Z0-9:_-]+'
+      minLength: 1
+      maxLength: 128
+    InternalFailureException: {}
     GetBehaviorModelTrainingSummariesResponse:
       type: object
       properties:
@@ -265,52 +306,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: ' A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. '
-    ThrottlingException: {}
+    Timestamp:
+      type: string
+      format: date-time
     NextToken:
       type: string
-  parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey

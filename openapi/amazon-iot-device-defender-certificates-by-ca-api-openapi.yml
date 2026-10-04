@@ -209,23 +209,11 @@ paths:
       - Certificates By Ca
 components:
   schemas:
-    Certificates:
-      type: array
-      items:
-        $ref: '#/components/schemas/Certificate'
-    InvalidRequestException: {}
-    ListCertificatesByCAResponse:
-      type: object
-      properties:
-        certificates:
-          allOf:
-          - $ref: '#/components/schemas/Certificates'
-          - description: The device certificates signed by the specified CA certificate.
-        nextMarker:
-          allOf:
-          - $ref: '#/components/schemas/Marker'
-          - description: The marker for the next set of results, or null if there are no additional results.
-      description: The output of the ListCertificatesByCA operation.
+    DateType:
+      type: string
+      format: date-time
+    ServiceUnavailableException: {}
+    UnauthorizedException: {}
     Certificate:
       type: object
       properties:
@@ -250,12 +238,41 @@ components:
           - $ref: '#/components/schemas/DateType'
           - description: The date and time the certificate was created.
       description: Information about a certificate.
-    InternalFailureException: {}
+    InvalidRequestException: {}
+    ThrottlingException: {}
+    Marker:
+      type: string
+      pattern: '[A-Za-z0-9+/]+={0,2}'
+      maxLength: 1024
+    CertificateId:
+      type: string
+      pattern: (0x)?[a-fA-F0-9]+
+      minLength: 64
+      maxLength: 64
     CertificateArn:
       type: string
-    DateType:
+    InternalFailureException: {}
+    ListCertificatesByCAResponse:
+      type: object
+      properties:
+        certificates:
+          allOf:
+          - $ref: '#/components/schemas/Certificates'
+          - description: The device certificates signed by the specified CA certificate.
+        nextMarker:
+          allOf:
+          - $ref: '#/components/schemas/Marker'
+          - description: The marker for the next set of results, or null if there are no additional results.
+      description: The output of the ListCertificatesByCA operation.
+    CertificateMode:
       type: string
-      format: date-time
+      enum:
+      - DEFAULT
+      - SNI_ONLY
+    Certificates:
+      type: array
+      items:
+        $ref: '#/components/schemas/Certificate'
     CertificateStatus:
       type: string
       enum:
@@ -265,42 +282,7 @@ components:
       - PENDING_TRANSFER
       - REGISTER_INACTIVE
       - PENDING_ACTIVATION
-    UnauthorizedException: {}
-    ServiceUnavailableException: {}
-    CertificateMode:
-      type: string
-      enum:
-      - DEFAULT
-      - SNI_ONLY
-    Marker:
-      type: string
-      pattern: '[A-Za-z0-9+/]+={0,2}'
-      maxLength: 1024
-    ThrottlingException: {}
-    CertificateId:
-      type: string
-      pattern: (0x)?[a-fA-F0-9]+
-      minLength: 64
-      maxLength: 64
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -321,6 +303,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

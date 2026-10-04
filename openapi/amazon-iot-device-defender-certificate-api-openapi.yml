@@ -338,10 +338,6 @@ paths:
       - Certificate
 components:
   schemas:
-    CertificateStateException: {}
-    InvalidRequestException: {}
-    CertificateValidationException: {}
-    CertificateConflictException: {}
     RegisterCertificateWithoutCAResponse:
       type: object
       properties:
@@ -353,11 +349,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/CertificateId'
           - description: The ID of the registered certificate. (The last part of the certificate ARN contains the certificate ID.
-    InternalFailureException: {}
-    CertificateArn:
-      type: string
-    ResourceAlreadyExistsException: {}
-    UnauthorizedException: {}
     ServiceUnavailableException: {}
     RegisterCertificateResponse:
       type: object
@@ -371,31 +362,22 @@ components:
           - $ref: '#/components/schemas/CertificateId'
           - description: The certificate identifier.
       description: The output from the RegisterCertificate operation.
+    UnauthorizedException: {}
+    InvalidRequestException: {}
+    CertificateStateException: {}
     ThrottlingException: {}
+    CertificateValidationException: {}
     CertificateId:
       type: string
       pattern: (0x)?[a-fA-F0-9]+
       minLength: 64
       maxLength: 64
+    CertificateArn:
+      type: string
+    CertificateConflictException: {}
+    InternalFailureException: {}
+    ResourceAlreadyExistsException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -416,6 +398,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
