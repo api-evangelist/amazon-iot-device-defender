@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 25
+edge_count: 27
 edges:
 - tag: Policies
   spec_file: amazon-iot-device-defender-policies-api-openapi.yml
@@ -219,6 +219,15 @@ edges:
   reason: The single operation resolves the authorisation policies effective for a device/certificate
     identity — i.e. evaluating access rights, which is Identity & Access Management. Thin surface (one
     read operation), hence moderate confidence.
+- tag: Policy Principals
+  spec_file: amazon-iot-device-defender-policy-principals-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /policy-principals ListPolicyPrincipals — schemas "PrincipalArn", "Principals", "UnauthorizedException"
+  reason: Lists the identities (principals) attached to an authorization policy — access policy administration,
+    i.e. identity and access management. One read-only operation limits confidence.
 - tag: Role Aliases
   spec_file: amazon-iot-device-defender-role-aliases-api-openapi.yml
   capability_id: BC-620.20
@@ -257,3 +266,14 @@ edges:
   evidence: PATCH /transfer-certificate/{certificateId} TransferCertificate; schemas CertificateArn, CertificateStateException
   reason: Manages X.509 device credentials used to authenticate devices — credential/identity management,
     mapped to Identity & Access Management.
+- tag: Violation Events
+  spec_file: amazon-iot-device-defender-violation-events-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.7
+  evidence: 'ListViolationEvents ... schemas: ViolationEventType, SecurityProfileName, MachineLearningDetectionConfig,
+    BehaviorCriteria'
+  reason: Device Defender detects abnormal device behaviour against security profiles and emits violation
+    events — security threat detection/monitoring. Mapped at detection & response, though arguably IT
+    operations monitoring; confidence moderated.
