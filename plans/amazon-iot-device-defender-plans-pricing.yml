@@ -1,0 +1,89 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://aws.amazon.com/iot-device-defender/pricing/
+sources:
+- https://aws.amazon.com/iot-device-defender/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
+published: true
+note: 'Pricing tables on the page are unrendered dynamic tokens (regionSelector/priceOf placeholders);
+  numeric rates captured come from the page''s worked pricing examples. Tiers referenced: Audit up to/over
+  100,000 devices; Rules Detect up to/over 10B datapoints; ML Detect tiers at 0.3M/10M/100M datapoints.
+  Free Tier stated for new AWS customers.'
+plan_count: 4
+currency: USD
+plans:
+- name: Audit
+  price_text: $0.0011 per device per month
+  price: 0.0011
+  currency: USD
+  period: month
+  unit: active device principal
+  included_quota: Audit - For all the devices in your fleet for the first month (Free Tier)
+- name: Rules Detect
+  price_text: $0.025 per 100K metric datapoints
+  price: 0.025
+  currency: USD
+  period: month
+  unit: 100K metric datapoints
+  included_quota: Rules Detect - 1 million metric datapoints for the first month (Free Tier)
+- name: ML Detect (up to 300K metric datapoints)
+  price_text: $2.00 per 100K metric datapoints
+  price: 2.0
+  currency: USD
+  period: month
+  unit: 100K metric datapoints
+- name: ML Detect (beyond 300K metric datapoints)
+  price_text: $0.75 per 100K metric datapoints
+  price: 0.75
+  currency: USD
+  period: month
+  unit: 100K metric datapoints
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: Audit
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Rules Detect
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: ML Detect (up to 300K metric datapoints)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: ML Detect (beyond 300K metric datapoints)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
